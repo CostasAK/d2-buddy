@@ -9,20 +9,20 @@ export function getResets() {
     {
       name: "Weekly Reset",
       period: week,
-      start: new Date("18 January 2022 18:00 UTC").getTime(),
+      start: new Date("18 January 2022 17:00 UTC").getTime(),
       type: "reset",
     },
     {
       name: "Daily Reset",
       period: day,
-      start: new Date("15 January 2022 18:00 UTC").getTime(),
+      start: new Date("15 January 2022 17:00 UTC").getTime(),
       type: "reset",
     },
     {
       name: "Weekend Activities",
       period: week,
-      start: new Date("14 January 2022 18:00 UTC").getTime(),
-      end: new Date("18 January 2022 18:00 UTC").getTime(),
+      start: new Date("14 January 2022 17:00 UTC").getTime(),
+      end: new Date("18 January 2022 17:00 UTC").getTime(),
       type: "reset",
     },
   ];
