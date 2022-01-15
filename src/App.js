@@ -13,14 +13,14 @@ async function load(url) {
   return obj;
 }
 const event_promise = load(
-  "https://raw.githubusercontent.com/CostasAK/ffxiv-timers/events/event.json"
+  "https://raw.githubusercontent.com/CostasAK/d2-timers/events/events.json"
 );
 
 function App() {
   const [events, setEvents] = React.useState([]);
   event_promise.then((result) => setEvents(result));
 
-  let cards = [...resets];
+  let cards = [...events, ...resets];
 
   return (
     <div className="App">
