@@ -1,4 +1,4 @@
-# [FFXIV Timers](https://costasak.github.io/ffxiv-timers/) <img src="public/apple-touch-icon.png" alt="" align="right">
+# [FFXIV Timers](https://costasak.github.io/ffxiv-timers/)
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fcostasak.github.io%2Fffxiv-timers%2F)](https://costasak.github.io/ffxiv-timers/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/costasak/ffxiv-timers/Node.js%20CI/main)](https://github.com/CostasAK/ffxiv-timers/actions/workflows/node.js.yml)
