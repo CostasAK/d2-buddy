@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container {
+  width: var(--main-width);
+  max-width: calc(100% - var(--margins));
+  min-height: inherit;
+  margin: var(--margins) 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+  overflow: hidden;
+}
