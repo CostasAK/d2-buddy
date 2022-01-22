@@ -4,6 +4,7 @@ import {
   GiClockwiseRotation,
   GiStarFlag,
   GiUpgrade,
+  GiVerticalBanner,
   GiWrench,
 } from "react-icons/gi";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
@@ -27,6 +28,7 @@ const icons = {
   event: <GiStarFlag />,
   reset: <GiClockwiseRotation />,
   update: <GiUpgrade />,
+  season: <GiVerticalBanner />,
 };
 
 export class Card extends React.Component {
