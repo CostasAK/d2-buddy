@@ -73,7 +73,10 @@ export class Card extends React.Component {
     let is_recurring = !!this.props.period;
 
     let ended = false;
-    if (isPast(end) || (!end && isPast(start + day))) {
+    if (
+      isPast(end) ||
+      (!end && isPast(start + day) && this.props.type !== "season")
+    ) {
       ended = true;
     }
     if (ended) {
