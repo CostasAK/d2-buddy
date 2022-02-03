@@ -4,8 +4,6 @@ import App from './App';
 
 test("renders description", () => {
   render(<App />);
-  const linkElement = screen.getByText(
-    /Reset Timers and other Countdowns for Destiny 2, in your local time with countdowns/i
-  );
+  const linkElement = screen.getByText(/destiny 2 timers/i);
   expect(linkElement).toBeInTheDocument();
 });
