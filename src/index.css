@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--primary-bg);
   color: var(--primary-fg);
+  text-rendering: optimizeLegibility;
 }
 
 a {
