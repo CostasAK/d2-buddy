@@ -1,6 +1,6 @@
-# [Destiny 2 Timers](https://costasak.github.io/d2-timers/)
+# [Destiny 2 Timers](https://d2-timers.kokke.eu/)
 
-[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fd2-timers.kokke.eu)](https://costasak.github.io/d2-timers/)
+[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fd2-timers.kokke.eu)](https://d2-timers.kokke.eu/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/costasak/d2-timers/Node.js%20CI/main?style=for-the-badge&logo=nodedotjs)](https://github.com/CostasAK/d2-timers/actions/workflows/node.js.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/costasak/d2-timers?style=for-the-badge)](https://github.com/CostasAK/d2-timers/blob/main/LICENSE)
