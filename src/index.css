@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro');
+
 :root {
   font-size: 125%;
   --margins: 36px;
@@ -9,8 +11,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: 'Neue Haas Grotesk Text Pro', Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

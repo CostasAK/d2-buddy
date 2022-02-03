@@ -1,3 +1,7 @@
+.App-header * {
+  font-family: Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
 .App-header {
   background-color: #12171c;
   height: fit-content;
@@ -16,6 +20,7 @@
 
 .title {
   margin: 0;
+  text-transform: uppercase;
   font-size: 2.5rem;
   font-weight: bold;
   display: flex;

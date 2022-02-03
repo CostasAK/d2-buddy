@@ -26,9 +26,10 @@
 }
 
 .Card h2 {
+  text-transform: uppercase;
   margin: 0;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   display: flex;
   align-items: center;
   justify-content: center;
