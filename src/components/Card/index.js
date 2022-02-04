@@ -10,6 +10,7 @@ import {
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 
 import Countdown from "react-countdown";
+import { IconContext } from "react-icons";
 import React from "react";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
@@ -147,9 +148,11 @@ export class Card extends React.Component {
         style={{ order: flex_order }}
         onClick={() => this.setState({ collapsed: !this.state.collapsed })}
       >
-        <h2>
-          {icons[this.props.type]} {this.props.name}
-        </h2>
+        <IconContext.Provider value={{ size: "1.25em" }}>
+          <h2>
+            {icons[this.props.type]} {this.props.name}
+          </h2>
+        </IconContext.Provider>
         <p>
           {is_recurring || !(started && !end) ? countdown : ""}
           {absolute_time_string}
