@@ -8,7 +8,7 @@ export class Header extends Component {
     return (
       <header className="App-header">
         <h1 className="title">
-          <GiClockwork className="logo" /> <span>Destiny 2 Timers</span>
+          <GiClockwork className="logo" /> <span>Destiny 2 Buddy</span>
         </h1>
       </header>
     );

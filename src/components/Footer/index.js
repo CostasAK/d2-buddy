@@ -60,7 +60,7 @@ export class Footer extends Component {
             </a>
           </div>
           <div>
-            <a href="https://github.com/CostasAK/d2-timers">
+            <a href="https://github.com/CostasAK/d2-buddy">
               <FaGithub /> <span>Source</span>
             </a>
           </div>

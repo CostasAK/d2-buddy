@@ -1,12 +1,12 @@
-# [Destiny 2 Timers](https://d2-timers.kokke.eu/)
+# [Destiny 2 Buddy](https://destiny2.kokke.eu/)
 
-[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fd2-timers.kokke.eu)](https://d2-timers.kokke.eu/)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/costasak/d2-timers/Node.js%20CI/main?style=for-the-badge&logo=nodedotjs)](https://github.com/CostasAK/d2-timers/actions/workflows/node.js.yml)
+[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fdestiny2.kokke.eu)](https://destiny2.kokke.eu/)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/costasak/d2-buddy/Node.js%20CI/main?style=for-the-badge&logo=nodedotjs)](https://github.com/CostasAK/d2-buddy/actions/workflows/node.js.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
-[![GitHub](https://img.shields.io/github/license/costasak/d2-timers?style=for-the-badge)](https://github.com/CostasAK/d2-timers/blob/main/LICENSE)
-[![GitHub watchers](https://img.shields.io/github/watchers/costasak/d2-timers?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-timers)
-[![GitHub forks](https://img.shields.io/github/forks/costasak/d2-timers?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-timers/network/members)
-[![Stars](https://img.shields.io/github/stars/costasak/d2-timers?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-timers)
+[![GitHub](https://img.shields.io/github/license/costasak/d2-buddy?style=for-the-badge)](https://github.com/CostasAK/d2-buddy/blob/main/LICENSE)
+[![GitHub watchers](https://img.shields.io/github/watchers/costasak/d2-buddy?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-buddy)
+[![GitHub forks](https://img.shields.io/github/forks/costasak/d2-buddy?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-buddy/network/members)
+[![Stars](https://img.shields.io/github/stars/costasak/d2-buddy?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-buddy)
 [![Ko-fi](https://img.shields.io/badge/support_me_on_ko--fi-F16061?style=for-the-badge&logo=kofi&logoColor=f5f5f5)](https://ko-fi.com/CostasAK)
 
 Reset Timers and other Countdowns for Destiny 2, in your local time with countdowns.
