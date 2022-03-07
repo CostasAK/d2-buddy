@@ -1,0 +1,16 @@
+@use "./sass/variables" as var;
+@use "./sass/mixins" as mixin;
+
+.App {
+  text-align: center;
+  @include mixin.flex-column;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
+  .main {
+    flex: 1;
+    @include mixin.flex-column;
+    justify-content: flex-start;
+    padding: var(--margins) calc(var(--margins) / 2);
+  }
+}

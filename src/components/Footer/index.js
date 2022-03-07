@@ -1,12 +1,10 @@
-import "./style.css";
-
 import { Component } from "react";
 import { FaGithub } from "react-icons/fa";
-import { ReactSVG } from "react-svg";
 import { SiKofi } from "react-icons/si";
+import { ReactSVG } from "react-svg";
 import avatar from "../../assets/initialen.svg";
-import { eorzeaTime } from "../../functions/eorzeaTime";
 import { formatTime } from "../../functions/formatDateTime";
+import "./style.scss";
 
 export class Footer extends Component {
   constructor(props) {
@@ -15,7 +13,6 @@ export class Footer extends Component {
     let now = Date.now();
 
     this.state = {
-      eorzeaTime: eorzeaTime(now),
       localTime: formatTime(now),
     };
   }
@@ -24,7 +21,6 @@ export class Footer extends Component {
     this.interval = setInterval(() => {
       let now = Date.now();
       this.setState({
-        eorzeaTime: eorzeaTime(now),
         localTime: formatTime(now),
       });
     }, 1000);
@@ -36,8 +32,8 @@ export class Footer extends Component {
 
   render() {
     return (
-      <footer className="footer">
-        <div className="footer-credits">
+      <footer className="Footer">
+        <div className="credits">
           <div>
             <span>Made by</span>  
             <a href="https://github.com/CostasAK">

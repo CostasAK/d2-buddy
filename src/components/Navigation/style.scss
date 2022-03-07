@@ -1,0 +1,40 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+
+.Navigation {
+  width: 100%;
+  @include mixin.flex-row-wrap;
+  color: var.$navigation-fg;
+  background: var.$navigation-bg;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 3em;
+  font-size: 1.067rem;
+  .NavLink {
+    width: min-content;
+    @include mixin.flex-column;
+    .name {
+      width: min-content;
+      padding: 3px 1.25em 0 1.25em;
+    }
+    .underline {
+      width: 0px;
+      height: 3px;
+      background: var.$highlight-mid;
+      transition: var.$transition;
+    }
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: var.$navigation-fg;
+      text-decoration: none;
+      transition: var.$transition;
+      .underline {
+        width: 100%;
+        background: var.$highlight-mid;
+        transition: var.$transition;
+      }
+    }
+  }
+}

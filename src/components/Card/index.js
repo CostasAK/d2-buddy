@@ -1,5 +1,7 @@
-import "./style.css";
-
+import parse from "html-react-parser";
+import React from "react";
+import Countdown from "react-countdown";
+import { IconContext } from "react-icons";
 import {
   GiClockwiseRotation,
   GiStarFlag,
@@ -8,15 +10,11 @@ import {
   GiWrench,
 } from "react-icons/gi";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
-
-import Countdown from "react-countdown";
-import { IconContext } from "react-icons";
-import React from "react";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
-import parse from "html-react-parser";
 import { toNaturalLanguageTime } from "../../functions/toNaturalLanguageTime";
 import { toTime } from "../../functions/toTime";
+import "./style.scss";
 
 const second = 1000;
 const minute = 60 * second;
@@ -148,24 +146,26 @@ export class Card extends React.Component {
         style={{ order: flex_order }}
         onClick={() => this.setState({ collapsed: !this.state.collapsed })}
       >
-        <IconContext.Provider value={{ size: "1.25em" }}>
-          <h2>
-            {icons[this.props.type]} {this.props.name}
-          </h2>
-        </IconContext.Provider>
-        <p>
-          {is_recurring || !(started && !end) ? countdown : ""}
-          {absolute_time_string}
-        </p>
-        <div
-          className={
-            "description" +
-            (this.state.collapsed || !this.props.description
-              ? " collapsed"
-              : "")
-          }
-        >
-          {description}
+        <div className="content">
+          <IconContext.Provider value={{ size: "1.25em" }}>
+            <h2>
+              {icons[this.props.type]} {this.props.name}
+            </h2>
+          </IconContext.Provider>
+          <p>
+            {is_recurring || !(started && !end) ? countdown : ""}
+            {absolute_time_string}
+          </p>
+          <div
+            className={
+              "description" +
+              (this.state.collapsed || !this.props.description
+                ? " collapsed"
+                : "")
+            }
+          >
+            {description}
+          </div>
         </div>
       </div>
     );

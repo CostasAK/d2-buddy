@@ -1,47 +1,35 @@
-import "./App.css";
-
-import { Card } from "./components/Card";
+import React from "react";
+import {
+  HashRouter as Router,
+  Navigate,
+  Route,
+  Routes as Switch,
+} from "react-router-dom";
+import "./App.scss";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import React from "react";
-import { getResets } from "./functions/getResets";
-
-const resets = getResets();
-
-async function load(url) {
-  let obj = await (await fetch(url)).json();
-  return obj;
-}
-const event_promise = load(
-  "https://raw.githubusercontent.com/CostasAK/d2-timers/events/events.json"
-);
+import { Navigation } from "./components/Navigation";
+import { Timers } from "./components/Timers";
 
 function App() {
-  const [events, setEvents] = React.useState([]);
-  event_promise.then((result) => setEvents(result));
-
-  let cards = [...events, ...resets];
+  const routes = [{ name: "Timers", path: "/Timers", component: <Timers /> }];
 
   return (
     <div className="App">
       <Header />
 
-      <main className="main">
-        <div className="container">
-          {cards.map((card) => (
-            <Card
-              key={[card.name, card.start, card.end].join(",")}
-              name={card.name}
-              description={card.description}
-              start={card.start}
-              end={card.end}
-              period={card.period}
-              hasTime={card.hasTime}
-              type={card.type}
-            />
-          ))}
-        </div>
-      </main>
+      <Router>
+        <Navigation routes={routes} />
+
+        <main className="main">
+          <Switch>
+            <Route exact path="/" element={<Navigate to="/Timers" />} />
+            {routes.map((route) => (
+              <Route path={route.path} element={route.component} />
+            ))}
+          </Switch>
+        </main>
+      </Router>
 
       <Footer />
     </div>

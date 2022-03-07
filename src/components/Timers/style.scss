@@ -1,0 +1,15 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+
+.Timers {
+  @include mixin.flex-row-wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  width: var.$main-width;
+  max-width: calc(100% - var.$margins);
+  min-height: inherit;
+  padding: 0;
+  overflow: hidden;
+  row-gap: var.$margins;
+  column-gap: var.$margins;
+}
