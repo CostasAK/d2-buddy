@@ -32,8 +32,12 @@ function App() {
         <main className="main">
           <Switch>
             <Route exact path="/" element={<Navigate to="/Timers" />} />
-            {routes.map((route, index) => (
-              <Route key="index" path={route.path} element={route.component} />
+            {routes.map((route) => (
+              <Route
+                key={route.name}
+                path={route.path}
+                element={route.component}
+              />
             ))}
           </Switch>
         </main>

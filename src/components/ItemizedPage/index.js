@@ -16,8 +16,9 @@ export function ItemizedPage(props) {
         columnClassName="masonryColumn"
         breakpointCols={columnBreakpoints}
       >
-        {props.items.map((item, index) => (
+        {props.items.map((item) => (
           <Card
+            key={item.title}
             className={item.title.replace(/ /g, "")}
             link={item.link}
             title={item.title}

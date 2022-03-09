@@ -4,9 +4,9 @@ import "./style.scss";
 export function Navigation(props) {
   return (
     <nav className="Navigation">
-      {props.routes.map((route, index) => (
+      {props.routes.map((route) => (
         <NavLink
-          key={index}
+          key={route.name}
           to={route.path}
           className={({ isActive }) => "NavLink" + (isActive ? " active" : "")}
         >
