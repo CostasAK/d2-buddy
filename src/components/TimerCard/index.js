@@ -105,6 +105,7 @@ const TimerCard = (props) => {
   return (
     <Card
       className="TimerCard"
+      icon={icons[props.type]}
       title={props.name}
       shortDescription={capitalizeSentence(
         (is_recurring || !(started && !end) ? countdown + ", " : "") +

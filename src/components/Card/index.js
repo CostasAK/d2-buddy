@@ -6,7 +6,12 @@ const Card = (props) => {
     <div className="content">
       {props.logo && <img src={props.logo} alt="" />}
       <div className="cardText">
-        {props.title && <h2 className="title">{props.title}</h2>}
+        {props.title && (
+          <h2 className="title">
+            {props.icon && <div className="icon">{props.icon} </div>}
+            {props.title}
+          </h2>
+        )}
         {props.shortDescription && (
           <p className="short_description">{props.shortDescription}</p>
         )}

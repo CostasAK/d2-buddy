@@ -15,8 +15,13 @@
       padding: 1em;
       transition: all 0.25s;
       .title {
+        @include mixin.flex-row-wrap;
         width: fit-content;
         text-align: left;
+        .icon {
+          line-height: 0;
+          font-size: 1.25em;
+        }
       }
     }
     &:hover.clickable,
