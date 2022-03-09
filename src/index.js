@@ -4,16 +4,6 @@ import App from "./App";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 
-function setClientWidth() {
-  document.documentElement.style.setProperty(
-    "--client-width",
-    document.documentElement.clientWidth + "px"
-  );
-}
-window.addEventListener("resize", setClientWidth, false);
-document.addEventListener("DOMContentLoaded", setClientWidth, false);
-window.addEventListener("load", setClientWidth);
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
