@@ -19,8 +19,6 @@ export function Timers() {
 
   const cards = [...events, ...resets];
 
-  console.log(events);
-
   return (
     <div className="Timers">
       {cards.map((card) => (
