@@ -1,5 +1,5 @@
 import React from "react";
-import { TimerCard } from "../../components/TimerCard";
+import TimerCard from "../../components/TimerCard";
 import { getResets } from "../../functions/getResets";
 import "./style.scss";
 
@@ -18,13 +18,14 @@ export function Timers() {
   event_promise.then((result) => setEvents(result));
 
   const cards = [...events, ...resets];
+
   console.log(events);
 
   return (
     <div className="Timers">
       {cards.map((card, index) => (
         <TimerCard
-          key={index}
+          key={card.name}
           name={card.name}
           description={card.description}
           start={card.start}

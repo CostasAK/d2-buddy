@@ -1,5 +1,5 @@
 import Masonry from "react-masonry-css";
-import { Card } from "../Card";
+import Card from "../Card";
 import "./style.scss";
 
 export function ItemizedPage(props) {
@@ -8,7 +8,6 @@ export function ItemizedPage(props) {
     let minWidth = i * props.columnWidth + i * props.gap;
     columnBreakpoints[minWidth] = i - 1;
   }
-  console.log(columnBreakpoints);
 
   return (
     <div className={"ItemizedPage " + (props.className || "")}>
@@ -18,14 +17,12 @@ export function ItemizedPage(props) {
         breakpointCols={columnBreakpoints}
       >
         {props.items.map((item, index) => (
-          <div key={index} className="Item">
-            <Card
-              className={item.title.replace(/ /g, "")}
-              link={item.link}
-              title={item.title}
-              shortDescription={item.description}
-            />
-          </div>
+          <Card
+            className={item.title.replace(/ /g, "")}
+            link={item.link}
+            title={item.title}
+            shortDescription={item.description}
+          />
         ))}
       </Masonry>
     </div>

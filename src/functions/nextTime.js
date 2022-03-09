@@ -1,9 +1,8 @@
-export function nextTime(period, time) {
+export function nextTime(period, time, now = Date.now() + 1000) {
   if (!period || !time) {
     return time;
   }
 
-  let now = Date.now() + 1000;
   now += 1000 - (now % 1000);
   time -= time % 1000;
 

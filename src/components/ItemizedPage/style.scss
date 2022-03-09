@@ -12,7 +12,7 @@
     gap: var.$margins;
     .masonryColumn {
       max-width: 360px;
-      .Item {
+      .CardWrapper {
         @include mixin.flex-column;
         margin-bottom: var.$margins;
         transition: var.$transition;

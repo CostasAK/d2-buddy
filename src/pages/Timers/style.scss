@@ -12,4 +12,9 @@
   overflow: hidden;
   row-gap: var.$margins;
   column-gap: var.$margins;
+  .CardWrapper {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 100%;
+  }
 }

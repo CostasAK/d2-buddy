@@ -1,6 +1,7 @@
+import Popup from "reactjs-popup";
 import "./style.scss";
 
-export function Card(props) {
+const Card = (props) => {
   const content = (
     <div className="content">
       {props.logo && <img src={props.logo} alt="" />}
@@ -12,11 +13,29 @@ export function Card(props) {
       </div>
     </div>
   );
-  return props.link ? (
-    <a className={"Card"} href={props.link} target="_blank" rel="noreferrer">
-      {content}
-    </a>
-  ) : (
-    <div className={"Card"}>{content}</div>
+  return (
+    <div
+      className={"CardWrapper " + (props.className ? props.className : "")}
+      style={props.order && { order: props.order }}
+    >
+      {props.longDescription ? (
+        <Popup trigger={<div className="Card">{content}</div>} modal>
+          <div className="CardModal clickable">{content}</div>
+        </Popup>
+      ) : props.link ? (
+        <a
+          className="Card clickable"
+          href={props.link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {content}
+        </a>
+      ) : (
+        <div className="Card">{content}</div>
+      )}
+    </div>
   );
-}
+};
+
+export default Card;

@@ -2,17 +2,13 @@
 @use "../../sass/mixins" as mixin;
 
 .TimerCard {
-  flex: 1 1 auto;
-  width: auto;
-  max-width: 100%;
-  margin: var.$border-expansion;
-  border: 1px solid var.$primary-fg;
   text-align: center;
-  color: var.$primary-fg;
-  transition: all 0.25s;
-  .content {
-    padding: 1em;
-    transition: all 0.25s;
+  .Card .content {
+    .title,
+    .short_description {
+      width: 100%;
+      text-align: center;
+    }
   }
   &.ongoing {
     .content {
@@ -27,19 +23,5 @@
     &:active .content {
       background: var.$highlight-mid;
     }
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    margin: 0px;
-    padding: var.$border-expansion;
-    border-color: var.$primary-fg;
-  }
-  h2 {
-    text-align: center;
-  }
-  p {
-    margin: 0;
-    font-size: 1rem;
   }
 }
