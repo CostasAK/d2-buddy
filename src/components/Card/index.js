@@ -9,11 +9,11 @@ const Card = (props) => {
       ? parse(props.shortDescription)
       : props.shortDescription;
 
-  let long_description =
-    typeof props.longDescription === "string" ||
-    props.longDescription instanceof String
-      ? parse(props.longDescription)
-      : props.longDescription;
+  // let long_description =
+  //   typeof props.longDescription === "string" ||
+  //   props.longDescription instanceof String
+  //     ? parse(props.longDescription)
+  //     : props.longDescription;
 
   const content = (
     <div className="content">

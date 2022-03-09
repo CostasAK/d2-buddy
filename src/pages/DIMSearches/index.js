@@ -19,6 +19,11 @@ const searches = [
     description:
       "Just like with the general clean-up string, you can adjust the 65 and 50 thresholds to your own liking here as well, they are just recommendations.<br/><br/><code>((is:armor (basestat:total:>=65 or basestat:custom:>=50)) or is:wishlist or is:weaponmod or is:armormod) -source:eververse</code>",
   },
+  {
+    title: "Vault Analyzer",
+    description: "TMMania's DIM Search Gallery",
+    link: "https://docs.google.com/spreadsheets/d/1fzn1iLI91aJOe3Wj9Vp7x41qIujjW1tRtoTLB6V_X7E/edit?usp=sharing",
+  },
 ];
 
 const DIMSearches = (props) => {
