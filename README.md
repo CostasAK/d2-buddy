@@ -13,9 +13,15 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
 
 ## What it does
 
-- Shows upcoming events, followed by recurring events such as resets.
-- Events are sorted by end or start time, depending on whether they are currently ongoing or not, respectively.
-- Events disappear from the list once they are finished.
-- Events without an end time, such as patches, remain in the list for 24 hours after their start time.
-- Recurring events are sorted in order of occurence from now.
-- Recurring events are reset and re-ordered on each occurence.
+- Timers
+  - Shows upcoming events, followed by recurring events such as resets.
+  - Events are sorted by end or start time, depending on whether they are currently ongoing or not, respectively.
+  - Events disappear from the list once they are finished.
+  - Events without an end time, such as patches, remain in the list for 24 hours after their start time.
+  - Recurring events are sorted in order of occurence from now.
+  - Recurring events are reset and re-ordered on each occurence.
+- DIM Searches
+  - Some DIM Searches I like to use and share with people.
+  - A link to TMMania's Vault Analyzer.
+- Links
+  - Some links to my favorite D2 resources and tools.
