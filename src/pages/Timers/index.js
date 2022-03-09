@@ -23,7 +23,7 @@ export function Timers() {
 
   return (
     <div className="Timers">
-      {cards.map((card, index) => (
+      {cards.map((card) => (
         <TimerCard
           key={card.name}
           name={card.name}
