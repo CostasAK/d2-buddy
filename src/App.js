@@ -9,12 +9,14 @@ import "./App.scss";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
+import DIMSearches from "./pages/DIMSearches";
 import { Links } from "./pages/Links";
 import { Timers } from "./pages/Timers";
 
 function App() {
   const routes = [
     { name: "Timers", path: "/Timers", component: <Timers /> },
+    { name: "DIM Searches", path: "/DIMSearches", component: <DIMSearches /> },
     {
       name: "Links",
       path: "/Links",

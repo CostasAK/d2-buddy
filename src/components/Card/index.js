@@ -1,7 +1,20 @@
+import parse from "html-react-parser";
 import Popup from "reactjs-popup";
 import "./style.scss";
 
 const Card = (props) => {
+  let short_description =
+    typeof props.shortDescription === "string" ||
+    props.shortDescription instanceof String
+      ? parse(props.shortDescription)
+      : props.shortDescription;
+
+  let long_description =
+    typeof props.longDescription === "string" ||
+    props.longDescription instanceof String
+      ? parse(props.longDescription)
+      : props.longDescription;
+
   const content = (
     <div className="content">
       {props.logo && (
@@ -15,11 +28,12 @@ const Card = (props) => {
           </h2>
         )}
         {props.shortDescription && (
-          <p className="short_description">{props.shortDescription}</p>
+          <p className="short_description">{short_description}</p>
         )}
       </div>
     </div>
   );
+
   return (
     <div
       className={"CardWrapper " + (props.className ? props.className : "")}

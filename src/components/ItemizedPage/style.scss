@@ -11,9 +11,11 @@
     justify-content: center;
     gap: var.$margins;
     .masonryColumn {
-      max-width: 360px;
+      // max-width: 360px;
       .CardWrapper {
         @include mixin.flex-column;
+        align-items: stretch;
+        width: 100%;
         margin-bottom: var.$margins;
         transition: var.$transition;
         &:last-child {

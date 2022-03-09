@@ -8,13 +8,13 @@
   background: var.$navigation-bg;
   text-transform: uppercase;
   text-align: center;
-  line-height: 3em;
+  line-height: 2 * var.$line-height;
   font-size: 1.067rem;
   .NavLink {
     width: min-content;
     @include mixin.flex-column;
     .name {
-      width: min-content;
+      width: max-content;
       padding: 3px 1.25em 0 1.25em;
     }
     .underline {
