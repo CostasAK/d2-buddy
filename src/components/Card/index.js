@@ -4,7 +4,9 @@ import "./style.scss";
 const Card = (props) => {
   const content = (
     <div className="content">
-      {props.logo && <img src={props.logo} alt="" />}
+      {props.logo && (
+        <img src={props.logo} alt="" className="logo" align="left" />
+      )}
       <div className="cardText">
         {props.title && (
           <h2 className="title">

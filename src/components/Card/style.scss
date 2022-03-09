@@ -16,12 +16,18 @@
       transition: all 0.25s;
       .title {
         @include mixin.flex-row-wrap;
-        width: fit-content;
+        justify-content: left;
         text-align: left;
         .icon {
           line-height: 0;
           font-size: 1.25em;
         }
+      }
+      .logo {
+        max-width: 2 * var.$line-height * 1em;
+        max-height: 2 * var.$line-height * 1em;
+        border-radius: var.$border-radius;
+        margin: 0 var.$border-radius 0 0;
       }
     }
     &:hover.clickable,

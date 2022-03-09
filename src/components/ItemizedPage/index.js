@@ -23,6 +23,7 @@ export function ItemizedPage(props) {
             link={item.link}
             title={item.title}
             shortDescription={item.description}
+            logo={item.logo}
           />
         ))}
       </Masonry>
