@@ -1,4 +1,6 @@
 @use "./sass/variables" as var;
+@use "./sass/mixins" as mixin;
+@use "sass:math";
 @import url(//fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro);
 
 :root {
@@ -14,6 +16,7 @@ body {
   margin: 0;
   font-family: var.$primary-font-stack;
   font-weight: 400;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var.$primary-bg;
@@ -24,6 +27,7 @@ body {
 a {
   color: var.$primary-fg;
   text-decoration: none;
+  transition: math.div(var.$transition, 2);
 }
 
 a:hover,
@@ -33,12 +37,20 @@ a:active {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+h2 {
+  @include mixin.flex-row;
+  margin: 0;
+  font-size: 1.067rem;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }

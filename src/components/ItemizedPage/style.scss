@@ -1,0 +1,25 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+@use "sass:math";
+
+.ItemizedPage {
+  width: 100%;
+  max-width: 1080px + 360px;
+  .Masonry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var.$margins;
+    .masonryColumn {
+      max-width: 360px;
+      .Item {
+        @include mixin.flex-column;
+        margin-bottom: var.$margins;
+        transition: var.$transition;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

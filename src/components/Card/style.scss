@@ -2,49 +2,26 @@
 @use "../../sass/mixins" as mixin;
 
 .Card {
-  flex: 1 1 auto;
-  width: auto;
+  // display: block;
   max-width: 100%;
-  margin: 4px;
+  margin: var.$border-expansion;
   border: 1px solid var.$primary-fg;
-  border-radius: var.$border-radius;
-  text-align: center;
+  text-align: left;
   color: var.$primary-fg;
   transition: all 0.25s;
   .content {
     padding: 1em;
     transition: all 0.25s;
-  }
-  &.ongoing {
-    .content {
-      background: var.$highlight-dim;
-    }
-    border-color: var.$highlight-bright;
-    &.maintenance .content {
-      background: var.$highlight-red;
-    }
-    &:hover .content,
-    &:focus .content,
-    &:active .content {
-      background: var.$highlight-mid;
+    .title {
+      width: fit-content;
+      text-align: left;
     }
   }
   &:hover,
   &:focus,
   &:active {
     margin: 0px;
-    padding: 4px;
+    padding: var.$border-expansion;
     border-color: var.$primary-fg;
-  }
-  h2 {
-    @include mixin.flex-row;
-    margin: 0;
-    text-align: center;
-    font-size: 1.067rem;
-    text-transform: uppercase;
-  }
-  p {
-    margin: 0;
-    font-size: 1rem;
   }
 }

@@ -1,6 +1,6 @@
 $margins: 36px;
 $main-width: 960px;
-$border-radius: 0px;
+$border-radius: 4px;
 $primary-fg: #f5f5f5;
 $primary-bg: #04040e;
 $header-fg: #f1f1f1;
@@ -12,6 +12,7 @@ $highlight-dim:#9f7d2a;
 $highlight-mid: #b78c25;
 $highlight-bright: #ffce1f;
 $highlight-red: #613234;
+$border-expansion: 4px;
 $primary-font-stack: 'Neue Haas Grotesk Text Pro', Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $secondary-font-stack: Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $transition: 0.25s;
