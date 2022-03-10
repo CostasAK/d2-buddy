@@ -34,5 +34,10 @@
     flex: 1 0 auto;
     justify-content: flex-end;
     font-size: 1.125rem;
+    > * {
+      @include mixin.flex-row;
+      width: max-content;
+      max-width: 100%;
+    }
   }
 }
