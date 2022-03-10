@@ -26,6 +26,7 @@
       .logo {
         max-width: 2 * var.$line-height * 1em;
         max-height: 2 * var.$line-height * 1em;
+        object-fit: cover;
         border-radius: var.$border-radius;
         margin: 0 var.$border-radius 0 0;
       }

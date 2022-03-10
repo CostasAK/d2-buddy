@@ -23,6 +23,7 @@ const searches = [
     title: "Vault Analyzer",
     description: "TMMania's DIM Search Gallery",
     link: "https://docs.google.com/spreadsheets/d/1fzn1iLI91aJOe3Wj9Vp7x41qIujjW1tRtoTLB6V_X7E/edit?usp=sharing",
+    logo: "https://avatars.githubusercontent.com/u/74565769?v=4",
   },
 ];
 
