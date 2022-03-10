@@ -3,24 +3,37 @@
 @use "sass:math";
 
 .Header {
-  @include mixin.flex-column;
+  z-index: 100;
   width: 100%;
-  height: fit-content;
-  padding: 0;
+  padding: math.div(var.$margins, 4) math.div(var.$margins, 2);
+  column-gap: var.$margins;
   background-color: var.$header-bg;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-family: var.$secondary-font-stack;
+  text-transform: uppercase;
+  @include mixin.flex-row-wrap;
   .title {
+    flex: 1 0 auto;
     @include mixin.flex-row;
-    width: calc(100% - var.$margins);
+    justify-content: flex-start;
+    width: max-content;
+    max-width: 100%;
     margin: 0;
-    padding: math.div(var.$margins, 2);
     color: var.$header-fg;
-    text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     .logo {
       color: var.$header-fg;
+      min-width: 2rem;
+      min-height: 2rem;
     }
+  }
+  .launch {
+    flex: 1 0 auto;
+    width: max-content;
+    max-width: 100%;
+    @include mixin.flex-row;
+    justify-content: flex-end;
+    font-size: 1.125rem;
   }
 }
