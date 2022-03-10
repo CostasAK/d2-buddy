@@ -5,6 +5,7 @@
   width: auto;
   max-width: 100%;
   .Card {
+    display: block;
     max-width: 100%;
     margin: var.$border-expansion;
     border: 1px solid var.$primary-fg;

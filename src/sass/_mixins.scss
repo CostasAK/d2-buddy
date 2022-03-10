@@ -15,6 +15,6 @@
 @mixin flex-column {
   display: flex;
   flex-flow: column;
-  justify-content: safe center;
+  justify-content: flex-start;
   align-items: safe center;
 }

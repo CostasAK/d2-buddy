@@ -1,20 +1,43 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.Timers {
-  @include mixin.flex-row-wrap;
-  justify-content: space-between;
-  align-items: stretch;
+.TimersWrapper {
+  @include mixin.flex-column;
   width: var.$main-width;
   max-width: calc(100% - var.$margins);
-  min-height: inherit;
-  padding: 0;
-  overflow: hidden;
-  row-gap: var.$margins;
-  column-gap: var.$margins;
-  .CardWrapper {
-    flex: 1 1 auto;
-    width: auto;
-    max-width: 100%;
+  .Timers {
+    @include mixin.flex-row-wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var.$margins;
+    padding-bottom: var.$margins;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    .CardWrapper {
+      flex: 1 1 auto;
+    }
+    &.Links {
+      justify-content: safe center;
+      .CardWrapper {
+        flex: 0 1 auto;
+        .Card {
+          .content {
+            text-align: center;
+            padding: 0.5em 1em;
+            background: var.$highlight-dim;
+          }
+          border-color: var.$highlight-bright;
+          &:hover,
+          &:focus,
+          &:active {
+            border-color: var.$primary-fg;
+            .content {
+              background: var.$highlight-mid;
+            }
+          }
+        }
+      }
+    }
   }
 }
