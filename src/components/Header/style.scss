@@ -12,13 +12,15 @@
   font-family: var.$secondary-font-stack;
   text-transform: uppercase;
   @include mixin.flex-row-wrap;
-  .title {
-    flex: 1 0 auto;
+  justify-content: safe center;
+  > * {
     @include mixin.flex-row;
-    justify-content: flex-start;
     width: max-content;
     max-width: 100%;
-    margin: 0;
+  }
+  .title {
+    flex: 0 0 auto;
+    margin: auto;
     color: var.$header-fg;
     font-size: 2rem;
     font-weight: bold;
@@ -30,9 +32,6 @@
   }
   .launch {
     flex: 1 0 auto;
-    width: max-content;
-    max-width: 100%;
-    @include mixin.flex-row;
     justify-content: flex-end;
     font-size: 1.125rem;
   }

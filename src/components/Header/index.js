@@ -12,7 +12,7 @@ export class Header extends Component {
         {navigator.platform.match(/Win\d+/i) && (
           <a className="launch" href="steam://rungameid/1085660">
             <GiPlayButton className="launchIcon" />
-            Launch Destiny 2
+            <span>Launch Destiny 2</span>
           </a>
         )}
       </header>
