@@ -1,10 +1,48 @@
+import {
+  currentDay,
+  currentSeason,
+  currentWeek,
+  currentXur,
+  nextXur,
+} from "@d2api/date";
 import React from "react";
 import Card from "../../components/Card";
 import TimerCard from "../../components/TimerCard";
-import { getResets } from "../../functions/getResets";
 import "./style.scss";
 
-const resets = getResets();
+const second = 1000;
+const minute = 60 * second;
+const hour = 60 * minute;
+const day = 24 * hour;
+const week = 7 * day;
+
+const loadResets = () => [
+  {
+    name: "Daily Reset",
+    start: currentDay().end,
+    period: day,
+    type: "reset",
+  },
+  {
+    name: "Weekly Reset",
+    start: currentWeek().end,
+    period: week,
+    type: "reset",
+  },
+  {
+    name: "Weekend Activities",
+    start: currentXur() ? currentXur().start : nextXur().start,
+    end: currentXur() ? currentXur().end : nextXur().end,
+    period: week,
+    type: "reset",
+  },
+  {
+    name: `Season ${currentSeason().seasonNumber}`,
+    start: currentSeason().start,
+    end: currentSeason().end,
+    type: "season",
+  },
+];
 
 async function load(url) {
   let obj = await (await fetch(url)).json();
@@ -32,6 +70,18 @@ const links = [
 export function Timers() {
   const [events, setEvents] = React.useState([]);
   event_promise.then((result) => setEvents(result));
+
+  const [resets, setResets] = React.useState(loadResets());
+
+  const [now, setNow] = React.useState(Date.now());
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setResets(loadResets());
+      setNow(() => Date.now());
+    }, hour - (now % hour));
+    return () => clearTimeout(timer);
+  }, [now]);
 
   const cards = [...events, ...resets];
 
