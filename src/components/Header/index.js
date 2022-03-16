@@ -1,6 +1,8 @@
-import { Component } from "react";
-import { GiClockwork, GiPlayButton } from "react-icons/gi";
 import "./style.scss";
+
+import Card from "../Card/index";
+import { Component } from "react";
+import { GiClockwork } from "react-icons/gi";
 
 export class Header extends Component {
   render() {
@@ -10,12 +12,11 @@ export class Header extends Component {
           <GiClockwork className="logo" /> <span>Destiny 2 Buddy</span>
         </h1>
         {navigator.platform.match(/Win\d+/i) && (
-          <div className="launch">
-            <a href="steam://rungameid/1085660">
-              <GiPlayButton className="launchIcon" /> 
-              <span>Launch Destiny 2</span>
-            </a>
-          </div>
+          <Card
+            link="steam://rungameid/1085660"
+            shortDescription="Play Destiny 2"
+            className="launch"
+          />
         )}
       </header>
     );

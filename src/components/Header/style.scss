@@ -5,6 +5,7 @@
 .Header {
   z-index: 100;
   width: 100%;
+  min-height: 78px;
   padding: math.div(var.$margins, 4) math.div(var.$margins, 2);
   column-gap: var.$margins;
   background-color: var.$header-bg;
@@ -22,22 +23,36 @@
     flex: 0 0 auto;
     margin: auto;
     color: var.$header-fg;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     .logo {
       color: var.$header-fg;
-      min-width: 2rem;
-      min-height: 2rem;
+      min-width: 1.25em;
+      min-height: 1.25em;
     }
   }
   .launch {
     flex: 1 0 auto;
     justify-content: flex-end;
-    font-size: 1.125rem;
-    > * {
+    > .Card {
       @include mixin.flex-row;
       width: max-content;
       max-width: 100%;
+      .content {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0.5em 1em;
+        background: var.$highlight-dim;
+      }
+      border-color: var.$highlight-bright;
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: var.$primary-fg;
+        .content {
+          background: var.$highlight-mid;
+        }
+      }
     }
   }
 }

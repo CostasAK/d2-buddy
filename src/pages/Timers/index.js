@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import {
   currentDay,
   currentSeason,
@@ -5,10 +7,10 @@ import {
   currentXur,
   nextXur,
 } from "@d2api/date";
-import React from "react";
+
 import Card from "../../components/Card";
+import React from "react";
 import TimerCard from "../../components/TimerCard";
-import "./style.scss";
 
 const second = 1000;
 const minute = 60 * second;

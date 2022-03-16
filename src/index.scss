@@ -40,13 +40,12 @@ a:active {
 h2 {
   @include mixin.flex-row;
   margin: 0;
-  font-size: 1.067rem;
+  font-size: 1.067em;
   text-transform: uppercase;
 }
 
 p {
   margin: 0;
-  font-size: 1rem;
 }
 
 *,
