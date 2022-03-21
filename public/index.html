@@ -3,21 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- HTML Meta -->
+    <title>%REACT_APP_LONG_TITLE%</title>
     <meta
       name="description"
-      content="Reset Timers, DIM searches and links for Destiny 2"
+      content="%REACT_APP_DESCRIPTION%"
     />
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png?v=kyrdaexs">
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png?v=kyrdaexs">
     <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png?v=kyrdaexs">
-    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest?v=kyrdaexs">
     <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg?v=kyrdaexs" color="#12171c">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=kyrdaexs">
-    <meta name="apple-mobile-web-app-title" content="D2 Timers">
-    <meta name="application-name" content="D2 Timers">
+
+    <!-- Application / Theme -->
+    <meta name="apple-mobile-web-app-title" content="%REACT_APP_SHORT_TITLE%">
+    <meta name="application-name" content="%REACT_APP_SHORT_TITLE%">
     <meta name="msapplication-TileColor" content="#12171c">
     <meta name="theme-color" content="#12171c">
-    <title>Destiny 2 Buddy - CostasAK</title>
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest?v=kyrdaexs">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="%REACT_APP_LONG_TITLE%">
+    <meta itemprop="description" content="%REACT_APP_DESCRIPTION%">
+    <meta itemprop="image" content="%PUBLIC_URL%/android-chrome-256x256.png">
+
+    <!-- openGraph -->
+    <meta property="og:url" content="%PUBLIC_URL%">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="%REACT_APP_TITLE%">
+    <meta property="og:description" content="%REACT_APP_DESCRIPTION%">
+    <meta property="og:image" content="%PUBLIC_URL%/android-chrome-256x256.png">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="%PUBLIC_URL%/android-chrome-256x256.png">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
