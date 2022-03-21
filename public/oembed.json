@@ -1,4 +1,7 @@
 {
+  "type": "object",
   "author_name": "CostasAK",
-  "author_url": "https://github.com/CostasAK"
+  "author_url": "https://github.com/CostasAK",
+  "provider_name": "",
+  "provider_url": ""
 }
