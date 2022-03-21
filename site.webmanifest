@@ -1,20 +1,37 @@
 {
-    "name": "D2 Buddy",
-    "short_name": "D2 Buddy",
-    "icons": [
-        {
-        "src": "/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-        },
-        {
-        "src": "/android-chrome-256x256.png",
-        "sizes": "256x256",
-        "type": "image/png"
-        }
-    ],
-    "start_url": "https://destiny2.kokke.eu",
-    "theme_color": "#12171c",
-    "background_color": "#12171c",
-    "display": "standalone"
+  "background_color": "#12171c",
+  "categories": ["games", "utilities", "entertainment"],
+  "description": "Reset Timers, DIM searches and links for Destiny 2",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "/android-chrome-192x192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "256x256",
+      "src": "/android-chrome-256x256.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Destiny 2 Buddy",
+  "scope": "/",
+  "short_name": "D2 Buddy",
+  "shortcuts": [
+    {
+      "name": "Timers",
+      "url": "/#/Timers"
+    },
+    {
+      "name": "DIM Searches",
+      "url": "/#/DIMSearches"
+    },
+    {
+      "name": "Links",
+      "url": "/#/Links"
+    }
+  ],
+  "start_url": "https://destiny2.kokke.eu",
+  "theme_color": "#12171c"
 }
