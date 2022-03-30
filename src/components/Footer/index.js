@@ -1,10 +1,11 @@
+import "./style.scss";
+
 import { Component } from "react";
 import { FaGithub } from "react-icons/fa";
-import { SiKofi } from "react-icons/si";
+import { KofiButton } from "react-kofi-button";
 import { ReactSVG } from "react-svg";
 import avatar from "../../assets/initialen.svg";
 import { formatTime } from "../../functions/formatDateTime";
-import "./style.scss";
 
 export class Footer extends Component {
   constructor(props) {
@@ -40,21 +41,12 @@ export class Footer extends Component {
               <ReactSVG src={avatar} className="avatar" /> <span>CostasAK</span>
             </a>
           </div>
-          <div
-            style={{
-              background: "#204363",
-              padding: "calc(var(--margins) / 8) calc(var(--margins) / 2)",
-            }}
-          >
-            <a
-              href="https://ko-fi.com/costasak"
-              style={{ color: "#F5F5F5", fontWeight: "bold" }}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <SiKofi /> <span>Support me</span>
-            </a>
-          </div>
+          <KofiButton
+            username="costasak"
+            label="Support me"
+            preset="skinny"
+            backgroundColor="kofiGrey"
+          />
           <div>
             <a href="https://github.com/CostasAK/d2-buddy">
               <FaGithub /> <span>Source</span>
