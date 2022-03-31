@@ -1,0 +1,27 @@
+name: Node.js CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v3
+      - name: "Setup Node.js 16"
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
+      - name: "Clean Install"
+        run: npm ci
+      - name: "Run Tests"
+        run: npm test
+      - name: "GH Pages Deploy"
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
