@@ -11,6 +11,7 @@ import {
 import Card from "../../components/Card";
 import React from "react";
 import TimerCard from "../../components/TimerCard";
+import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;
 const minute = 60 * second;
@@ -90,6 +91,7 @@ export function Timers() {
   return (
     <div className="TimersWrapper">
       <div className="Timers">
+        <WellspringWeapons />
         {cards.map((card) => (
           <TimerCard
             key={card.name}

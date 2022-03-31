@@ -1,0 +1,14 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+
+.CycleCard {
+  text-align: center;
+  .Card .content {
+    .title,
+    .short_description {
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

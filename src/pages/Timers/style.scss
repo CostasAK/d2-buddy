@@ -8,7 +8,7 @@
   .Timers {
     @include mixin.flex-row-wrap;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     gap: var.$margins;
     padding-bottom: var.$margins;
     &:last-child {

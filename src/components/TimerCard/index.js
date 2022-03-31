@@ -1,34 +1,22 @@
-import parse from "html-react-parser";
+import "./style.scss";
+
 import React, { useEffect, useState } from "react";
-import {
-  GiClockwiseRotation,
-  GiStarFlag,
-  GiUpgrade,
-  GiVerticalBanner,
-  GiWrench,
-} from "react-icons/gi";
-import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
+
+import Card from "../Card";
+import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
+import icons from "../../functions/icons";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
+import parse from "html-react-parser";
 import { toTime } from "../../functions/toTime";
-import Card from "../Card";
-import "./style.scss";
 
 const second = 1000;
 const minute = 60 * second;
 const hour = 60 * minute;
 const day = 24 * hour;
 const year = 365.25 * day;
-
-const icons = {
-  maintenance: <GiWrench />,
-  event: <GiStarFlag />,
-  reset: <GiClockwiseRotation />,
-  update: <GiUpgrade />,
-  season: <GiVerticalBanner />,
-};
 
 const TimerCard = (props) => {
   const [end, setEnd] = useState(nextTime(props.period, toTime(props.end)));
@@ -105,7 +93,7 @@ const TimerCard = (props) => {
   return (
     <Card
       className="TimerCard"
-      icon={icons[props.type]}
+      icon={icons(props.type)}
       title={props.name}
       shortDescription={capitalizeSentence(
         (is_recurring || !(started && !end) ? countdown + ", " : "") +
