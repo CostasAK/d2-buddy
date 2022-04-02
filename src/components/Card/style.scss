@@ -47,7 +47,7 @@
     padding: var.$border-expansion;
     border-color: var.$primary-fg;
   }
-  .clickable {
+  &.clickable {
     user-select: none;
     cursor: pointer;
   }
