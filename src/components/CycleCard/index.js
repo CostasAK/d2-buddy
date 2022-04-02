@@ -21,15 +21,19 @@ export default function CycleCard({ name, items, start, period, type }) {
   const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
   const [now, setNow] = useState(Date.now());
 
+  function absoluteTimeString(time) {
+    if (isPast(time - day)) {
+      return formatTime(time);
+    }
+    return formatDate(time);
+  }
+
   function timeString(time) {
     let countdown = formatDuration(time - now);
-    let absolute_time_string;
     if (isPast(time - day)) {
-      absolute_time_string = "at " + formatTime(time);
-    } else {
-      absolute_time_string = "on " + formatDate(time);
+      return countdown + ", at " + absoluteTimeString(time);
     }
-    return countdown + ", " + absolute_time_string;
+    return countdown + ", on " + absoluteTimeString(time);
   }
 
   useEffect(() => {
@@ -70,7 +74,7 @@ export default function CycleCard({ name, items, start, period, type }) {
           >
             {item}
             <br />
-            {timeString(nextCycle + (shifted_index + 1) * period)}
+            {absoluteTimeString(nextCycle + (shifted_index + 1) * period)}
           </p>
         );
       })}
