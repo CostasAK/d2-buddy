@@ -8,7 +8,9 @@ import {
   nextXur,
 } from "@d2api/date";
 
+import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Card from "../../components/Card";
+import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
 import TimerCard from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
@@ -92,6 +94,8 @@ export function Timers() {
     <div className="TimersWrapper">
       <div className="Timers">
         <WellspringWeapons />
+        <PsiOpsLegend />
+        <AltarsOfSorrowWeapons />
         {cards.map((card) => (
           <TimerCard
             key={card.name}

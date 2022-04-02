@@ -24,6 +24,8 @@
     .long_description {
       display: flex;
       flex-flow: column;
+      justify-content: center;
+      text-align: center;
       gap: 0.5em;
       h3 {
         margin-top: 0.5em;
