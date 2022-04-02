@@ -4,44 +4,87 @@
 .CardWrapper {
   width: auto;
   max-width: 100%;
-  .Card {
-    display: block;
-    max-width: 100%;
-    margin: var.$border-expansion;
-    border: 1px solid var.$primary-fg;
-    text-align: left;
-    color: var.$primary-fg;
+}
+
+.CardWrapper > .Card,
+.CardModal {
+  background: var.$primary-bg;
+  display: block;
+  max-width: 100%;
+  margin: var.$border-expansion;
+  border: 1px solid var.$primary-fg;
+  text-align: left;
+  color: var.$primary-fg;
+  transition: all 0.25s;
+  .content {
+    padding: 1em;
     transition: all 0.25s;
-    .content {
-      padding: 1em;
-      transition: all 0.25s;
-      .title {
-        @include mixin.flex-row-wrap;
-        justify-content: left;
-        text-align: left;
-        .icon {
-          line-height: 0;
-          font-size: 1.25em;
-        }
-      }
-      .logo {
-        max-width: 2 * var.$line-height * 1em;
-        max-height: 2 * var.$line-height * 1em;
-        object-fit: cover;
-        border-radius: var.$border-radius;
-        margin: 0 var.$border-radius 0 0;
+    .title {
+      @include mixin.flex-row-wrap;
+      justify-content: left;
+      text-align: left;
+      .icon {
+        line-height: 0;
+        font-size: 1.25em;
       }
     }
-    &:hover.clickable,
-    &:focus.clickable,
-    &:active.clickable {
-      margin: 0px;
-      padding: var.$border-expansion;
-      border-color: var.$primary-fg;
+    .header {
+      justify-content: left;
+      text-align: left;
     }
-    .clickable {
-      user-select: none;
-      cursor: pointer;
+    .logo {
+      max-width: 2 * var.$line-height * 1em;
+      max-height: 2 * var.$line-height * 1em;
+      object-fit: cover;
+      border-radius: var.$border-radius;
+      margin: 0 var.$border-radius 0 0;
     }
+  }
+  &:hover.clickable,
+  &:focus.clickable,
+  &:active.clickable {
+    margin: 0px;
+    padding: var.$border-expansion;
+    border-color: var.$primary-fg;
+  }
+  .clickable {
+    user-select: none;
+    cursor: pointer;
+  }
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.71);
+  animation: fade 0.25s;
+}
+
+.popup-content {
+  margin: auto;
+  width: fit-content;
+  max-width: calc(min(var.$main-width, 100%) - 2 * var.$margins);
+  min-width: calc(320px - 2 * var.$margins);
+  animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+@keyframes anvil {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

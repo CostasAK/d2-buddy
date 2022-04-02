@@ -1,6 +1,7 @@
 @use "./sass/variables" as var;
 @use "./sass/mixins" as mixin;
 @use "sass:math";
+@import-normalize;
 @import url(//fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro);
 
 :root {
@@ -41,6 +42,13 @@ h2 {
   @include mixin.flex-row;
   margin: 0;
   font-size: 1.067em;
+  text-transform: uppercase;
+}
+
+h3 {
+  @include mixin.flex-row;
+  margin: 0;
+  font-size: 0.933em;
   text-transform: uppercase;
 }
 
