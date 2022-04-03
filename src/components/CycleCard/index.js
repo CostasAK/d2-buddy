@@ -18,11 +18,22 @@ const day = 24 * hour;
 const year = 365.25 * day;
 
 export default function CycleCard({ name, items, start, period, type }) {
-  const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
   const [now, setNow] = useState(Date.now());
+  const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
 
-  function absoluteTimeString(time) {
-    if (isPast(time - day)) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNow(() => Date.now());
+      setNextCycle(() => nextTime(period, toTime(start)));
+    }, minute - (Date.now() % minute));
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [start, period, nextCycle, now]);
+
+  function absoluteTimeString(time, long = false) {
+    if (!long && isPast(time - day)) {
       return formatTime(time);
     }
     return formatDate(time);
@@ -35,17 +46,6 @@ export default function CycleCard({ name, items, start, period, type }) {
     }
     return countdown + ", on " + absoluteTimeString(time);
   }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setNow(() => Date.now());
-      setNextCycle(() => nextTime(period, toTime(start)));
-    }, minute - (Date.now() % minute));
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [start, period, nextCycle, now]);
 
   let flex_order = (nextCycle - 5 * year) / minute;
 
@@ -74,7 +74,7 @@ export default function CycleCard({ name, items, start, period, type }) {
           >
             {item}
             <br />
-            {absoluteTimeString(nextCycle + (shifted_index + 1) * period)}
+            {absoluteTimeString(nextCycle + shifted_index * period, true)}
           </p>
         );
       })}
