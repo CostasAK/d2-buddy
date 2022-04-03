@@ -68,7 +68,7 @@ export default function CycleCard({ name, items, start, period, type }) {
           (index - current_item_index + items.length - 1) % items.length;
         return (
           <p
-            key={item}
+            key={index}
             style={{
               order: shifted_index,
             }}
