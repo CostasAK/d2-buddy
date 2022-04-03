@@ -34,6 +34,7 @@ const loadResets = () => [
     start: currentWeek().end,
     period: week,
     type: "reset",
+    link: "https://kyber3000.com/reset",
   },
   {
     name: "Weekend Activities",
@@ -41,6 +42,24 @@ const loadResets = () => [
     end: currentXur() ? currentXur().end : nextXur().end,
     period: week,
     type: "reset",
+    description: (
+      <ul>
+        <li>
+          <a href="https://kyber3000.com/Xur" target="_blank" rel="noreferrer">
+            Xur
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://kyber3000.com/Trials"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Trials of Osiris
+          </a>
+        </li>
+      </ul>
+    ),
   },
   {
     name: `Season ${currentSeason().seasonNumber}`,
@@ -108,6 +127,7 @@ export function Timers() {
             period={card.period}
             hasTime={card.hasTime}
             type={card.type}
+            link={card.link}
           />
         ))}
       </div>

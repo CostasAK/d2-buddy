@@ -101,6 +101,7 @@ const TimerCard = (props) => {
       )}
       longDescription={long_description}
       order={flex_order}
+      link={props.link}
     />
   );
 };
