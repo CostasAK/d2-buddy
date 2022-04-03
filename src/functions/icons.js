@@ -1,4 +1,5 @@
 import {
+  GiCalendar,
   GiClockwiseRotation,
   GiPistolGun,
   GiStarFlag,
@@ -12,8 +13,9 @@ const known_icons = {
   event: <GiStarFlag />,
   reset: <GiClockwiseRotation />,
   update: <GiUpgrade />,
-  season: <GiVerticalBanner />,
+  duty: <GiVerticalBanner />,
   weapon: <GiPistolGun />,
+  season: <GiCalendar />,
 };
 
 export default function icons(key) {

@@ -10,6 +10,7 @@ import {
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Card from "../../components/Card";
+import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
 import TimerCard from "../../components/TimerCard";
@@ -94,6 +95,7 @@ export function Timers() {
     <div className="TimersWrapper">
       <div className="Timers">
         <WellspringWeapons />
+        <LostSectors />
         <PsiOpsLegend />
         <AltarsOfSorrowWeapons />
         {cards.map((card) => (

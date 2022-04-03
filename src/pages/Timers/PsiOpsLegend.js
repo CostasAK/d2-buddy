@@ -15,7 +15,7 @@ export default function PsiOpsLegend() {
       items={items}
       start={1648573200 * 1000}
       period={week}
-      type="season"
+      type="duty"
     />
   );
 }
