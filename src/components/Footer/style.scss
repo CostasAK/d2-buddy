@@ -10,14 +10,15 @@
   font-size: 0.875rem;
   .credits {
     @include mixin.flex-row-wrap;
+    row-gap: math.div(var.$margins, 4);
+    column-gap: 3em;
     max-width: 100%;
-    padding: math.div(var.$margins, 4);
+    min-height: 4em;
+    padding: math.div(var.$margins, 3);
     color: var.$primary-fg;
     background: var.$footer-bg;
     > div {
       @include mixin.flex-row;
-      padding: math.div(var.$margins, 8);
-      margin: math.div(var.$margins, 8) var.$margins;
       border-radius: var.$border-radius;
     }
   }

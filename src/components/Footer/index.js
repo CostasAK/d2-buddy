@@ -44,7 +44,7 @@ export class Footer extends Component {
           <KofiButton
             username="costasak"
             label="Support me"
-            preset="skinny"
+            preset="thin"
             backgroundColor="kofiGrey"
           />
           <div>
