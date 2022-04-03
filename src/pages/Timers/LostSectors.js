@@ -25,7 +25,7 @@ const locations = [
   },
   {
     name: "Exodus Garden A2 - Cosmodrome",
-    info: "http://kyber3000.com/ExodusGarden2A",
+    info: "https://i.imgur.com/88r6qcR.png",
   },
   {
     name: "Aphelion's Rest - Dreaming City",

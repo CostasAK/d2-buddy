@@ -3,33 +3,42 @@
 
 .CycleCard {
   text-align: center;
-  .Card .content {
+  .Card .content .cardText {
     .title,
     .short_description {
       justify-content: center;
       width: 100%;
       text-align: center;
+      &::first-line,
+      &::first-line, a {
+        font-variant: small-caps;
+      }
     }
   }
 }
 
 .CardModal {
   .content {
-    .title {
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
-    .long_description {
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      text-align: center;
-      gap: 1em;
-      h3 {
-        margin-top: 1em;
-        order: -1;
+    .cardText {
+      .title {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5em;
+      }
+      .long_description {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        text-align: center;
+        gap: 1em;
+        h3 {
+          margin-top: 1em;
+          order: -1;
+        }
+        p::first-line {
+          font-variant: small-caps;
+        }
       }
     }
   }
