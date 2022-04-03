@@ -68,6 +68,7 @@ export default function CycleCard({ name, items, start, period, type }) {
           (index - current_item_index + items.length - 1) % items.length;
         return (
           <p
+            key={item}
             style={{
               order: shifted_index,
             }}
@@ -95,7 +96,9 @@ export default function CycleCard({ name, items, start, period, type }) {
 
 CycleCard.propTypes = {
   name: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+  ).isRequired,
   start: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   period: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   type: PropTypes.string,
