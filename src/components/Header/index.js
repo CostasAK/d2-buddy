@@ -2,14 +2,22 @@ import "./style.scss";
 
 import Card from "../Card/index";
 import { Component } from "react";
-import { GiClockwork } from "react-icons/gi";
+import SVG from "react-inlinesvg";
+import logo from "../../assets/clovis_ck.svg";
 
 export class Header extends Component {
   render() {
     return (
       <header className="Header">
         <h1 className="title">
-          <GiClockwork className="logo" /> <span>Destiny 2 Buddy</span>
+          <SVG
+            src={logo}
+            className="logo"
+            preProcessor={(code) =>
+              code.replace(/stroke="#f1f1f1"/g, 'stroke="currentColor"')
+            }
+          />
+          <span>Destiny 2 Buddy</span>
         </h1>
         {navigator.platform.match(/Win\d+/i) && (
           <Card
