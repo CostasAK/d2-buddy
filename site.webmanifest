@@ -6,12 +6,12 @@
   "icons": [
     {
       "sizes": "192x192",
-      "src": "/android-chrome-192x192.png",
+      "src": "/android-chrome-192x192.png?v=l1m9xl6l",
       "type": "image/png"
     },
     {
-      "sizes": "256x256",
-      "src": "/android-chrome-256x256.png",
+      "sizes": "512x512",
+      "src": "/android-chrome-512x512.png?v=l1m9xl6l",
       "type": "image/png"
     }
   ],
