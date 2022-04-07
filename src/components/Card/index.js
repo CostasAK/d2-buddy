@@ -21,17 +21,17 @@ const Card = (props) => {
       {props.logo && (
         <img src={props.logo} alt="" className="logo" align="left" />
       )}
-      <div className="cardText">
+      <section className="cardText">
         {props.title && (
-          <h2 className="title">
+          <h1 className="title">
             {props.icon && <div className="icon">{props.icon} </div>}
             {props.title}
-          </h2>
+          </h1>
         )}
         {props.shortDescription && (
           <p className="short_description">{short_description}</p>
         )}
-      </div>
+      </section>
     </div>
   );
 

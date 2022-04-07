@@ -1,8 +1,9 @@
 @use "./sass/variables" as var;
 @use "./sass/mixins" as mixin;
+
 @use "sass:math";
+
 @import-normalize;
-@import url(//fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro);
 
 :root {
   font-size: 100%;
@@ -13,51 +14,94 @@
   --primary-bg: #04040e;
 }
 
-body {
-  margin: 0;
-  font-family: var.$primary-font-stack;
-  font-weight: 400;
-  line-height: var.$line-height;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var.$primary-bg;
-  color: var.$primary-fg;
-  text-rendering: optimizeLegibility;
-}
-
-a {
-  color: var.$navigation-fg;
-  text-decoration: none;
-  transition: math.div(var.$transition, 2);
-}
-
-a:hover,
-a:focus,
-a:active {
-  color: #bcbdbf;
-  text-decoration: none;
-}
-
-h2 {
-  @include mixin.flex-row;
-  margin: 0;
-  font-size: 1.067em;
-  text-transform: uppercase;
-}
-
-h3 {
-  @include mixin.flex-row;
-  margin: 0;
-  font-size: 0.933em;
-  text-transform: uppercase;
-}
-
-p {
-  margin: 0;
-}
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+  transition: all var.$transition;
+}
+
+body {
+  margin: 0;
+
+  @include mixin.text-body;
+  font-family: var.$primary-font-stack;
+  line-height: var.$line-height;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var.$primary-bg;
+  color: var.$primary-fg;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: var.$navigation-fg;
+    text-decoration: none;
+    transition: all math.div(var.$transition, 2);
+    &:hover,
+    &:active {
+      color: #bcbdbf;
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    @include mixin.header-subscreen;
+    @include mixin.flex-row;
+  }
+
+  h2 {
+    margin: 0;
+    @include mixin.header-tracked;
+    @include mixin.flex-row;
+  }
+
+  h3 {
+    margin: 0;
+    @include mixin.header-tooltip;
+    @include mixin.flex-row;
+  }
+
+  h4 {
+    margin: 0;
+    @include mixin.header;
+    @include mixin.flex-row;
+  }
+
+  section {
+    h1 {
+      margin: 0;
+      @include mixin.text-bold-subtitle;
+      @include mixin.flex-row;
+    }
+    h2 {
+      margin: 0;
+      @include mixin.text-subtitle;
+      @include mixin.flex-row;
+    }
+    h3 {
+      margin: 0;
+      @include mixin.header;
+      @include mixin.flex-row;
+    }
+  }
+
+  h5 {
+    margin: 0;
+    @include mixin.header;
+    @include mixin.flex-row;
+  }
+
+  h6 {
+    margin: 0;
+    @include mixin.text-subtitle;
+    @include mixin.flex-row;
+  }
 }

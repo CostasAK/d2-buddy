@@ -1,3 +1,6 @@
+@use './variables';
+@use 'sass:math';
+
 @mixin flex-row-wrap {
   display: flex;
   flex-flow: row wrap;
@@ -17,4 +20,68 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: safe center;
+}
+
+
+// The following are the text styles as specified by
+// https://www.behance.net/gallery/60073341/Destiny-2-UI-Visual-Design
+@mixin header {
+  font-weight: 600;
+  font-style: normal;
+  font-size: math.div(20rem, 22);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+@mixin header-tooltip {
+  font-weight: 600;
+  font-style: normal;
+  font-size: math.div(36rem, 22);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+@mixin header-subscreen {
+  font-weight: 700;
+  font-style: normal;
+  font-size: math.div(62rem, 22);
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+@mixin header-tracked {
+  font-weight: 600;
+  font-style: normal;
+  font-size: math.div(35rem, 22);
+  letter-spacing: 0.375em;
+  text-transform: uppercase;
+}
+@mixin text-body {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+@mixin text-subtitle {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+@mixin text-bold-subtitle {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+@mixin text-quote {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+@mixin text-number {
+  font-weight: 700;
+  font-style: normal;
+  font-size: math.div(48rem, 22);
+  letter-spacing: 0.01em;
 }
