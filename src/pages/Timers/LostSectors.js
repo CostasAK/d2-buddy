@@ -74,7 +74,7 @@ const day = 24 * hour;
 export default function LostSectors() {
   return (
     <CycleCard
-      name="Legend/Master Lost Sector"
+      name="Legend & Master Lost Sector"
       items={items}
       start={1648918800 * 1000}
       period={day}

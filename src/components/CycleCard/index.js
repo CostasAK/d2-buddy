@@ -51,7 +51,6 @@ export default function CycleCard({ name, items, start, period, type }) {
 
   let current_item_index = Math.floor((now - start) / period) % items.length;
 
-  console.log(items[current_item_index]);
   let short_description = (
     <>
       {items[current_item_index]}

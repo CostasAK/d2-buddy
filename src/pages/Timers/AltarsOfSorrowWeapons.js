@@ -1,9 +1,10 @@
 import CycleCard from "../../components/CycleCard";
+import DestinyWeapon from "../../components/DestinyWeapon";
 
 const items = [
-  "Blasphemer (Shotgun)",
-  "Apostate (Sniper Rifle)",
-  "Heretic (Rocket Launcher)",
+  <DestinyWeapon id="2782847179" name="Blasphemer" />,
+  <DestinyWeapon id="2164448701" name="Apostate" />,
+  <DestinyWeapon id="3067821200" name="Heretic" />,
 ];
 
 const second = 1000;
@@ -18,7 +19,6 @@ export default function AltarsOfSorrowWeapons() {
       items={items}
       start={1648832400 * 1000}
       period={day}
-      type="weapon"
     />
   );
 }
