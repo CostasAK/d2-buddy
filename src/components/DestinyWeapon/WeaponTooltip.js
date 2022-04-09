@@ -28,23 +28,23 @@ function WeaponTooltip({ id }) {
   const element = getWeaponElement(data);
 
   return (
-    <ReactTooltip
-      id={id}
-      place="bottom"
-      className={"WeaponTooltip " + data.Response.inventory.tierTypeName}
-    >
-      <img
-        src={bungie_root_path + data.Response.displayProperties.icon}
-        alt=""
-      />
-      <div>
-        <h3>{name}</h3>
-        <span>
-          {data.Response.inventory.tierTypeName} |{" "}
-          {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
-          {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
-        </span>
-      </div>
+    <ReactTooltip id={id} place="bottom">
+      <article
+        className={"WeaponTooltip " + data.Response.inventory.tierTypeName}
+      >
+        <img
+          src={bungie_root_path + data.Response.displayProperties.icon}
+          alt=""
+        />
+        <div>
+          <h3>{name}</h3>
+          <span>
+            {data.Response.inventory.tierTypeName} |{" "}
+            {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
+            {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
+          </span>
+        </div>
+      </article>
     </ReactTooltip>
   );
 }
