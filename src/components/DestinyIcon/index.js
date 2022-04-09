@@ -30,6 +30,9 @@ const font_symbols = {
     Arc: { symbol: "", name: "Void" },
     Stasis: { symbol: "", name: "Void" },
   },
+  activities: {
+    LostSector: { symbol: "", name: "Lost Sector" },
+  },
 };
 
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
