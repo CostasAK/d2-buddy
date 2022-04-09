@@ -20,6 +20,7 @@
     "react-router-dom": "^6.2.2",
     "react-spinkit": "^3.0.0",
     "react-svg": "^14.1.7",
+    "react-tooltip": "^4.2.21",
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.2"
   },

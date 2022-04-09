@@ -1,8 +1,8 @@
-import { DamageType, DestinyAmmunitionType } from "bungie-api-ts/destiny2";
-
 import DestinyIcon from "../DestinyIcon";
 import Spinner from "react-spinkit";
-import getKeyByValue from "../../functions/getKeyByValue";
+import WeaponTooltip from "./WeaponTooltip";
+import getWeaponElement from "../../functions/getWeaponElement";
+import getWeaponType from "../../functions/getWeaponType";
 import useBungieApi from "../../hooks/useBungieApi";
 
 const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
@@ -24,30 +24,27 @@ function DestinyWeapon({ id, name }) {
 
   name ||= data.Response.displayProperties.name;
 
-  let type = data.Response.itemTypeDisplayName;
-  if (
-    type === "Grenade Launcher" &&
-    DestinyAmmunitionType.Heavy === data.Response.equippingBlock.ammoType
-  ) {
-    type = "Heavy " + type;
-  }
+  const type = getWeaponType(data);
 
-  const element = getKeyByValue(
-    DamageType,
-    data.Response.defaultDamageType
-  ).replace(/thermal/i, "Solar");
+  const element = getWeaponElement(data);
 
   return (
-    <a
-      className="DestinyWeapon"
-      href={light_gg_item_path + id}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <DestinyIcon icon={["weapons", type]} color={element} />{" "}
-      <span>{name}</span>
-    </a>
+    <>
+      <a
+        className="DestinyWeapon"
+        href={light_gg_item_path + id}
+        target="_blank"
+        rel="noreferrer"
+        data-tip
+        data-for={id}
+      >
+        <DestinyIcon icon={["weapons", type]} color={element} />{" "}
+        <span>{name}</span>
+      </a>
+      <WeaponTooltip id={id} />
+    </>
   );
 }
 
 export default DestinyWeapon;
+export { WeaponTooltip };

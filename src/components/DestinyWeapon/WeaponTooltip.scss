@@ -1,0 +1,52 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+@use "sass:math";
+
+.type-dark.place-bottom {
+  opacity: 1 !important;
+
+  @include mixin.text-body;
+  font-family: var.$primary-font-stack;
+  line-height: var.$line-height;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: left !important;
+
+  background: var.$primary-bg;
+  color: var.$primary-fg;
+
+  background: var.$footer-bg;
+  &.Legendary {
+    background: var.$legendary;
+  }
+  &.Exotic {
+    background: var.$exotic;
+  }
+
+  display: flex;
+  flex-flow: row;
+  gap: 0.5rem;
+
+  img {
+    border: 2px solid var.$primary-fg;
+    height: 1.5 * (math.div(36rem, 22) + 1rem);
+    aspect-ratio: 1 / 1;
+  }
+  h3 {
+    margin: 0 !important;
+    width:max-content;
+  }
+  &:not(.show) {
+    opacity: 0;
+    > * {
+      opacity: 0;
+    }
+  }
+  transition: all 0s !important;
+  > * {
+    transition: all 0s !important;
+  }
+}

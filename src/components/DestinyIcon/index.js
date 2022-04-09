@@ -23,12 +23,18 @@ const font_symbols = {
     "Machine Gun": { symbol: "", name: "Machine Gun" },
     "Trace Rifle": { symbol: "", name: "Trace Rifle" },
   },
+  elements: {
+    Void: { symbol: "", name: "Void" },
+    Solar: { symbol: "", name: "Void" },
+    Arc: { symbol: "", name: "Void" },
+    Stasis: { symbol: "", name: "Void" },
+  },
 };
 
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
 const known_colors = [...known_elements];
 
-function DestinyIcon({ icon, height, width, color }) {
+function DestinyIcon({ icon, color }) {
   try {
     const font_symbol = icon.reduce(
       (previous, current) => previous[current],
