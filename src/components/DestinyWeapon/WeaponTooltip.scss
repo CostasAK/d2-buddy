@@ -5,7 +5,8 @@
 .type-dark.place-bottom {
   @include mixin.reset;
   opacity: 1 !important;
-  overflow: hidden;
+  background: var.$footer-bg;
+  border-radius: 0;
 
   .WeaponTooltip {
     background: var.$footer-bg;
