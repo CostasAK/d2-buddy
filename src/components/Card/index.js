@@ -1,6 +1,7 @@
 import "./style.scss";
 
 import Popup from "reactjs-popup";
+import ReactTooltip from "react-tooltip";
 import parse from "html-react-parser";
 
 const Card = (props) => {
@@ -17,7 +18,7 @@ const Card = (props) => {
       : props.longDescription;
 
   const content = (
-    <div className="content">
+    <article className="content">
       {props.logo && (
         <img src={props.logo} alt="" className="logo" align="left" />
       )}
@@ -29,10 +30,10 @@ const Card = (props) => {
           </h1>
         )}
         {props.shortDescription && (
-          <p className="short_description">{short_description}</p>
+          <section className="short_description">{short_description}</section>
         )}
       </section>
-    </div>
+    </article>
   );
 
   const modal_content = (
@@ -60,7 +61,14 @@ const Card = (props) => {
       style={props.order && { order: props.order }}
     >
       {props.longDescription ? (
-        <Popup trigger={<div className="Card clickable">{content}</div>} modal>
+        <Popup
+          trigger={
+            <div className="Card clickable" onClose={() => ReactTooltip.hide()}>
+              {content}
+            </div>
+          }
+          modal
+        >
           <div className="CardModal">{modal_content}</div>
         </Popup>
       ) : props.link ? (

@@ -38,7 +38,8 @@
       opacity: 0;
     }
   }
+  overflow: hidden;
   > * {
-    transition: all math.div(var.$transition, 2);
+    transition: all math.div(var.$transition, 2) !important;
   }
 }
