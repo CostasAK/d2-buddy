@@ -24,6 +24,7 @@ const font_symbols = {
     "Trace Rifle": { symbol: "", name: "Trace Rifle" },
   },
   elements: {
+    Kinetic: { symbol: "", name: "Kinetic" },
     Void: { symbol: "", name: "Void" },
     Solar: { symbol: "", name: "Void" },
     Arc: { symbol: "", name: "Void" },
@@ -54,7 +55,7 @@ function DestinyIcon({ icon, color }) {
       </span>
     );
   } catch {
-    console.warn("Unknown Destiny icon");
+    console.warn(`Unknown Destiny icon: ${icon}`);
     return null;
   }
 }
