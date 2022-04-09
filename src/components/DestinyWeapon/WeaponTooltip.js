@@ -2,6 +2,7 @@ import "./WeaponTooltip.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import ReactTooltip from "react-tooltip";
+import Spinner from "react-spinkit";
 import getWeaponElement from "../../functions/getWeaponElement";
 import getWeaponType from "../../functions/getWeaponType";
 import useBungieApi from "../../hooks/useBungieApi";
@@ -13,7 +14,11 @@ function WeaponTooltip({ id }) {
   const { data, error, isPending } = useBungieApi(`${api_item_path}${id}/`);
 
   if (isPending) {
-    return null;
+    return (
+      <ReactTooltip id={id} place="bottom">
+        <Spinner fadeIn="0" />
+      </ReactTooltip>
+    );
   }
 
   if (error) {
