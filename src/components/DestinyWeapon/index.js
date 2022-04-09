@@ -1,7 +1,7 @@
 import { DamageType, DestinyAmmunitionType } from "bungie-api-ts/destiny2";
 
 import DestinyIcon from "../DestinyIcon";
-import { PulseLoader } from "react-spinners";
+import Spinner from "react-spinkit";
 import getKeyByValue from "../../functions/getKeyByValue";
 import useBungieApi from "../../hooks/useBungieApi";
 
@@ -13,8 +13,7 @@ function DestinyWeapon({ id, name }) {
   if (isPending) {
     return (
       <>
-        <PulseLoader color="#f5f5f588" size="0.5em" speedMultiplier={0.5} />{" "}
-        {name && <span>{name}</span>}
+        <Spinner fadeIn="0" /> {name && <span>{name}</span>}
       </>
     );
   }

@@ -18,7 +18,7 @@
     "react-kofi-button": "^0.4.4",
     "react-masonry-css": "^1.0.16",
     "react-router-dom": "^6.2.2",
-    "react-spinners": "^0.11.0",
+    "react-spinkit": "^3.0.0",
     "react-svg": "^14.1.7",
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.2"

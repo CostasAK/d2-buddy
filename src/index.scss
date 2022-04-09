@@ -104,4 +104,16 @@ body {
     @include mixin.text-subtitle;
     @include mixin.flex-row;
   }
+
+  .sk-spinner {
+    color: inherit;
+    opacity: 50%;
+    &.sk-three-bounce {
+      display: inline;
+      > div {
+        height: 0.75em;
+        width: 0.75em;
+      }
+    }
+  }
 }
