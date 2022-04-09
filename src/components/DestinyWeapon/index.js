@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import DestinyIcon from "../DestinyIcon";
 import Spinner from "react-spinkit";
 import WeaponTooltip from "./WeaponTooltip";
