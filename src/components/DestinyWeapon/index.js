@@ -33,7 +33,10 @@ function DestinyWeapon({ id, name }) {
     type = "Heavy " + type;
   }
 
-  const element = getKeyByValue(DamageType, data.Response.defaultDamageType);
+  const element = getKeyByValue(
+    DamageType,
+    data.Response.defaultDamageType
+  ).replace(/thermal/i, "Solar");
 
   return (
     <a

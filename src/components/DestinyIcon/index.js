@@ -25,7 +25,7 @@ const font_symbols = {
   },
 };
 
-const known_elements = ["Kinetic", "Arc", "Solar", "Thermal", "Void", "Stasis"];
+const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
 const known_colors = [...known_elements];
 
 function DestinyIcon({ icon, height, width, color }) {
