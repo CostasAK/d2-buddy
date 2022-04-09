@@ -50,6 +50,9 @@
   &.clickable {
     user-select: none;
     cursor: pointer;
+    > * {
+      pointer-events: none;
+    }
   }
 }
 
