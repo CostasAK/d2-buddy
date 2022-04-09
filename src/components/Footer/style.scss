@@ -8,6 +8,7 @@
   max-width: 100%;
   font-family: var.$secondary-font-stack;
   font-size: 0.875rem;
+  letter-spacing: normal;
   .credits {
     @include mixin.flex-row-wrap;
     row-gap: math.div(var.$margins, 4);

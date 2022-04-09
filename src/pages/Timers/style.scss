@@ -19,6 +19,8 @@
     }
     &.Links {
       justify-content: safe center;
+      font-family: var.$secondary-font-stack;
+      letter-spacing: normal;
       .CardWrapper {
         flex: 0 1 auto;
         .Card {
