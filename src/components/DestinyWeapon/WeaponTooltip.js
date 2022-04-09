@@ -3,6 +3,7 @@ import "./WeaponTooltip.scss";
 import DestinyIcon from "../DestinyIcon";
 import ReactTooltip from "react-tooltip";
 import Spinner from "react-spinkit";
+import getScreenshot from "../../functions/getScreenshot";
 import getWeaponElement from "../../functions/getWeaponElement";
 import getWeaponType from "../../functions/getWeaponType";
 import useBungieApi from "../../hooks/useBungieApi";
@@ -31,6 +32,8 @@ function WeaponTooltip({ id }) {
   const type = getWeaponType(data);
 
   const element = getWeaponElement(data);
+
+  const screenshot = getScreenshot(data);
 
   return (
     <ReactTooltip id={id} place="bottom">
