@@ -43,10 +43,10 @@ const Card = (props) => {
       )}
       <div className="cardText">
         {props.title && (
-          <h2 className="title">
+          <h1 className="title">
             {props.icon && <div className="icon">{props.icon} </div>}
             {props.title}
-          </h2>
+          </h1>
         )}
         {props.longDescription && (
           <p className="long_description">{long_description}</p>
