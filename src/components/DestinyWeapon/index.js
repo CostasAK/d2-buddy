@@ -15,7 +15,7 @@ function DestinyWeapon({ id, name }) {
   if (isPending) {
     return (
       <>
-        <Spinner fadeIn="0" /> {name && <span>{name}</span>}
+        <Spinner fadeIn="none" /> {name && <span>{name}</span>}
       </>
     );
   }

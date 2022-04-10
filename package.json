@@ -17,6 +17,7 @@
     "react-inlinesvg": "^2.3.0",
     "react-kofi-button": "^0.4.4",
     "react-masonry-css": "^1.0.16",
+    "react-measure": "^2.5.2",
     "react-router-dom": "^6.2.2",
     "react-spinkit": "^3.0.0",
     "react-svg": "^14.1.7",

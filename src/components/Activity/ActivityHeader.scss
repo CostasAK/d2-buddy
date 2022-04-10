@@ -1,0 +1,29 @@
+@use "../../sass/variables" as var;
+
+.ActivityHeader {
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: end;
+  align-items: flex-start;
+
+  text-shadow: 0px 0px 0.5em var.$primary-bg;
+
+  &:first-child {
+    padding-top: 5rem;
+  }
+
+  .ActivityType {
+    opacity: 0.75;
+  }
+
+  .ActivityName {
+    border-top: 1pt solid rgba(255, 255, 255, 0.5);
+  }
+
+  .Destination {
+    opacity: 0.75;
+  }
+}

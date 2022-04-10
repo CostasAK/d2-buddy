@@ -1,3 +1,5 @@
-article.Activity {
-  background-blend-mode: multiply;
+@use "../../sass/variables" as var;
+
+.Activity {
+  width: 100%;
 }

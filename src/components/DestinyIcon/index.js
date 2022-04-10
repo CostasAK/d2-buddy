@@ -32,6 +32,24 @@ const font_symbols = {
   },
   activities: {
     LostSector: { symbol: "", name: "Lost Sector" },
+    Destination: {
+      symbol: (
+        <img
+          src={
+            "https://www.bungie.net/common/destiny2_content/icons/c60303e278aa5fc566a04e98c3d8024c.png"
+          }
+          alt=""
+          style={{
+            aspectRatio: "1 / 1",
+            maxWidth: "96px",
+            maxHeight: "96px",
+            height: "1.5em",
+            lineHeight: "1",
+          }}
+        />
+      ),
+      name: "Destination",
+    },
   },
   controllers: {
     playstation: {
@@ -51,7 +69,7 @@ function DestinyIcon({ icon, color }) {
     );
 
     return (
-      <span
+      <figure
         className={"DestinyIcon " + (known_colors.includes(color) ? color : "")}
         title={
           (known_elements.includes(color)
@@ -60,7 +78,7 @@ function DestinyIcon({ icon, color }) {
         }
       >
         {font_symbol.symbol}
-      </span>
+      </figure>
     );
   } catch {
     console.warn(`Unknown Destiny icon: ${icon}`);

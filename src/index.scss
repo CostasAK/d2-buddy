@@ -35,7 +35,8 @@ body {
   background: var.$primary-bg;
   color: var.$primary-fg;
 
-  p {
+  p,
+  figure {
     margin: 0;
     padding: 0;
   }

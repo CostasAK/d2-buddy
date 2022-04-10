@@ -18,7 +18,7 @@ function WeaponTooltip({ id }) {
   if (isPending) {
     return (
       <ReactTooltip id={id} place="bottom">
-        <Spinner fadeIn="0" />
+        <Spinner fadeIn="none" />
       </ReactTooltip>
     );
   }
