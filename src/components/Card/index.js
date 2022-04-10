@@ -24,10 +24,10 @@ const Card = (props) => {
       )}
       <section className="cardText">
         {props.title && (
-          <h1 className="title">
+          <h4 className="title">
             {props.icon && <div className="icon">{props.icon} </div>}
             {props.title}
-          </h1>
+          </h4>
         )}
         {props.shortDescription && (
           <section className="short_description">{short_description}</section>

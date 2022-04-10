@@ -63,7 +63,7 @@ export default function CycleCard({ name, items, start, period, type }) {
     <>
       <p>{short_description}</p>
       <section>
-        <h1>Upcoming</h1>
+        <h3>Upcoming</h3>
         {items.map((item, index) => {
           const shifted_index =
             (index - current_item_index + items.length - 1) % items.length;

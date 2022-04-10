@@ -6,6 +6,7 @@ import Spinner from "react-spinkit";
 import getScreenshot from "../../functions/getScreenshot";
 import getWeaponElement from "../../functions/getWeaponElement";
 import getWeaponType from "../../functions/getWeaponType";
+import tierToColor from "../../functions/tierToColor";
 import useBungieApi from "../../hooks/useBungieApi";
 
 const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
@@ -35,22 +36,34 @@ function WeaponTooltip({ id }) {
 
   const screenshot = getScreenshot(data);
 
+  const tier = data.Response.inventory.tierTypeName;
+
   return (
-    <ReactTooltip id={id} place="bottom">
+    <ReactTooltip
+      id={id}
+      place="bottom"
+      backgroundColor={tierToColor(tier)}
+      className="ReactTooltip"
+      border={false}
+    >
       <article
         className={"WeaponTooltip " + data.Response.inventory.tierTypeName}
       >
-        <img
-          src={bungie_root_path + data.Response.displayProperties.icon}
-          alt=""
-        />
-        <div>
-          <h3>{name}</h3>
-          <span>
-            {data.Response.inventory.tierTypeName} |{" "}
-            {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
-            {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
-          </span>
+        <img src={screenshot} alt="" className="WeaponScreenshot" />
+        <div className="WeaponHeader">
+          <img
+            src={bungie_root_path + data.Response.displayProperties.icon}
+            alt=""
+            className="WeaponIcon"
+          />
+          <div className="WeaponHeaderText">
+            <h3>{name}</h3>
+            <p>
+              {tier} |{" "}
+              {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
+              {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
+            </p>
+          </div>
         </div>
       </article>
     </ReactTooltip>

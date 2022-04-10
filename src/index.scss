@@ -71,37 +71,19 @@ body {
 
   h4 {
     margin: 0;
-    @include mixin.header;
+    @include mixin.text-bold-subtitle;
     @include mixin.flex-row;
-  }
-
-  section {
-    h1 {
-      margin: 0;
-      @include mixin.text-bold-subtitle;
-      @include mixin.flex-row;
-    }
-    h2 {
-      margin: 0;
-      @include mixin.text-subtitle;
-      @include mixin.flex-row;
-    }
-    h3 {
-      margin: 0;
-      @include mixin.header;
-      @include mixin.flex-row;
-    }
   }
 
   h5 {
     margin: 0;
-    @include mixin.header;
+    @include mixin.text-subtitle;
     @include mixin.flex-row;
   }
 
   h6 {
     margin: 0;
-    @include mixin.text-subtitle;
+    @include mixin.header;
     @include mixin.flex-row;
   }
 
