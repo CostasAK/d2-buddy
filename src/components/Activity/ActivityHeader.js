@@ -1,6 +1,7 @@
 import "./ActivityHeader.scss";
 
 import Destination from "./Destination";
+import PropTypes from "prop-types";
 import getActivityType from "../../functions/getActivityType";
 import getScreenshot from "../../functions/getScreenshot";
 
@@ -21,5 +22,12 @@ function ActivityHeader({ data, name }) {
     </section>
   );
 }
+
+ActivityHeader.propTypes = {
+  data: PropTypes.object.isRequired,
+  name: PropTypes.string,
+};
+
+ActivityHeader.defaultProps = {};
 
 export default ActivityHeader;
