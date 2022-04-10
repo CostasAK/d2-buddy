@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.462334cf.css",
-    "main.js": "/static/js/main.cc86440a.js",
+    "main.css": "/static/css/main.5c5d4ba1.css",
+    "main.js": "/static/js/main.3818fd0c.js",
     "static/js/787.425a60e7.chunk.js": "/static/js/787.425a60e7.chunk.js",
     "static/media/blueberries.gg.jpg": "/static/media/blueberries.gg.fad27043ef35cfce05e8.jpg",
     "index.html": "/index.html",
     "static/media/initialen.svg": "/static/media/initialen.03daac03d2cb4d0f265222adfa5236e9.svg",
     "static/media/clovis_ck.svg": "/static/media/clovis_ck.3ec3b1971ccf26b28e2a3c94b76535a9.svg",
-    "main.462334cf.css.map": "/static/css/main.462334cf.css.map",
-    "main.cc86440a.js.map": "/static/js/main.cc86440a.js.map",
+    "main.5c5d4ba1.css.map": "/static/css/main.5c5d4ba1.css.map",
+    "main.3818fd0c.js.map": "/static/js/main.3818fd0c.js.map",
     "787.425a60e7.chunk.js.map": "/static/js/787.425a60e7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.462334cf.css",
-    "static/js/main.cc86440a.js"
+    "static/css/main.5c5d4ba1.css",
+    "static/js/main.3818fd0c.js"
   ]
 }
