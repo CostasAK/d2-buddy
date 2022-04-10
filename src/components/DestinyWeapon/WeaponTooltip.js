@@ -17,7 +17,12 @@ function WeaponTooltip({ id }) {
 
   if (isPending) {
     return (
-      <ReactTooltip id={id} place="bottom">
+      <ReactTooltip
+        id={id}
+        place="bottom"
+        className="ReactTooltip"
+        border={false}
+      >
         <Spinner fadeIn="none" />
       </ReactTooltip>
     );
@@ -46,9 +51,7 @@ function WeaponTooltip({ id }) {
       className="ReactTooltip"
       border={false}
     >
-      <article
-        className={"WeaponTooltip " + data.Response.inventory.tierTypeName}
-      >
+      <article className={"WeaponTooltip " + tier}>
         <img src={screenshot} alt="" className="WeaponScreenshot" />
         <div className="WeaponHeader">
           <img
