@@ -33,6 +33,11 @@ const font_symbols = {
   activities: {
     LostSector: { symbol: "", name: "Lost Sector" },
   },
+  controllers: {
+    playstation: {
+      Cross: { symbol: "", name: "Cross" },
+    },
+  },
 };
 
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
