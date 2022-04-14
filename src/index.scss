@@ -41,6 +41,12 @@ body {
     padding: 0;
   }
 
+  p {
+    width: clamp(45ch, fit-content(), 75ch);
+    max-width: 100%;
+    text-align: justify;
+  }
+
   a {
     color: var.$navigation-fg;
     text-decoration: none;
