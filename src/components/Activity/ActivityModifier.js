@@ -13,7 +13,7 @@ function ActivityModifier({ id }) {
   if (isPending) {
     return (
       <section className="ActivityModifier">
-        <Spinner name="cube-grid" className="icon" />
+        <Spinner name="cube-grid" className="icon" fadeIn="none" />
         <div className="description">
           <h6>Loading modifier...</h6>
         </div>
@@ -26,22 +26,33 @@ function ActivityModifier({ id }) {
     return null;
   }
 
+  if (
+    !(
+      data.Response.displayProperties.icon &&
+      data.Response.displayProperties.name
+    )
+  ) {
+    return null;
+  }
+
   return (
     <section className="ActivityModifier">
       <img
         className="icon"
         src={bungie_root + data.Response.displayProperties.icon}
-        alt="data.Response.displayProperties.name"
+        alt=""
         title={data.Response.displayProperties.name}
       />
       <div className="description">
         <h6>{data.Response.displayProperties.name}</h6>
-        <p>
-          {data.Response.displayProperties.description.replace(
-            /(?:\s*\n+\s*)+/g,
-            "; "
-          )}
-        </p>
+        {data.Response.displayProperties.description && (
+          <p>
+            {data.Response.displayProperties.description.replace(
+              /(?:[\s.,]*\n+[\s.,]*)+/g,
+              "; "
+            )}
+          </p>
+        )}
       </div>
     </section>
   );

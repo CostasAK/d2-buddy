@@ -1,6 +1,9 @@
 import "./style.scss";
 
 import ActivityHeader from "./ActivityHeader";
+import ActivityModifier from "./ActivityModifier";
+import ActivityModifiers from "./ActivityModifiers";
+import Destination from "./Destination";
 import PropTypes from "prop-types";
 import Spinner from "react-spinkit";
 import useBungieApi from "../../hooks/useBungieApi";
@@ -26,6 +29,7 @@ function Activity({ id, name }) {
   return (
     <article className="Activity">
       <ActivityHeader data={data} name={name} />
+      <ActivityModifiers data={data} />
     </article>
   );
 }
@@ -38,3 +42,5 @@ Activity.propTypes = {
 Activity.defaultProps = {};
 
 export default Activity;
+
+export { Destination, ActivityHeader, ActivityModifiers, ActivityModifier };
