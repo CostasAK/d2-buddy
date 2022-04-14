@@ -1,8 +1,9 @@
 @import url(//use.typekit.net/zkr4osd.css);
 
-$margins: 36px;
-$main-width: 960px;
-$border-radius: 4px;
+$margins: 2rem;
+$gap: 1rem;
+$main-width: 60rem;
+$border-radius: 0.25rem;
 $primary-fg: #f5f5f5;
 $primary-bg: #04040e;
 $header-fg: #f1f1f1;
@@ -20,7 +21,7 @@ $void: #996eb5;
 $stasis: #406ad4;
 $legendary: #4e3263;
 $exotic: #cdad34;
-$border-expansion: 4px;
+$border-expansion: 0.25rem;
 $line-height: 1.5;
 $primary-font-stack: neue-haas-grotesk-display, neue-haas-grotesk-text, Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $secondary-font-stack: Arial, -apple-system, BlinkMacSystemFont, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
