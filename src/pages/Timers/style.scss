@@ -5,15 +5,12 @@
   @include mixin.flex-column;
   width: var.$main-width;
   max-width: calc(100% - var.$margins);
+  gap: var.$margins;
   .Timers {
     @include mixin.flex-row-wrap;
     justify-content: space-between;
     align-items: center;
     gap: var.$margins;
-    padding-bottom: var.$margins;
-    &:last-child {
-      padding-bottom: 0;
-    }
     .CardWrapper {
       flex: 1 1 auto;
     }
