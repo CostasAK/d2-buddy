@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 function ActivityModifiers({ data }) {
   return (
     <section className="ActivityModifiers">
-      {data.Response.modifiers.map((modifier) => (
-        <ActivityModifier id={modifier.activityModifierHash} />
+      {data.Response.modifiers.map((modifier, index) => (
+        <ActivityModifier key={index} id={modifier.activityModifierHash} />
       ))}
     </section>
   );

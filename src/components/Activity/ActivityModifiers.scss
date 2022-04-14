@@ -1,5 +1,9 @@
+@use "../../sass/variables" as var;
+
+@use "sass:math";
+
 .ActivityModifiers {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr));
+  gap: var.$gap;
 }
