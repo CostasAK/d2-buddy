@@ -12,6 +12,7 @@
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
+  box-shadow: 0 6px 6px 0 rgba(0,0,0,.16);
   > * {
     transition: all math.div(var.$transition, 2);
   }
@@ -41,6 +42,8 @@
       width: 100%;
       max-width: 1280px;
       max-height: 720px;
+      border: 1pt solid rgba(255, 255, 255, 0.5) !important;
+      border-bottom: 0 !important;
     }
 
     .WeaponHeader {
