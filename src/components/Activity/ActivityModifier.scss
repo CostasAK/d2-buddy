@@ -1,0 +1,20 @@
+.ActivityModifier {
+  display: flex;
+  flex-flow: row;
+  text-align: left;
+  gap: 0.5em;
+  .icon {
+    margin: 0.25em 0;
+    height: 2.5em;
+    width: auto;
+    max-width: 60px;
+    max-height: 60px;
+  }
+  .description {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    margin: auto;
+    height: max-content;
+  }
+}
