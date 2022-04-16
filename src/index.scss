@@ -21,6 +21,10 @@
   transition: all var.$transition;
 }
 
+img[src$=".gif"], img[src$=".png"] {
+    image-rendering: -webkit-optimize-contrast;
+}
+
 body {
   margin: 0;
 
