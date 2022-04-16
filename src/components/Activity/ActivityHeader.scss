@@ -9,7 +9,8 @@
   justify-content: flex-end;
   align-items: flex-start;
 
-  text-shadow: 1px 1px 0.25em var.$primary-bg, 1px -1px 0.25em var.$primary-bg, -1px 1px 0.25em var.$primary-bg, -1px -1px 0.25em var.$primary-bg;
+  text-shadow: 1px 1px 0.25em var.$primary-bg, 1px -1px 0.25em var.$primary-bg,
+    -1px 1px 0.25em var.$primary-bg, -1px -1px 0.25em var.$primary-bg;
 
   padding: 2rem 2rem 1rem 1rem;
 
