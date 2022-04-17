@@ -1,0 +1,41 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+
+.ActivityChampions {
+  .Heading {
+    text-align: left;
+    justify-content: flex-start;
+    @include mixin.border-bottom;
+  }
+  .Champions {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var.$gap;
+    @include mixin.text-number;
+    .Champion {
+      display: grid;
+      justify-items: flex-end;
+      align-items: flex-end;
+      > * {
+        grid-column-start: 1;
+        grid-row-start: 1;
+      }
+      .DestinyIcon {
+        z-index: 0;
+        font-size: 1.5em;
+        height: 1.5em;
+        display: flex;
+        justify-content: safe center;
+        align-items: safe center;
+        > img {
+          margin: 0.01em;
+        }
+      }
+      .ChampionAmount {
+        z-index: 1;
+        @include mixin.text-number;
+        @include mixin.text-shadow;
+      }
+    }
+  }
+}

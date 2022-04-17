@@ -1,0 +1,55 @@
+import "./ActivityShields.scss";
+
+import DestinyIcon from "../DestinyIcon";
+import PropTypes from "prop-types";
+
+const known_elements = [
+  { class: "Arc", pattern: /arc/i },
+  { class: "Solar", pattern: /solar/i },
+  { class: "Void", pattern: /void/i },
+  { class: "Stasis", pattern: /stasis/i },
+];
+
+function ActivityShields({ shields, known_shields }) {
+  if (!shields || shields.length < 1) {
+    return null;
+  }
+
+  const parsed_shields = new Set();
+
+  shields.map((modifier) =>
+    known_elements.map(
+      (element) =>
+        element.pattern.test(modifier.Response.displayProperties.description) &&
+        parsed_shields.add(element.class)
+    )
+  );
+
+  return (
+    <section className="ActivityShields">
+      <h5 className="Heading">Shields</h5>
+      <div className="Shields">
+        {[...parsed_shields].map((shield, index) => (
+          <div className="Shield" key={index}>
+            <DestinyIcon icon={["elements", shield]} color={shield} />
+            {known_shields[shield] && (
+              <span className="ShieldAmount">{known_shields[shield]}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+ActivityShields.propTypes = {
+  shields: PropTypes.array,
+  known_shields: PropTypes.object,
+};
+
+ActivityShields.defaultProps = {
+  shields: [],
+  known_shields: {},
+};
+
+export default ActivityShields;

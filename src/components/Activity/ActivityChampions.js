@@ -1,0 +1,62 @@
+import "./ActivityChampions.scss";
+
+import DestinyIcon from "../DestinyIcon";
+import PropTypes from "prop-types";
+
+const known_types = [
+  { class: "Overload", pattern: /Disruption|Overload/i },
+  { class: "Unstoppable", pattern: /Stagger|Unstoppable/i },
+  { class: "Barrier", pattern: /void/i },
+];
+
+function ActivityChampions({ champions, known_champions }) {
+  if (!champions || champions.length < 1) {
+    return null;
+  }
+
+  const parsed_champions = new Set();
+
+  champions.map((modifier) =>
+    known_types.map(
+      (champion) =>
+        champion.pattern.test(
+          modifier.Response.displayProperties.description
+        ) && parsed_champions.add(champion.class)
+    )
+  );
+
+  return (
+    <section className="ActivityChampions">
+      <h5 className="Heading">Champions</h5>
+      <div className="Champions">
+        {[...parsed_champions].map((champion, index) => (
+          <div className="Champion" key={index}>
+            <DestinyIcon
+              icon={["champions", "modifiers", champion]}
+              style={{
+                filter: `brightness(${known_champions[champion] && "75%"})`,
+              }}
+            />
+            {known_champions[champion] && (
+              <span className="ChampionAmount">
+                {known_champions[champion]}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+ActivityChampions.propTypes = {
+  champions: PropTypes.array,
+  known_champions: PropTypes.object,
+};
+
+ActivityChampions.defaultProps = {
+  champions: [],
+  known_champions: {},
+};
+
+export default ActivityChampions;
