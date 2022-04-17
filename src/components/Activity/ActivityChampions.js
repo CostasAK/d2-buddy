@@ -37,7 +37,7 @@ function ActivityChampions({ champions, known_champions }) {
                 filter: `brightness(${known_champions[champion] && "75%"})`,
               }}
             />
-            {known_champions[champion] && (
+            {known_champions[champion] > 0 && (
               <span className="ChampionAmount">
                 {known_champions[champion]}
               </span>

@@ -32,7 +32,7 @@ function ActivityShields({ shields, known_shields }) {
         {[...parsed_shields].map((shield, index) => (
           <div className="Shield" key={index}>
             <DestinyIcon icon={["elements", shield]} color={shield} />
-            {known_shields[shield] && (
+            {known_shields[shield] > 0 && (
               <span className="ShieldAmount">{known_shields[shield]}</span>
             )}
           </div>

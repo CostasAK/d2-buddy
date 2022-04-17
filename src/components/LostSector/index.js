@@ -3,6 +3,7 @@ import "./style.scss";
 import ActivityHeader from "../Activity/ActivityHeader";
 import ActivityModifiers from "../Activity/ActivityModifiers";
 import Spinner from "react-spinkit";
+import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
 import useLostSectors from "../../hooks/useLostSectors";
 
 function LostSector({ name }) {
@@ -28,6 +29,16 @@ function LostSector({ name }) {
     );
   }
 
+  const {
+    known_shields: known_shields_legend,
+    known_champions: known_champions_legend,
+  } = getKnownActivityAmounts(data[0].Response.hash);
+
+  const {
+    known_shields: known_shields_master,
+    known_champions: known_champions_master,
+  } = getKnownActivityAmounts(data[1].Response.hash);
+
   return (
     <article className="LostSector">
       <ActivityHeader
@@ -39,11 +50,19 @@ function LostSector({ name }) {
       />
       <section className="Legend">
         <h2 className="Heading">Legend</h2>
-        <ActivityModifiers data={data[0]} />
+        <ActivityModifiers
+          data={data[0]}
+          known_shields={known_shields_legend}
+          known_champions={known_champions_legend}
+        />
       </section>
       <section className="Master">
         <h2 className="Heading">Master</h2>
-        <ActivityModifiers data={data[1]} />
+        <ActivityModifiers
+          data={data[1]}
+          known_shields={known_shields_master}
+          known_champions={known_champions_master}
+        />
       </section>
     </article>
   );
