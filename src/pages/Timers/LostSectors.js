@@ -3,44 +3,58 @@ import { lcm } from "../../functions/gcd";
 
 const locations = [
   {
-    name: "K1 Crew Quarters - Moon",
+    name: "K1 Crew Quarters",
+    location: "Moon",
     info: "http://kyber3000.com/LS-K1CrewQuarters",
   },
-  { name: "K1 Logistics - Moon", info: "http://kyber3000.com/LS-K1Logistics" },
   {
-    name: "Metamorphosis - Throne World",
+    name: "K1 Logistics",
+    location: "Moon",
+    info: "http://kyber3000.com/LS-K1Logistics",
+  },
+  {
+    name: "Metamorphosis",
+    location: "Throne World",
     info: "https://kyber3000.com/LS-Metamorphosis",
   },
   {
-    name: "Sepulchur - Throne World",
+    name: "Sepulchur",
+    location: "Throne World",
     info: "https://kyber3000.com/LS-Sepulcher",
   },
   {
-    name: "Extraction - Throne World",
+    name: "Extraction",
+    location: "Throne World",
     info: "http://kyber3000.com/LS-Extraction",
   },
   {
-    name: "Veles Labyrinth - Cosmodrome",
+    name: "Veles Labyrinth",
+    location: "Cosmodrome",
     info: "http://kyber3000.com/LS-VelesLabyrinth",
   },
   {
-    name: "Exodus Garden A2 - Cosmodrome",
+    name: "Exodus Garden A2",
+    location: "Cosmodrome",
     info: "https://i.imgur.com/88r6qcR.png",
   },
   {
-    name: "Aphelion's Rest - Dreaming City",
+    name: "Aphelion's Rest",
+    location: "Dreaming City",
     info: "http://kyber3000.com/LS-AphelionsRest",
   },
   {
-    name: "Bay of Drowned Wishes - Dreaming City",
+    name: "Bay of Drowned Wishes",
+    location: "Dreaming City",
     info: "http://kyber3000.com/LS-BayofDrownedWishes",
   },
   {
-    name: "Chamber of Starlight - Dreaming City",
+    name: "Chamber of Starlight",
+    location: "Dreaming City",
     info: "http://kyber3000.com/LS-ChamberofStarlight",
   },
   {
-    name: "K1 Revelation - Moon",
+    name: "K1 Revelation",
+    location: "Moon",
     info: "http://kyber3000.com/LS-K1Revelation",
   },
 ];
@@ -57,7 +71,8 @@ do {
         target="_blank"
         rel="noreferrer"
       >
-        {locations[items.length % locations.length].name}
+        {locations[items.length % locations.length].name} -{" "}
+        {locations[items.length % locations.length].location}
       </a>
       {" ("}
       {drops[items.length % drops.length]}
