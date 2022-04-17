@@ -12,6 +12,7 @@
   > * {
     flex: 1 1 auto;
   }
+  margin: 0 var.$gap var.$gap var.$gap;
   .OtherModifiers {
     width: 100%;
     .Heading {

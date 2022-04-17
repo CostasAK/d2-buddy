@@ -21,8 +21,9 @@
   transition: all var.$transition;
 }
 
-img[src$=".gif"], img[src$=".png"] {
-    image-rendering: -webkit-optimize-contrast;
+img[src$=".gif"],
+img[src$=".png"] {
+  image-rendering: -webkit-optimize-contrast;
 }
 
 body {
@@ -97,11 +98,51 @@ body {
     @include mixin.flex-row;
   }
 
+  .popup-overlay {
+    background: rgba(0, 0, 0, 0.71);
+    animation: fade 0.25s;
+    .popup-content {
+      margin: auto;
+      width: fit-content;
+      max-width: calc(min(var.$main-width, 100%) - 2 * var.$margins);
+      min-width: calc(320px - 2 * var.$margins);
+      animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      .Modal,
+      .CardModal {
+        max-height: calc(100vh - 2 * var.$margins);
+        overflow-y: auto;
+      }
+    }
+  }
+
+  @keyframes anvil {
+    0% {
+      opacity: 0;
+    }
+    1% {
+      transform: scale(0.96) translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .sk-spinner {
     color: inherit;
-    opacity: 50%;
     &.sk-three-bounce {
       display: inline;
+      opacity: 50%;
       > div {
         height: 0.75em;
         width: 0.75em;

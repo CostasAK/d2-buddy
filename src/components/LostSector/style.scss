@@ -24,4 +24,11 @@
   .Master > .Heading {
       background-color: var.$highlight-dim;
   }
+  .loading,
+  .error {
+    margin: var.$margins;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var.$gap;
+  }
 }

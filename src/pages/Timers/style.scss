@@ -40,3 +40,10 @@
     }
   }
 }
+
+.Modal {
+  background: var.$primary-bg;
+  max-width: 100%;
+  margin: var.$border-expansion;
+  border: 1px solid var.$primary-fg;
+}

@@ -1,4 +1,6 @@
 import CycleCard from "../../components/CycleCard";
+import LostSector from "../../components/LostSector";
+import Popup from "reactjs-popup";
 import { lcm } from "../../functions/gcd";
 
 const locations = [
@@ -66,14 +68,23 @@ const items = [];
 do {
   items.push(
     <>
-      <a
-        href={locations[items.length % locations.length].info}
-        target="_blank"
-        rel="noreferrer"
+      <Popup
+        trigger={
+          <a
+            href={locations[items.length % locations.length].info}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {locations[items.length % locations.length].name} -{" "}
+            {locations[items.length % locations.length].location}
+          </a>
+        }
+        modal
       >
-        {locations[items.length % locations.length].name} -{" "}
-        {locations[items.length % locations.length].location}
-      </a>
+        <div className="Modal">
+          <LostSector name={locations[items.length % locations.length].name} />
+        </div>
+      </Popup>
       {" ("}
       {drops[items.length % drops.length]}
       {")"}

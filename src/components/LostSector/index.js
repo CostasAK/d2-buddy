@@ -2,18 +2,30 @@ import "./style.scss";
 
 import ActivityHeader from "../Activity/ActivityHeader";
 import ActivityModifiers from "../Activity/ActivityModifiers";
+import Spinner from "react-spinkit";
 import useLostSectors from "../../hooks/useLostSectors";
 
 function LostSector({ name }) {
   const { data, error, isPending } = useLostSectors(name);
 
   if (isPending) {
-    return null;
+    return (
+      <article className="LostSector">
+        <h2 className="loading">
+          <Spinner name="cube-grid" fadeIn="none" />
+          <span>Loading...</span>
+        </h2>
+      </article>
+    );
   }
 
   if (error) {
     console.error(error);
-    return null;
+    return (
+      <article className="LostSector">
+        <h2 className="error">Can't find Lost Sector info...</h2>
+      </article>
+    );
   }
 
   return (
