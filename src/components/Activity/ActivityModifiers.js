@@ -8,7 +8,7 @@ import useBungieApi from "../../hooks/useBungieApi";
 
 const api_path = "/Destiny2/Manifest/DestinyActivityModifierDefinition/";
 
-function ActivityModifiers({ data }) {
+function ActivityModifiers({ data, known_shields, known_champions }) {
   const {
     data: modifier_data,
     error,
@@ -38,15 +38,22 @@ function ActivityModifiers({ data }) {
 
   const other_modifiers = modifier_data.filter(
     (modifier) =>
-      !/(shielded|champion) foes/i.test(
+      !/(shielded|champion) foes|champions: mob/i.test(
         modifier.Response.displayProperties.name
       )
   );
 
   return (
     <section className="ActivityModifiers">
-      {shields.length > 0 && <ActivityShields shields={shields} />}
-      {champions.length > 0 && <ActivityChampions champions={champions} />}
+      {shields.length > 0 && (
+        <ActivityShields shields={shields} known_shields={known_shields} />
+      )}
+      {champions.length > 0 && (
+        <ActivityChampions
+          champions={champions}
+          known_champions={known_champions}
+        />
+      )}
       {other_modifiers.length > 0 && (
         <section className="OtherModifiers">
           <h5 className="Heading">Modifiers</h5>

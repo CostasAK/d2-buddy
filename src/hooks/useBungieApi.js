@@ -1,15 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import axios from "axios";
-
-const bungie_api = axios.create({
-  baseURL: "https://www.bungie.net/Platform",
-  headers: {
-    Accept: "application/json",
-    "X-API-KEY": process.env.REACT_APP_BUNGIE_API_KEY,
-  },
-  // responseType: "json",
-});
+import bungieApi from "../functions/bungieApi";
 
 const useBungieApi = (path, method = "GET", headers) => {
   const [data, setData] = useState(
@@ -19,15 +10,7 @@ const useBungieApi = (path, method = "GET", headers) => {
   const [isPending, setIsPending] = useState(true);
 
   const execute = useCallback(() => {
-    const fetchData = () => {
-      const paths = Array.isArray(path) ? path : [path];
-
-      return Promise.all(
-        paths.map((p) => bungie_api({ url: p, method, headers }))
-      );
-    };
-
-    return fetchData()
+    return bungieApi(path, method, headers)
       .then((responses) => {
         setData(
           responses.length > 1
