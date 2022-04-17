@@ -51,6 +51,7 @@ body {
     max-width: 100%;
   }
 
+  .a-link,
   a {
     color: var.$navigation-fg;
     text-decoration: none;
@@ -60,6 +61,7 @@ body {
       color: #bcbdbf;
       text-decoration: none;
     }
+    cursor: pointer;
   }
 
   h1 {
