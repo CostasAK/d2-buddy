@@ -20,7 +20,7 @@ const locations = [
     info: "https://kyber3000.com/LS-Metamorphosis",
   },
   {
-    name: "Sepulchur",
+    name: "Sepulcher",
     location: "Throne World",
     info: "https://kyber3000.com/LS-Sepulcher",
   },

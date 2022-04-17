@@ -104,7 +104,7 @@ body {
     .popup-content {
       margin: auto;
       width: fit-content;
-      max-width: calc(min(var.$main-width, 100%) - 2 * var.$margins);
+      max-width: calc(100% - 2 * var.$margins);
       min-width: calc(320px - 2 * var.$margins);
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       .Modal,
