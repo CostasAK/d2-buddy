@@ -1,4 +1,5 @@
 @use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
 
 .ActivityHeader {
   background-size: cover;
@@ -9,8 +10,7 @@
   justify-content: flex-end;
   align-items: flex-start;
 
-  text-shadow: 1px 1px 0.25em var.$primary-bg, 1px -1px 0.25em var.$primary-bg,
-    -1px 1px 0.25em var.$primary-bg, -1px -1px 0.25em var.$primary-bg;
+  @include mixin.text-shadow;
 
   padding: 2rem 2rem 1rem 1rem;
 
@@ -23,7 +23,7 @@
   }
 
   .ActivityName {
-    border-top: 1pt solid rgba(255, 255, 255, 0.5);
+    @include mixin.border-top;
   }
 
   .Destination {

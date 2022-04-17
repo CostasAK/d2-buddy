@@ -1,65 +1,65 @@
 import "./ActivityModifier.scss";
 
 import { PropTypes } from "prop-types";
-import Spinner from "react-spinkit";
-import useBungieApi from "../../hooks/useBungieApi";
 
-const api_path = "/Destiny2/Manifest/DestinyActivityModifierDefinition/";
 const bungie_root = "https://bungie.net";
 
-function ActivityModifier({ id }) {
-  const { data, error, isPending } = useBungieApi(`${api_path}${id}/`);
+function ActivityModifier({ data }) {
+  const name = data.Response.displayProperties.name;
+  const icon = data.Response.displayProperties.icon;
 
-  if (isPending) {
-    return (
-      <section className="ActivityModifier">
-        <Spinner name="cube-grid" className="icon" fadeIn="none" />
-        <div className="description">
-          <h6>Loading modifier...</h6>
-        </div>
-      </section>
-    );
-  }
+  const description = data.Response.displayProperties.description ? (
+    <p>
+      {data.Response.displayProperties.description
+        .replace(/(?:[\s.,]*\n+[\s.,]*)+/g, "; ")
+        .replace(/(\[Disruption|Stagger\])/g, "|$1|")
+        .split("|")}
+    </p>
+  ) : null;
 
-  if (error) {
-    console.error(error);
+  if (!(icon && name)) {
     return null;
   }
 
-  if (
-    !(
-      data.Response.displayProperties.icon &&
-      data.Response.displayProperties.name
-    )
-  ) {
-    return null;
-  }
+  const known_elements = [
+    { class: "Arc", pattern: /arc/i },
+    { class: "Solar", pattern: /solar/i },
+    { class: "Void", pattern: /void/i },
+    { class: "Stasis", pattern: /stasis/i },
+  ];
 
   return (
     <section className="ActivityModifier">
       <img
-        className="icon"
-        src={bungie_root + data.Response.displayProperties.icon}
+        className={
+          "icon" +
+          known_elements
+            .filter((element) => element.pattern.test(name))
+            .reduce((prev, element) => (prev += " " + element.class), "")
+        }
+        src={bungie_root + icon}
         alt=""
-        title={data.Response.displayProperties.name}
+        title={name}
       />
       <div className="description">
-        <h6>{data.Response.displayProperties.name}</h6>
-        {data.Response.displayProperties.description && (
-          <p>
-            {data.Response.displayProperties.description.replace(
-              /(?:[\s.,]*\n+[\s.,]*)+/g,
-              "; "
-            )}
-          </p>
-        )}
+        <h6
+          className={
+            "heading" +
+            known_elements
+              .filter((element) => element.pattern.test(name))
+              .reduce((prev, element) => (prev += " " + element.class), "")
+          }
+        >
+          {name}
+        </h6>
+        {description}
       </div>
     </section>
   );
 }
 
 ActivityModifier.propTypes = {
-  id: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 ActivityModifier.defaultProps = {};

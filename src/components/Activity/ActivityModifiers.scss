@@ -1,9 +1,31 @@
 @use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
 
 @use "sass:math";
 
 .ActivityModifiers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr));
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: var.$gap;
+  > * {
+    flex: 1 1 auto;
+  }
+  .OtherModifiers {
+    width: 100%;
+    .Heading {
+      justify-content: flex-start;
+      @include mixin.border-bottom;
+      margin-bottom: 0.5rem;
+    }
+    .Modifiers {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr)
+      );
+      gap: var.$gap;
+    }
+  }
 }

@@ -1,6 +1,5 @@
-
 @use "./variables" as var;
-@use 'sass:math';
+@use "sass:math";
 
 @mixin flex-row-wrap {
   display: flex;
@@ -22,7 +21,6 @@
   justify-content: flex-start;
   align-items: safe center;
 }
-
 
 // The following are the text styles as specified by
 // https://www.behance.net/gallery/60073341/Destiny-2-UI-Visual-Design
@@ -85,6 +83,19 @@
   font-style: normal;
   font-size: math.div(48rem, 22);
   letter-spacing: 0.01em;
+}
+
+@mixin text-shadow {
+  text-shadow: 1px 1px 0.25em var.$primary-bg, 1px -1px 0.25em var.$primary-bg,
+    -1px 1px 0.25em var.$primary-bg, -1px -1px 0.25em var.$primary-bg;
+}
+
+@mixin border-bottom {
+  border-bottom: 1pt solid rgba(255, 255, 255, 0.5);
+}
+
+@mixin border-top {
+  border-top: 1pt solid rgba(255, 255, 255, 0.5);
 }
 
 @mixin reset {

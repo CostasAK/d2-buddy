@@ -11,10 +11,10 @@ function Destination({ id }) {
 
   if (isPending) {
     return (
-      <p className="Destination">
+      <div className="Destination">
         <DestinyIcon icon={["activities", "Destination"]} />
         <Spinner fadeIn="none" />
-      </p>
+      </div>
     );
   }
 

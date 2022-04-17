@@ -25,7 +25,7 @@ export default function CycleCard({ name, items, start, period, type }) {
     const timer = setTimeout(() => {
       setNow(() => Date.now());
       setNextCycle(() => nextTime(period, toTime(start)));
-    }, minute - (Date.now() % minute));
+    }, 1000);
 
     return () => {
       clearTimeout(timer);

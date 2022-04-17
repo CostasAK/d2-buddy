@@ -1,27 +1,50 @@
-import { useAsync } from "react-async";
+import { useCallback, useEffect, useState } from "react";
 
-const api_root_path = "https://www.bungie.net/Platform";
-const headers = {
-  Accept: "application/json",
-  "X-API-KEY": process.env.REACT_APP_BUNGIE_API_KEY,
-};
+import axios from "axios";
 
-const fetchJson = async ({ path, options }) => {
-  const data = await fetch(path, options);
+const bungie_api = axios.create({
+  baseURL: "https://www.bungie.net/Platform",
+  headers: {
+    Accept: "application/json",
+    "X-API-KEY": process.env.REACT_APP_BUNGIE_API_KEY,
+  },
+  // responseType: "json",
+});
 
-  if (!data.ok) {
-    throw new Error(data.statusText);
-  }
+const useBungieApi = (path, method = "GET", headers) => {
+  const [data, setData] = useState(
+    Array.isArray(path) ? new Array(path.length) : {}
+  );
+  const [error, setError] = useState(false);
+  const [isPending, setIsPending] = useState(true);
 
-  return await data.json();
-};
+  const execute = useCallback(() => {
+    const fetchData = () => {
+      const paths = Array.isArray(path) ? path : [path];
 
-const useBungieApi = (path, method = "GET") => {
-  const { data, error, isPending } = useAsync({
-    promiseFn: fetchJson,
-    path: `${api_root_path}${path}`,
-    options: { method, headers },
-  });
+      return Promise.all(
+        paths.map((p) => bungie_api({ url: p, method, headers }))
+      );
+    };
+
+    return fetchData()
+      .then((responses) => {
+        setData(
+          responses.length > 1
+            ? responses.map((r) => r.data)
+            : responses[0].data
+        );
+        setIsPending(false);
+      })
+      .catch((e) => {
+        setError(e);
+        setIsPending(false);
+      });
+  }, [path, method, headers]);
+
+  useEffect(() => {
+    execute();
+  }, [execute]);
 
   return { data, error, isPending };
 };

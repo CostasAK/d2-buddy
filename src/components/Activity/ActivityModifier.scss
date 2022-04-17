@@ -1,3 +1,5 @@
+@use "../../sass/variables" as var;
+
 .ActivityModifier {
   display: flex;
   flex-flow: row;
@@ -16,5 +18,19 @@
     flex-flow: column;
     align-items: flex-start;
     height: max-content;
+    .heading {
+      &.Arc {
+        color: var.$arc;
+      }
+      &.Solar {
+        color: var.$solar;
+      }
+      &.Void {
+        color: var.$void;
+      }
+      &.Stasis {
+        color: var.$stasis;
+      }
+    }
   }
 }

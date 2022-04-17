@@ -26,9 +26,9 @@ const font_symbols = {
   elements: {
     Kinetic: { symbol: "", name: "Kinetic" },
     Void: { symbol: "", name: "Void" },
-    Solar: { symbol: "", name: "Void" },
-    Arc: { symbol: "", name: "Void" },
-    Stasis: { symbol: "", name: "Void" },
+    Solar: { symbol: "", name: "Solar" },
+    Arc: { symbol: "", name: "Arc" },
+    Stasis: { symbol: "", name: "Stasis" },
   },
   activities: {
     LostSector: { symbol: "", name: "Lost Sector" },
@@ -51,6 +51,64 @@ const font_symbols = {
       name: "Destination",
     },
   },
+  champions: {
+    modifiers: {
+      Overload: {
+        symbol: (
+          <img
+            src={
+              "https://bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
+            }
+            alt=""
+            style={{
+              aspectRatio: "1 / 1",
+              maxWidth: "60px",
+              maxHeight: "60px",
+              height: "1.5em",
+              lineHeight: "1",
+            }}
+          />
+        ),
+        name: "Overload Champions",
+      },
+      Unstoppable: {
+        symbol: (
+          <img
+            src={
+              "https://bungie.net/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+            }
+            alt=""
+            style={{
+              aspectRatio: "1 / 1",
+              maxWidth: "60px",
+              maxHeight: "60px",
+              height: "1.5em",
+              lineHeight: "1",
+            }}
+          />
+        ),
+        name: "Unstoppable Champions",
+      },
+      Barrier: {
+        symbol: (
+          <img
+            src={
+              "https://bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+            }
+            alt=""
+            style={{
+              aspectRatio: "1 / 1",
+              maxWidth: "60px",
+              maxHeight: "60px",
+              height: "1.5em",
+              lineHeight: "1",
+            }}
+          />
+        ),
+        name: "Barrier Champions",
+      },
+    },
+  },
   controllers: {
     playstation: {
       Cross: { symbol: "", name: "Cross" },
@@ -61,7 +119,7 @@ const font_symbols = {
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
 const known_colors = [...known_elements];
 
-function DestinyIcon({ icon, color }) {
+function DestinyIcon({ icon, color, style }) {
   try {
     const font_symbol = icon.reduce(
       (previous, current) => previous[current],
@@ -69,16 +127,18 @@ function DestinyIcon({ icon, color }) {
     );
 
     return (
-      <figure
+      <span
         className={"DestinyIcon " + (known_colors.includes(color) ? color : "")}
         title={
-          (known_elements.includes(color)
-            ? capitalizeSentence(color) + " "
-            : "") + font_symbol.name
+          (known_elements.includes(color) ? capitalizeSentence(color) : "") +
+          (known_colors.includes(font_symbol.name)
+            ? ""
+            : " " + font_symbol.name)
         }
+        style={style}
       >
         {font_symbol.symbol}
-      </figure>
+      </span>
     );
   } catch {
     console.warn(`Unknown Destiny icon: ${icon}`);
