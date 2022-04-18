@@ -1,5 +1,6 @@
 import CycleCard from "../../components/CycleCard";
 import LostSector from "../../components/LostSector";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import Popup from "reactjs-popup";
 import { lcm } from "../../functions/gcd";
 
@@ -66,9 +67,9 @@ do {
         }
         modal
       >
-        <div className="Modal">
+        <OverlayScrollbarsComponent className="os-theme-light Modal">
           <LostSector name={locations[items.length % locations.length].name} />
-        </div>
+        </OverlayScrollbarsComponent>
       </Popup>
       {" ("}
       {drops[items.length % drops.length]}

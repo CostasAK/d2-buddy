@@ -1,5 +1,6 @@
 import "./style.scss";
 
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import Popup from "reactjs-popup";
 import ReactTooltip from "react-tooltip";
 import parse from "html-react-parser";
@@ -69,7 +70,9 @@ const Card = (props) => {
           }
           modal
         >
-          <div className="CardModal">{modal_content}</div>
+          <OverlayScrollbarsComponent className="CardModal os-theme-light">
+            {modal_content}
+          </OverlayScrollbarsComponent>
         </Popup>
       ) : props.link ? (
         <a
