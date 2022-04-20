@@ -6,149 +6,160 @@
 @import-normalize;
 
 :root {
-  font-size: 100%;
   --margins: 36px;
   --main-width: 960px;
-  --border-radius: 0px;
+  --border-radius: 0;
   --primary-fg: #f5f5f5;
   --primary-bg: #04040e;
+
+  font-size: 100%;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
   transition: all var.$transition;
 }
 
 img[src$=".gif"],
 img[src$=".png"] {
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+body,
+p,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  width: clamp(45ch, fit-content(), 75ch);
+  max-width: 100%;
+}
+
+.a-link,
+a {
+  color: var.$navigation-fg;
+  text-decoration: none;
+  transition: all math.div(var.$transition, 2);
+
+  &:hover,
+  &:active {
+    color: #bcbdbf;
+    text-decoration: none;
+  }
+
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  @include mixin.header-subscreen;
+  @include mixin.flex-row;
+}
+
+h2 {
+  margin: 0;
+  @include mixin.header-tracked;
+  @include mixin.flex-row;
+}
+
+h3 {
+  margin: 0;
+  @include mixin.header-tooltip;
+  @include mixin.flex-row;
+}
+
+h4 {
+  margin: 0;
+  @include mixin.text-bold-subtitle;
+  @include mixin.flex-row;
+}
+
+h5 {
+  margin: 0;
+  @include mixin.text-subtitle;
+  @include mixin.flex-row;
+}
+
+h6 {
+  margin: 0;
+  @include mixin.header;
+  @include mixin.flex-row;
 }
 
 body {
-  margin: 0;
-
   @include mixin.text-body;
-  font-family: var.$primary-font-stack;
-  line-height: var.$line-height;
 
-  text-rendering: optimizeLegibility;
+  font-family: var.$secondary-font-stack;
+  line-height: var.$line-height;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: var.$primary-bg;
-  color: var.$primary-fg;
-
-  p,
-  figure {
-    margin: 0;
-    padding: 0;
-  }
-
-  p {
-    width: clamp(45ch, fit-content(), 75ch);
-    max-width: 100%;
-  }
-
-  .a-link,
-  a {
-    color: var.$navigation-fg;
-    text-decoration: none;
-    transition: all math.div(var.$transition, 2);
-    &:hover,
-    &:active {
-      color: #bcbdbf;
-      text-decoration: none;
-    }
-    cursor: pointer;
-  }
-
-  h1 {
-    margin: 0;
-    @include mixin.header-subscreen;
-    @include mixin.flex-row;
-  }
-
-  h2 {
-    margin: 0;
-    @include mixin.header-tracked;
-    @include mixin.flex-row;
-  }
-
-  h3 {
-    margin: 0;
-    @include mixin.header-tooltip;
-    @include mixin.flex-row;
-  }
-
-  h4 {
-    margin: 0;
-    @include mixin.text-bold-subtitle;
-    @include mixin.flex-row;
-  }
-
-  h5 {
-    margin: 0;
-    @include mixin.text-subtitle;
-    @include mixin.flex-row;
-  }
-
-  h6 {
-    margin: 0;
-    @include mixin.header;
-    @include mixin.flex-row;
-  }
+  background: var.$header-bg;
+  color: var.$header-fg;
 
   .popup-overlay {
-    background: rgba(0, 0, 0, 0.71);
+    background: rgb(0 0 0 / 71%);
     animation: fade 0.25s;
+
     .popup-content {
       margin: auto;
       width: fit-content;
+      height: fit-content;
       max-width: calc(100% - 2 * var.$margins);
       min-width: calc(320px - 2 * var.$margins);
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
       .Modal,
       .CardModal {
+        width: fit-content;
+        height: fit-content;
         max-height: calc(100vh - 2 * var.$margins);
         overflow-y: auto;
       }
     }
   }
 
-  @keyframes anvil {
-    0% {
-      opacity: 0;
-    }
-    1% {
-      transform: scale(0.96) translateY(10px);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1) translateY(0px);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   .sk-spinner {
     color: inherit;
+
     &.sk-three-bounce {
       display: inline;
-      opacity: 50%;
+      opacity: 0.5;
+
       > div {
         height: 0.75em;
         width: 0.75em;
       }
     }
+  }
+}
+
+@keyframes anvil {
+  0% {
+    opacity: 0;
+  }
+
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

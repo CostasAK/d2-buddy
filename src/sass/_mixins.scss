@@ -91,11 +91,11 @@
 }
 
 @mixin border-bottom {
-  border-bottom: 1pt solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1pt solid rgb(255 255 255 / 50%);
 }
 
 @mixin border-top {
-  border-top: 1pt solid rgba(255, 255, 255, 0.5);
+  border-top: 1pt solid rgb(255 255 255 / 50%);
 }
 
 @mixin reset {
@@ -103,13 +103,12 @@
   padding: 0;
 
   @include text-body;
+
   font-family: var.$primary-font-stack;
   line-height: var.$line-height;
-
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background: var.$primary-bg;
   color: var.$primary-fg;
   opacity: 1;
