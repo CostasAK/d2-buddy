@@ -45,20 +45,6 @@
     ]
   },
   "prettier": {},
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard-scss",
-      "stylelint-config-prettier-scss"
-    ],
-    "rules": {
-      "font-family-no-missing-generic-family-keyword": [
-        true,
-        {
-          "ignoreFontFamilies": "Destiny_Keys"
-        }
-      ]
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",

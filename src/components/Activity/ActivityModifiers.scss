@@ -19,7 +19,7 @@
   .other-modifiers {
     width: 100%;
 
-    .heading {
+    > .heading {
       justify-content: flex-start;
       @include mixin.border-bottom;
 

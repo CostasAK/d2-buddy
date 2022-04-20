@@ -2,7 +2,8 @@
 @use "./sass/mixins" as mixin;
 @use "sass:math";
 
-#root {
+#root,
+#popup-root {
   font-family: var.$primary-font-stack;
   background: var.$primary-bg;
   color: var.$primary-fg;
