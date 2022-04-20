@@ -1,36 +1,46 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.TimersWrapper {
+.timers-wrapper {
   @include mixin.flex-column;
+
   width: var.$main-width;
   max-width: calc(100% - var.$margins);
   gap: var.$margins;
+
   .Timers {
     @include mixin.flex-row-wrap;
+
     justify-content: space-between;
     align-items: center;
     gap: var.$margins;
+
     .CardWrapper {
       flex: 1 1 auto;
     }
+
     &.Links {
       justify-content: safe center;
       font-family: var.$secondary-font-stack;
       letter-spacing: normal;
+
       .CardWrapper {
         flex: 0 1 auto;
+
         .Card {
           .content {
             text-align: center;
             padding: 0.5em 1em;
             background: var.$highlight-dim;
           }
+
           border-color: var.$highlight-bright;
+
           &:hover,
           &:focus,
           &:active {
             border-color: var.$primary-fg;
+
             .content {
               background: var.$highlight-mid;
             }
