@@ -24,6 +24,6 @@ jobs:
       - name: "Clean Install"
         run: npm ci
       - name: "Stylelint"
-        run: stylelint "public/**/*.{css,scss}" "src/**/*.{css,scss}"
+        run: npx stylelint "public/**/*.{css,scss}" "src/**/*.{css,scss}"
       - name: "Run Tests"
         run: npm test
