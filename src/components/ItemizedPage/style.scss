@@ -2,18 +2,17 @@
 @use "../../sass/mixins" as mixin;
 @use "sass:math";
 
-.ItemizedPage {
+.itemized-page {
   width: 100%;
   max-width: 1080px + 360px;
 
-  .Masonry {
+  .masonry {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: var.$margins;
 
-    .masonryColumn {
-      // max-width: 360px;
+    .masonry-column {
       .card-wrapper {
         @include mixin.flex-column;
 

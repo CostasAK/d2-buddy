@@ -1,6 +1,7 @@
-import Masonry from "react-masonry-css";
-import Card from "../Card";
 import "./style.scss";
+
+import Card from "../Card";
+import Masonry from "react-masonry-css";
 
 export function ItemizedPage(props) {
   let columnBreakpoints = { default: props.maxColumns };
@@ -10,10 +11,10 @@ export function ItemizedPage(props) {
   }
 
   return (
-    <div className={"ItemizedPage " + (props.className || "")}>
+    <div className={"itemized-page " + (props.className || "")}>
       <Masonry
-        className="Masonry"
-        columnClassName="masonryColumn"
+        className="masonry"
+        columnClassName="masonry-column"
         breakpointCols={columnBreakpoints}
       >
         {props.items.map((item) => (
