@@ -1,9 +1,7 @@
 name: NodeJS Continuous Integration
 
 on:
-  push:
-    branches-ignore:
-      - main
+  workflow_dispatch:
   pull_request:
 
 jobs:
@@ -11,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-18.04, ubuntu-latest]
+        os: [ubuntu-latest]
         node-version: [14, 16]
     steps:
       - name: "Checkout Repository"
