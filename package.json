@@ -36,7 +36,8 @@
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!@d2api)/\"",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +62,8 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "gh-pages": "^3.2.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
     "prettier": "2.6.2",
     "sass": "^1.49.8",
     "stylelint": "^14.7.1",
@@ -68,5 +71,9 @@
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard": "^25.0.0",
     "stylelint-config-standard-scss": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{css,scss}": "stylelint --fix",
+    "*.{js,css,scss,md}": "prettier --write"
   }
 }
