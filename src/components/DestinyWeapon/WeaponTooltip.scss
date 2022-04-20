@@ -4,61 +4,69 @@
 
 .type-dark,
 .type-custom,
-.ReactTooltip {
+.react-tooltip {
   @include mixin.reset;
+
   opacity: 1 !important;
   border-radius: 0 !important;
   overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
-  box-shadow: 0 6px 6px 0 rgba(0,0,0,.16);
+  box-shadow: 0 6px 6px 0 rgb(0 0 0 / 16%);
+
   > * {
     transition: all math.div(var.$transition, 2);
   }
+
   &:not(.show) {
     opacity: 0 !important;
+
     > * {
       opacity: 0 !important;
     }
   }
 
-  .WeaponTooltip {
+  .weapon-tooltip {
     @include mixin.reset;
+
     background: inherit;
-    &.Legendary {
+
+    &.legendary {
       background: var.$legendary;
     }
-    &.Exotic {
+
+    &.exotic {
       background: var.$exotic;
     }
 
     display: flex;
     flex-flow: column;
-
     width: min-content;
 
-    .WeaponScreenshot {
+    .weapon-screenshot {
       width: 100%;
       max-width: 1280px;
       max-height: 720px;
     }
 
-    .WeaponHeader {
+    .weapon-header {
       display: flex;
       flex-flow: row;
       gap: 0.5rem;
       padding-right: 0.5rem;
 
-      .WeaponIcon {
+      .weapon-icon {
         border: 2px solid var.$primary-fg;
         height: 1.5 * (math.div(36rem, 22) + 1rem);
         aspect-ratio: 1 / 1;
       }
+
       h3 {
         margin: 0 !important;
         width: max-content;
       }
+
       p {
         width: max-content;
       }

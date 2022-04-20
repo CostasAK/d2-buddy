@@ -1,13 +1,13 @@
-import "./WeaponTooltip.scss";
+import "./WeaponTooltip.scss"
 
-import DestinyIcon from "../DestinyIcon";
-import ReactTooltip from "react-tooltip";
-import Spinner from "react-spinkit";
-import getScreenshot from "../../functions/getScreenshot";
-import getWeaponElement from "../../functions/getWeaponElement";
-import getWeaponType from "../../functions/getWeaponType";
-import tierToColor from "../../functions/tierToColor";
-import useBungieApi from "../../hooks/useBungieApi";
+import DestinyIcon from "../DestinyIcon"
+import ReactTooltip from "react-tooltip"
+import Spinner from "react-spinkit"
+import getScreenshot from "../../functions/getScreenshot"
+import getWeaponElement from "../../functions/getWeaponElement"
+import getWeaponType from "../../functions/getWeaponType"
+import tierToColor from "../../functions/tierToColor"
+import useBungieApi from "../../hooks/useBungieApi"
 
 const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
 const bungie_root_path = "https://bungie.net";
@@ -20,7 +20,7 @@ function WeaponTooltip({ id }) {
       <ReactTooltip
         id={id}
         place="bottom"
-        className="ReactTooltip"
+        className="react-tooltip"
         border={false}
       >
         <Spinner fadeIn="none" />
@@ -48,16 +48,16 @@ function WeaponTooltip({ id }) {
       id={id}
       place="bottom"
       backgroundColor={tierToColor(tier)}
-      className="ReactTooltip"
+      className="react-tooltip"
       border={false}
     >
-      <article className={"WeaponTooltip " + tier}>
-        <img src={screenshot} alt="" className="WeaponScreenshot" />
-        <div className="WeaponHeader">
+      <article className={"weapon-tooltip " + tier.toLowerCase()}>
+        <img src={screenshot} alt="" className="weapon-screenshot" />
+        <div className="weapon-header">
           <img
             src={bungie_root_path + data.Response.displayProperties.icon}
             alt=""
-            className="WeaponIcon"
+            className="weapon-icon"
           />
           <div className="WeaponHeaderText">
             <h3>{name}</h3>
