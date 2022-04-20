@@ -8,7 +8,7 @@ import logo from "../../assets/clovis_ck.svg";
 export class Header extends Component {
   render() {
     return (
-      <header className="Header">
+      <header className="header">
         <h1 className="title">
           <SVG
             src={logo}
