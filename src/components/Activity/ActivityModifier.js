@@ -29,7 +29,7 @@ function ActivityModifier({ data }) {
   ];
 
   return (
-    <section className="ActivityModifier">
+    <section className="activity-modifier">
       <img
         className={
           "icon" +
