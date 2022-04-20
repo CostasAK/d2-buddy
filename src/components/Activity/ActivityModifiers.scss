@@ -3,7 +3,7 @@
 
 @use "sass:math";
 
-.ActivityModifiers {
+.activity-modifiers {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -16,7 +16,7 @@
 
   margin: 0 var.$gap var.$gap var.$gap;
 
-  .OtherModifiers {
+  .other-modifiers {
     width: 100%;
 
     .heading {
@@ -26,7 +26,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .Modifiers {
+    .modifiers {
       display: grid;
       grid-template-columns: repeat(
         auto-fit,

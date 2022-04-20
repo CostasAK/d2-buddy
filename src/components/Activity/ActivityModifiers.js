@@ -22,7 +22,7 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
 
   if (isPending) {
     return (
-      <section className="ActivityModifiers">
+      <section className="activity-modifiers">
         <h2 className="loading">
           <Spinner name="cube-grid" fadeIn="none" />
           <span>Loading...</span>
@@ -52,7 +52,7 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
   );
 
   return (
-    <section className="ActivityModifiers">
+    <section className="activity-modifiers">
       {shields.length > 0 && (
         <ActivityShields shields={shields} known_shields={known_shields} />
       )}
@@ -63,9 +63,9 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
         />
       )}
       {other_modifiers.length > 0 && (
-        <section className="OtherModifiers">
+        <section className="other-modifiers">
           <h5 className="heading">Modifiers</h5>
-          <div className="Modifiers">
+          <div className="modifiers">
             {other_modifiers.map((modifier, index) => (
               <ActivityModifier key={index} data={modifier} />
             ))}
