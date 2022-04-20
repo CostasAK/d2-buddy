@@ -16,8 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - name: "Clean Install"
         run: npm ci
+      - name: "Stylelint"
+        run: stylelint "public/**/*.{css,scss}" "src/**/*.{css,scss}"
       - name: "Run Tests"
         run: npm test
