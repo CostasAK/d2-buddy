@@ -86,7 +86,7 @@ export default function CycleCard({ name, items, start, period, type }) {
 
   return (
     <Card
-      className="CycleCard"
+      className="cycle-card"
       title={name}
       icon={icons(type)}
       order={flex_order}

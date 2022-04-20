@@ -1,19 +1,6 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.CycleCard {
-  text-align: center;
-
-  .card .content .card-text {
-    .title,
-    .short-description {
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-    }
-  }
-}
-
 .card-modal {
   .content {
     .card-text {
@@ -44,6 +31,19 @@
           }
         }
       }
+    }
+  }
+}
+
+.cycle-card {
+  text-align: center;
+
+  .card .content .card-text {
+    .title,
+    .short-description {
+      justify-content: center;
+      width: 100%;
+      text-align: center;
     }
   }
 }
