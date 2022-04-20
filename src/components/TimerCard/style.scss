@@ -3,7 +3,8 @@
 
 .TimerCard {
   text-align: center;
-  .Card .content {
+
+  .card .content {
     .title,
     .short_description {
       justify-content: center;
@@ -11,14 +12,18 @@
       text-align: center;
     }
   }
+
   &.ongoing {
     .content {
       background: var.$highlight-dim;
     }
+
     border-color: var.$highlight-bright;
+
     &.maintenance .content {
       background: var.$highlight-red;
     }
+
     &:hover .content,
     &:focus .content,
     &:active .content {
@@ -27,7 +32,7 @@
   }
 }
 
-.CardModal {
+.card-modal {
   .content {
     .cardText {
       .title {
@@ -36,21 +41,25 @@
         text-align: center;
         margin-bottom: 0.5em;
       }
+
       .long_description {
         display: flex;
         flex-flow: column;
         justify-content: center;
         text-align: center;
         gap: 1em;
+
         h3 {
           margin-top: 1em;
           order: -1;
         }
+
         ul {
           text-align: left;
           margin-top: 0;
           margin-bottom: 0;
         }
+
         p {
           ul {
             text-align: left;

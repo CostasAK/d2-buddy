@@ -64,19 +64,19 @@ const Card = (props) => {
       {props.longDescription ? (
         <Popup
           trigger={
-            <div className="Card clickable" onClose={() => ReactTooltip.hide()}>
+            <div className="card clickable" onClose={() => ReactTooltip.hide()}>
               {content}
             </div>
           }
           modal
         >
-          <OverlayScrollbarsComponent className="CardModal os-theme-light">
+          <OverlayScrollbarsComponent className="card-modal os-theme-light">
             {modal_content}
           </OverlayScrollbarsComponent>
         </Popup>
       ) : props.link ? (
         <a
-          className="Card clickable"
+          className="card clickable"
           href={props.link}
           target="_blank"
           rel="noreferrer"
@@ -84,7 +84,7 @@ const Card = (props) => {
           {content}
         </a>
       ) : (
-        <div className="Card">{content}</div>
+        <div className="card">{content}</div>
       )}
     </div>
   );

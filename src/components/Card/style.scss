@@ -6,8 +6,8 @@
   max-width: 100%;
 }
 
-.card-wrapper > .Card,
-.CardModal {
+.card-modal,
+.card-wrapper > .card {
   background: var.$primary-bg;
   display: block;
   max-width: 100%;
@@ -47,14 +47,6 @@
     }
   }
 
-  &:hover.clickable,
-  &:focus.clickable,
-  &:active.clickable {
-    margin: 0;
-    padding: var.$border-expansion;
-    border-color: var.$primary-fg;
-  }
-
   &.clickable {
     user-select: none;
     cursor: pointer;
@@ -62,5 +54,13 @@
     > * {
       pointer-events: none;
     }
+  }
+
+  &:hover.clickable,
+  &:focus.clickable,
+  &:active.clickable {
+    margin: 0;
+    padding: var.$border-expansion;
+    border-color: var.$primary-fg;
   }
 }

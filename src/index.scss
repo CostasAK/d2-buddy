@@ -114,7 +114,7 @@ body {
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       .Modal,
-      .CardModal {
+      .card-modal {
         width: fit-content;
         height: fit-content;
         max-height: calc(100vh - 2 * var.$margins);
