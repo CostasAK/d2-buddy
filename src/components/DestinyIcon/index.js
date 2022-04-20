@@ -128,7 +128,7 @@ function DestinyIcon({ icon, color, style }) {
 
     return (
       <span
-        className={"DestinyIcon " + (known_colors.includes(color) ? color : "")}
+        className={"destiny-icon " + (known_colors.includes(color) ? color : "")}
         title={
           (known_elements.includes(color) ? capitalizeSentence(color) : "") +
           (known_colors.includes(font_symbol.name)
