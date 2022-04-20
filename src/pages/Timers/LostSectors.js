@@ -67,7 +67,7 @@ do {
         }
         modal
       >
-        <OverlayScrollbarsComponent className="os-theme-light Modal">
+        <OverlayScrollbarsComponent className="os-theme-light modal">
           <LostSector name={locations[items.length % locations.length].name} />
         </OverlayScrollbarsComponent>
       </Popup>

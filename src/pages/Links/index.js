@@ -51,7 +51,7 @@ export function Links(props) {
       I have no affiliation with the sites listed. I just think they're great.
       <br />
       <br />
-      <ItemizedPage className="Links" items={links} />
+      <ItemizedPage className="links" items={links} />
     </div>
   );
 }

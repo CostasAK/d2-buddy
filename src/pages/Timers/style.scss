@@ -19,7 +19,7 @@
       flex: 1 1 auto;
     }
 
-    &.Links {
+    &.links {
       justify-content: safe center;
       font-family: var.$secondary-font-stack;
       letter-spacing: normal;
@@ -51,7 +51,7 @@
   }
 }
 
-.Modal {
+.modal {
   background: var.$primary-bg;
   max-width: 100%;
   margin: var.$border-expansion;

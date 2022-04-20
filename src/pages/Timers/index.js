@@ -131,7 +131,7 @@ export function Timers() {
           />
         ))}
       </div>
-      <div className="timers Links">
+      <div className="timers links">
         {links.map((link) => (
           <Card key={link.name} shortDescription={link.name} link={link.link} />
         ))}

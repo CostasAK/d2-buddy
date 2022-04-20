@@ -28,7 +28,7 @@ const searches = [
 ];
 
 const DIMSearches = (props) => {
-  return <ItemizedPage className="Links" items={searches} columnWidth={480} />;
+  return <ItemizedPage className="links" items={searches} columnWidth={480} />;
 };
 
 export default DIMSearches;
