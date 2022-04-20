@@ -27,7 +27,7 @@ function ActivityChampions({ champions, known_champions }) {
 
   return (
     <section className="ActivityChampions">
-      <h5 className="Heading">Champions</h5>
+      <h5 className="heading">Champions</h5>
       <div className="Champions">
         {[...parsed_champions].map((champion, index) => (
           <div className="Champion" key={index}>

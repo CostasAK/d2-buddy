@@ -9,17 +9,23 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var.$gap;
+
   > * {
     flex: 1 1 auto;
   }
+
   margin: 0 var.$gap var.$gap var.$gap;
+
   .OtherModifiers {
     width: 100%;
-    .Heading {
+
+    .heading {
       justify-content: flex-start;
       @include mixin.border-bottom;
+
       margin-bottom: 0.5rem;
     }
+
     .Modifiers {
       display: grid;
       grid-template-columns: repeat(

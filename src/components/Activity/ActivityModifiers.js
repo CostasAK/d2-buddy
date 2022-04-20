@@ -64,7 +64,7 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
       )}
       {other_modifiers.length > 0 && (
         <section className="OtherModifiers">
-          <h5 className="Heading">Modifiers</h5>
+          <h5 className="heading">Modifiers</h5>
           <div className="Modifiers">
             {other_modifiers.map((modifier, index) => (
               <ActivityModifier key={index} data={modifier} />

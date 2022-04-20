@@ -2,28 +2,29 @@
 @use "../../sass/mixins" as mixin;
 @use "sass:math";
 
-.LostSector {
+.lost-sector {
   min-width: fit-content;
   width: 100%;
-  
   display: flex;
   flex-flow: column;
 
-  .Legend,
-  .Master {
-    > .Heading {
+  .legend-difficulty,
+  .master-difficulty {
+    > .heading {
       margin: var.$gap 0 math.div(var.$gap, 2) 0;
       padding: math.div(var.$gap, 2) var.$gap;
-
       justify-content: flex-start;
     }
   }
-  .Legend > .Heading {
-      background-color: var.$legendary;
+
+  .legend-difficulty > .heading {
+    background-color: var.$legendary;
   }
-  .Master > .Heading {
-      background-color: var.$highlight-dim;
+
+  .master-difficulty > .heading {
+    background-color: var.$highlight-dim;
   }
+
   .loading,
   .error {
     margin: var.$margins;

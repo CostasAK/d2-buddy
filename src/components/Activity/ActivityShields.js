@@ -27,7 +27,7 @@ function ActivityShields({ shields, known_shields }) {
 
   return (
     <section className="ActivityShields">
-      <h5 className="Heading">Shields</h5>
+      <h5 className="heading">Shields</h5>
       <div className="Shields">
         {[...parsed_shields].map((shield, index) => (
           <div className="Shield" key={index}>

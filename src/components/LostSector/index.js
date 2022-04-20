@@ -1,17 +1,17 @@
-import "./style.scss";
+import "./style.scss"
 
-import ActivityHeader from "../Activity/ActivityHeader";
-import ActivityModifiers from "../Activity/ActivityModifiers";
-import Spinner from "react-spinkit";
-import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
-import useLostSectors from "../../hooks/useLostSectors";
+import ActivityHeader from "../Activity/ActivityHeader"
+import ActivityModifiers from "../Activity/ActivityModifiers"
+import Spinner from "react-spinkit"
+import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts"
+import useLostSectors from "../../hooks/useLostSectors"
 
 function LostSector({ name }) {
   const { data, error, isPending } = useLostSectors(name);
 
   if (isPending) {
     return (
-      <article className="LostSector">
+      <article className="lost-sector">
         <h2 className="loading">
           <Spinner name="cube-grid" fadeIn="none" />
           <span>Loading...</span>
@@ -23,7 +23,7 @@ function LostSector({ name }) {
   if (error) {
     console.error(error);
     return (
-      <article className="LostSector">
+      <article className="lost-sector">
         <h2 className="error">Can't find Lost Sector info...</h2>
       </article>
     );
@@ -40,7 +40,7 @@ function LostSector({ name }) {
   } = getKnownActivityAmounts(data[1].Response.hash);
 
   return (
-    <article className="LostSector">
+    <article className="lost-sector">
       <ActivityHeader
         data={data[0]}
         name={data[0].Response.displayProperties.name.replace(
@@ -48,16 +48,16 @@ function LostSector({ name }) {
           ""
         )}
       />
-      <section className="Legend">
-        <h2 className="Heading">Legend</h2>
+      <section className="legend-difficulty">
+        <h2 className="heading">Legend</h2>
         <ActivityModifiers
           data={data[0]}
           known_shields={known_shields_legend}
           known_champions={known_champions_legend}
         />
       </section>
-      <section className="Master">
-        <h2 className="Heading">Master</h2>
+      <section className="master-difficulty">
+        <h2 className="heading">Master</h2>
         <ActivityModifiers
           data={data[1]}
           known_shields={known_shields_master}

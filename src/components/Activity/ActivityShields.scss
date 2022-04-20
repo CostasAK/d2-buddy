@@ -2,28 +2,33 @@
 @use "../../sass/mixins" as mixin;
 
 .ActivityShields {
-  .Heading {
+  .heading {
     text-align: left;
     justify-content: flex-start;
     @include mixin.border-bottom;
   }
+
   .Shields {
     display: flex;
     flex-flow: row wrap;
     gap: var.$gap;
     @include mixin.text-number;
+
     .Shield {
       display: grid;
       justify-items: flex-end;
       align-items: flex-end;
+
       > * {
         grid-column-start: 1;
         grid-row-start: 1;
       }
+
       .DestinyIcon {
         font-size: 1.5em;
         z-index: 0;
       }
+
       .ShieldAmount {
         z-index: 1;
         @include mixin.text-number;
