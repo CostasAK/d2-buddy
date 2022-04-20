@@ -1,14 +1,15 @@
-import { NavLink } from "react-router-dom";
 import "./style.scss";
+
+import { NavLink } from "react-router-dom";
 
 export function Navigation(props) {
   return (
-    <nav className="Navigation">
+    <nav className="navigation">
       {props.routes.map((route) => (
         <NavLink
           key={route.name}
           to={route.path}
-          className={({ isActive }) => "NavLink" + (isActive ? " active" : "")}
+          className={({ isActive }) => "navigation-link" + (isActive ? " active" : "")}
         >
           <div className="name">{route.name}</div>
           <div className="underline"></div>
