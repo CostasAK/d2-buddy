@@ -13,11 +13,11 @@ function ActivityHeader({ data, name }) {
   const screenshot = getScreenshot(data);
   return (
     <section
-      className="ActivityHeader"
+      className="activity-header"
       style={{ backgroundImage: `url(${screenshot})` }}
     >
-      <h5 className="ActivityType">{type}</h5>
-      <h1 className="ActivityName">{name}</h1>
+      <h5 className="activity-type">{type}</h5>
+      <h1 className="activity-name">{name}</h1>
       <Destination id={data.Response.destinationHash} />
     </section>
   );
