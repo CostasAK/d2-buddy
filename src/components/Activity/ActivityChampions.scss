@@ -1,20 +1,20 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.ActivityChampions {
+.activity-champions {
   .heading {
     text-align: left;
     justify-content: flex-start;
     @include mixin.border-bottom;
   }
 
-  .Champions {
+  .champions {
     display: flex;
     flex-flow: row wrap;
     gap: var.$gap;
     @include mixin.text-number;
 
-    .Champion {
+    .champion {
       display: grid;
       justify-items: flex-end;
       align-items: flex-end;
@@ -37,7 +37,7 @@
         }
       }
 
-      .ChampionAmount {
+      .champion-amount {
         z-index: 1;
         @include mixin.text-number;
         @include mixin.text-shadow;

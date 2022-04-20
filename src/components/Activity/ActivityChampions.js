@@ -1,7 +1,7 @@
-import "./ActivityChampions.scss";
+import "./ActivityChampions.scss"
 
-import DestinyIcon from "../DestinyIcon";
-import PropTypes from "prop-types";
+import DestinyIcon from "../DestinyIcon"
+import PropTypes from "prop-types"
 
 const known_types = [
   { class: "Overload", pattern: /Disruption|Overload/i },
@@ -26,11 +26,11 @@ function ActivityChampions({ champions, known_champions }) {
   );
 
   return (
-    <section className="ActivityChampions">
+    <section className="activity-champions">
       <h5 className="heading">Champions</h5>
-      <div className="Champions">
+      <div className="champions">
         {[...parsed_champions].map((champion, index) => (
-          <div className="Champion" key={index}>
+          <div className="champion" key={index}>
             <DestinyIcon
               icon={["champions", "modifiers", champion]}
               style={{
@@ -38,7 +38,7 @@ function ActivityChampions({ champions, known_champions }) {
               }}
             />
             {known_champions[champion] > 0 && (
-              <span className="ChampionAmount">
+              <span className="champion-amount">
                 {known_champions[champion]}
               </span>
             )}
