@@ -1,20 +1,20 @@
-import "./style.scss"
+import "./style.scss";
 
 import {
   currentDay,
   currentSeason,
   currentWeek,
   currentXur,
-  nextXur
-} from "@d2api/date"
+  nextXur,
+} from "@d2api/date";
 
-import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons"
-import Card from "../../components/Card"
-import LostSectors from "./LostSectors"
-import PsiOpsLegend from "./PsiOpsLegend"
-import React from "react"
-import TimerCard from "../../components/TimerCard"
-import WellspringWeapons from "./WellspringWeapons"
+import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
+import Card from "../../components/Card";
+import LostSectors from "./LostSectors";
+import PsiOpsLegend from "./PsiOpsLegend";
+import React from "react";
+import TimerCard from "../../components/TimerCard";
+import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;
 const minute = 60 * second;
@@ -112,7 +112,7 @@ export function Timers() {
 
   return (
     <div className="timers-wrapper">
-      <div className="Timers">
+      <div className="timers">
         <WellspringWeapons />
         <LostSectors />
         <PsiOpsLegend />
@@ -131,7 +131,7 @@ export function Timers() {
           />
         ))}
       </div>
-      <div className="Timers Links">
+      <div className="timers Links">
         {links.map((link) => (
           <Card key={link.name} shortDescription={link.name} link={link.link} />
         ))}
