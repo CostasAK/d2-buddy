@@ -2,15 +2,18 @@
 @use "../../sass/mixins" as mixin;
 @use "sass:math";
 
-.Footer {
+.footer {
   @include mixin.flex-column;
+
   align-items: stretch;
   max-width: 100%;
   font-family: var.$secondary-font-stack;
   font-size: 0.875rem;
   letter-spacing: normal;
+
   .credits {
     @include mixin.flex-row-wrap;
+
     row-gap: math.div(var.$margins, 4);
     column-gap: 3em;
     max-width: 100%;
@@ -18,11 +21,14 @@
     padding: math.div(var.$margins, 3);
     color: var.$primary-fg;
     background: var.$footer-bg;
+
     > div {
       @include mixin.flex-row;
+
       border-radius: var.$border-radius;
     }
   }
+
   a {
     @include mixin.flex-row;
   }

@@ -33,7 +33,7 @@ export class Footer extends Component {
 
   render() {
     return (
-      <footer className="Footer">
+      <footer className="footer">
         <div className="credits">
           <div>
             <span>Made by</span>  
