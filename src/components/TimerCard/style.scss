@@ -1,40 +1,9 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.TimerCard {
-  text-align: center;
-
-  .card .content {
-    .title,
-    .short_description {
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  &.ongoing {
-    .content {
-      background: var.$highlight-dim;
-    }
-
-    border-color: var.$highlight-bright;
-
-    &.maintenance .content {
-      background: var.$highlight-red;
-    }
-
-    &:hover .content,
-    &:focus .content,
-    &:active .content {
-      background: var.$highlight-mid;
-    }
-  }
-}
-
 .card-modal {
   .content {
-    .cardText {
+    .card-text {
       .title {
         justify-content: center;
         width: 100%;
@@ -42,7 +11,7 @@
         margin-bottom: 0.5em;
       }
 
-      .long_description {
+      .long-description {
         display: flex;
         flex-flow: column;
         justify-content: center;
@@ -68,6 +37,37 @@
           }
         }
       }
+    }
+  }
+}
+
+.timer-card {
+  text-align: center;
+
+  .card .content {
+    .title,
+    .short-description {
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &.ongoing {
+    .content {
+      background: var.$highlight-dim;
+    }
+
+    border-color: var.$highlight-bright;
+
+    &.maintenance .content {
+      background: var.$highlight-red;
+    }
+
+    &:hover .content,
+    &:focus .content,
+    &:active .content {
+      background: var.$highlight-mid;
     }
   }
 }

@@ -92,7 +92,7 @@ const TimerCard = (props) => {
 
   return (
     <Card
-      className={"TimerCard " + (started && "ongoing")}
+      className={"timer-card " + (started && "ongoing")}
       icon={icons(props.type)}
       title={props.name}
       shortDescription={capitalizeSentence(

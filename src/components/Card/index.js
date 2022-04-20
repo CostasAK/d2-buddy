@@ -23,7 +23,7 @@ const Card = (props) => {
       {props.logo && (
         <img src={props.logo} alt="" className="logo" align="left" />
       )}
-      <section className="cardText">
+      <section className="card-text">
         {props.title && (
           <h4 className="title">
             {props.icon && <div className="icon">{props.icon} </div>}
@@ -31,7 +31,7 @@ const Card = (props) => {
           </h4>
         )}
         {props.shortDescription && (
-          <section className="short_description">{short_description}</section>
+          <section className="short-description">{short_description}</section>
         )}
       </section>
     </article>
@@ -42,7 +42,7 @@ const Card = (props) => {
       {props.logo && (
         <img src={props.logo} alt="" className="logo" align="left" />
       )}
-      <div className="cardText">
+      <div className="card-text">
         {props.title && (
           <h1 className="title">
             {props.icon && <div className="icon">{props.icon} </div>}
@@ -50,7 +50,7 @@ const Card = (props) => {
           </h1>
         )}
         {props.longDescription && (
-          <p className="long_description">{long_description}</p>
+          <p className="long-description">{long_description}</p>
         )}
       </div>
     </div>

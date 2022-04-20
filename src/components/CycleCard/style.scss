@@ -4,9 +4,9 @@
 .CycleCard {
   text-align: center;
 
-  .card .content .cardText {
+  .card .content .card-text {
     .title,
-    .short_description {
+    .short-description {
       justify-content: center;
       width: 100%;
       text-align: center;
@@ -16,7 +16,7 @@
 
 .card-modal {
   .content {
-    .cardText {
+    .card-text {
       .title {
         justify-content: center;
         width: 100%;
@@ -24,7 +24,7 @@
         margin-bottom: 0.5em;
       }
 
-      .long_description {
+      .long-description {
         display: flex;
         flex-flow: column;
         justify-content: center;
