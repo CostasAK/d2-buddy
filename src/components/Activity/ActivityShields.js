@@ -4,10 +4,10 @@ import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
 
 const known_elements = [
-  { class: "Arc", pattern: /arc/i },
-  { class: "Solar", pattern: /solar/i },
-  { class: "Void", pattern: /void/i },
-  { class: "Stasis", pattern: /stasis/i },
+  { name: "Arc", pattern: /arc/i },
+  { name: "Solar", pattern: /solar/i },
+  { name: "Void", pattern: /void/i },
+  { name: "Stasis", pattern: /stasis/i },
 ];
 
 function ActivityShields({ shields, known_shields }) {
@@ -21,7 +21,7 @@ function ActivityShields({ shields, known_shields }) {
     known_elements.map(
       (element) =>
         element.pattern.test(modifier.Response.displayProperties.description) &&
-        parsed_shields.add(element.class)
+        parsed_shields.add(element.name)
     )
   );
 

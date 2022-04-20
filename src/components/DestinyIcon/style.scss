@@ -1,4 +1,4 @@
-@use '../../sass/variables' as var;
+@use "../../sass/variables" as var;
 @use "sass:math";
 
 @font-face {
@@ -15,22 +15,25 @@
   height: min-content;
   display: inline-block;
   cursor: default;
-  
-  &.Arc {
+
+  &.arc {
     color: var.$arc;
   }
-  
-  &.Solar,
-  &.Thermal {
+
+  &.solar,
+  &.thermal {
     color: var.$solar;
   }
-  
-  &.Void {
+
+  &.void {
     color: var.$void;
+  }
+
+  &.stasis {
+    color: var.$stasis;
   }
 
   > img {
     display: block;
   }
-
 }
