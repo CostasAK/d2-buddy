@@ -15,7 +15,7 @@
     align-items: center;
     gap: var.$margins;
 
-    .CardWrapper {
+    .card-wrapper {
       flex: 1 1 auto;
     }
 
@@ -24,7 +24,7 @@
       font-family: var.$secondary-font-stack;
       letter-spacing: normal;
 
-      .CardWrapper {
+      .card-wrapper {
         flex: 0 1 auto;
 
         .Card {

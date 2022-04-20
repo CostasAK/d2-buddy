@@ -5,19 +5,23 @@
 .ItemizedPage {
   width: 100%;
   max-width: 1080px + 360px;
+
   .Masonry {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: var.$margins;
+
     .masonryColumn {
       // max-width: 360px;
-      .CardWrapper {
+      .card-wrapper {
         @include mixin.flex-column;
+
         align-items: stretch;
         width: 100%;
         margin-bottom: var.$margins;
         transition: var.$transition;
+
         &:last-child {
           margin-bottom: 0;
         }

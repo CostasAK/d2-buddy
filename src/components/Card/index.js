@@ -1,9 +1,9 @@
-import "./style.scss";
+import "./style.scss"
 
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
-import Popup from "reactjs-popup";
-import ReactTooltip from "react-tooltip";
-import parse from "html-react-parser";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
+import Popup from "reactjs-popup"
+import ReactTooltip from "react-tooltip"
+import parse from "html-react-parser"
 
 const Card = (props) => {
   let short_description =
@@ -58,7 +58,7 @@ const Card = (props) => {
 
   return (
     <div
-      className={"CardWrapper " + (props.className ? props.className : "")}
+      className={"card-wrapper " + (props.className ? props.className : "")}
       style={props.order && { order: props.order }}
     >
       {props.longDescription ? (
