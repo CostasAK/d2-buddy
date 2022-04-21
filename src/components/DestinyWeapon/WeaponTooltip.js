@@ -1,13 +1,13 @@
-import "./WeaponTooltip.scss"
+import "./WeaponTooltip.scss";
 
-import DestinyIcon from "../DestinyIcon"
-import ReactTooltip from "react-tooltip"
-import Spinner from "react-spinkit"
-import getScreenshot from "../../functions/getScreenshot"
-import getWeaponElement from "../../functions/getWeaponElement"
-import getWeaponType from "../../functions/getWeaponType"
-import tierToColor from "../../functions/tierToColor"
-import useBungieApi from "../../hooks/useBungieApi"
+import DestinyIcon from "../DestinyIcon";
+import ReactTooltip from "react-tooltip";
+import Spinner from "react-spinkit";
+import getScreenshot from "../../functions/getScreenshot";
+import getWeaponElement from "../../functions/getWeaponElement";
+import getWeaponType from "../../functions/getWeaponType";
+import tierToColor from "../../functions/tierToColor";
+import useBungieApi from "../../hooks/useBungieApi";
 
 const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
 const bungie_root_path = "https://bungie.net";
@@ -22,9 +22,8 @@ function WeaponTooltip({ id }) {
         place="bottom"
         className="react-tooltip"
         border={false}
-      >
-        <Spinner fadeIn="none" />
-      </ReactTooltip>
+        getContent={() => <Spinner fadeIn="none" />}
+      />
     );
   }
 
@@ -50,26 +49,27 @@ function WeaponTooltip({ id }) {
       backgroundColor={tierToColor(tier)}
       className="react-tooltip"
       border={false}
-    >
-      <article className={"weapon-tooltip " + tier.toLowerCase()}>
-        <img src={screenshot} alt="" className="weapon-screenshot" />
-        <div className="weapon-header">
-          <img
-            src={bungie_root_path + data.Response.displayProperties.icon}
-            alt=""
-            className="weapon-icon"
-          />
-          <div className="WeaponHeaderText">
-            <h3>{name}</h3>
-            <p>
-              {tier} |{" "}
-              {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
-              {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
-            </p>
+      getContent={() => (
+        <article className={"weapon-tooltip " + tier.toLowerCase()}>
+          <img src={screenshot} alt="" className="weapon-screenshot" />
+          <div className="weapon-header">
+            <img
+              src={bungie_root_path + data.Response.displayProperties.icon}
+              alt=""
+              className="weapon-icon"
+            />
+            <div className="WeaponHeaderText">
+              <h3>{name}</h3>
+              <p>
+                {tier} |{" "}
+                {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
+                {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
-    </ReactTooltip>
+        </article>
+      )}
+    />
   );
 }
 
