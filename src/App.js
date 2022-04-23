@@ -7,10 +7,9 @@ import {
   Routes as Switch,
 } from "react-router-dom";
 
-import DIMSearches from "./pages/DIMSearches";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { Links } from "./pages/Links";
+import { Links } from "./pages/Links/index";
 import { Navigation } from "./components/Navigation";
 import React from "react";
 import { Timers } from "./pages/Timers";
@@ -19,12 +18,7 @@ function App() {
   // Changes to routes should also go in site.webmanifest
   const routes = [
     { name: "Timers", path: "/Timers", component: <Timers /> },
-    { name: "DIM Searches", path: "/DIMSearches", component: <DIMSearches /> },
-    {
-      name: "Links",
-      path: "/Links",
-      component: <Links />,
-    },
+    { name: "Links", path: "/Links", component: <Links /> },
   ];
 
   return (

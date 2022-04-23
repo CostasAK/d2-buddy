@@ -1,0 +1,21 @@
+@use "../../sass/variables" as var;
+@use "../../sass/mixins" as mixin;
+@use "sass:math";
+
+.links-page {
+  @include mixin.flex-column;
+
+  width: var.$main-width;
+  max-width: calc(100% - var.$margins);
+  gap: var.$margins;
+
+  .links {
+    display: grid;
+    gap: var.$gap;
+    grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
+
+    .link {
+      height: fit-content;
+    }
+  }
+}

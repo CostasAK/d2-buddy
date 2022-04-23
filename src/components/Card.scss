@@ -1,6 +1,10 @@
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
 
+a.card {
+  display: block;
+}
+
 .card {
   background: var.$primary-bg;
   max-width: 100%;
