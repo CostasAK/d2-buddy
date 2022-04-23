@@ -9,22 +9,24 @@
   width: 100%;
 
   .simplebar-content {
-    @include mixin.flex-column;
+    > .app {
+      @include mixin.flex-column;
 
-    align-items: stretch;
-    min-height: 100vh;
-    height: 100vh;
+      align-items: stretch;
+      min-height: 100vh;
+      height: 100vh;
 
-    > * {
-      flex-shrink: 0;
+      > * {
+        flex-shrink: 0;
+      }
     }
-  }
 
-  .main {
-    flex: 1;
-    @include mixin.flex-column;
+    .main {
+      flex: 1;
+      @include mixin.flex-column;
 
-    justify-content: flex-start;
-    padding: var.$margins math.div(var.$margins, 2);
+      justify-content: flex-start;
+      padding: var.$margins math.div(var.$margins, 2);
+    }
   }
 }
