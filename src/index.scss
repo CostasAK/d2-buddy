@@ -19,7 +19,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  transition: all var.$transition;
 }
 
 img[src$=".gif"],
@@ -27,6 +26,12 @@ img[src$=".png"] {
   image-rendering: optimize-contrast;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 body,
 p,
 figure {
@@ -41,56 +46,62 @@ p {
 
 .a-link,
 a {
-  color: var.$navigation-fg;
   text-decoration: none;
   transition: all math.div(var.$transition, 2);
 
   &:hover,
   &:active {
-    color: #bcbdbf;
     text-decoration: none;
   }
 
   cursor: pointer;
+
+  &:not(.card) {
+    color: var.$navigation-fg;
+
+    &:hover,
+    &:active {
+      color: #bcbdbf;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  width: max-content;
+  max-width: 100%;
 }
 
 h1 {
-  margin: 0;
   @include mixin.header-subscreen;
-  @include mixin.flex-row;
 }
 
 h2 {
-  margin: 0;
   @include mixin.header-tracked;
-  @include mixin.flex-row;
 }
 
 h3 {
-  margin: 0;
   @include mixin.header-tooltip;
-  @include mixin.flex-row;
 }
 
 h4 {
-  margin: 0;
   @include mixin.text-bold-subtitle;
-  @include mixin.flex-row;
 }
 
 h5 {
-  margin: 0;
   @include mixin.text-subtitle;
-  @include mixin.flex-row;
 }
 
 h6 {
-  margin: 0;
   @include mixin.header;
-  @include mixin.flex-row;
 }
 
 body {
+  overflow: hidden;
   @include mixin.text-body;
 
   font-family: var.$secondary-font-stack;
@@ -100,28 +111,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var.$header-bg;
   color: var.$header-fg;
-
-  .popup-overlay {
-    background: rgb(0 0 0 / 71%);
-    animation: fade 0.25s;
-
-    .popup-content {
-      margin: auto;
-      width: fit-content;
-      height: fit-content;
-      max-width: calc(100% - 2 * var.$margins);
-      min-width: calc(320px - 2 * var.$margins);
-      animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-
-      .modal,
-      .card-modal {
-        width: fit-content;
-        height: fit-content;
-        max-height: calc(100vh - 2 * var.$margins);
-        overflow-y: auto;
-      }
-    }
-  }
 
   .sk-spinner {
     color: inherit;
@@ -136,30 +125,27 @@ body {
       }
     }
   }
-}
 
-@keyframes anvil {
-  0% {
-    opacity: 0;
+  .root-scroll {
+    max-height: 100vh;
   }
 
-  1% {
-    transform: scale(0.96) translateY(10px);
-    opacity: 0;
-  }
+  .simplebar-track {
+    &:has(> .simplebar-visible) {
+      border-left: 1px solid var.$primary-fg;
+    }
 
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
+    .simplebar-scrollbar {
+      &::before {
+        background-color: var.$primary-fg;
+        border-radius: 0;
+      }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+      &.simplebar-visible {
+        &::before {
+          opacity: 0.9;
+        }
+      }
+    }
   }
 }

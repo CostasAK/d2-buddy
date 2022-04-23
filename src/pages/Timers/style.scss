@@ -15,7 +15,7 @@
     align-items: center;
     gap: var.$margins;
 
-    .card-wrapper {
+    > * {
       flex: 1 1 auto;
     }
 
@@ -24,26 +24,24 @@
       font-family: var.$secondary-font-stack;
       letter-spacing: normal;
 
-      .card-wrapper {
+      .card {
         flex: 0 1 auto;
 
-        .card {
+        .card-text {
+          text-align: center;
+          padding: 0.5em 1em;
+          background: var.$highlight-dim;
+        }
+
+        border-color: var.$highlight-bright;
+
+        &:hover,
+        &:focus,
+        &:active {
+          border-color: var.$primary-fg;
+
           .content {
-            text-align: center;
-            padding: 0.5em 1em;
-            background: var.$highlight-dim;
-          }
-
-          border-color: var.$highlight-bright;
-
-          &:hover,
-          &:focus,
-          &:active {
-            border-color: var.$primary-fg;
-
-            .content {
-              background: var.$highlight-mid;
-            }
+            background: var.$highlight-mid;
           }
         }
       }

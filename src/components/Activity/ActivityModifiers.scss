@@ -4,17 +4,22 @@
 @use "sass:math";
 
 .activity-modifiers {
+  width: var.$main-width;
+  max-width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: var.$gap;
+  margin: 0 var.$gap var.$gap var.$gap;
 
   > * {
     flex: 1 1 auto;
   }
 
-  margin: 0 var.$gap var.$gap var.$gap;
+  .heading {
+    width: 100%;
+  }
 
   .other-modifiers {
     width: 100%;

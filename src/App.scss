@@ -2,20 +2,22 @@
 @use "./sass/mixins" as mixin;
 @use "sass:math";
 
-#root,
-#popup-root {
+#root {
   font-family: var.$primary-font-stack;
   background: var.$primary-bg;
   color: var.$primary-fg;
-
-  @include mixin.flex-column;
-
-  align-items: stretch;
   width: 100%;
-  height: 100vh;
 
-  > * {
-    flex-shrink: 0;
+  .simplebar-content {
+    @include mixin.flex-column;
+
+    align-items: stretch;
+    min-height: 100vh;
+    height: 100vh;
+
+    > * {
+      flex-shrink: 0;
+    }
   }
 
   .main {

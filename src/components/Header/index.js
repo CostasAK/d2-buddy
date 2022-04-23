@@ -1,6 +1,6 @@
 import "./style.scss";
 
-import Card from "../Card/index";
+import Card from "../Card";
 import { Component } from "react";
 import SVG from "react-inlinesvg";
 import logo from "../../assets/clovis_ck.svg";
@@ -20,11 +20,12 @@ export class Header extends Component {
           <span>Destiny 2 Buddy</span>
         </h1>
         {navigator.platform.match(/Win\d+/i) && (
-          <Card
-            link="steam://rungameid/1085660"
-            shortDescription="Play Destiny 2"
-            className="launch"
-          />
+          <div className="launch">
+            <Card
+              link="steam://rungameid/1085660"
+              cardContent="Play Destiny 2"
+            />
+          </div>
         )}
       </header>
     );

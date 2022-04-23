@@ -1,14 +1,18 @@
-import "overlayscrollbars/css/OverlayScrollbars.css";
+import "simplebar";
+import "simplebar/dist/simplebar.min.css";
 import "./index.scss";
 
 import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
+import SimpleBarReact from "simplebar-react";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SimpleBarReact className="root-scroll">
+      <App />
+    </SimpleBarReact>
   </React.StrictMode>,
   document.getElementById("root")
 );

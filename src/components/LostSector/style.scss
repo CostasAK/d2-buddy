@@ -3,8 +3,7 @@
 @use "sass:math";
 
 .lost-sector {
-  min-width: fit-content;
-  width: 100%;
+  min-width: min-content;
   display: flex;
   flex-flow: column;
 
@@ -14,6 +13,7 @@
       margin: var.$gap 0 math.div(var.$gap, 2) 0;
       padding: math.div(var.$gap, 2) var.$gap;
       justify-content: flex-start;
+      width: 100%;
     }
   }
 

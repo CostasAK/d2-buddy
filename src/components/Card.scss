@@ -1,0 +1,37 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+
+.card {
+  background: var.$primary-bg;
+  max-width: 100%;
+  margin: var.$border-expansion;
+  border: 1px solid var.$primary-fg;
+  color: var.$primary-fg;
+  transition: var.$transition;
+
+  > .card-text {
+    padding: 1rem;
+    transition: var.$transition;
+  }
+
+  &.clickable {
+    user-select: none;
+    cursor: pointer;
+
+    > * {
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:active {
+      margin: 0;
+      padding: var.$border-expansion;
+      border-color: var.$primary-fg;
+    }
+  }
+}
+
+.modal-text {
+  padding: var.$margins;
+  width: max-content;
+}

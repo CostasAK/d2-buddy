@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import Card from "../Card";
 import PropTypes from "prop-types";
 import { formatDuration } from "../../functions/formatDuration";
-import icons from "../../functions/icons";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
@@ -88,10 +87,9 @@ export default function CycleCard({ name, items, start, period, type }) {
     <Card
       className="cycle-card"
       title={name}
-      icon={icons(type)}
       order={flex_order}
-      shortDescription={short_description}
-      longDescription={long_description}
+      cardContent={short_description}
+      modalContent={long_description}
     />
   );
 }
