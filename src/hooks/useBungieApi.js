@@ -26,7 +26,13 @@ const useBungieApi = (path, method = "GET", headers) => {
   }, [path, method, headers]);
 
   useEffect(() => {
-    execute();
+    let cleanup = false;
+    if (!cleanup) {
+      execute();
+    }
+    return () => {
+      cleanup = true;
+    };
   }, [execute]);
 
   return { data, error, isPending };
