@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
+@use "sass:math";
 
 .ReactModal__Body--open,
 .ReactModal__Html--open {
@@ -40,19 +41,21 @@
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       > .destiny-icon.close {
-        margin: 0;
+        margin: auto;
         padding: 0;
-        line-height: 1;
+        line-height: math.div(40.25, 32);
         position: absolute;
-        top: -0.4rem;
+        top: -0.7rem;
         right: -0.7rem;
         cursor: pointer;
         font-size: 2rem;
+        width: math.div(40.25rem, 16);
+        height: math.div(40.25rem, 16);
         z-index: 2000;
         background: radial-gradient(
           circle,
-          var.$primary-bg 60%,
-          rgb(0 0 0 / 0%) 60%
+          var.$primary-bg 52%,
+          rgb(0 0 0 / 0%) 52%
         );
       }
 
