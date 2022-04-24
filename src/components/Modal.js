@@ -17,6 +17,7 @@ import SimpleBarReact from "simplebar-react";
 function Modal({ triggerContent, className, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [innerWidth, setInnerWidth] = useState(500);
+  const [maxWidth, setMaxWidth] = useState(500);
 
   const cloned_trigger_content = useMemo(
     () =>
@@ -27,7 +28,7 @@ function Modal({ triggerContent, className, children }) {
   );
 
   const modal = useCallback(
-    (isOpen, width) => (
+    (isOpen, width, maxWidth) => (
       <ReactModal
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
@@ -45,12 +46,16 @@ function Modal({ triggerContent, className, children }) {
         <SimpleBarReact className="modal-scroll">
           <Measure
             scroll
+            bounds
             onResize={(contentRect) => {
+              console.log(contentRect.scroll.width);
+              console.log(contentRect.bounds.width);
               setInnerWidth(contentRect.scroll.width);
+              setMaxWidth(contentRect.bounds.width);
             }}
           >
-            {({ measureRef }) => (
-              <div ref={measureRef} className="modal-inner">
+            {({ measureRef: innerRef }) => (
+              <div ref={innerRef} className="modal-inner">
                 {children}
               </div>
             )}
@@ -64,7 +69,7 @@ function Modal({ triggerContent, className, children }) {
   return (
     <>
       {cloned_trigger_content}
-      {modal(isOpen, innerWidth)}
+      {modal(isOpen, innerWidth, maxWidth)}
     </>
   );
 }
