@@ -14,6 +14,7 @@ function Card({
   icon,
   className,
   floatIcon,
+  order,
 }) {
   const card_text = useMemo(
     () => (
@@ -71,7 +72,11 @@ function Card({
   const card_element = useCallback(
     (content) => {
       if (modalContent) {
-        return <div className={"card clickable " + className}>{content}</div>;
+        return (
+          <div className={"card clickable " + className} style={{ order }}>
+            {content}
+          </div>
+        );
       } else if (link) {
         return (
           <a
@@ -79,15 +84,20 @@ function Card({
             href={link}
             target="_blank"
             rel="noreferrer"
+            style={{ order }}
           >
             {content}
           </a>
         );
       } else {
-        return <div className={"card " + className}>{content}</div>;
+        return (
+          <div className={"card " + className} style={{ order }}>
+            {content}
+          </div>
+        );
       }
     },
-    [className, link, modalContent]
+    [className, link, modalContent, order]
   );
 
   return modalContent ? (
