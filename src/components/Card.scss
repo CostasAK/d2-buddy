@@ -16,6 +16,33 @@ a.card {
   > .card-text {
     padding: 1rem;
     transition: var.$transition;
+
+    .title {
+      display: inline-block;
+    }
+
+    &.side-icon {
+      @include mixin.flex-row;
+
+      gap: var.$gap;
+    }
+
+    .icon-wrapper {
+      flex-shrink: 0;
+      max-width: 3rem;
+      max-height: 3rem;
+      overflow: hidden;
+    }
+
+    .icon {
+      max-width: 3rem;
+      max-height: 3rem;
+      object-fit: scale-down;
+    }
+
+    > .icon {
+      margin: 0 0.25rem 0 0;
+    }
   }
 
   &.clickable {

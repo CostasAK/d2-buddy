@@ -1,10 +1,11 @@
-@use "../../sass/variables" as var;
-@use "../../sass/mixins" as mixin;
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
 
 .navigation {
   width: 100%;
   @include mixin.flex-row-wrap;
 
+  justify-content: safe center;
   color: var.$navigation-fg;
   background: var.$navigation-bg;
   text-transform: uppercase;

@@ -1,6 +1,6 @@
 import "./style.scss";
 
-import Card from "../Card";
+import { Card } from "../Card";
 import { Component } from "react";
 import SVG from "react-inlinesvg";
 import logo from "../../assets/clovis_ck.svg";

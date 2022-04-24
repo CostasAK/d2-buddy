@@ -35,11 +35,16 @@
       translate: -50% -50%;
       max-width: 100%;
       max-height: 100%;
+      background: var.$primary-bg;
+      border: 1px solid var.$primary-fg;
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       > .destiny-icon.close {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
         position: absolute;
-        top: -0.9rem;
+        top: -0.4rem;
         right: -0.7rem;
         cursor: pointer;
         font-size: 2rem;

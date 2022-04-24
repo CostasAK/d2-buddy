@@ -9,7 +9,7 @@ import {
 } from "@d2api/date";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import Card from "../../components/Card";
+import { Card } from "../../components/Card";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";

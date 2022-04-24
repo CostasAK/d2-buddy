@@ -10,12 +10,14 @@
   gap: var.$margins;
 
   .links {
-    display: grid;
-    gap: var.$gap;
-    grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
+    @include mixin.grid-reading;
 
     .link {
       height: fit-content;
+
+      .icon {
+        border-radius: 0.25rem;
+      }
     }
   }
 }

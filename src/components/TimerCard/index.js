@@ -3,7 +3,7 @@ import "./style.scss";
 import React, { useEffect, useState } from "react";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 
-import Card from "../Card";
+import { Card } from "../Card";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
 import icons from "../../functions/icons";

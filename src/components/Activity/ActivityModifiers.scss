@@ -25,19 +25,13 @@
     width: 100%;
 
     > .heading {
-      justify-content: flex-start;
       @include mixin.border-bottom;
 
       margin-bottom: 0.5rem;
     }
 
     .modifiers {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr)
-      );
-      gap: var.$gap;
+      @include mixin.grid-display;
     }
   }
 }

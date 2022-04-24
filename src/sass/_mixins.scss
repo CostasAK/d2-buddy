@@ -5,14 +5,14 @@
   display: flex;
   flex-flow: row wrap;
   align-items: safe center;
-  justify-content: safe center;
+  justify-content: flex-start;
 }
 
 @mixin flex-row {
   display: flex;
   flex-flow: row nowrap;
   align-items: safe center;
-  justify-content: safe center;
+  justify-content: flex-start;
 }
 
 @mixin flex-column {
@@ -20,6 +20,21 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: safe center;
+}
+
+@mixin grid-display {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr)
+  );
+  gap: var.$gap;
+}
+
+@mixin grid-reading {
+  display: grid;
+  gap: var.$gap;
+  grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
 }
 
 // The following are the text styles as specified by

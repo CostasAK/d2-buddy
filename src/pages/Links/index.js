@@ -1,6 +1,6 @@
 import "./style.scss";
 
-import Card from "../../components/Card";
+import { Card } from "../../components/Card";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
 const links = [

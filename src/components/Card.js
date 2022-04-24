@@ -3,19 +3,57 @@ import "./Modal.scss";
 
 import { useCallback, useMemo } from "react";
 
-import Modal from "./Modal";
+import { Modal } from "./Modal";
+import PropTypes from "prop-types";
 
-const Card = ({ title, cardContent, modalContent, link, icon, className }) => {
+function Card({
+  title,
+  cardContent,
+  modalContent,
+  link,
+  icon,
+  className,
+  floatIcon,
+}) {
   const card_text = useMemo(
     () => (
-      <article className="card-text">
+      <>
         {title && <h4 className="title">{title}</h4>}
         {cardContent && (
           <section className="card-content">{cardContent}</section>
         )}
-      </article>
+      </>
     ),
     [cardContent, title]
+  );
+
+  const card_inner = useCallback(
+    (card_text) => (
+      <article
+        className={
+          "card-text " + (floatIcon ? "floating-icon" : icon ? "side-icon" : "")
+        }
+      >
+        {icon ? (
+          floatIcon ? (
+            <>
+              <img className="icon" src={icon} alt="" align="left" />
+              <section>{card_text}</section>
+            </>
+          ) : (
+            <>
+              <div className="icon-wrapper">
+                <img className="icon" src={icon} alt="" />
+              </div>
+              <div className="text-wrapper">{card_text}</div>
+            </>
+          )
+        ) : (
+          card_text
+        )}
+      </article>
+    ),
+    [floatIcon, icon]
   );
 
   const card_element = useCallback(
@@ -41,7 +79,7 @@ const Card = ({ title, cardContent, modalContent, link, icon, className }) => {
   );
 
   return modalContent ? (
-    <Modal triggerContent={card_element(card_text)}>
+    <Modal triggerContent={card_element(card_inner(card_text))}>
       <article className="modal-text">
         {title && <h1 className="title">{title}</h1>}
         {modalContent && (
@@ -50,8 +88,22 @@ const Card = ({ title, cardContent, modalContent, link, icon, className }) => {
       </article>
     </Modal>
   ) : (
-    card_element(card_text)
+    card_element(card_inner(card_text))
   );
+}
+
+Card.propTypes = {
+  title: PropTypes.string,
+  cardContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  modalContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  link: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  className: PropTypes.string,
+  floatIcon: PropTypes.bool,
 };
 
-export default Card;
+Card.defaultProps = {
+  floatIcon: false,
+};
+
+export { Card };

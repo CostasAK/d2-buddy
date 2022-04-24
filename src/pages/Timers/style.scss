@@ -11,8 +11,6 @@
   .timers {
     @include mixin.flex-row-wrap;
 
-    justify-content: space-between;
-    align-items: center;
     gap: var.$margins;
 
     > * {
@@ -28,7 +26,6 @@
         flex: 0 1 auto;
 
         .card-text {
-          text-align: center;
           padding: 0.5em 1em;
           background: var.$highlight-dim;
         }
@@ -47,11 +44,4 @@
       }
     }
   }
-}
-
-.modal {
-  background: var.$primary-bg;
-  max-width: 100%;
-  margin: var.$border-expansion;
-  border: 1px solid var.$primary-fg;
 }

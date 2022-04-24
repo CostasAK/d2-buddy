@@ -1,6 +1,6 @@
 import CycleCard from "../../components/CycleCard";
 import LostSector from "../../components/LostSector";
-import Modal from "../../components/Modal";
+import { Modal } from "../../components/Modal";
 import { lcm } from "../../functions/gcd";
 import { useMemo } from "react";
 

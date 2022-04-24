@@ -1,5 +1,5 @@
-@use "../../sass/variables" as var;
-@use "../../sass/mixins" as mixin;
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
 @use "sass:math";
 
 .footer {
@@ -14,6 +14,7 @@
   .credits {
     @include mixin.flex-row-wrap;
 
+    justify-content: safe center;
     row-gap: math.div(var.$margins, 4);
     column-gap: 3em;
     max-width: 100%;

@@ -10,6 +10,7 @@ import {
 
 import DestinyIcon from "./DestinyIcon";
 import Measure from "react-measure";
+import { PropTypes } from "prop-types";
 import ReactModal from "react-modal";
 import SimpleBarReact from "simplebar-react";
 
@@ -68,4 +69,9 @@ function Modal({ triggerContent, className, children }) {
   );
 }
 
-export default Modal;
+Modal.propTypes = {
+  triggerContent: PropTypes.element,
+  className: PropTypes.string,
+};
+
+export { Modal };
