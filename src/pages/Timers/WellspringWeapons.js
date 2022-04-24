@@ -20,6 +20,7 @@ export default function WellspringWeapons() {
       items={items}
       start={1648746000 * 1000}
       period={day}
+      icon="https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_feb5aecca544ab023ecf3b74ac8f509b.png"
     />
   );
 }

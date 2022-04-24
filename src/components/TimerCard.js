@@ -1,16 +1,13 @@
-import "./style.scss";
-
 import React, { useEffect, useState } from "react";
-import { formatDate, formatTime } from "../../functions/formatDateTime";
+import { formatDate, formatTime } from "../functions/formatDateTime";
 
-import { Card } from "../Card";
-import { capitalizeSentence } from "../../functions/capitalizeSentence";
-import { formatDuration } from "../../functions/formatDuration";
-import icons from "../../functions/icons";
-import { isPast } from "../../functions/isPast";
-import { nextTime } from "../../functions/nextTime";
+import { Card } from "./Card";
+import { capitalizeSentence } from "../functions/capitalizeSentence";
+import { formatDuration } from "../functions/formatDuration";
+import { isPast } from "../functions/isPast";
+import { nextTime } from "../functions/nextTime";
 import parse from "html-react-parser";
-import { toTime } from "../../functions/toTime";
+import { toTime } from "../functions/toTime";
 
 const second = 1000;
 const minute = 60 * second;
@@ -92,14 +89,14 @@ const TimerCard = (props) => {
 
   return (
     <Card
-      className={"timer-card " + (started && "ongoing")}
-      icon={icons(props.type)}
+      className={"timer-card " + (started ? "highlight" : "")}
+      icon={props.icon}
       title={props.name}
-      shortDescription={capitalizeSentence(
+      cardContent={capitalizeSentence(
         (is_recurring || !(started && !end) ? countdown + ", " : "") +
           absolute_time_string
       )}
-      longDescription={long_description}
+      modalContent={long_description ? long_description : undefined}
       order={flex_order}
       link={props.link}
     />
@@ -113,4 +110,4 @@ TimerCard.defaultProps = {
   description: false,
 };
 
-export default TimerCard;
+export { TimerCard };

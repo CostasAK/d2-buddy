@@ -1,7 +1,7 @@
 import "./Card.scss";
 import "./Modal.scss";
 
-import { useCallback, useMemo } from "react";
+import { cloneElement, isValidElement, useCallback, useMemo } from "react";
 
 import { Modal } from "./Modal";
 import PropTypes from "prop-types";
@@ -27,24 +27,36 @@ function Card({
     [cardContent, title]
   );
 
+  const icon_element = useMemo(() => {
+    if (icon) {
+      return isValidElement(icon) ? (
+        cloneElement(icon, {
+          className: "icon " + (icon.props.className || ""),
+        })
+      ) : (
+        <img className="icon" src={icon} alt="" />
+      );
+    }
+    return null;
+  }, [icon]);
+
   const card_inner = useCallback(
     (card_text) => (
       <article
         className={
-          "card-text " + (floatIcon ? "floating-icon" : icon ? "side-icon" : "")
+          "card-text " +
+          (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
         }
       >
-        {icon ? (
+        {icon_element ? (
           floatIcon ? (
             <>
-              <img className="icon" src={icon} alt="" align="left" />
+              {icon_element}
               <section>{card_text}</section>
             </>
           ) : (
             <>
-              <div className="icon-wrapper">
-                <img className="icon" src={icon} alt="" />
-              </div>
+              <div className="icon-wrapper">{icon_element}</div>
               <div className="text-wrapper">{card_text}</div>
             </>
           )
@@ -53,7 +65,7 @@ function Card({
         )}
       </article>
     ),
-    [floatIcon, icon]
+    [floatIcon, icon_element]
   );
 
   const card_element = useCallback(
@@ -79,7 +91,10 @@ function Card({
   );
 
   return modalContent ? (
-    <Modal triggerContent={card_element(card_inner(card_text))}>
+    <Modal
+      triggerContent={card_element(card_inner(card_text))}
+      className={className}
+    >
       <article className="modal-text">
         {title && <h1 className="title">{title}</h1>}
         {modalContent && (
@@ -95,7 +110,7 @@ function Card({
 Card.propTypes = {
   title: PropTypes.string,
   cardContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  modalContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  modalContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   link: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string,

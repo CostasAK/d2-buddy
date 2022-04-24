@@ -56,11 +56,13 @@ export function Links(props) {
       <div className="links">
         {links.map((link) => (
           <Card
+            key={link.title}
             link={link.link}
             icon={link.logo}
             title={link.title}
             cardContent={link.description}
             className="link"
+            floatIcon
           ></Card>
         ))}
       </div>

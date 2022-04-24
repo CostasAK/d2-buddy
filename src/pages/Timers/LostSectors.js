@@ -1,5 +1,5 @@
 import CycleCard from "../../components/CycleCard";
-import LostSector from "../../components/LostSector";
+import { LostSector } from "../../components/LostSector";
 import { Modal } from "../../components/Modal";
 import { lcm } from "../../functions/gcd";
 import { useMemo } from "react";
@@ -94,7 +94,7 @@ export default function LostSectors() {
       items={items}
       start={1648918800 * 1000}
       period={day}
-      type="duty"
+      icon="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_7d11acd7d5a3daebc0a0c906452932d6.png"
     />
   );
 }

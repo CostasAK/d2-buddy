@@ -16,7 +16,7 @@ const hour = 60 * minute;
 const day = 24 * hour;
 const year = 365.25 * day;
 
-export default function CycleCard({ name, items, start, period, type }) {
+export default function CycleCard({ name, items, start, period, icon }) {
   const [now, setNow] = useState(Date.now());
   const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
 
@@ -90,6 +90,7 @@ export default function CycleCard({ name, items, start, period, type }) {
       order={flex_order}
       cardContent={short_description}
       modalContent={long_description}
+      icon={icon}
     />
   );
 }
@@ -101,7 +102,7 @@ CycleCard.propTypes = {
   ).isRequired,
   start: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   period: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  type: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 CycleCard.defaultProps = {

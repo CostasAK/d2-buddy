@@ -10,10 +10,11 @@ import {
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import { Card } from "../../components/Card";
+import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
-import TimerCard from "../../components/TimerCard";
+import { TimerCard } from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;
@@ -27,13 +28,13 @@ const loadResets = () => [
     name: "Daily Reset",
     start: currentDay().end,
     period: day,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
   },
   {
     name: "Weekly Reset",
     start: currentWeek().end,
     period: week,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
     link: "https://kyber3000.com/reset",
   },
   {
@@ -41,7 +42,7 @@ const loadResets = () => [
     start: currentXur() ? currentXur().start : nextXur().start,
     end: currentXur() ? currentXur().end : nextXur().end,
     period: week,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
     description: (
       <ul>
         <li>
@@ -65,7 +66,6 @@ const loadResets = () => [
     name: `Season ${currentSeason().seasonNumber}`,
     start: currentSeason().start,
     end: currentSeason().end,
-    type: "season",
   },
 ];
 
@@ -126,7 +126,7 @@ export function Timers() {
             end={card.end}
             period={card.period}
             hasTime={card.hasTime}
-            type={card.type}
+            icon={card.icon}
             link={card.link}
           />
         ))}

@@ -1,10 +1,11 @@
-import "./style.scss"
+import "./LostSector.scss";
 
-import ActivityHeader from "../Activity/ActivityHeader"
-import ActivityModifiers from "../Activity/ActivityModifiers"
-import Spinner from "react-spinkit"
-import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts"
-import useLostSectors from "../../hooks/useLostSectors"
+import ActivityHeader from "./Activity/ActivityHeader";
+import ActivityModifiers from "./Activity/ActivityModifiers";
+import { PropTypes } from "prop-types";
+import Spinner from "react-spinkit";
+import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";
+import useLostSectors from "../hooks/useLostSectors";
 
 function LostSector({ name }) {
   const { data, error, isPending } = useLostSectors(name);
@@ -68,4 +69,8 @@ function LostSector({ name }) {
   );
 }
 
-export default LostSector;
+LostSector.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export { LostSector };

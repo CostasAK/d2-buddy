@@ -23,7 +23,8 @@
 
 img[src$=".gif"],
 img[src$=".png"] {
-  image-rendering: optimize-contrast;
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  image-rendering: -webkit-optimize-contrast;
 }
 
 h1,

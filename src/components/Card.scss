@@ -21,12 +21,6 @@ a.card {
       display: inline-block;
     }
 
-    &.side-icon {
-      @include mixin.flex-row;
-
-      gap: var.$gap;
-    }
-
     .icon-wrapper {
       flex-shrink: 0;
       max-width: 3rem;
@@ -35,13 +29,41 @@ a.card {
     }
 
     .icon {
+      font-size: 3rem;
       max-width: 3rem;
       max-height: 3rem;
       object-fit: scale-down;
     }
 
-    > .icon {
-      margin: 0 0.25rem 0 0;
+    &.side-icon {
+      @include mixin.flex-row;
+
+      gap: var.$gap;
+    }
+
+    &.floating-icon {
+      .icon {
+        float: left;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+
+  &.highlight {
+    .card-text {
+      background: var.$highlight-dim;
+    }
+
+    border-color: var.$highlight-bright;
+
+    &.red .card-text {
+      background: var.$highlight-red;
+    }
+
+    &:hover .content,
+    &:focus .content,
+    &:active .content {
+      background: var.$highlight-mid;
     }
   }
 

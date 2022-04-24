@@ -1,11 +1,12 @@
-@use "../../sass/variables" as var;
-@use "../../sass/mixins" as mixin;
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
 @use "sass:math";
 
 .lost-sector {
   min-width: min-content;
-  display: flex;
-  flex-flow: column;
+  @include mixin.flex-column;
+
+  align-items: stretch;
 
   .legend-difficulty,
   .master-difficulty {
