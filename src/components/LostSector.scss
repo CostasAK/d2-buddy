@@ -3,15 +3,20 @@
 @use "sass:math";
 
 .lost-sector {
-  min-width: min-content;
+  &.success {
+    width: var.$main-width + var.$margins;
+  }
+
+  max-width: 100%;
   @include mixin.flex-column;
 
   align-items: stretch;
+  gap: var.$gap;
 
   .legend-difficulty,
   .master-difficulty {
     > .heading {
-      margin: var.$gap 0 math.div(var.$gap, 2) 0;
+      margin: 0 0 math.div(var.$gap, 2) 0;
       padding: math.div(var.$gap, 2) var.$gap;
       justify-content: flex-start;
       width: 100%;

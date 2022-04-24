@@ -61,7 +61,11 @@
 
         .modal-inner {
           width: fit-content;
-          max-width: 100%;
+          max-width: calc(100vw - 2 * var.$margins - 2px);
+
+          > * {
+            max-width: calc(100vw - 2 * var.$margins - 2px);
+          }
         }
       }
     }

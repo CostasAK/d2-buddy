@@ -4,7 +4,6 @@
 @use "sass:math";
 
 .activity-modifiers {
-  width: var.$main-width;
   max-width: 100%;
   display: flex;
   flex-flow: row wrap;

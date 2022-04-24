@@ -1,11 +1,10 @@
-import "./LostSector.scss";
-
-import ActivityHeader from "./Activity/ActivityHeader";
-import ActivityModifiers from "./Activity/ActivityModifiers";
 import { PropTypes } from "prop-types";
 import Spinner from "react-spinkit";
 import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";
 import useLostSectors from "../hooks/useLostSectors";
+import ActivityHeader from "./Activity/ActivityHeader";
+import ActivityModifiers from "./Activity/ActivityModifiers";
+import "./LostSector.scss";
 
 function LostSector({ name }) {
   const { data, error, isPending } = useLostSectors(name);
@@ -41,7 +40,7 @@ function LostSector({ name }) {
   } = getKnownActivityAmounts(data[1].Response.hash);
 
   return (
-    <article className="lost-sector">
+    <article className="lost-sector success">
       <ActivityHeader
         data={data[0]}
         name={data[0].Response.displayProperties.name.replace(
