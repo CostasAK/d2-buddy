@@ -1,7 +1,5 @@
 import "./style.scss";
 
-import { capitalizeSentence } from "../../functions/capitalizeSentence";
-
 const font_symbols = {
   weapons: {
     "Combat Bow": { symbol: "", name: "Bow" },
@@ -135,12 +133,6 @@ function DestinyIcon({ icon, color, style, className, onClick }) {
           (known_colors.includes(color) ? color.toLowerCase() : "") +
           " " +
           (className ? className : "")
-        }
-        title={
-          (known_elements.includes(color) ? capitalizeSentence(color) : "") +
-          (known_colors.includes(font_symbol.name)
-            ? ""
-            : " " + font_symbol.name)
         }
         style={style}
         onClick={onClick}
