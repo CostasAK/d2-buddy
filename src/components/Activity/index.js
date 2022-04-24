@@ -27,7 +27,7 @@ function Activity({ id, name }) {
   }
 
   return (
-    <article className="Activity">
+    <article className="activity">
       <ActivityHeader data={data} name={name} />
       <ActivityModifiers data={data} />
     </article>

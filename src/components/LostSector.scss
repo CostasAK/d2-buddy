@@ -1,0 +1,36 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+@use "sass:math";
+
+.lost-sector {
+  min-width: min-content;
+  @include mixin.flex-column;
+
+  align-items: stretch;
+
+  .legend-difficulty,
+  .master-difficulty {
+    > .heading {
+      margin: var.$gap 0 math.div(var.$gap, 2) 0;
+      padding: math.div(var.$gap, 2) var.$gap;
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+
+  .legend-difficulty > .heading {
+    background-color: var.$legendary;
+  }
+
+  .master-difficulty > .heading {
+    background-color: var.$highlight-dim;
+  }
+
+  .loading,
+  .error {
+    margin: var.$margins;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var.$gap;
+  }
+}

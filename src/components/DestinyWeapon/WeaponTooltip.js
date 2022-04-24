@@ -20,11 +20,10 @@ function WeaponTooltip({ id }) {
       <ReactTooltip
         id={id}
         place="bottom"
-        className="ReactTooltip"
+        className="react-tooltip"
         border={false}
-      >
-        <Spinner fadeIn="none" />
-      </ReactTooltip>
+        getContent={() => <Spinner fadeIn="none" />}
+      />
     );
   }
 
@@ -48,28 +47,29 @@ function WeaponTooltip({ id }) {
       id={id}
       place="bottom"
       backgroundColor={tierToColor(tier)}
-      className="ReactTooltip"
+      className="react-tooltip"
       border={false}
-    >
-      <article className={"WeaponTooltip " + tier}>
-        <img src={screenshot} alt="" className="WeaponScreenshot" />
-        <div className="WeaponHeader">
-          <img
-            src={bungie_root_path + data.Response.displayProperties.icon}
-            alt=""
-            className="WeaponIcon"
-          />
-          <div className="WeaponHeaderText">
-            <h3>{name}</h3>
-            <p>
-              {tier} |{" "}
-              {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
-              {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
-            </p>
+      getContent={() => (
+        <article className={"weapon-tooltip " + tier.toLowerCase()}>
+          <img src={screenshot} alt="" className="weapon-screenshot" />
+          <div className="weapon-header">
+            <img
+              src={bungie_root_path + data.Response.displayProperties.icon}
+              alt=""
+              className="weapon-icon"
+            />
+            <div className="WeaponHeaderText">
+              <h3>{name}</h3>
+              <p>
+                {tier} |{" "}
+                {<DestinyIcon icon={["elements", element]} color={element} />}{" "}
+                {element} | {<DestinyIcon icon={["weapons", type]} />} {type}
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
-    </ReactTooltip>
+        </article>
+      )}
+    />
   );
 }
 

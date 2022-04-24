@@ -1,4 +1,6 @@
-import { ItemizedPage } from "../../components/ItemizedPage";
+import "./style.scss";
+
+import { Card } from "../../components/Card";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
 const links = [
@@ -47,11 +49,23 @@ const links = [
 
 export function Links(props) {
   return (
-    <div>
-      I have no affiliation with the sites listed. I just think they're great.
-      <br />
-      <br />
-      <ItemizedPage className="Links" items={links} />
+    <div className="links-page">
+      <p className="description">
+        I have no affiliation with the sites listed. I just think they're great.
+      </p>
+      <div className="links">
+        {links.map((link) => (
+          <Card
+            key={link.title}
+            link={link.link}
+            icon={link.logo}
+            title={link.title}
+            cardContent={link.description}
+            className="link"
+            floatIcon
+          ></Card>
+        ))}
+      </div>
     </div>
   );
 }

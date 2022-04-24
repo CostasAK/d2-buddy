@@ -1,0 +1,90 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+
+a.card {
+  display: block;
+}
+
+.card {
+  background: var.$primary-bg;
+  max-width: 100%;
+  margin: var.$border-expansion;
+  border: 1px solid var.$primary-fg;
+  color: var.$primary-fg;
+  transition: var.$transition;
+
+  > .card-text {
+    padding: 1rem;
+    transition: var.$transition;
+
+    .title {
+      display: inline-block;
+    }
+
+    .icon-wrapper {
+      flex-shrink: 0;
+      max-width: 3rem;
+      max-height: 3rem;
+      overflow: hidden;
+    }
+
+    .icon {
+      font-size: 3rem;
+      max-width: 3rem;
+      max-height: 3rem;
+      object-fit: scale-down;
+    }
+
+    &.side-icon {
+      @include mixin.flex-row;
+
+      gap: var.$gap;
+    }
+
+    &.floating-icon {
+      .icon {
+        float: left;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+
+  &.highlight {
+    .card-text {
+      background: var.$highlight-dim;
+    }
+
+    border-color: var.$highlight-bright;
+
+    &.red .card-text {
+      background: var.$highlight-red;
+    }
+
+    &:hover .content,
+    &:focus .content,
+    &:active .content {
+      background: var.$highlight-mid;
+    }
+  }
+
+  &.clickable {
+    user-select: none;
+    cursor: pointer;
+
+    > * {
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:active {
+      margin: 0;
+      padding: var.$border-expansion;
+      border-color: var.$primary-fg;
+    }
+  }
+}
+
+.modal-text {
+  padding: var.$margins;
+  width: max-content;
+}

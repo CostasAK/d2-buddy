@@ -33,7 +33,7 @@ function DestinyWeapon({ id, name }) {
   return (
     <>
       <a
-        className="DestinyWeapon"
+        className="destiny-weapon"
         href={light_gg_item_path + id}
         target="_blank"
         rel="noreferrer"

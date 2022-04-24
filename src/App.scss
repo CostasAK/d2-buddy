@@ -1,18 +1,31 @@
 @use "./sass/variables" as var;
 @use "./sass/mixins" as mixin;
+@use "sass:math";
 
-.App {
-  @include mixin.flex-column;
-  align-items: stretch;
+#root {
+  font-family: var.$primary-font-stack;
+  background: var.$primary-bg;
+  color: var.$primary-fg;
   width: 100%;
-  height: 100vh;
-  > * {
-    flex-shrink: 0;
-  }
-  .main {
-    flex: 1;
-    @include mixin.flex-column;
-    justify-content: flex-start;
-    padding: var(--margins) calc(var(--margins) / 2);
+
+  .simplebar-content {
+    > .app {
+      @include mixin.flex-column;
+
+      align-items: stretch;
+      min-height: 100vh;
+      height: 100vh;
+
+      > * {
+        flex-shrink: 0;
+      }
+    }
+
+    .main {
+      flex: 1;
+      @include mixin.flex-column;
+
+      padding: var.$margins math.div(var.$margins, 2);
+    }
   }
 }

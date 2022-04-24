@@ -1,0 +1,81 @@
+/* stylelint-disable selector-class-pattern */
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
+}
+
+.ReactModalPortal {
+  > .modal-overlay {
+    opacity: 0;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0 0 0 / 71%);
+    padding: var.$margins;
+
+    &.ReactModal__Overlay--after-open {
+      opacity: 1;
+    }
+
+    &.ReactModal__Overlay--before-close {
+      opacity: 0;
+      transition: 0.125s;
+    }
+
+    > .modal {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+      background: var.$primary-bg;
+      border: 1px solid var.$primary-fg;
+      animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+      > .destiny-icon.close {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        position: absolute;
+        top: -0.4rem;
+        right: -0.7rem;
+        cursor: pointer;
+        font-size: 2rem;
+        z-index: 2000;
+        background: radial-gradient(
+          circle,
+          var.$primary-bg 50%,
+          rgb(0 0 0 / 0%) 50%
+        );
+      }
+
+      > .modal-scroll {
+        max-height: calc(100vh - 2 * var.$margins - 2px);
+
+        .modal-inner {
+          width: fit-content;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes anvil {
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}

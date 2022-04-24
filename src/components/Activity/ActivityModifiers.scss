@@ -3,30 +3,35 @@
 
 @use "sass:math";
 
-.ActivityModifiers {
+.activity-modifiers {
+  width: var.$main-width;
+  max-width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: var.$gap;
+  margin: 0 var.$gap var.$gap var.$gap;
+
   > * {
     flex: 1 1 auto;
   }
-  margin: 0 var.$gap var.$gap var.$gap;
-  .OtherModifiers {
+
+  .heading {
     width: 100%;
-    .Heading {
-      justify-content: flex-start;
+  }
+
+  .other-modifiers {
+    width: 100%;
+
+    > .heading {
       @include mixin.border-bottom;
+
       margin-bottom: 0.5rem;
     }
-    .Modifiers {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr)
-      );
-      gap: var.$gap;
+
+    .modifiers {
+      @include mixin.grid-display;
     }
   }
 }

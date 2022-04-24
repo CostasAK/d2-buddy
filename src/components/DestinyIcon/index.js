@@ -119,7 +119,7 @@ const font_symbols = {
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
 const known_colors = [...known_elements];
 
-function DestinyIcon({ icon, color, style }) {
+function DestinyIcon({ icon, color, style, className, onClick }) {
   try {
     const font_symbol = icon.reduce(
       (previous, current) => previous[current],
@@ -128,7 +128,14 @@ function DestinyIcon({ icon, color, style }) {
 
     return (
       <span
-        className={"DestinyIcon " + (known_colors.includes(color) ? color : "")}
+        className={
+          "destiny-icon " +
+          icon.join(" ") +
+          " " +
+          (known_colors.includes(color) ? color.toLowerCase() : "") +
+          " " +
+          (className ? className : "")
+        }
         title={
           (known_elements.includes(color) ? capitalizeSentence(color) : "") +
           (known_colors.includes(font_symbol.name)
@@ -136,12 +143,13 @@ function DestinyIcon({ icon, color, style }) {
             : " " + font_symbol.name)
         }
         style={style}
+        onClick={onClick}
       >
         {font_symbol.symbol}
       </span>
     );
-  } catch {
-    console.warn(`Unknown Destiny icon: ${icon}`);
+  } catch (e) {
+    console.warn(`Unknown Destiny icon: ${icon}. ${e}`);
     return null;
   }
 }

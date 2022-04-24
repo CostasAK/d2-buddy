@@ -9,11 +9,12 @@ import {
 } from "@d2api/date";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import Card from "../../components/Card";
+import { Card } from "../../components/Card";
+import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
-import TimerCard from "../../components/TimerCard";
+import { TimerCard } from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;
@@ -27,13 +28,13 @@ const loadResets = () => [
     name: "Daily Reset",
     start: currentDay().end,
     period: day,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
   },
   {
     name: "Weekly Reset",
     start: currentWeek().end,
     period: week,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
     link: "https://kyber3000.com/reset",
   },
   {
@@ -41,7 +42,7 @@ const loadResets = () => [
     start: currentXur() ? currentXur().start : nextXur().start,
     end: currentXur() ? currentXur().end : nextXur().end,
     period: week,
-    type: "reset",
+    icon: <GiClockwiseRotation />,
     description: (
       <ul>
         <li>
@@ -65,7 +66,6 @@ const loadResets = () => [
     name: `Season ${currentSeason().seasonNumber}`,
     start: currentSeason().start,
     end: currentSeason().end,
-    type: "season",
   },
 ];
 
@@ -111,8 +111,8 @@ export function Timers() {
   const cards = [...events, ...resets];
 
   return (
-    <div className="TimersWrapper">
-      <div className="Timers">
+    <div className="timers-wrapper">
+      <div className="timers">
         <WellspringWeapons />
         <LostSectors />
         <PsiOpsLegend />
@@ -126,14 +126,14 @@ export function Timers() {
             end={card.end}
             period={card.period}
             hasTime={card.hasTime}
-            type={card.type}
+            icon={card.icon}
             link={card.link}
           />
         ))}
       </div>
-      <div className="Timers Links">
+      <div className="timers links">
         {links.map((link) => (
-          <Card key={link.name} shortDescription={link.name} link={link.link} />
+          <Card key={link.name} cardContent={link.name} link={link.link} />
         ))}
       </div>
     </div>

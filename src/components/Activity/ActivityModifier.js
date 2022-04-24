@@ -22,14 +22,14 @@ function ActivityModifier({ data }) {
   }
 
   const known_elements = [
-    { class: "Arc", pattern: /arc/i },
-    { class: "Solar", pattern: /solar/i },
-    { class: "Void", pattern: /void/i },
-    { class: "Stasis", pattern: /stasis/i },
+    { class: "arc", pattern: /arc/i },
+    { class: "solar", pattern: /solar/i },
+    { class: "void", pattern: /void/i },
+    { class: "stasis", pattern: /stasis/i },
   ];
 
   return (
-    <section className="ActivityModifier">
+    <section className="activity-modifier">
       <img
         className={
           "icon" +

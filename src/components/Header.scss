@@ -1,24 +1,28 @@
-@use "../../sass/variables" as var;
-@use "../../sass/mixins" as mixin;
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
 @use "sass:math";
 
-.Header {
+.header {
   z-index: 100;
   width: 100%;
   min-height: 78px;
   padding: math.div(var.$margins, 4) math.div(var.$margins, 2);
   column-gap: var.$margins;
   background-color: var.$header-bg;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
   font-family: var.$secondary-font-stack;
   text-transform: uppercase;
   @include mixin.flex-row-wrap;
+
   justify-content: safe center;
+
   > * {
     @include mixin.flex-row;
+
     width: max-content;
     max-width: 100%;
   }
+
   .title {
     flex: 0 0 auto;
     margin: auto;
@@ -28,6 +32,7 @@
     display: flex;
     flex-flow: row;
     gap: 0.75em;
+
     .logo {
       color: var.$header-fg;
       min-width: 1.25em;
@@ -36,24 +41,31 @@
       height: 2em;
     }
   }
+
   .launch {
     flex: 1 0 auto;
     justify-content: flex-end;
-    > .Card {
+
+    > .card {
       @include mixin.flex-row;
+
       width: max-content;
       max-width: 100%;
-      .content {
+
+      .card-text {
         font-size: 0.875rem;
         text-align: center;
         padding: 0.5em 1em;
         background: var.$highlight-dim;
       }
+
       border-color: var.$highlight-bright;
+
       &:hover,
       &:focus,
       &:active {
         border-color: var.$primary-fg;
+
         .content {
           background: var.$highlight-mid;
         }

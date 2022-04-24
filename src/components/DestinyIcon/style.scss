@@ -1,39 +1,39 @@
-@use '../../sass/variables' as var;
+@use "../../sass/variables" as var;
 @use "sass:math";
 
 @font-face {
-  font-family: Destiny_Keys;
+  font-family: "Destiny_Keys";
   src: url("https://cdn.jsdelivr.net/gh/nathanrsxtn/Destiny-2-Font-Symbols@e4cef44cb28f51545e4bc5e7924c97247e4a3c88/fonts/Destiny_Keys.otf");
 }
 
-.DestinyIcon {
-  font-family: Destiny_Keys;
+.destiny-icon {
+  font-family: "Destiny_Keys";
   font-size: 1em;
   text-transform: uppercase;
   line-height: var.$line-height;
-
   width: max-content;
   height: min-content;
-
   display: inline-block;
-
   cursor: default;
-  
-  &.Arc {
+
+  &.arc {
     color: var.$arc;
   }
-  
-  &.Solar,
-  &.Thermal {
+
+  &.solar,
+  &.thermal {
     color: var.$solar;
   }
-  
-  &.Void {
+
+  &.void {
     color: var.$void;
+  }
+
+  &.stasis {
+    color: var.$stasis;
   }
 
   > img {
     display: block;
   }
-
 }

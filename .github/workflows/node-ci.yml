@@ -1,13 +1,15 @@
 name: NodeJS Continuous Integration
 
-on: pull_request
+on:
+  workflow_dispatch:
+  pull_request:
 
 jobs:
   tests:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-18.04, ubuntu-latest]
+        os: [ubuntu-latest]
         node-version: [14, 16]
     steps:
       - name: "Checkout Repository"
@@ -16,8 +18,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - name: "Clean Install"
         run: npm ci
+      - name: "Stylelint"
+        run: npx stylelint "public/**/*.{css,scss}" "src/**/*.{css,scss}"
       - name: "Run Tests"
         run: npm test

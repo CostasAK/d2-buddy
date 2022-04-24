@@ -1,43 +1,28 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.CycleCard {
-  text-align: center;
-  .Card .content .cardText {
-    .title,
-    .short_description {
-      justify-content: center;
-      width: 100%;
-      text-align: center;
+.modal.cycle-card {
+  .modal-text {
+    .title {
+      margin-bottom: 0.5em;
     }
-  }
-}
 
-.CardModal {
-  .content {
-    .cardText {
-      .title {
-        justify-content: center;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.5em;
-      }
-      .long_description {
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        text-align: center;
+    .modal-content {
+      @include mixin.flex-column;
+
+      gap: 1em;
+      text-align: center;
+      margin: auto;
+
+      section {
+        @include mixin.flex-column;
+
         gap: 1em;
-        section {
-          display: flex;
-          flex-flow: column;
-          justify-content: center;
-          text-align: center;
-          gap: 1em;
-          h3 {
-            margin-top: 1em;
-            order: -1;
-          }
+
+        h3 {
+          margin: auto;
+          margin-top: 1em;
+          order: -1;
         }
       }
     }

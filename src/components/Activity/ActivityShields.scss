@@ -1,30 +1,35 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
 
-.ActivityShields {
-  .Heading {
+.activity-shields {
+  .heading {
     text-align: left;
     justify-content: flex-start;
     @include mixin.border-bottom;
   }
-  .Shields {
+
+  .shields {
     display: flex;
     flex-flow: row wrap;
     gap: var.$gap;
     @include mixin.text-number;
-    .Shield {
+
+    .shield {
       display: grid;
       justify-items: flex-end;
       align-items: flex-end;
+
       > * {
         grid-column-start: 1;
         grid-row-start: 1;
       }
-      .DestinyIcon {
+
+      .destiny-icon {
         font-size: 1.5em;
         z-index: 0;
       }
-      .ShieldAmount {
+
+      .shield-amount {
         z-index: 1;
         @include mixin.text-number;
         @include mixin.text-shadow;

@@ -15,7 +15,7 @@ export default function PsiOpsLegend() {
       items={items}
       start={1648573200 * 1000}
       period={week}
-      type="duty"
+      icon="https://www.bungie.net/common/destiny2_content/icons/b5ca23093632aa939e8209a2ee558106.png"
     />
   );
 }

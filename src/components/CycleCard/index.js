@@ -3,10 +3,9 @@ import "./style.scss";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 import { useEffect, useState } from "react";
 
-import Card from "../Card";
+import { Card } from "../Card";
 import PropTypes from "prop-types";
 import { formatDuration } from "../../functions/formatDuration";
-import icons from "../../functions/icons";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
@@ -17,7 +16,7 @@ const hour = 60 * minute;
 const day = 24 * hour;
 const year = 365.25 * day;
 
-export default function CycleCard({ name, items, start, period, type }) {
+export default function CycleCard({ name, items, start, period, icon }) {
   const [now, setNow] = useState(Date.now());
   const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
 
@@ -86,12 +85,12 @@ export default function CycleCard({ name, items, start, period, type }) {
 
   return (
     <Card
-      className="CycleCard"
+      className="cycle-card"
       title={name}
-      icon={icons(type)}
       order={flex_order}
-      shortDescription={short_description}
-      longDescription={long_description}
+      cardContent={short_description}
+      modalContent={long_description}
+      icon={icon}
     />
   );
 }
@@ -103,7 +102,7 @@ CycleCard.propTypes = {
   ).isRequired,
   start: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   period: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  type: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 CycleCard.defaultProps = {

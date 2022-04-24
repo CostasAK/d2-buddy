@@ -1,8 +1,8 @@
-import "./Destination.scss";
+import "./Destination.scss"
 
-import DestinyIcon from "../DestinyIcon";
-import Spinner from "react-spinkit";
-import useBungieApi from "../../hooks/useBungieApi";
+import DestinyIcon from "../DestinyIcon"
+import Spinner from "react-spinkit"
+import useBungieApi from "../../hooks/useBungieApi"
 
 const api_path = "/Destiny2/Manifest/DestinyDestinationDefinition/";
 
@@ -11,7 +11,7 @@ function Destination({ id }) {
 
   if (isPending) {
     return (
-      <div className="Destination">
+      <div className="destination">
         <DestinyIcon icon={["activities", "Destination"]} />
         <Spinner fadeIn="none" />
       </div>
@@ -24,7 +24,7 @@ function Destination({ id }) {
   }
 
   return (
-    <p className="Destination">
+    <p className="destination">
       <DestinyIcon icon={["activities", "Destination"]} />
       {data.Response.displayProperties.name}
     </p>

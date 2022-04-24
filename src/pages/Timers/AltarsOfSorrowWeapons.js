@@ -19,6 +19,7 @@ export default function AltarsOfSorrowWeapons() {
       items={items}
       start={1648832400 * 1000}
       period={day}
+      icon="https://www.bungie.net/common/destiny2_content/icons/58bf5b93ae8cfefc55852fe664179757.png"
     />
   );
 }
