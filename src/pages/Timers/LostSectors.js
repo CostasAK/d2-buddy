@@ -9,7 +9,7 @@ const minute = 60 * second;
 const hour = 60 * minute;
 const day = 24 * hour;
 
-function LostSectorLink({ location, drop }) {
+function LostSectorLink({ location }) {
   return (
     <Modal
       triggerContent={
@@ -78,10 +78,14 @@ export default function LostSectors() {
 
     do {
       items.push(
-        <LostSectorLink
-          location={locations[items.length % locations.length]}
-          drop={drops[items.length % drops.length]}
-        />
+        <>
+          <LostSectorLink
+            location={locations[items.length % locations.length]}
+          />
+          {" ("}
+          {drops[items.length % drops.length]}
+          {")"}
+        </>
       );
     } while (items.length < lcm(drops.length, locations.length));
 
