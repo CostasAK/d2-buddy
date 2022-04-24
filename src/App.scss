@@ -14,7 +14,9 @@
 
       align-items: stretch;
       min-height: 100vh;
+      min-height: var(--vh);
       height: 100vh;
+      height: var(--vh);
 
       > * {
         flex-shrink: 0;

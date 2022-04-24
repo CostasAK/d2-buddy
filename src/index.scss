@@ -129,6 +129,7 @@ body {
 
   .root-scroll {
     max-height: 100vh;
+    max-height: var(--vh);
   }
 
   .simplebar-track {

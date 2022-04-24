@@ -58,6 +58,7 @@
 
       > .modal-scroll {
         max-height: calc(100vh - 2 * var.$margins - 2px);
+        max-height: calc(var(--vh) - 2 * var.$margins - 2px);
 
         .modal-inner {
           width: fit-content;

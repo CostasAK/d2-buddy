@@ -8,6 +8,11 @@ import ReactDOM from "react-dom";
 import SimpleBarReact from "simplebar-react";
 import reportWebVitals from "./reportWebVitals";
 
+const updateInnerHeight = () =>
+  document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
+updateInnerHeight();
+window.addEventListener("resize", updateInnerHeight);
+
 ReactDOM.render(
   <React.StrictMode>
     <SimpleBarReact className="root-scroll">
