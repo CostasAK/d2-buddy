@@ -13,12 +13,27 @@
   --primary-bg: #04040e;
 
   font-size: 100%;
+
+  @include mixin.text-body;
+
+  font-family: var.$secondary-font-stack;
+  line-height: var.$line-height;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var.$header-bg;
+  color: var.$header-fg;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
 }
 
 img[src$=".gif"],
@@ -40,33 +55,6 @@ figure {
   padding: 0;
 }
 
-p {
-  width: clamp(45ch, fit-content(), 75ch);
-  max-width: 100%;
-}
-
-.a-link,
-a {
-  text-decoration: none;
-  transition: all math.div(var.$transition, 2);
-
-  &:hover,
-  &:active {
-    text-decoration: none;
-  }
-
-  cursor: pointer;
-
-  &:not(.card) {
-    color: var.$navigation-fg;
-
-    &:hover,
-    &:active {
-      color: #bcbdbf;
-    }
-  }
-}
-
 h1,
 h2,
 h3,
@@ -75,6 +63,7 @@ h5,
 h6 {
   width: max-content;
   max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -101,52 +90,69 @@ h6 {
   @include mixin.header;
 }
 
-body {
-  overflow: hidden;
-  @include mixin.text-body;
+p {
+  width: clamp(45ch, fit-content(), 75ch);
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
 
-  font-family: var.$secondary-font-stack;
-  line-height: var.$line-height;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var.$header-bg;
-  color: var.$header-fg;
+.a-link,
+a {
+  text-decoration: none;
+  transition: all math.div(var.$transition, 2);
 
-  .sk-spinner {
-    color: inherit;
-
-    &.sk-three-bounce {
-      display: inline;
-      opacity: 0.5;
-
-      > div {
-        height: 0.75em;
-        width: 0.75em;
-      }
-    }
+  &:hover,
+  &:active {
+    text-decoration: none;
   }
 
-  .root-scroll {
-    max-height: 100vh;
-    max-height: var(--vh);
+  cursor: pointer;
+
+  &:not(.card) {
+    color: var.$navigation-fg;
+
+    &:hover,
+    &:active {
+      color: #bcbdbf;
+    }
+  }
+}
+
+.sk-spinner {
+  color: inherit;
+
+  &.sk-three-bounce {
+    display: inline;
+    opacity: 0.5;
+
+    > div {
+      height: 0.75em;
+      width: 0.75em;
+    }
+  }
+}
+
+.root-scroll {
+  max-height: 100vh;
+  max-height: var(--vh);
+}
+
+.simplebar-track {
+  &:has(> .simplebar-visible) {
+    border-left: 1px solid var.$primary-fg;
   }
 
-  .simplebar-track {
-    &:has(> .simplebar-visible) {
-      border-left: 1px solid var.$primary-fg;
+  .simplebar-scrollbar {
+    &::before {
+      background-color: var.$primary-fg;
+      border-radius: 0;
     }
 
-    .simplebar-scrollbar {
+    &.simplebar-visible {
       &::before {
-        background-color: var.$primary-fg;
-        border-radius: 0;
-      }
-
-      &.simplebar-visible {
-        &::before {
-          opacity: 0.9;
-        }
+        opacity: 0.9;
       }
     }
   }

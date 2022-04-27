@@ -17,10 +17,6 @@ a.card {
     padding: 1rem;
     transition: var.$transition;
 
-    .title {
-      display: inline-block;
-    }
-
     .icon-wrapper {
       flex-shrink: 0;
       max-width: 3rem;
