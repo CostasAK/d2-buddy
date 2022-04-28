@@ -45,10 +45,9 @@ function Modal({ triggerContent, className, tooltip, children }) {
         />
         <SimpleBarReact className="modal-scroll">
           <Measure
-            scroll
             bounds
             onResize={(contentRect) => {
-              setInnerWidth(contentRect.scroll.width);
+              setInnerWidth(contentRect.bounds.width);
             }}
           >
             {({ measureRef: innerRef }) => (

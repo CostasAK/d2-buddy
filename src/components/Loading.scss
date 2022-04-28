@@ -10,6 +10,8 @@
 }
 
 .loading {
+  max-width: 100%;
+
   --delay: 1s;
 
   &.no-fade {
@@ -24,11 +26,11 @@
   }
 
   &.page {
-    min-width: 6.3em;
+    min-width: min(100%, 6.3em);
   }
 
   &.section {
-    min-width: 10.3em;
+    min-width: min(100%, 10.3em);
   }
 
   > .sk-spinner {

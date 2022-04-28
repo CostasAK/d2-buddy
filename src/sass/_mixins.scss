@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(math.div(var.$main-width - 2 * var.$gap, 3), 1fr)
+    minmax(min(100%, math.div(var.$main-width - 2 * var.$gap, 3)), 1fr)
   );
   gap: var.$gap;
 }
@@ -34,7 +34,7 @@
 @mixin grid-reading {
   display: grid;
   gap: var.$gap;
-  grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 45ch), 1fr));
 }
 
 // The following are the text styles as specified by

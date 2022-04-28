@@ -5,12 +5,13 @@
   @include mixin.flex-column;
 
   width: var.$main-width;
-  max-width: calc(100% - var.$margins);
+  max-width: 100%;
   gap: var.$margins;
 
   .timers {
     @include mixin.flex-row-wrap;
 
+    max-width: 100%;
     gap: var.$margins;
 
     > * {
