@@ -17,7 +17,7 @@
   .master-difficulty {
     > .heading {
       margin: 0 0 math.div(var.$gap, 2) 0;
-      padding: math.div(var.$gap, 2) var.$gap;
+      padding: calc(0.2em + math.div(var.$gap, 2)) var.$gap;
       justify-content: flex-start;
       width: 100%;
     }

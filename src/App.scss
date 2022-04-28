@@ -25,6 +25,7 @@ h6 {
   max-width: 100%;
   overflow-wrap: break-word;
   line-height: 1.1;
+  padding-block: 0.2em;
 }
 
 h1 {
@@ -83,11 +84,10 @@ a {
 }
 
 .sk-spinner {
-  color: inherit;
+  opacity: 0.5;
 
   &.sk-three-bounce {
     display: inline;
-    opacity: 0.5;
 
     > div {
       height: 0.75em;
