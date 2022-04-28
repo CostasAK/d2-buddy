@@ -1,12 +1,12 @@
-import "./ActivityChampions.scss"
+import "./ActivityChampions.scss";
 
-import DestinyIcon from "../DestinyIcon"
-import PropTypes from "prop-types"
+import DestinyIcon from "../DestinyIcon";
+import PropTypes from "prop-types";
 
 const known_types = [
   { class: "Overload", pattern: /Disruption|Overload/i },
   { class: "Unstoppable", pattern: /Stagger|Unstoppable/i },
-  { class: "Barrier", pattern: /void/i },
+  { class: "Barrier", pattern: /Shield-Piercing|Barrier/i },
 ];
 
 function ActivityChampions({ champions, known_champions }) {
