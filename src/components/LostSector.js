@@ -2,8 +2,8 @@ import "./LostSector.scss";
 
 import ActivityHeader from "./Activity/ActivityHeader";
 import ActivityModifiers from "./Activity/ActivityModifiers";
+import Loading from "./Loading";
 import { PropTypes } from "prop-types";
-import Spinner from "react-spinkit";
 import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";
 import useLostSectors from "../hooks/useLostSectors";
 
@@ -13,10 +13,7 @@ function LostSector({ name }) {
   if (isPending) {
     return (
       <article className="lost-sector">
-        <h2 className="loading">
-          <Spinner name="cube-grid" fadeIn="none" color="inherit" />
-          <span>Loading...</span>
-        </h2>
+        <Loading size="page" fadeIn="none" />
       </article>
     );
   }

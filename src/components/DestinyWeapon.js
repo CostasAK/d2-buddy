@@ -1,8 +1,8 @@
 import "./DestinyWeapon.scss";
 
 import DestinyIcon from "./DestinyIcon";
+import Loading from "./Loading";
 import { Modal } from "./Modal";
-import Spinner from "react-spinkit";
 import getScreenshot from "../functions/getScreenshot";
 import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";
@@ -18,8 +18,7 @@ export default function DestinyWeapon({ id, name }) {
     return (
       <>
         <div className="destiny-weapon">
-          <Spinner fadeIn="none" color="inherit" />{" "}
-          {name && <span>{name}</span>}
+          <Loading size="inline" /> {name && <span>{name}</span>}
         </div>
       </>
     );

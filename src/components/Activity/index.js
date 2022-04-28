@@ -4,8 +4,8 @@ import ActivityHeader from "./ActivityHeader";
 import ActivityModifier from "./ActivityModifier";
 import ActivityModifiers from "./ActivityModifiers";
 import Destination from "./Destination";
+import Loading from "../Loading";
 import PropTypes from "prop-types";
-import Spinner from "react-spinkit";
 import useBungieApi from "../../hooks/useBungieApi";
 
 const api_activity_path = "/Destiny2/Manifest/DestinyActivityDefinition/";
@@ -16,7 +16,9 @@ function Activity({ id, name }) {
   if (isPending) {
     return (
       <>
-        <Spinner fadeIn="none" color="inherit" /> {name && <span>{name}</span>}
+        <article className="activity">
+          <Loading size="page" fadeIn="none" />
+        </article>
       </>
     );
   }

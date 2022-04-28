@@ -83,19 +83,6 @@ a {
   }
 }
 
-.sk-spinner {
-  opacity: 0.5;
-
-  &.sk-three-bounce {
-    display: inline;
-
-    > div {
-      height: 0.75em;
-      width: 0.75em;
-    }
-  }
-}
-
 .simplebar-track {
   &:has(> .simplebar-visible) {
     border-left: 1px solid var.$primary-fg;

@@ -3,8 +3,8 @@ import "./ActivityModifiers.scss";
 import ActivityChampions from "./ActivityChampions";
 import ActivityModifier from "./ActivityModifier";
 import ActivityShields from "./ActivityShields";
+import Loading from "../Loading";
 import PropTypes from "prop-types";
-import Spinner from "react-spinkit";
 import useBungieApi from "../../hooks/useBungieApi";
 
 const api_path = "/Destiny2/Manifest/DestinyActivityModifierDefinition/";
@@ -23,10 +23,7 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
   if (isPending) {
     return (
       <section className="activity-modifiers">
-        <h2 className="loading">
-          <Spinner name="cube-grid" fadeIn="none" color="inherit" />
-          <span>Loading...</span>
-        </h2>
+        <Loading size="section" />
       </section>
     );
   }
