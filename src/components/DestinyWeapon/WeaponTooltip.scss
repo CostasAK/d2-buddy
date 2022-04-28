@@ -5,8 +5,6 @@
 .type-dark,
 .type-custom,
 .react-tooltip {
-  @include mixin.reset;
-
   opacity: 1 !important;
   border-radius: 0 !important;
   overflow: hidden !important;
@@ -28,8 +26,6 @@
   }
 
   .weapon-tooltip {
-    @include mixin.reset;
-
     background: inherit;
 
     &.legendary {

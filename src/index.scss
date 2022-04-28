@@ -1,39 +1,57 @@
 @use "./sass/variables" as var;
-@use "./sass/mixins" as mixin;
-
-@use "sass:math";
 
 @import-normalize;
 
-:root {
-  --margins: 36px;
-  --main-width: 960px;
-  --border-radius: 0;
-  --primary-fg: #f5f5f5;
-  --primary-bg: #04040e;
-
-  font-size: 100%;
-
-  @include mixin.text-body;
-
-  font-family: var.$secondary-font-stack;
-  line-height: var.$line-height;
-  hyphens: auto;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var.$header-bg;
-  color: var.$header-fg;
-}
-
+/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: var.$line-height;
   overflow: hidden;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 img[src$=".gif"],
@@ -42,118 +60,26 @@ img[src$=".png"] {
   image-rendering: -webkit-optimize-contrast;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-body,
-p,
-figure {
-  margin: 0;
-  padding: 0;
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  width: max-content;
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-h1 {
-  @include mixin.header-subscreen;
-}
-
-h2 {
-  @include mixin.header-tracked;
-}
-
-h3 {
-  @include mixin.header-tooltip;
-}
-
-h4 {
-  @include mixin.text-bold-subtitle;
-}
-
-h5 {
-  @include mixin.text-subtitle;
-}
-
-h6 {
-  @include mixin.header;
-}
-
-p {
-  width: clamp(45ch, fit-content(), 75ch);
-  hyphenate-limit-chars: 6 3 2;
-  hyphenate-limit-lines: 2;
-  hyphenate-limit-last: always;
-  hyphenate-limit-zone: 8%;
-}
-
-.a-link,
-a {
-  text-decoration: none;
-  transition: all math.div(var.$transition, 2);
-
-  &:hover,
-  &:active {
-    text-decoration: none;
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
   }
 
-  cursor: pointer;
-
-  &:not(.card) {
-    color: var.$navigation-fg;
-
-    &:hover,
-    &:active {
-      color: #bcbdbf;
-    }
-  }
-}
-
-.sk-spinner {
-  color: inherit;
-
-  &.sk-three-bounce {
-    display: inline;
-    opacity: 0.5;
-
-    > div {
-      height: 0.75em;
-      width: 0.75em;
-    }
-  }
-}
-
-.root-scroll {
-  max-height: 100vh;
-  max-height: var(--vh);
-}
-
-.simplebar-track {
-  &:has(> .simplebar-visible) {
-    border-left: 1px solid var.$primary-fg;
-  }
-
-  .simplebar-scrollbar {
-    &::before {
-      background-color: var.$primary-fg;
-      border-radius: 0;
-    }
-
-    &.simplebar-visible {
-      &::before {
-        opacity: 0.9;
-      }
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

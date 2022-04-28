@@ -112,19 +112,3 @@
 @mixin border-top {
   border-top: 1pt solid rgb(255 255 255 / 50%);
 }
-
-@mixin reset {
-  margin: 0;
-  padding: 0;
-
-  @include text-body;
-
-  font-family: var.$primary-font-stack;
-  line-height: var.$line-height;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var.$primary-bg;
-  color: var.$primary-fg;
-  opacity: 1;
-}

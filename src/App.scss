@@ -2,32 +2,147 @@
 @use "./sass/mixins" as mixin;
 @use "sass:math";
 
-#root {
-  font-family: var.$primary-font-stack;
+:root {
+  font-size: 100%;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: var.$primary-bg;
   color: var.$primary-fg;
-  width: 100%;
+  font-family: var.$primary-font-stack;
+}
 
-  .simplebar-content {
-    > .app {
-      @include mixin.flex-column;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  width: max-content;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  line-height: 1.1;
+}
 
-      align-items: stretch;
-      min-height: 100vh;
-      min-height: var(--vh);
-      height: 100vh;
-      height: var(--vh);
+h1 {
+  @include mixin.header-subscreen;
+}
 
-      > * {
-        flex-shrink: 0;
-      }
+h2 {
+  @include mixin.header-tracked;
+}
+
+h3 {
+  @include mixin.header-tooltip;
+}
+
+h4 {
+  @include mixin.text-bold-subtitle;
+}
+
+h5 {
+  @include mixin.text-subtitle;
+}
+
+h6 {
+  @include mixin.header;
+}
+
+p {
+  width: clamp(45ch, fit-content(), 75ch);
+  max-width: 100%;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
+
+.a-link,
+a {
+  text-decoration: none;
+  transition: all math.div(var.$transition, 2);
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+
+  cursor: pointer;
+
+  &:not(.card) {
+    color: var.$navigation-fg;
+
+    &:hover,
+    &:active {
+      color: #bcbdbf;
+    }
+  }
+}
+
+.sk-spinner {
+  color: inherit;
+
+  &.sk-three-bounce {
+    display: inline;
+    opacity: 0.5;
+
+    > div {
+      height: 0.75em;
+      width: 0.75em;
+    }
+  }
+}
+
+.simplebar-track {
+  &:has(> .simplebar-visible) {
+    border-left: 1px solid var.$primary-fg;
+  }
+
+  .simplebar-scrollbar {
+    &::before {
+      background-color: var.$primary-fg;
+      border-radius: 0;
     }
 
-    .main {
-      flex: 1;
-      @include mixin.flex-column;
+    &.simplebar-visible {
+      &::before {
+        opacity: 0.9;
+      }
+    }
+  }
+}
 
-      padding: var.$margins math.div(var.$margins, 2);
+#root {
+  @include mixin.text-body;
+
+  width: 100%;
+
+  .root-scroll {
+    max-height: 100vh;
+    max-height: var(--vh);
+
+    .simplebar-content {
+      > .app {
+        @include mixin.flex-column;
+
+        align-items: stretch;
+        height: 100vh;
+        height: var(--vh);
+
+        > * {
+          flex-shrink: 0;
+        }
+
+        > .main {
+          flex: 1;
+          @include mixin.flex-column;
+
+          padding: var.$margins math.div(var.$margins, 2);
+        }
+      }
     }
   }
 }
