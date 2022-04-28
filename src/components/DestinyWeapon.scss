@@ -33,6 +33,8 @@
       max-height: 720px;
 
       > .weapon-links {
+        --links-background: rgb(0 0 0 / 50%);
+
         width: fit-content;
         max-width: 100%;
         list-style: none;
@@ -40,17 +42,25 @@
         padding: var.$gap var.$margins var.$margins var.$gap;
         background-image: linear-gradient(
             0deg,
-            rgb(0 0 0 / 25%) 0%,
-            rgb(0 0 0 / 25%) 100%
+            var(--links-background) 0%,
+            var(--links-background) 100%
           ),
-          linear-gradient(0deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 25%) 100%),
+          linear-gradient(
+            0deg,
+            rgb(0 0 0 / 0%) 0%,
+            var(--links-background) 100%
+          ),
           radial-gradient(
             at top left,
-            rgb(0 0 0 / 25%) 0%,
+            var(--links-background) 0%,
             rgb(0 0 0 / 0%) 70%,
             rgb(0 0 0 / 0%) 100%
           ),
-          linear-gradient(-90deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 25%) 100%);
+          linear-gradient(
+            -90deg,
+            rgb(0 0 0 / 0%) 0%,
+            var(--links-background) 100%
+          );
         background-size: calc(100% - var.$gap) calc(100% - var.$gap),
           calc(100% - var.$gap) var.$gap, var.$gap var.$gap,
           var.$gap calc(100% - var.$gap);
