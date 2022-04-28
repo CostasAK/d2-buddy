@@ -3,7 +3,6 @@ import "./DestinyWeapon.scss";
 import DestinyIcon from "./DestinyIcon";
 import { Modal } from "./Modal";
 import Spinner from "react-spinkit";
-import Tooltip from "./Tooltip";
 import getScreenshot from "../functions/getScreenshot";
 import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";
@@ -39,16 +38,15 @@ export default function DestinyWeapon({ id, name }) {
   return (
     <Modal
       triggerContent={
-        <Tooltip
-          contents={`${tier} ${element} ${type}`}
-          backgroundColor={tierToColor(tier)}
-        >
-          <div className="destiny-weapon a-link">
-            <DestinyIcon icon={["weapons", type]} color={element} />{" "}
-            <span>{name}</span>
-          </div>
-        </Tooltip>
+        <div className="destiny-weapon a-link">
+          <DestinyIcon icon={["weapons", type]} color={element} />{" "}
+          <span>{name}</span>
+        </div>
       }
+      tooltip={{
+        contents: `${tier} ${element} ${type}`,
+        backgroundColor: tierToColor(tier),
+      }}
     >
       <article className={"weapon-modal " + tier.toLowerCase()}>
         <img src={screenshot} alt="" className="weapon-screenshot" />

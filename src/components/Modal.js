@@ -13,8 +13,9 @@ import Measure from "react-measure";
 import { PropTypes } from "prop-types";
 import ReactModal from "react-modal";
 import SimpleBarReact from "simplebar-react";
+import Tooltip from "./Tooltip";
 
-function Modal({ triggerContent, className, children }) {
+function Modal({ triggerContent, className, tooltip, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [innerWidth, setInnerWidth] = useState(0);
 
@@ -64,7 +65,11 @@ function Modal({ triggerContent, className, children }) {
 
   return (
     <>
-      {cloned_trigger_content}
+      {tooltip ? (
+        <Tooltip {...tooltip}>{cloned_trigger_content}</Tooltip>
+      ) : (
+        cloned_trigger_content
+      )}
       {modal(isOpen, innerWidth)}
     </>
   );
