@@ -15,7 +15,7 @@ import ReactModal from "react-modal";
 import SimpleBarReact from "simplebar-react";
 import Tooltip from "./Tooltip";
 
-function Modal({ triggerContent, className, tooltip, children }) {
+function Modal({ triggerContent, className, tooltip, background, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [innerWidth, setInnerWidth] = useState(0);
 
@@ -36,12 +36,22 @@ function Modal({ triggerContent, className, tooltip, children }) {
         overlayClassName="modal-overlay"
         closeTimeoutMS={250}
         appElement={document.getElementById("root")}
-        style={width ? { content: { width: width + 2 } } : {}}
+        style={
+          width
+            ? {
+                content: { width: width + 2 },
+              }
+            : {}
+        }
       >
         <DestinyIcon
           icon={["controllers", "playstation", "Cross"]}
           className="close"
           onClick={() => setIsOpen(false)}
+        />
+        <div
+          className="background"
+          style={{ backgroundImage: `url(${background})` }}
         />
         <SimpleBarReact className="modal-scroll">
           <Measure
@@ -59,7 +69,7 @@ function Modal({ triggerContent, className, tooltip, children }) {
         </SimpleBarReact>
       </ReactModal>
     ),
-    [children, className]
+    [background, children, className]
   );
 
   return (

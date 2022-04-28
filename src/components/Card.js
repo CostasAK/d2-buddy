@@ -104,6 +104,7 @@ function Card({
     <Modal
       triggerContent={card_element(card_inner(card_text))}
       className={className}
+      background={icon}
     >
       <article className="modal-text">
         {title && <h1 className="title">{title}</h1>}

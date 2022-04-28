@@ -61,6 +61,18 @@
         );
       }
 
+      > .background {
+        opacity: 0.25;
+        position: absolute;
+        top: 0;
+        right: var.$gap;
+        bottom: var.$pad;
+        left: 0;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: contain;
+      }
+
       > .modal-scroll {
         max-height: calc(100vh - 2 * var.$margins - 2px);
         max-height: calc(var(--vh) - 2 * var.$margins - 2px);

@@ -17,6 +17,7 @@ function LostSectorLink({ location }) {
           {location.name} - {location.location}
         </span>
       }
+      background="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_7d11acd7d5a3daebc0a0c906452932d6.png"
     >
       <LostSector name={location.name} />
     </Modal>
