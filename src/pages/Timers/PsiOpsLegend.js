@@ -1,6 +1,6 @@
 import CycleCard from "../../components/CycleCard";
 
-const items = ["Cosmodrome", "Moon", "EDZ"];
+const items = ["Cosmodrome", "Moon", "EDZ"].map((item) => <div>{item}</div>);
 
 const second = 1000;
 const minute = 60 * second;

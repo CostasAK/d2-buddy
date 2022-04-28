@@ -14,7 +14,7 @@
       text-align: center;
       margin: auto;
 
-      section {
+      .upcoming-items {
         @include mixin.flex-column;
 
         gap: 1em;

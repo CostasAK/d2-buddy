@@ -78,14 +78,14 @@ export default function LostSectors() {
 
     do {
       items.push(
-        <>
+        <div>
           <LostSectorLink
             location={locations[items.length % locations.length]}
           />
           {" ("}
           {drops[items.length % drops.length]}
           {")"}
-        </>
+        </div>
       );
     } while (items.length < lcm(drops.length, locations.length));
 

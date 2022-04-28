@@ -1,0 +1,65 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+@use "sass:math";
+
+.destiny-weapon {
+  .destiny-icon {
+    cursor: pointer;
+  }
+}
+
+.modal-inner {
+  .weapon-modal {
+    background: inherit;
+
+    &.legendary {
+      background: var.$legendary;
+    }
+
+    &.exotic {
+      background: var.$exotic;
+    }
+
+    display: flex;
+    flex-flow: column;
+    width: min-content;
+
+    .weapon-screenshot {
+      width: 100%;
+      max-width: 1280px;
+      max-height: 720px;
+    }
+
+    .weapon-header {
+      width: max-content;
+      display: flex;
+      flex-flow: row;
+      gap: 0.5rem;
+      padding-right: 0.5rem;
+
+      > .weapon-icon {
+        border-top: 2px solid var.$primary-fg;
+        border-right: 2px solid var.$primary-fg;
+        border-bottom: 1px solid var.$primary-fg;
+        border-left: 1px solid var.$primary-fg;
+        height: 1.5 * (math.div(36rem, 22) + 1rem);
+        aspect-ratio: 1 / 1;
+      }
+
+      > .weapon-header-text {
+        width: max-content;
+
+        h3 {
+          margin: 0 !important;
+          width: max-content;
+          max-width: 100%;
+        }
+
+        p {
+          width: max-content;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

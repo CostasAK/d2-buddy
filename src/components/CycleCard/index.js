@@ -53,30 +53,28 @@ export default function CycleCard({ name, items, start, period, icon }) {
   let short_description = (
     <>
       {items[current_item_index]}
-      <br />
       {"Cycles " + timeString(nextCycle)}
     </>
   );
 
   let long_description = (
     <>
-      <p>{short_description}</p>
-      <section>
+      <section>{short_description}</section>
+      <section className="upcoming-items">
         <h3>Upcoming</h3>
         {items.map((item, index) => {
           const shifted_index =
             (index - current_item_index + items.length - 1) % items.length;
           return (
-            <p
+            <section
               key={index}
               style={{
                 order: shifted_index,
               }}
             >
               {item}
-              <br />
               {absoluteTimeString(nextCycle + shifted_index * period, true)}
-            </p>
+            </section>
           );
         })}
       </section>
