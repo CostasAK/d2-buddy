@@ -26,11 +26,11 @@
   }
 
   &.page {
-    min-width: min(100%, 6.3em);
+    width: 6.3em;
   }
 
   &.section {
-    min-width: min(100%, 10.3em);
+    width: 10.3em;
   }
 
   > .sk-spinner {
