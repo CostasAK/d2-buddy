@@ -39,7 +39,7 @@
         max-width: 100%;
         list-style: none;
         margin: 0;
-        padding: var.$gap var.$margins var.$margins var.$gap;
+        padding: var.$gap var.$gap + var.$pad var.$gap + var.$pad var.$gap;
         background-image: linear-gradient(
             0deg,
             var(--links-background) 0%,
