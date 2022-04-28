@@ -34,22 +34,21 @@
 
     .weapon-header {
       width: max-content;
+      max-width: 100%;
       display: flex;
       flex-flow: row;
       gap: 0.5rem;
       padding-right: 0.5rem;
 
       > .weapon-icon {
-        border-top: 2px solid var.$primary-fg;
-        border-right: 2px solid var.$primary-fg;
-        border-bottom: 1px solid var.$primary-fg;
-        border-left: 1px solid var.$primary-fg;
+        border: 2px solid var.$primary-fg;
         height: 1.5 * (math.div(36rem, 22) + 1rem);
         aspect-ratio: 1 / 1;
       }
 
       > .weapon-header-text {
         width: max-content;
+        max-width: 100%;
 
         h3 {
           margin: 0 !important;
@@ -58,7 +57,6 @@
         }
 
         p {
-          width: max-content;
           max-width: 100%;
         }
       }
