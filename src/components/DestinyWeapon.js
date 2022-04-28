@@ -17,7 +17,7 @@ export default function DestinyWeapon({ id, name }) {
   if (isPending) {
     return (
       <>
-        <Spinner fadeIn="none" /> {name && <span>{name}</span>}
+        <Spinner fadeIn="none" color="inherit" /> {name && <span>{name}</span>}
       </>
     );
   }

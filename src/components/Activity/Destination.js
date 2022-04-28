@@ -1,8 +1,8 @@
-import "./Destination.scss"
+import "./Destination.scss";
 
-import DestinyIcon from "../DestinyIcon"
-import Spinner from "react-spinkit"
-import useBungieApi from "../../hooks/useBungieApi"
+import DestinyIcon from "../DestinyIcon";
+import Spinner from "react-spinkit";
+import useBungieApi from "../../hooks/useBungieApi";
 
 const api_path = "/Destiny2/Manifest/DestinyDestinationDefinition/";
 
@@ -13,7 +13,7 @@ function Destination({ id }) {
     return (
       <div className="destination">
         <DestinyIcon icon={["activities", "Destination"]} />
-        <Spinner fadeIn="none" />
+        <Spinner fadeIn="none" color="inherit" />
       </div>
     );
   }

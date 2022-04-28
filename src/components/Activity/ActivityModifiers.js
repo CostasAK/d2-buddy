@@ -24,7 +24,7 @@ function ActivityModifiers({ data, known_shields, known_champions }) {
     return (
       <section className="activity-modifiers">
         <h2 className="loading">
-          <Spinner name="cube-grid" fadeIn="none" />
+          <Spinner name="cube-grid" fadeIn="none" color="inherit" />
           <span>Loading...</span>
         </h2>
       </section>
