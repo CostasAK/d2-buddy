@@ -22,14 +22,15 @@
     display: grid;
     justify-content: safe center;
     align-items: safe center;
+    transition: all var.$transition;
 
     &.ReactModal__Overlay--after-open {
-      opacity: 1;
+      transition: all math.div(var.$transition, 2);
+      animation: fade var.$transition forwards;
     }
 
     &.ReactModal__Overlay--before-close {
-      opacity: 0;
-      transition: 0.125s;
+      animation: fade math.div(var.$transition, 2) reverse;
     }
 
     > .modal {
@@ -38,6 +39,7 @@
       max-height: 100%;
       background: var.$primary-bg;
       border: 1px solid var.$primary-fg;
+      transition: all var.$transition;
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       > .destiny-icon.close {
@@ -62,6 +64,7 @@
       > .modal-scroll {
         max-height: calc(100vh - 2 * var.$margins - 2px);
         max-height: calc(var(--vh) - 2 * var.$margins - 2px);
+        overflow-x: hidden;
 
         .modal-inner {
           width: fit-content;
@@ -76,12 +79,28 @@
   }
 }
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes anvil {
+  0% {
+    opacity: 0;
+  }
+
   1% {
+    opacity: 0;
     transform: scale(0.96) translateY(10px);
   }
 
   100% {
+    opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
