@@ -51,9 +51,8 @@
             var(--links-background) 100%
           ),
           radial-gradient(
-            at top left,
+            farthest-side at top left,
             var(--links-background) 0%,
-            rgb(0 0 0 / 0%) 70%,
             rgb(0 0 0 / 0%) 100%
           ),
           linear-gradient(
