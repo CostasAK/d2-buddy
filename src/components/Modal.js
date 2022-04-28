@@ -16,7 +16,7 @@ import SimpleBarReact from "simplebar-react";
 
 function Modal({ triggerContent, className, children }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [innerWidth, setInnerWidth] = useState(500);
+  const [innerWidth, setInnerWidth] = useState(0);
 
   const cloned_trigger_content = useMemo(
     () =>
@@ -35,7 +35,7 @@ function Modal({ triggerContent, className, children }) {
         overlayClassName="modal-overlay"
         closeTimeoutMS={250}
         appElement={document.getElementById("root")}
-        style={{ content: { width: width + 2 } }}
+        style={width ? { content: { width: width + 2 } } : {}}
       >
         <DestinyIcon
           icon={["controllers", "playstation", "Cross"]}
