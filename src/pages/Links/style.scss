@@ -5,14 +5,10 @@
 .links-page {
   @include mixin.flex-column;
 
-  width: var.$main-width;
-  max-width: 100%;
   gap: var.$margins;
 
   .links {
     @include mixin.grid-reading;
-
-    max-width: 100%;
 
     .link {
       height: fit-content;

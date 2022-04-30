@@ -21,7 +21,6 @@ h3,
 h4,
 h5,
 h6 {
-  max-width: 100%;
   overflow-wrap: break-word;
   line-height: 1.1;
   padding-block: 0.2em;
@@ -53,7 +52,6 @@ h6 {
 
 p {
   width: clamp(45ch, fit-content(), 75ch);
-  max-width: 100%;
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
   hyphenate-limit-last: always;
@@ -109,11 +107,9 @@ a {
   .root-scroll {
     max-height: 100vh;
     max-height: var(--vh);
-    max-width: 100%;
 
     .simplebar-content {
       > .app {
-        max-width: 100%;
         @include mixin.flex-column;
 
         align-items: stretch;
@@ -126,6 +122,8 @@ a {
 
         > .main {
           flex: 1;
+          width: clamp(80%, var.$main-width, 100%);
+          margin-inline: auto;
           @include mixin.flex-column;
 
           padding: var.$margins var.$gap;

@@ -7,7 +7,6 @@
     width: var.$main-width + var.$margins;
   }
 
-  max-width: 100%;
   @include mixin.flex-column;
 
   align-items: stretch;

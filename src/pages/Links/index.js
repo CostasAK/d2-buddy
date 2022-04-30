@@ -26,6 +26,13 @@ const links = [
     logo: "https://styles.redditmedia.com/t5_bzs62/styles/profileIcon_rod7enjmt3751.jpg?width=256&height=256&crop=256:256,smart&s=e31e50dc38e85ea18681a82b9fb68addb733d823",
   },
   {
+    title: "Vault Analyzer",
+    description:
+      "TMMania's DIM Search Gallery, to find junk in your vault and good things at vendors.",
+    link: "https://docs.google.com/spreadsheets/d/1fzn1iLI91aJOe3Wj9Vp7x41qIujjW1tRtoTLB6V_X7E/edit?usp=sharing",
+    logo: "https://avatars.githubusercontent.com/u/74565769?v=4",
+  },
+  {
     title: "Ishtar Collective",
     link: "https://www.ishtar-collective.net/",
     description: "Here you can find all the organised lore entries of Destiny.",

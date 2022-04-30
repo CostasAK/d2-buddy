@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(100%, math.div(var.$main-width - 2 * var.$gap, 3)), 1fr)
+    minmax(min(100%, math.div(var.$main-width - 3 * var.$gap, 4)), 1fr)
   );
   gap: var.$gap;
 }

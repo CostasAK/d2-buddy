@@ -9,7 +9,6 @@ a.card {
   --card-content-opacity: 0.8;
 
   background: var.$primary-bg;
-  max-width: 100%;
   margin: var.$border-expansion;
   border: 1px solid var.$primary-fg;
   color: var.$primary-fg;
@@ -55,7 +54,10 @@ a.card {
     &.floating-icon {
       .icon {
         float: left;
-        margin: 0 0.25rem 0 0;
+        margin: 0 0.5rem 0 0;
+        max-width: 3rem;
+        max-height: 3rem;
+        opacity: 1;
       }
     }
   }

@@ -7,6 +7,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 /* Remove default margin */
@@ -52,7 +53,6 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
   display: block;
 }
 
