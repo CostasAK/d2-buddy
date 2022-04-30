@@ -52,23 +52,10 @@
       width: max-content;
       max-width: 100%;
 
-      .card-text {
+      .card-inner {
         font-size: 0.875rem;
         text-align: center;
         padding: 0.5em 1em;
-        background: var.$highlight-dim;
-      }
-
-      border-color: var.$highlight-bright;
-
-      &:hover,
-      &:focus,
-      &:active {
-        border-color: var.$primary-fg;
-
-        .content {
-          background: var.$highlight-mid;
-        }
       }
     }
   }

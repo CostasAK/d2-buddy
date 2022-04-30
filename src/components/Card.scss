@@ -6,6 +6,8 @@ a.card {
 }
 
 .card {
+  --card-content-opacity: 0.8;
+
   background: var.$primary-bg;
   max-width: 100%;
   margin: var.$border-expansion;
@@ -13,28 +15,41 @@ a.card {
   color: var.$primary-fg;
   transition: var.$transition;
 
-  > .card-text {
+  > .card-inner {
+    column-gap: var.$gap;
     padding: 1rem;
     transition: var.$transition;
 
-    .icon-wrapper {
-      flex-shrink: 0;
-      max-width: 3rem;
-      max-height: 3rem;
-      overflow: hidden;
-    }
-
     .icon {
-      font-size: 3rem;
-      max-width: 3rem;
-      max-height: 3rem;
+      font-size: 4.5rem;
+      width: 100%;
+      max-width: 4.5rem;
+      height: auto;
+      max-height: 4.5rem;
       object-fit: scale-down;
+      opacity: var(--card-content-opacity);
     }
 
     &.side-icon {
-      @include mixin.flex-row;
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
 
-      gap: var.$gap;
+      > .icon {
+        grid-row: 1 / 99;
+        align-self: center;
+      }
+
+      .title::after {
+        content: "";
+        display: block;
+        margin-block: calc(0.95rem - 1px) 0.55rem;
+        border-bottom: var.$thin-border;
+        opacity: var(--card-content-opacity);
+      }
+
+      .card-content {
+        opacity: var(--card-content-opacity);
+      }
     }
 
     &.floating-icon {
@@ -42,32 +57,6 @@ a.card {
         float: left;
         margin: 0 0.25rem 0 0;
       }
-
-      .title {
-        width: 100%;
-      }
-    }
-
-    .text-wrapper {
-      max-width: 100%;
-    }
-  }
-
-  &.highlight {
-    .card-text {
-      background: var.$highlight-dim;
-    }
-
-    border-color: var.$highlight-bright;
-
-    &.red .card-text {
-      background: var.$highlight-red;
-    }
-
-    &:hover .content,
-    &:focus .content,
-    &:active .content {
-      background: var.$highlight-mid;
     }
   }
 
@@ -78,12 +67,38 @@ a.card {
     > * {
       pointer-events: none;
     }
+  }
 
-    &:hover,
-    &:active {
+  &.highlight {
+    .card-inner {
+      background: var.$highlight-dim;
+    }
+
+    border-color: var.$highlight-bright;
+
+    &.red .card-inner {
+      background: var.$highlight-red;
+    }
+  }
+
+  &:hover,
+  &:active {
+    &.clickable {
+      --card-content-opacity: 0.9;
+
       margin: 0;
       padding: var.$border-expansion;
       border-color: var.$primary-fg;
+
+      .card-inner {
+        background-color: hsl(0deg 0% 50% / 10%);
+      }
+
+      &.highlight {
+        .card-inner {
+          background: var.$highlight-mid;
+        }
+      }
     }
   }
 }

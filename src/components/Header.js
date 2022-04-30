@@ -19,7 +19,11 @@ function Header() {
       </h1>
       {navigator.platform.match(/Win\d+/i) && (
         <div className="launch">
-          <Card link="steam://rungameid/1085660" cardContent="Play Destiny 2" />
+          <Card
+            className="highlight"
+            link="steam://rungameid/1085660"
+            cardContent="Play Destiny 2"
+          />
         </div>
       )}
     </header>

@@ -26,21 +26,8 @@
       .card {
         flex: 0 1 auto;
 
-        .card-text {
+        .card-inner {
           padding: 0.5em 1em;
-          background: var.$highlight-dim;
-        }
-
-        border-color: var.$highlight-bright;
-
-        &:hover,
-        &:focus,
-        &:active {
-          border-color: var.$primary-fg;
-
-          .content {
-            background: var.$highlight-mid;
-          }
         }
       }
     }

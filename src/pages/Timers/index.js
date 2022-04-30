@@ -133,7 +133,12 @@ export function Timers() {
       </div>
       <div className="timers links">
         {links.map((link) => (
-          <Card key={link.name} cardContent={link.name} link={link.link} />
+          <Card
+            className="highlight"
+            key={link.name}
+            cardContent={link.name}
+            link={link.link}
+          />
         ))}
       </div>
     </div>
