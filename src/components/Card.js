@@ -65,17 +65,29 @@ function Card({
           </div>
         );
       } else if (link) {
-        return (
-          <a
-            className={"card clickable " + className}
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-            style={{ order }}
-          >
-            {content}
-          </a>
-        );
+        if (link.startsWith("steam://")) {
+          return (
+            <a
+              className={"card clickable " + className}
+              href={link}
+              style={{ order }}
+            >
+              {content}
+            </a>
+          );
+        } else {
+          return (
+            <a
+              className={"card clickable " + className}
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              style={{ order }}
+            >
+              {content}
+            </a>
+          );
+        }
       } else {
         return (
           <div className={"card " + className} style={{ order }}>
