@@ -45,25 +45,12 @@ function Card({
     (card_text) => (
       <article
         className={
-          "card-text " +
+          "card-inner " +
           (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
         }
       >
-        {icon_element ? (
-          floatIcon ? (
-            <>
-              {icon_element}
-              <section>{card_text}</section>
-            </>
-          ) : (
-            <>
-              <div className="icon-wrapper">{icon_element}</div>
-              <div className="text-wrapper">{card_text}</div>
-            </>
-          )
-        ) : (
-          card_text
-        )}
+        {icon_element && icon_element}
+        {card_text}
       </article>
     ),
     [floatIcon, icon_element]
