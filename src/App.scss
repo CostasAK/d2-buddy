@@ -113,7 +113,6 @@ a {
 
     .simplebar-content {
       > .app {
-        overflow-x: hidden;
         max-width: 100%;
         @include mixin.flex-column;
 
