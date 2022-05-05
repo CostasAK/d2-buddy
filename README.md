@@ -19,5 +19,8 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
   - Events without an end time, such as patches, remain in the list for 24 hours after their start time.
   - Recurring events are sorted in order of occurence from now.
   - Recurring events are reset and re-ordered on each occurence.
+  - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
+- Activities
+  - Shows breakdown of shields, champions and modifiers for legend and master lost sectors.
 - Links
   - Some links to my favorite D2 resources and tools.
