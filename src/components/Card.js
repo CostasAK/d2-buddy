@@ -43,32 +43,40 @@ function Card({
 
   const card_inner = useCallback(
     (card_text) => (
-      <article
-        className={
-          "card-inner " +
-          (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
-        }
-      >
+      <>
         {icon_element && icon_element}
         {card_text}
-      </article>
+      </>
     ),
-    [floatIcon, icon_element]
+    [icon_element]
   );
 
   const card_element = useCallback(
     (content) => {
       if (modalContent) {
         return (
-          <div className={"card clickable " + className} style={{ order }}>
+          <article
+            className={
+              "card clickable " +
+              className +
+              " " +
+              (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
+            }
+            style={{ order }}
+          >
             {content}
-          </div>
+          </article>
         );
       } else if (link) {
         if (link.startsWith("steam://")) {
           return (
             <a
-              className={"card clickable " + className}
+              className={
+                "card clickable " +
+                className +
+                " " +
+                (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
+              }
               href={link}
               style={{ order }}
             >
@@ -78,7 +86,12 @@ function Card({
         } else {
           return (
             <a
-              className={"card clickable " + className}
+              className={
+                "card clickable " +
+                className +
+                " " +
+                (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
+              }
               href={link}
               target="_blank"
               rel="noreferrer"
@@ -90,13 +103,21 @@ function Card({
         }
       } else {
         return (
-          <div className={"card " + className} style={{ order }}>
+          <article
+            className={
+              "card " +
+              className +
+              " " +
+              (floatIcon ? "floating-icon" : icon_element ? "side-icon" : "")
+            }
+            style={{ order }}
+          >
             {content}
-          </div>
+          </article>
         );
       }
     },
-    [className, link, modalContent, order]
+    [className, floatIcon, icon_element, link, modalContent, order]
   );
 
   return modalContent ? (

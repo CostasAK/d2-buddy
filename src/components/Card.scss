@@ -1,5 +1,7 @@
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
+@use "../sass/functions" as fun;
+@use "sass:math";
 
 a.card {
   display: block;
@@ -9,66 +11,72 @@ a.card {
   --card-content-opacity: 0.9;
 
   background: var.$primary-bg;
-  margin: var.$border-expansion;
   border: 1px solid var.$primary-fg;
   color: var.$primary-fg;
   transition: var.$transition;
+  align-self: center;
+  column-gap: var.$gap;
+  padding: 1rem;
 
-  > .card-inner {
-    align-self: center;
-    column-gap: var.$gap;
-    padding: 1rem;
-    transition: var.$transition;
+  .icon {
+    font-size: 4.5rem;
+    width: 100%;
+    max-width: 4.5rem;
+    height: auto;
+    max-height: 4.5rem;
+    object-fit: scale-down;
+    opacity: var(--card-content-opacity);
+  }
 
-    .icon {
-      font-size: 4.5rem;
-      width: 100%;
-      max-width: 4.5rem;
-      height: auto;
-      max-height: 4.5rem;
-      object-fit: scale-down;
+  &.side-icon {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+
+    > .icon {
+      grid-row: 1 / 99;
+      align-self: center;
+    }
+
+    .title::after {
+      content: "";
+      display: block;
+      margin-block: calc(0.95rem - 1px) 0.55rem;
+      border-bottom: var.$thin-border;
       opacity: var(--card-content-opacity);
     }
 
-    &.side-icon {
-      display: grid;
-      grid-template-columns: 4.5rem 1fr;
-
-      > .icon {
-        grid-row: 1 / 99;
-        align-self: center;
-      }
-
-      .title::after {
-        content: "";
-        display: block;
-        margin-block: calc(0.95rem - 1px) 0.55rem;
-        border-bottom: var.$thin-border;
-        opacity: var(--card-content-opacity);
-      }
-
-      .card-content {
-        opacity: var(--card-content-opacity);
-      }
+    .card-content {
+      opacity: var(--card-content-opacity);
     }
+  }
 
-    &.floating-icon {
-      .icon {
-        float: left;
-        margin: 0 0.5rem 0 0;
-        max-width: 3rem;
-        max-height: 3rem;
-        opacity: 1;
-      }
+  &.floating-icon {
+    .icon {
+      float: left;
+      margin: 0 0.5rem 0 0;
+      max-width: 3rem;
+      max-height: 3rem;
+      opacity: 1;
     }
   }
 
   &.clickable {
     user-select: none;
     cursor: pointer;
+    position: relative;
 
     > * {
       pointer-events: none;
+    }
+
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      max-width: none;
+      inset: fun.px-to-rem(-10);
+      border: fun.px-to-rem(2) solid var.$primary-fg;
+      opacity: 0;
     }
   }
 
@@ -87,20 +95,18 @@ a.card {
   &:hover,
   &:active {
     &.clickable {
-      --card-content-opacity: 0.9;
+      --card-content-opacity: 1;
 
-      margin: 0;
-      padding: var.$border-expansion;
       border-color: var.$primary-fg;
-
-      .card-inner {
-        background-color: hsl(0deg 0% 50% / 10%);
-      }
+      background-color: fun.primary-fg(0.2);
 
       &.highlight {
-        .card-inner {
-          background: var.$highlight-mid;
-        }
+        background: var.$highlight-mid;
+      }
+
+      &::before {
+        animation: border-fade var.$transition forwards
+          math.div(var.$transition, 2);
       }
     }
   }
@@ -109,4 +115,11 @@ a.card {
 .modal-text {
   padding: var.$margins;
   width: max-content;
+}
+
+@keyframes border-fade {
+  100% {
+    inset: fun.px-to-rem(-5);
+    opacity: 0.9;
+  }
 }
