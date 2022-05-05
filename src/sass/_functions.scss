@@ -1,5 +1,4 @@
 @use "sass:math";
-@use "sass:meta";
 
 @function px-to-rem($px) {
   $rem: math.div($px, 16);
@@ -9,4 +8,72 @@
 @function px-to-em($px) {
   $em: math.div($px, 16);
   @return #{$em}em;
+}
+
+@function primary-fg($alpha) {
+  @return hsl(0deg 0% 96% / #{$alpha});
+}
+
+@function primary-bg($alpha) {
+  @return hsl(240deg 56% 4% / #{$alpha});
+}
+
+@function header-fg($alpha) {
+  @return hsl(0deg 0% 95% / #{$alpha});
+}
+
+@function header-bg($alpha) {
+  @return hsl(210deg 22% 9% / #{$alpha});
+}
+
+@function footer-bg($alpha) {
+  @return hsl(210deg 20% 10% / #{$alpha});
+}
+
+@function navigation-bg($alpha) {
+  @return hsl(45deg 3% 25% / #{$alpha});
+}
+
+@function navigation-fg($alpha) {
+  @return hsl(0deg 0% 100% / #{$alpha});
+}
+
+@function highlight-dim($alpha) {
+  @return hsl(43deg 58% 39% / #{$alpha});
+}
+
+@function highlight-mid($alpha) {
+  @return hsl(42deg 66% 43% / #{$alpha});
+}
+
+@function highlight-bright($alpha) {
+  @return hsl(47deg 100% 56% / #{$alpha});
+}
+
+@function highlight-red($alpha) {
+  @return hsl(357deg 32% 29% / #{$alpha});
+}
+
+@function arc($alpha) {
+  @return hsl(184deg 84% 71% / #{$alpha});
+}
+
+@function solar($alpha) {
+  @return hsl(21deg 90% 55% / #{$alpha});
+}
+
+@function void($alpha) {
+  @return hsl(276deg 32% 57% / #{$alpha});
+}
+
+@function stasis($alpha) {
+  @return hsl(223deg 63% 54% / #{$alpha});
+}
+
+@function legendary($alpha) {
+  @return hsl(274deg 33% 29% / #{$alpha});
+}
+
+@function exotic($alpha) {
+  @return hsl(47deg 60% 50% / #{$alpha});
 }
