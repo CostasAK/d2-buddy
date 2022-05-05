@@ -1,5 +1,6 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
+@use "../../sass/functions" as fun;
 
 .timers-wrapper {
   @include mixin.flex-column;
@@ -9,7 +10,7 @@
   .timers {
     @include mixin.flex-row-wrap;
 
-    gap: var.$margins;
+    gap: fun.px-to-rem(7) fun.px-to-rem(6);
 
     > * {
       flex: 1 1 auto;

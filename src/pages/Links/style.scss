@@ -1,14 +1,14 @@
 @use "../../sass/variables" as var;
 @use "../../sass/mixins" as mixin;
-@use "sass:math";
+@use "../../sass/functions" as fun;
 
 .links-page {
   @include mixin.flex-column;
 
-  gap: var.$margins;
-
   .links {
     @include mixin.grid-reading;
+
+    gap: fun.px-to-rem(7) fun.px-to-rem(6);
 
     .link {
       height: fit-content;
