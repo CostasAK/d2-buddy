@@ -30,7 +30,7 @@ export function formatAbsoluteDuration(duration) {
     return "1 minute";
   }
 
-  if (absolute_duration < 45 * minute) {
+  if (absolute_duration <= 57.5 * minute) {
     return `${Math.round(absolute_duration / minute)} minutes`;
   }
 
