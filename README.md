@@ -19,8 +19,5 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
   - Events without an end time, such as patches, remain in the list for 24 hours after their start time.
   - Recurring events are sorted in order of occurence from now.
   - Recurring events are reset and re-ordered on each occurence.
-- DIM Searches
-  - Some DIM Searches I like to use and share with people.
-  - A link to TMMania's Vault Analyzer.
 - Links
   - Some links to my favorite D2 resources and tools.
