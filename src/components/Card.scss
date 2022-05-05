@@ -105,7 +105,7 @@ a.card {
       }
 
       &::before {
-        animation: border-fade var.$transition forwards
+        animation: border-fade math.div(var.$transition, 2) forwards
           math.div(var.$transition, 2);
       }
     }
