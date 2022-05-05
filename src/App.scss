@@ -70,7 +70,7 @@ a {
 
   cursor: pointer;
 
-  &:not(.card) {
+  &:not(.card):not(.button) {
     color: var.$navigation-fg;
 
     &:hover,

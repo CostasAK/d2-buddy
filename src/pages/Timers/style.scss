@@ -18,15 +18,10 @@
 
     &.links {
       justify-content: safe center;
-      font-family: var.$secondary-font-stack;
       letter-spacing: normal;
 
-      .card {
+      .button {
         flex: 0 1 auto;
-
-        .card-inner {
-          padding: 0.5em 1em;
-        }
       }
     }
   }

@@ -1,6 +1,6 @@
 import "./Header.scss";
 
-import { Card } from "./Card";
+import Button from "./Button";
 import SVG from "react-inlinesvg";
 import logo from "../assets/clovis_ck.svg";
 
@@ -19,11 +19,7 @@ function Header() {
       </h1>
       {navigator.platform.match(/Win\d+/i) && (
         <div className="launch">
-          <Card
-            className="highlight"
-            link="steam://rungameid/1085660"
-            cardContent="Play Destiny 2"
-          />
+          <Button href="steam://rungameid/1085660">Play Destiny 2</Button>
         </div>
       )}
     </header>

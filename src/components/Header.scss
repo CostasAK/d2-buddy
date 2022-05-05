@@ -3,7 +3,7 @@
 @use "sass:math";
 
 .header {
-  z-index: 100;
+  isolation: isolate;
   width: 100%;
   min-height: 78px;
   padding: math.div(var.$margins, 4) math.div(var.$margins, 2);
@@ -42,19 +42,8 @@
   }
 
   .launch {
+    font-size: 0.875rem;
     flex: 1 0 auto;
     justify-content: flex-end;
-
-    > .card {
-      @include mixin.flex-row;
-
-      width: max-content;
-
-      .card-inner {
-        font-size: 0.875rem;
-        text-align: center;
-        padding: 0.5em 1em;
-      }
-    }
   }
 }

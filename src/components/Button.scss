@@ -1,0 +1,40 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+
+.button {
+  margin: var.$border-expansion;
+  border: 1px solid var.$primary-fg;
+  color: var.$primary-fg;
+  transition: var.$transition;
+  font-family: var.$secondary-font-stack;
+  user-select: none;
+  cursor: pointer;
+  border-color: var.$highlight-bright;
+
+  > .button-inner {
+    text-align: center;
+    align-self: center;
+    column-gap: var.$gap;
+    padding: 0.5em 1em;
+    transition: var.$transition;
+    pointer-events: none;
+    background: var.$highlight-dim;
+  }
+
+  &.red .button-inner {
+    background: var.$highlight-red;
+  }
+
+  &:hover,
+  &:active {
+    &.clickable {
+      margin: 0;
+      padding: var.$border-expansion;
+      border-color: var.$primary-fg;
+
+      .button-inner {
+        background: var.$highlight-mid;
+      }
+    }
+  }
+}

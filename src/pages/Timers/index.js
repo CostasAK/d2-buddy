@@ -9,7 +9,7 @@ import {
 } from "@d2api/date";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import { Card } from "../../components/Card";
+import Button from "../../components/Button";
 import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
@@ -133,12 +133,9 @@ export function Timers() {
       </div>
       <div className="timers links">
         {links.map((link) => (
-          <Card
-            className="highlight"
-            key={link.name}
-            cardContent={link.name}
-            link={link.link}
-          />
+          <Button key={link.name} href={link.link}>
+            {link.name}
+          </Button>
         ))}
       </div>
     </div>

@@ -15,6 +15,7 @@ a.card {
   transition: var.$transition;
 
   > .card-inner {
+    align-self: center;
     column-gap: var.$gap;
     padding: 1rem;
     transition: var.$transition;
