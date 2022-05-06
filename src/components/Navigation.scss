@@ -42,7 +42,6 @@
       &:active,
       &.active {
         color: var.$navigation-fg;
-        text-decoration: none;
 
         &::after {
           animation: nav-underline var.$transition forwards;
