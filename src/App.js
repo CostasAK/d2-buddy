@@ -11,7 +11,7 @@ import Background from "./components/Background";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Links } from "./pages/Links/index";
-import { Navigation } from "./components/Navigation";
+import Navigation from "./components/Navigation";
 import React from "react";
 import { Timers } from "./pages/Timers";
 

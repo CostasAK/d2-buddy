@@ -1,47 +1,59 @@
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
+@use "sass:math";
 
 .navigation {
   width: 100%;
-  @include mixin.flex-row-wrap;
-
-  justify-content: safe center;
   color: var.$navigation-fg;
   background: var.$navigation-bg;
-  text-transform: uppercase;
   text-align: center;
   line-height: 2 * var.$line-height;
   font-size: 1.067rem;
+  text-transform: uppercase;
 
-  .navigation-link {
-    width: min-content;
-    @include mixin.flex-column;
+  > ul {
+    @include mixin.flex-row-wrap;
 
-    .name {
-      width: max-content;
-      padding: 3px 1.25em 0;
-    }
+    justify-content: safe center;
+    list-style: none;
+    margin-block: 0;
+    padding-left: 0;
 
-    .underline {
-      width: 0;
-      height: 3px;
-      background: var.$highlight-mid;
-      transition: var.$transition;
-    }
+    > li > .navigation-link {
+      @include mixin.flex-column;
 
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: var.$navigation-fg;
-      text-decoration: none;
-      transition: var.$transition;
+      padding: 3px 1.25em;
+      position: relative;
 
-      .underline {
-        width: 100%;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -1px;
+        right: -1px;
+        max-width: none;
+        transform: scaleX(0);
+        height: 3px;
         background: var.$highlight-mid;
-        transition: var.$transition;
+      }
+
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: var.$navigation-fg;
+        text-decoration: none;
+
+        &::after {
+          animation: nav-underline var.$transition forwards;
+        }
       }
     }
+  }
+}
+
+@keyframes nav-underline {
+  to {
+    transform: scaleX(1);
   }
 }
