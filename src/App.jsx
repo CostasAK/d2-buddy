@@ -15,7 +15,7 @@ import Navigation from "./components/Navigation";
 import React from "react";
 import { Timers } from "./pages/Timers";
 
-function App() {
+export default function App() {
   // Changes to routes should also go in site.webmanifest
   const routes = [
     { name: "Timers", path: "/Timers", component: <Timers /> },
@@ -48,5 +48,3 @@ function App() {
     </div>
   );
 }
-
-export { App as default };
