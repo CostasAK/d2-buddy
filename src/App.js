@@ -7,6 +7,7 @@ import {
   Routes as Switch,
 } from "react-router-dom";
 
+import Background from "./components/Background";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Links } from "./pages/Links/index";
@@ -29,6 +30,7 @@ function App() {
         <Navigation routes={routes} />
 
         <main className="main">
+          <Background />
           <Switch>
             <Route exact path="/" element={<Navigate to="/Timers" />} />
             {routes.map((route) => (

@@ -10,7 +10,7 @@ a.card {
 .card {
   --card-content-opacity: 0.9;
 
-  background: var.$primary-bg;
+  background: fun.primary-bg(0.5);
   border: 1px solid var.$primary-fg;
   color: var.$primary-fg;
   transition: var.$transition;
