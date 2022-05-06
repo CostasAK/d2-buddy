@@ -26,7 +26,6 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.0",
     "react-spinkit": "^3.0.0",
-    "react-svg": "^14.1.7",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.7",
     "web-vitals": "^2.1.2"

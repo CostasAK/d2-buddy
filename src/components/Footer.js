@@ -2,7 +2,7 @@ import "./Footer.scss";
 
 import { FaGithub } from "react-icons/fa";
 import { KofiButton } from "react-kofi-button";
-import { ReactSVG } from "react-svg";
+import SVG from "react-inlinesvg";
 import avatar from "../assets/initialen.svg";
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
         <div>
           <span>Made by</span>  
           <a href="https://github.com/CostasAK">
-            <ReactSVG src={avatar} className="avatar" /> <span>CostasAK</span>
+            <SVG src={avatar} className="avatar" /> <span>CostasAK</span>
           </a>
         </div>
         <KofiButton
