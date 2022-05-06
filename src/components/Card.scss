@@ -71,10 +71,9 @@ a.card {
 
     &::before {
       content: "";
-      z-index: -1;
       position: absolute;
       max-width: none;
-      inset: fun.px-to-rem(-8);
+      inset: fun.px-to-rem(-9);
       border: fun.px-to-rem(2) solid var.$primary-fg;
       opacity: 0;
     }
@@ -105,7 +104,7 @@ a.card {
       }
 
       &::before {
-        animation: border-fade math.div(var.$transition, 2) forwards
+        animation: border-fade math.div(var.$transition, 1.5) forwards
           math.div(var.$transition, 2);
       }
     }
