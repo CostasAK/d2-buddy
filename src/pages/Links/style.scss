@@ -5,6 +5,8 @@
 .links-page {
   @include mixin.flex-column;
 
+  gap: var.$gap;
+
   .links {
     @include mixin.grid-reading;
 
