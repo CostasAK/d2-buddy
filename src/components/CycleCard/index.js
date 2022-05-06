@@ -3,7 +3,7 @@ import "./style.scss";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 import { useEffect, useState } from "react";
 
-import { Card } from "../Card";
+import Card from "../Card";
 import PropTypes from "prop-types";
 import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";

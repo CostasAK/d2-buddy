@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { formatDate, formatTime } from "../functions/formatDateTime";
 
-import { Card } from "./Card";
+import Card from "./Card";
 import { capitalizeSentence } from "../functions/capitalizeSentence";
 import { formatDuration } from "../functions/formatDuration";
 import { isPast } from "../functions/isPast";
@@ -15,7 +15,7 @@ const hour = 60 * minute;
 const day = 24 * hour;
 const year = 365.25 * day;
 
-const TimerCard = (props) => {
+export default function TimerCard(props) {
   const [end, setEnd] = useState(nextTime(props.period, toTime(props.end)));
   const [start, setStart] = useState(() => {
     let start = nextTime(props.period, toTime(props.start));
@@ -101,7 +101,7 @@ const TimerCard = (props) => {
       link={props.link}
     />
   );
-};
+}
 
 TimerCard.defaultProps = {
   end: false,
@@ -109,5 +109,3 @@ TimerCard.defaultProps = {
   hasTime: true,
   description: false,
 };
-
-export { TimerCard };

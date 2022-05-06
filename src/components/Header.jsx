@@ -4,7 +4,7 @@ import Button from "./Button";
 import SVG from "react-inlinesvg";
 import logo from "../assets/clovis_ck.svg";
 
-function Header() {
+export default function Header() {
   return (
     <header className="header">
       <h1 className="title">
@@ -25,5 +25,3 @@ function Header() {
     </header>
   );
 }
-
-export { Header };

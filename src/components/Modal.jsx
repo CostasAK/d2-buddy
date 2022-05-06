@@ -15,7 +15,13 @@ import ReactModal from "react-modal";
 import SimpleBarReact from "simplebar-react";
 import Tooltip from "./Tooltip";
 
-function Modal({ triggerContent, className, tooltip, background, children }) {
+export default function Modal({
+  triggerContent,
+  className,
+  tooltip,
+  background,
+  children,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [innerWidth, setInnerWidth] = useState(0);
 
@@ -88,5 +94,3 @@ Modal.propTypes = {
   triggerContent: PropTypes.element,
   className: PropTypes.string,
 };
-
-export { Modal };

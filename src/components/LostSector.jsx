@@ -7,7 +7,7 @@ import { PropTypes } from "prop-types";
 import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";
 import useLostSectors from "../hooks/useLostSectors";
 
-function LostSector({ name }) {
+export default function LostSector({ name }) {
   const { data, error, isPending } = useLostSectors(name);
 
   if (isPending) {
@@ -69,5 +69,3 @@ function LostSector({ name }) {
 LostSector.propTypes = {
   name: PropTypes.string.isRequired,
 };
-
-export { LostSector };

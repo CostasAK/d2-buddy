@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 import Background from "./components/Background";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { Links } from "./pages/Links/index";
 import Navigation from "./components/Navigation";
 import React from "react";

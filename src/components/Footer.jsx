@@ -5,7 +5,7 @@ import { KofiButton } from "react-kofi-button";
 import SVG from "react-inlinesvg";
 import avatar from "../assets/initialen.svg";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className="footer">
       <div className="credits">
@@ -30,5 +30,3 @@ function Footer() {
     </footer>
   );
 }
-
-export { Footer };

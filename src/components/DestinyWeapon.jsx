@@ -2,7 +2,7 @@ import "./DestinyWeapon.scss";
 
 import DestinyIcon from "./DestinyIcon";
 import Loading from "./Loading";
-import { Modal } from "./Modal";
+import Modal from "./Modal";
 import getScreenshot from "../functions/getScreenshot";
 import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";

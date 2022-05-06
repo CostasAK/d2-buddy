@@ -14,7 +14,7 @@ import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
-import { TimerCard } from "../../components/TimerCard";
+import TimerCard from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;

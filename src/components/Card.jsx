@@ -3,10 +3,10 @@ import "./Modal.scss";
 
 import { cloneElement, isValidElement, useCallback, useMemo } from "react";
 
-import { Modal } from "./Modal";
+import Modal from "./Modal";
 import PropTypes from "prop-types";
 
-function Card({
+export default function Card({
   title,
   cardContent,
   modalContent,
@@ -151,5 +151,3 @@ Card.propTypes = {
 Card.defaultProps = {
   floatIcon: false,
 };
-
-export { Card };
