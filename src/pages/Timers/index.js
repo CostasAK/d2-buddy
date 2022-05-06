@@ -131,7 +131,7 @@ export function Timers() {
           />
         ))}
       </div>
-      <div className="timers links">
+      <div className="links">
         {links.map((link) => (
           <Button key={link.name} href={link.link}>
             {link.name}

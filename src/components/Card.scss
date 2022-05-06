@@ -14,7 +14,6 @@ a.card {
   border: 1px solid var.$primary-fg;
   color: var.$primary-fg;
   transition: var.$transition;
-  align-self: center;
   column-gap: var.$gap;
   padding: 1rem;
 
@@ -37,7 +36,7 @@ a.card {
       align-self: center;
     }
 
-    .title::after {
+    > .title::after {
       content: "";
       display: block;
       margin-block: calc(0.95rem - 1px) 0.55rem;
@@ -45,7 +44,7 @@ a.card {
       opacity: var(--card-content-opacity);
     }
 
-    .card-content {
+    > .card-content {
       opacity: var(--card-content-opacity);
     }
   }

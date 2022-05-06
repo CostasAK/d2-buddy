@@ -10,19 +10,19 @@
   .timers {
     @include mixin.flex-row-wrap;
 
+    align-items: flex-start;
     gap: fun.px-to-rem(7) fun.px-to-rem(6);
 
     > * {
       flex: 1 1 auto;
     }
+  }
 
-    &.links {
-      justify-content: safe center;
-      letter-spacing: normal;
+  .links {
+    @include mixin.flex-row-wrap;
 
-      .button {
-        flex: 0 1 auto;
-      }
-    }
+    margin-inline: auto;
+    gap: var.$gap;
+    letter-spacing: normal;
   }
 }
