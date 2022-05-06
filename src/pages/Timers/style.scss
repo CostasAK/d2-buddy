@@ -21,6 +21,7 @@
   .links {
     @include mixin.flex-row-wrap;
 
+    justify-content: safe center;
     margin-inline: auto;
     gap: var.$gap;
     letter-spacing: normal;
