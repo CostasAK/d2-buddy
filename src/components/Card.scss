@@ -40,7 +40,7 @@ a.card {
       content: "";
       display: block;
       margin-block: calc(0.95rem - 1px) 0.55rem;
-      border-bottom: var.$thin-border;
+      border-bottom: 1pt solid var.$primary-fg;
       opacity: var(--card-content-opacity);
     }
 
