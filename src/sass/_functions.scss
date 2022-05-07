@@ -38,6 +38,10 @@
   @return hsl(0deg 0% 100% / #{$alpha});
 }
 
+@function heading-fg($alpha) {
+  @return hsl(0deg 0% 100% / #{$alpha});
+}
+
 @function highlight-dim($alpha) {
   @return hsl(43deg 58% 39% / #{$alpha});
 }
