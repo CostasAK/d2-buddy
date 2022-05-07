@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.6b179598.css",
+    "main.css": "/static/css/main.8ad62132.css",
     "main.js": "/static/js/main.31fd7696.js",
     "static/js/787.425a60e7.chunk.js": "/static/js/787.425a60e7.chunk.js",
     "static/media/blueberries.gg.jpg": "/static/media/blueberries.gg.fad27043ef35cfce05e8.jpg",
     "index.html": "/index.html",
     "static/media/initialen.svg": "/static/media/initialen.03daac03d2cb4d0f265222adfa5236e9.svg",
     "static/media/clovis_ck.svg": "/static/media/clovis_ck.3ec3b1971ccf26b28e2a3c94b76535a9.svg",
-    "main.6b179598.css.map": "/static/css/main.6b179598.css.map",
+    "main.8ad62132.css.map": "/static/css/main.8ad62132.css.map",
     "main.31fd7696.js.map": "/static/js/main.31fd7696.js.map",
     "787.425a60e7.chunk.js.map": "/static/js/787.425a60e7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b179598.css",
+    "static/css/main.8ad62132.css",
     "static/js/main.31fd7696.js"
   ]
 }
