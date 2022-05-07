@@ -10,9 +10,9 @@ export default function Background() {
 
   return (
     <div
-      className="background"
+      id="background"
       style={{
-        backgroundImage: `radial-gradient(ellipse farthest-side at ${Math.round(
+        backgroundImage: `radial-gradient(circle farthest-side at ${Math.round(
           Math.random() * 100
         )}% ${Math.round(
           Math.random() * 50

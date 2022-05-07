@@ -1,5 +1,9 @@
-.main > .background {
-  z-index: -1;
-  position: absolute;
-  inset: 0;
+#background {
+  position: sticky;
+  top: 0;
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  height: min(100%, 100vh);
+  height: min(100%, var(--vh));
 }

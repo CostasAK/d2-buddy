@@ -23,13 +23,13 @@ export default function App() {
   ];
 
   return (
-    <div className="app">
+    <div id="app">
       <Header />
 
       <Router>
         <Navigation routes={routes} />
 
-        <main className="main">
+        <main id="main">
           <Background />
           <Switch>
             <Route exact path="/" element={<Navigate to="/Timers" />} />
@@ -37,7 +37,7 @@ export default function App() {
               <Route
                 key={route.name}
                 path={route.path}
-                element={route.component}
+                element={<div id="page-content">{route.component}</div>}
               />
             ))}
           </Switch>
