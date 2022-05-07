@@ -11,7 +11,7 @@ a.card {
   --card-content-opacity: 0.9;
 
   background: fun.primary-bg(0.5);
-  border: 1px solid var.$primary-fg;
+  border: 1px solid fun.primary-fg(0.9);
   color: var.$primary-fg;
   transition: var.$transition;
   column-gap: var.$gap;
