@@ -89,14 +89,14 @@ a.card {
   &.highlight {
     border-color: fun.highlight-green-bright(0.9);
     background: linear-gradient(
-      60deg,
+      30deg,
       fun.highlight-green-dim(0.1) 0%,
       var.$highlight-green-dim 100%
     );
 
     &.red .card-inner {
       background: linear-gradient(
-        60deg,
+        30deg,
         fun.highlight-red(0.1) 0%,
         var.$highlight-red 100%
       );
