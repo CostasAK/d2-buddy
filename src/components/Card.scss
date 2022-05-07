@@ -79,11 +79,12 @@ a.card {
   }
 
   &.highlight {
-    .card-inner {
-      background: var.$highlight-dim;
-    }
-
-    border-color: var.$highlight-bright;
+    border-color: fun.highlight-green-bright(0.9);
+    background: linear-gradient(
+      45deg,
+      fun.primary-bg(0.5) 0%,
+      var.$highlight-green-dim 100%
+    );
 
     &.red .card-inner {
       background: var.$highlight-red;
@@ -99,7 +100,11 @@ a.card {
       background-color: fun.primary-fg(0.2);
 
       &.highlight {
-        background: var.$highlight-mid;
+        background: linear-gradient(
+          45deg,
+          fun.primary-fg(0.2) 0%,
+          var.$highlight-green-dim 100%
+        );
       }
 
       &::before {

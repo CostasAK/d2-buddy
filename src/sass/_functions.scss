@@ -54,8 +54,12 @@
   @return hsl(357deg 32% 29% / #{$alpha});
 }
 
-@function highlight-green($alpha) {
+@function highlight-green-dim($alpha) {
   @return hsl(47deg 40% 21% / #{$alpha});
+}
+
+@function highlight-green-bright($alpha) {
+  @return hsl(50deg 62% 71% / #{$alpha});
 }
 
 @function arc($alpha) {
