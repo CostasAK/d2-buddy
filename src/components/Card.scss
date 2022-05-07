@@ -10,8 +10,8 @@ a.card {
 .card {
   --card-content-opacity: 0.9;
 
-  background: fun.primary-bg(0.5);
-  border: 1px solid fun.primary-fg(0.9);
+  position: relative;
+  border: 1px solid fun.primary-fg(var(--card-content-opacity));
   color: var.$primary-fg;
   transition: var.$transition;
   column-gap: var.$gap;
@@ -59,16 +59,24 @@ a.card {
     }
   }
 
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: fun.primary-bg(0.5);
+    transition: var.$transition;
+  }
+
   &.clickable {
     user-select: none;
     cursor: pointer;
-    position: relative;
 
     > * {
       pointer-events: none;
     }
 
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       max-width: none;
@@ -82,12 +90,16 @@ a.card {
     border-color: fun.highlight-green-bright(0.9);
     background: linear-gradient(
       45deg,
-      fun.primary-bg(0.5) 0%,
+      transparent 0%,
       var.$highlight-green-dim 100%
     );
 
     &.red .card-inner {
-      background: var.$highlight-red;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        var.$highlight-red 100%
+      );
     }
   }
 
@@ -97,17 +109,12 @@ a.card {
       --card-content-opacity: 1;
 
       border-color: var.$primary-fg;
-      background-color: fun.primary-fg(0.2);
-
-      &.highlight {
-        background: linear-gradient(
-          45deg,
-          fun.primary-fg(0.2) 0%,
-          var.$highlight-green-dim 100%
-        );
-      }
 
       &::before {
+        background-color: fun.primary-fg(0.2);
+      }
+
+      &::after {
         animation: border-fade math.div(var.$transition, 1.5) forwards
           math.div(var.$transition, 2);
       }
