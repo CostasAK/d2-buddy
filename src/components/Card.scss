@@ -72,7 +72,7 @@ a.card {
       content: "";
       position: absolute;
       max-width: none;
-      inset: fun.px-to-rem(-9);
+      inset: 0;
       border: fun.px-to-rem(2) solid var.$primary-fg;
       opacity: 0;
     }
@@ -116,7 +116,12 @@ a.card {
 }
 
 @keyframes border-fade {
-  100% {
+  from {
+    inset: fun.px-to-rem(-9);
+    opacity: 0;
+  }
+
+  to {
     inset: fun.px-to-rem(-5);
     opacity: 0.9;
   }
