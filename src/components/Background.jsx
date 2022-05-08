@@ -3,7 +3,7 @@ import "./Background.scss";
 export default function Background() {
   return (
     <div
-      id="background"
+      className="main-background"
       style={{
         backgroundImage: `radial-gradient(circle farthest-side at ${Math.round(
           Math.random() * 100

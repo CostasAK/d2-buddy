@@ -111,7 +111,6 @@ a {
 
     .simplebar-content {
       > #app {
-        // @include mixin.flex-column;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr auto;
@@ -119,7 +118,7 @@ a {
         height: 100vh;
         height: var(--vh);
 
-        > #main {
+        > .main {
           grid-row: 3;
           grid-column: 1;
         }

@@ -1,12 +1,12 @@
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
 
-#main {
+.main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  > #page-content {
+  > .page-content {
     z-index: 0;
     grid-row: 1;
     grid-column: 1;

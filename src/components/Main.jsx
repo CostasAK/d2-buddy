@@ -16,7 +16,7 @@ export default function Main({ routes }) {
   return (
     <TransitionGroup component={null}>
       <CSSTransition key={location.key} classNames="fade" timeout={250}>
-        <main id="main">
+        <main className="main">
           <Background key={location.key} />
           <Switch location={location}>
             <Route exact path="/" element={<Navigate to="/Timers" />} />
@@ -24,7 +24,7 @@ export default function Main({ routes }) {
               <Route
                 key={route.name}
                 path={route.path}
-                element={<div id="page-content">{route.component}</div>}
+                element={<div className="page-content">{route.component}</div>}
               />
             ))}
           </Switch>
