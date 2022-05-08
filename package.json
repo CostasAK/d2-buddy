@@ -23,6 +23,7 @@
     "react-measure": "^2.5.2",
     "react-modal": "^3.14.4",
     "react-popper": "^2.3.0",
+    "react-query": "^3.39.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.0",
     "react-spinkit": "^3.0.0",
