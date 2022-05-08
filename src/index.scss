@@ -40,7 +40,7 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
   line-height: var.$line-height;
   overflow: hidden;
 }
@@ -57,7 +57,9 @@ picture {
 }
 
 img[src$=".gif"],
-img[src$=".png"] {
+img[src$=".png"],
+img[src$=".jpg"],
+img[src$=".jpeg"] {
   /* stylelint-disable-next-line value-no-vendor-prefix */
   image-rendering: -webkit-optimize-contrast;
 }
