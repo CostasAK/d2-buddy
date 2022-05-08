@@ -32,7 +32,7 @@ export default function Season() {
 
   return (
     <TimerCard
-      name={response.displayProperties.name}
+      name={`Season ${response.seasonNumber}: ${response.displayProperties.name}`}
       description={response.displayProperties.description}
       start={response.startDate}
       end={response.endDate}
