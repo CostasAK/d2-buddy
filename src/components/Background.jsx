@@ -1,13 +1,6 @@
 import "./Background.scss";
 
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
 export default function Background() {
-  let location = useLocation();
-
-  useEffect(() => {}, [location]);
-
   return (
     <div
       id="background"

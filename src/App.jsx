@@ -1,18 +1,12 @@
 import "./App.scss";
 
-import {
-  Navigate,
-  Route,
-  HashRouter as Router,
-  Routes as Switch,
-} from "react-router-dom";
-
-import Background from "./components/Background";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Links } from "./pages/Links/index";
+import Main from "./components/Main";
 import Navigation from "./components/Navigation";
 import React from "react";
+import { HashRouter as Router } from "react-router-dom";
 import { Timers } from "./pages/Timers";
 
 export default function App() {
@@ -29,19 +23,7 @@ export default function App() {
       <Router>
         <Navigation routes={routes} />
 
-        <main id="main">
-          <Background />
-          <Switch>
-            <Route exact path="/" element={<Navigate to="/Timers" />} />
-            {routes.map((route) => (
-              <Route
-                key={route.name}
-                path={route.path}
-                element={<div id="page-content">{route.component}</div>}
-              />
-            ))}
-          </Switch>
-        </main>
+        <Main routes={routes} />
       </Router>
 
       <Footer />

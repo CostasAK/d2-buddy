@@ -7,18 +7,20 @@ export default function Navigation({ routes }) {
   return (
     <nav className="navigation">
       <ul>
-        {routes.map((route) => (
-          <li key={route.name}>
-            <NavLink
-              to={route.path}
-              className={({ isActive }) =>
-                "navigation-link" + (isActive ? " active" : "")
-              }
-            >
-              {route.name}
-            </NavLink>
-          </li>
-        ))}
+        {routes
+          .filter((route) => route.name !== "Root")
+          .map((route) => (
+            <li key={route.name}>
+              <NavLink
+                to={route.path}
+                className={({ isActive }) =>
+                  "navigation-link" + (isActive ? " active" : "")
+                }
+              >
+                {route.name}
+              </NavLink>
+            </li>
+          ))}
       </ul>
     </nav>
   );

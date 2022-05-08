@@ -1,0 +1,38 @@
+@use "../sass/variables" as var;
+@use "../sass/mixins" as mixin;
+
+#main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  > #page-content {
+    z-index: 0;
+    grid-row: 1;
+    grid-column: 1;
+    width: clamp(80%, var.$main-width, 100%);
+    margin-inline: auto;
+    @include mixin.flex-column;
+
+    padding: var.$margins var.$gap;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity var.$transition;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity var.$transition;
+}

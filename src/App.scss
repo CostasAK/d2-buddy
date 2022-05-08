@@ -52,7 +52,7 @@ h6 {
 }
 
 p {
-  width: min(100%, 75ch);
+  max-width: min(100%, 75ch);
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
   hyphenate-limit-last: always;
@@ -111,32 +111,17 @@ a {
 
     .simplebar-content {
       > #app {
-        @include mixin.flex-column;
-
+        // @include mixin.flex-column;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
         align-items: stretch;
         height: 100vh;
         height: var(--vh);
 
-        > * {
-          flex-shrink: 0;
-        }
-
         > #main {
-          flex: 1;
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr;
-
-          > #page-content {
-            z-index: 0;
-            grid-row: 1;
-            grid-column: 1;
-            width: clamp(80%, var.$main-width, 100%);
-            margin-inline: auto;
-            @include mixin.flex-column;
-
-            padding: var.$margins var.$gap;
-          }
+          grid-row: 3;
+          grid-column: 1;
         }
       }
     }
