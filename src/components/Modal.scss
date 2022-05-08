@@ -22,10 +22,8 @@
     display: grid;
     justify-content: safe center;
     align-items: safe center;
-    transition: all var.$transition;
 
     &.ReactModal__Overlay--after-open {
-      transition: all math.div(var.$transition, 2);
       animation: fade var.$transition forwards;
     }
 
@@ -38,7 +36,8 @@
       max-height: 100%;
       background: var.$primary-bg;
       border: 1px solid var.$primary-fg;
-      transition: all var.$transition;
+      transition-duration: var.$transition;
+      transition-property: width, height;
       animation: anvil 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       > .destiny-icon.close {

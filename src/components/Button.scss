@@ -5,7 +5,8 @@
   margin: var.$border-expansion;
   border: 1px solid var.$primary-fg;
   color: var.$primary-fg;
-  transition: var.$transition;
+  transition-duration: var.$transition;
+  transition-property: margin, padding, border-color;
   font-family: var.$secondary-font-stack;
   user-select: none;
   cursor: pointer;
@@ -16,7 +17,8 @@
     align-self: center;
     column-gap: var.$gap;
     padding: 0.5em 1em;
-    transition: var.$transition;
+    transition-duration: var.$transition;
+    transition-property: background;
     pointer-events: none;
     background: var.$highlight-dim;
   }

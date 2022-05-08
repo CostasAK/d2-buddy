@@ -54,7 +54,7 @@ const links = [
   },
 ];
 
-export function Links(props) {
+export default function Links(props) {
   return (
     <div className="links-page">
       <p className="description">

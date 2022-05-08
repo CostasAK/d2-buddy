@@ -62,7 +62,8 @@ p {
 .a-link,
 a {
   text-decoration: none;
-  transition: all math.div(var.$transition, 2);
+  transition-duration: math.div(var.$transition, 2);
+  transition-property: color, opacity;
 
   &:hover,
   &:active {
@@ -71,7 +72,8 @@ a {
 
   cursor: pointer;
 
-  &:not(.card):not(.button) {
+  /* stylelint-disable-next-line selector-class-pattern */
+  &:not(.card):not(.button):not(.KofiButton) {
     color: var.$navigation-fg;
 
     &:hover,

@@ -13,7 +13,8 @@ a.card {
   position: relative;
   border: 1px solid fun.primary-fg(var(--card-content-opacity));
   color: var.$primary-fg;
-  transition: var.$transition;
+  transition-duration: var.$transition;
+  transition-property: border-color;
   column-gap: var.$gap;
   padding: 1rem;
 
@@ -25,6 +26,8 @@ a.card {
     max-height: 4.5rem;
     object-fit: scale-down;
     opacity: var(--card-content-opacity);
+    transition-duration: var.$transition;
+    transition-property: opacity;
   }
 
   &.side-icon {
@@ -42,10 +45,14 @@ a.card {
       margin-block: calc(0.95rem - 1px) 0.55rem;
       border-bottom: 1pt solid var.$primary-fg;
       opacity: var(--card-content-opacity);
+      transition-duration: var.$transition;
+      transition-property: opacity;
     }
 
     > .card-content {
       opacity: var(--card-content-opacity);
+      transition-duration: var.$transition;
+      transition-property: opacity;
     }
   }
 
@@ -65,7 +72,7 @@ a.card {
     position: absolute;
     inset: 0;
     background: fun.primary-bg(0.5);
-    transition: var.$transition;
+    transition: background-color var.$transition;
   }
 
   &.clickable {
@@ -115,7 +122,7 @@ a.card {
       }
 
       &::after {
-        animation: border-fade math.div(var.$transition, 1.5) forwards
+        animation: border-fade math.div(var.$transition, 1.5) both
           math.div(var.$transition, 2);
       }
     }
