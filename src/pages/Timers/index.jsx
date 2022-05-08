@@ -14,6 +14,7 @@ import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
+import Season from "./Season";
 import TimerCard from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
 
@@ -117,6 +118,7 @@ export function Timers() {
         <LostSectors />
         <PsiOpsLegend />
         <AltarsOfSorrowWeapons />
+        <Season />
         {cards.map((card) => (
           <TimerCard
             key={card.name}

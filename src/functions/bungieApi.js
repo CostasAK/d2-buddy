@@ -8,7 +8,11 @@ const bungie_api = axios.create({
   },
 });
 
-const bungieApi = (path, method, headers) => {
+export const bungieApiNew = (path, method = "GET", headers = {}) => {
+  return bungie_api({ url: path, method, headers });
+};
+
+const bungieApi = (path, method = "GET", headers = {}) => {
   const paths = Array.isArray(path) ? path : [path];
 
   return Promise.all(paths.map((p) => bungie_api({ url: p, method, headers })));
