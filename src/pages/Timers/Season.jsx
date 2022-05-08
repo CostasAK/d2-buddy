@@ -10,8 +10,6 @@ export default function Season() {
   const current_season_hash =
     d2settings?.data?.data?.Response?.destiny2CoreSettings?.currentSeasonHash;
 
-  console.log(current_season_hash);
-
   const { isLoading, error, data } = useQuery(
     "seasons",
     () =>
