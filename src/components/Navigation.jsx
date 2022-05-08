@@ -5,7 +5,7 @@ import { PropTypes } from "prop-types";
 
 export default function Navigation({ routes }) {
   return (
-    <nav className="navigation">
+    <nav id="navigation">
       <ul>
         {routes
           .filter((route) => route.name !== "Root")

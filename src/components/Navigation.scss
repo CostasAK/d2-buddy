@@ -2,7 +2,7 @@
 @use "../sass/mixins" as mixin;
 @use "sass:math";
 
-.navigation {
+#navigation {
   width: 100%;
   color: var.$navigation-fg;
   background: var.$navigation-bg;
@@ -35,6 +35,7 @@
         transform: scaleX(0);
         height: 3px;
         background: var.$highlight-mid;
+        transition: transform var.$transition;
       }
 
       &:hover,
@@ -44,15 +45,10 @@
         color: var.$navigation-fg;
 
         &::after {
-          animation: nav-underline var.$transition forwards;
+          transform: scaleX(1);
+          transition: transform var.$transition;
         }
       }
     }
-  }
-}
-
-@keyframes nav-underline {
-  to {
-    transform: scaleX(1);
   }
 }
