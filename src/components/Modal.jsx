@@ -54,6 +54,7 @@ export default function Modal({
           icon={["controllers", "playstation", "Cross"]}
           className="close"
           onClick={() => setIsOpen(false)}
+          tooltip="Close Pop-up"
         />
         <div
           className="background"

@@ -37,19 +37,23 @@ export default function Tooltip({ contents, backgroundColor, children }) {
 
   const cloned_trigger_content = useMemo(
     () =>
-      isValidElement(children) ? (
-        cloneElement(children, {
-          ref: setReferenceElement,
-          onMouseOver: () => setShouldRender(true),
-          onMouseOut: () => setShouldRender(false),
-          className: children.props.className + " popper-content",
-        })
+      contents ? (
+        isValidElement(children) ? (
+          cloneElement(children, {
+            ref: setReferenceElement,
+            onMouseOver: () => setShouldRender(true),
+            onMouseOut: () => setShouldRender(false),
+            className: children.props.className + " popper-content",
+          })
+        ) : (
+          <div ref={setReferenceElement} className="popper-content">
+            {children}
+          </div>
+        )
       ) : (
-        <div ref={setReferenceElement} className="popper-content">
-          {children}
-        </div>
+        children
       ),
-    [children]
+    [children, contents]
   );
 
   return (

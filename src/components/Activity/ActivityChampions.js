@@ -2,6 +2,7 @@ import "./ActivityChampions.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
+import Tooltip from "../Tooltip";
 
 const known_types = [
   { class: "Overload", pattern: /Disruption|Overload/i },
@@ -30,19 +31,21 @@ function ActivityChampions({ champions, known_champions }) {
       <h5 className="heading">Champions</h5>
       <div className="champions">
         {[...parsed_champions].map((champion, index) => (
-          <div className="champion" key={index}>
-            <DestinyIcon
-              icon={["champions", "modifiers", champion]}
-              style={{
-                filter: `brightness(${known_champions[champion] && "75%"})`,
-              }}
-            />
-            {known_champions[champion] > 0 && (
-              <span className="champion-amount">
-                {known_champions[champion]}
-              </span>
-            )}
-          </div>
+          <Tooltip key={index} contents={`${champion} Champions`}>
+            <div className={"champion " + champion} key={index}>
+              <DestinyIcon
+                icon={["champions", "modifiers", champion]}
+                style={{
+                  filter: `brightness(${known_champions[champion] && "75%"})`,
+                }}
+              />
+              {known_champions[champion] > 0 && (
+                <span className="champion-amount">
+                  {known_champions[champion]}
+                </span>
+              )}
+            </div>
+          </Tooltip>
         ))}
       </div>
     </section>

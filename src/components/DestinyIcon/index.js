@@ -1,5 +1,7 @@
 import "./style.scss";
 
+import Tooltip from "../Tooltip";
+
 const font_symbols = {
   weapons: {
     "Combat Bow": { symbol: "", name: "Bow" },
@@ -117,7 +119,7 @@ const font_symbols = {
 const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
 const known_colors = [...known_elements];
 
-function DestinyIcon({ icon, color, style, className, onClick }) {
+function DestinyIcon({ icon, color, style, className, onClick, tooltip }) {
   try {
     const font_symbol = icon.reduce(
       (previous, current) => previous[current],
@@ -125,20 +127,22 @@ function DestinyIcon({ icon, color, style, className, onClick }) {
     );
 
     return (
-      <span
-        className={
-          "destiny-icon " +
-          icon.join(" ") +
-          " " +
-          (known_colors.includes(color) ? color.toLowerCase() : "") +
-          " " +
-          (className ? className : "")
-        }
-        style={style}
-        onClick={onClick}
-      >
-        {font_symbol.symbol}
-      </span>
+      <Tooltip contents={tooltip}>
+        <span
+          className={
+            "destiny-icon " +
+            icon.join(" ") +
+            " " +
+            (known_colors.includes(color) ? color.toLowerCase() : "") +
+            " " +
+            (className ? className : "")
+          }
+          style={style}
+          onClick={onClick}
+        >
+          {font_symbol.symbol}
+        </span>
+      </Tooltip>
     );
   } catch (e) {
     console.warn(`Unknown Destiny icon: ${icon}. ${e}`);
