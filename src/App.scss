@@ -52,7 +52,7 @@ h6 {
 }
 
 p {
-  width: clamp(45ch, fit-content(), 75ch);
+  width: min(100%, 75ch);
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
   hyphenate-limit-last: always;
