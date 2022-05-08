@@ -1,6 +1,7 @@
 import "./ActivityModifier.scss";
 
 import { PropTypes } from "prop-types";
+import Tooltip from "../Tooltip";
 
 const bungie_root = "https://bungie.net";
 
@@ -30,17 +31,18 @@ function ActivityModifier({ data }) {
 
   return (
     <section className="activity-modifier">
-      <img
-        className={
-          "icon" +
-          known_elements
-            .filter((element) => element.pattern.test(name))
-            .reduce((prev, element) => (prev += " " + element.class), "")
-        }
-        src={bungie_root + icon}
-        alt=""
-        title={name}
-      />
+      <Tooltip contents={name}>
+        <img
+          className={
+            "icon" +
+            known_elements
+              .filter((element) => element.pattern.test(name))
+              .reduce((prev, element) => (prev += " " + element.class), "")
+          }
+          src={bungie_root + icon}
+          alt=""
+        />
+      </Tooltip>
       <div className="description">
         <h6
           className={
