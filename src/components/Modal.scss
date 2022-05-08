@@ -54,9 +54,9 @@
         height: math.div(40.25rem, 16);
         z-index: 2000;
         background: radial-gradient(
-          circle,
-          var.$primary-bg 52%,
-          rgb(0 0 0 / 0%) 52%
+          circle closest-side at center,
+          var.$primary-bg 75%,
+          rgb(0 0 0 / 0%) 75%
         );
       }
 
