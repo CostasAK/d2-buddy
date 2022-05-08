@@ -2,11 +2,15 @@ import "simplebar";
 import "simplebar/dist/simplebar.min.css";
 import "./index.scss";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
 import SimpleBarReact from "simplebar-react";
 import reportWebVitals from "./reportWebVitals";
+
+const queryClient = new QueryClient();
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -16,7 +20,9 @@ window.addEventListener("resize", updateInnerHeight);
 ReactDOM.render(
   <React.StrictMode>
     <SimpleBarReact className="root-scroll">
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </SimpleBarReact>
   </React.StrictMode>,
   document.getElementById("root")
