@@ -34,7 +34,6 @@ const routes = [
 });
 
 export default function App() {
-  console.log(routes);
   return (
     <div id="app">
       <Header />
