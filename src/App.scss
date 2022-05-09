@@ -119,11 +119,6 @@ a {
         align-items: stretch;
         height: 100vh;
         height: var(--vh);
-
-        > .main {
-          grid-row: 3;
-          grid-column: 1;
-        }
       }
     }
   }

@@ -10,7 +10,7 @@
   max-width: 100vw;
   z-index: 99;
 
-  @include mixin.header-tooltip;
+  @include mixin.text-bold-subtitle;
 
   .popper-arrow {
     &,

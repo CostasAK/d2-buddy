@@ -7,11 +7,11 @@
   grid-template-rows: 1fr;
 
   .main-inner {
+    grid-row: 1;
+    grid-column: 1;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-row: 1;
-    grid-column: 1;
 
     > .page-content {
       z-index: 0;
