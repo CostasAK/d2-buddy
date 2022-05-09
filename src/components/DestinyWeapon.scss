@@ -38,7 +38,7 @@
         width: fit-content;
         list-style: none;
         margin: 0;
-        padding: var.$gap var.$gap + var.$pad var.$gap + var.$pad var.$gap;
+        padding: var.$pad var.$gap + var.$pad var.$gap + var.$pad var.$gap;
         background-image: linear-gradient(
             0deg,
             var(--links-background) 0%,
