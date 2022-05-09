@@ -9,30 +9,32 @@ import Loading from "./components/Loading";
 import Main from "./components/Main";
 import Navigation from "./components/Navigation";
 import { HashRouter as Router } from "react-router-dom";
-import { Timers } from "./pages/Timers";
 
-const Links = lazy(() => import("./pages/Links/index"));
+const Timers = lazy(() => import("./pages/Timers"));
+const Links = lazy(() => import("./pages/Links"));
 
 // Changes to routes should also go in site.webmanifest
 const routes = [
   {
     name: "Timers",
-    path: "/Timers",
     component: <Timers />,
   },
   {
     name: "Links",
-    path: "/Links",
     component: <Links />,
   },
 ].map((route) => {
   route.component = (
     <Suspense fallback={<Loading size="page" />}>{route.component}</Suspense>
   );
+  route.path = (" " + route.name)
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
   return route;
 });
 
 export default function App() {
+  console.log(routes);
   return (
     <div id="app">
       <Header />

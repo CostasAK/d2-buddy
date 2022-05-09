@@ -1,35 +1,37 @@
 import "./Main.scss";
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import {
-  Navigate,
-  Route,
-  Routes as Switch,
-  useLocation,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Background from "./Background";
 
-export default function Main({ routes }) {
+function MainInner({ children }) {
   const location = useLocation();
-
   return (
     <TransitionGroup component={null}>
       <CSSTransition key={location.key} classNames="fade" timeout={250}>
-        <main className="main">
+        <div className="main-inner">
           <Background key={location.key} />
-          <Switch location={location}>
-            <Route exact path="/" element={<Navigate to="/Timers" />} />
-            {routes.map((route) => (
-              <Route
-                key={route.name}
-                path={route.path}
-                element={<div className="page-content">{route.component}</div>}
-              />
-            ))}
-          </Switch>
-        </main>
+          <div className="page-content">{children}</div>
+        </div>
       </CSSTransition>
     </TransitionGroup>
+  );
+}
+
+export default function Main({ routes }) {
+  return (
+    <main id="main">
+      <Routes>
+        {routes.map((route) => (
+          <Route
+            key={route.name}
+            path={route.path}
+            element={<MainInner>{route.component}</MainInner>}
+          />
+        ))}
+        <Route path="*" element={<Navigate to="Timers" replace />} />
+      </Routes>
+    </main>
   );
 }
