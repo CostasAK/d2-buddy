@@ -16,6 +16,10 @@
     > * {
       flex: 1 1 auto;
     }
+
+    > .card:not(.clickable) {
+      opacity: 0.75;
+    }
   }
 
   .links {
