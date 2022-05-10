@@ -33,7 +33,7 @@
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity var.$transition;
+  transition: opacity var.$transition linear;
 }
 
 .fade-exit {
@@ -42,5 +42,5 @@
 
 .fade-exit.fade-exit-active {
   opacity: 0;
-  transition: opacity var.$transition;
+  transition: opacity var.$transition linear;
 }
