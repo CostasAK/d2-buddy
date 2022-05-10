@@ -1,6 +1,7 @@
 import "./style.scss";
 
 import Card from "../../components/Card";
+import Masonry from "../../components/Masonry";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
 const links = [
@@ -60,7 +61,7 @@ export default function Links(props) {
       <p className="description">
         I have no affiliation with the sites listed. I just think they're great.
       </p>
-      <div className="links">
+      <Masonry className="links">
         {links.map((link) => (
           <Card
             key={link.title}
@@ -72,7 +73,7 @@ export default function Links(props) {
             floatIcon
           ></Card>
         ))}
-      </div>
+      </Masonry>
     </div>
   );
 }

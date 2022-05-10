@@ -15,6 +15,7 @@ export default function Card({
   className,
   floatIcon,
   order,
+  ref,
 }) {
   const card_text = useMemo(
     () => (
@@ -56,6 +57,7 @@ export default function Card({
       if (modalContent) {
         return (
           <article
+            ref={ref}
             className={
               "card clickable " +
               className +
@@ -71,6 +73,7 @@ export default function Card({
         if (link.startsWith("steam://")) {
           return (
             <a
+              ref={ref}
               className={
                 "card clickable " +
                 className +
@@ -86,6 +89,7 @@ export default function Card({
         } else {
           return (
             <a
+              ref={ref}
               className={
                 "card clickable " +
                 className +
@@ -104,6 +108,7 @@ export default function Card({
       } else {
         return (
           <article
+            ref={ref}
             className={
               "card " +
               className +
@@ -117,7 +122,7 @@ export default function Card({
         );
       }
     },
-    [className, floatIcon, icon_element, link, modalContent, order]
+    [className, floatIcon, icon_element, link, modalContent, order, ref]
   );
 
   return modalContent ? (
