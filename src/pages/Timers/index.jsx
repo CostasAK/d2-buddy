@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import {
   currentDay,
   currentSeason,
@@ -5,15 +7,16 @@ import {
   currentXur,
   nextXur,
 } from "@d2api/date";
-import React from "react";
-import { GiClockwiseRotation } from "react-icons/gi";
-import Button from "../../components/Button";
-import TimerCard from "../../components/TimerCard";
+
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
+import Button from "../../components/Button";
+import CurrentNightfall from "./CurrentNightfall";
+import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
+import React from "react";
 import Season from "./Season";
-import "./style.scss";
+import TimerCard from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
 
 const second = 1000;
@@ -112,6 +115,7 @@ export default function Timers() {
   return (
     <div className="timers-wrapper">
       <div className="timers">
+        <CurrentNightfall />
         <WellspringWeapons />
         <LostSectors />
         <PsiOpsLegend />
