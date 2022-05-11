@@ -18,12 +18,8 @@ export function formatDuration(duration) {
 export function formatAbsoluteDuration(duration) {
   const absolute_duration = Math.abs(duration);
 
-  if (absolute_duration < 1.5 * second) {
-    return "1 second";
-  }
-
-  if (absolute_duration < 45 * second) {
-    return `${Math.round(absolute_duration / second)} seconds`;
+  if (absolute_duration < 1 * minute) {
+    return "less than 1 minute";
   }
 
   if (absolute_duration < 1.5 * minute) {
