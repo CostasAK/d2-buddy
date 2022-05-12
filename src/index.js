@@ -1,11 +1,15 @@
+import "simplebar";
+import "simplebar/dist/simplebar.min.css";
+import "./index.scss";
+
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+import { QueryClient, QueryClientProvider } from "react-query";
+
+import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import "simplebar";
 import SimpleBarReact from "simplebar-react";
-import "simplebar/dist/simplebar.min.css";
-import App from "./App";
-import "./index.scss";
 
 const queryClient = new QueryClient();
 
@@ -24,3 +28,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+serviceWorkerRegistration.register();
