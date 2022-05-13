@@ -102,22 +102,9 @@ a {
   }
 }
 
-#root {
-  @include mixin.text-body;
-
-  width: 100%;
-
-  .root-scroll {
-    max-height: 100vh;
-    max-height: var(--vh);
-
-    .simplebar-content {
-      > #app {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        align-items: stretch;
-      }
-    }
-  }
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  align-items: stretch;
 }

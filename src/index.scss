@@ -1,4 +1,5 @@
 @use "./sass/variables" as var;
+@use "./sass/mixins" as mixin;
 
 @import-normalize;
 
@@ -85,5 +86,16 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+#root {
+  @include mixin.text-body;
+
+  width: 100%;
+
+  .root-scroll {
+    max-height: 100vh;
+    max-height: var(--vh);
   }
 }
