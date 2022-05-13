@@ -1,5 +1,4 @@
 import { useQueries, useQuery } from "react-query";
-
 import Card from "../../components/Card";
 import { bungieApiNew } from "../../functions/bungieApi";
 
@@ -23,8 +22,6 @@ export default function CurrentNightfall() {
     }),
     { enabled: !!activities }
   );
-
-  console.log(nightfalls);
 
   if (
     !(
