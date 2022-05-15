@@ -41,8 +41,6 @@ export function ActivityModifiers({ data, known_shields, known_champions }) {
     .filter((modifier) => modifier.isSuccess)
     .map((modifier) => modifier.data.data);
 
-  console.log(modifier_data);
-
   const shields = modifier_data.filter((modifier) =>
     /shielded foes/i.test(modifier.Response.displayProperties.name)
   );
