@@ -1,6 +1,7 @@
 import { Activity } from "./Activity";
 import { ActivityChampions } from "./ActivityChampions";
 import { ActivityDestination } from "./ActivityDestination";
+import { ActivityDifficulty } from "./ActivityDifficulty";
 import { ActivityHeader } from "./ActivityHeader";
 import { ActivityModifier } from "./ActivityModifier";
 import { ActivityModifiers } from "./ActivityModifiers";
@@ -14,4 +15,5 @@ export {
   ActivityModifier,
   ActivityChampions,
   ActivityShields,
+  ActivityDifficulty,
 };

@@ -1,5 +1,6 @@
 @use "../sass/variables" as var;
 @use "../sass/mixins" as mixin;
+@use "../sass/functions" as fun;
 @use "sass:math";
 
 .lost-sector {
@@ -19,6 +20,9 @@
       padding: calc(0.2em + math.div(var.$gap, 2)) var.$gap;
       justify-content: flex-start;
       width: 100%;
+      text-align: center;
+      background: fun.primary-fg(0.2);
+      border-bottom: 1pt solid fun.primary-fg(0.9);
     }
   }
 

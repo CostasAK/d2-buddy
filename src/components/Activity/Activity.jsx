@@ -1,41 +1,70 @@
 import "./style.scss";
 
-import { ActivityHeader, ActivityModifiers } from ".";
+import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
 
 import Loading from "../Loading";
 import PropTypes from "prop-types";
-import useBungieApi from "../../hooks/useBungieApi";
+import { bungieApiNew } from "../../functions/bungieApi";
+import classNames from "classnames";
+import { useQueries } from "react-query";
 
 const api_activity_path = "/Destiny2/Manifest/DestinyActivityDefinition/";
 
-export function Activity({ id, name }) {
-  const { data, error, isPending } = useBungieApi(`${api_activity_path}${id}/`);
+export function Activity({ id, dataArray, name }) {
+  const ids = id ? [].concat(id) : [];
 
-  if (isPending) {
-    return (
-      <>
-        <article className="activity">
-          <Loading size="page" fadeIn="none" />
-        </article>
-      </>
-    );
+  let activities = useQueries(
+    ids.map((id) => {
+      return {
+        queryKey: id,
+        queryFn: () => bungieApiNew(`${api_activity_path}${id}/`),
+      };
+    }),
+    { enabled: !!id }
+  );
+
+  if (!!id) {
+    if (!activities.every((activity) => activity.isSuccess)) {
+      if (activities.some((activity) => activity.isLoading))
+        return (
+          <>
+            <article className="activity">
+              <Loading size="page" fadeIn="none" />
+            </article>
+          </>
+        );
+
+      activities
+        .filter((activity) => activity.error)
+        .map((activity) => console.error(activity.error));
+      return null;
+    }
+
+    activities = activities
+      .filter((activity) => activity.isSucces)
+      .map((activity) => activity.data);
+  } else {
+    activities = dataArray;
   }
 
-  if (error) {
-    console.error(error);
-    return null;
-  }
+  console.log(activities[0].data);
 
   return (
-    <article className="activity">
-      <ActivityHeader data={data} name={name} />
-      <ActivityModifiers data={data} />
+    <article className={classNames("activity", "success")}>
+      <ActivityHeader data={activities[0].data} name={name} />
+      {activities.map((activity) => (
+        <>
+          <ActivityDifficulty data={activity.data} />
+          <ActivityModifiers data={activity.data} />
+        </>
+      ))}
     </article>
   );
 }
 
 Activity.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
+  dataArray: PropTypes.array,
   name: PropTypes.string,
 };
 

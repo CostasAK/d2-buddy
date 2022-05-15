@@ -7,8 +7,12 @@ import getScreenshot from "../../functions/getScreenshot";
 
 export function ActivityHeader({ data, name }) {
   name ||= data.Response.displayProperties.name;
+  let type = getActivityType(data);
 
-  const type = getActivityType(data);
+  if (data.Response.originalDisplayProperties.name === "Nightfall") {
+    name = data.Response.originalDisplayProperties.description;
+    type = "Nightfall";
+  }
 
   const screenshot = getScreenshot(data);
   return (

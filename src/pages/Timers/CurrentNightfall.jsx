@@ -1,5 +1,6 @@
 import { useQueries, useQuery } from "react-query";
 
+import Activity from "../../components/Activity/index";
 import Card from "../../components/Card";
 import { bungieApiNew } from "../../functions/bungieApi";
 
@@ -41,7 +42,9 @@ export default function CurrentNightfall() {
       }
       icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
       customModal
-      // modalContent={}
+      modalContent={
+        <Activity dataArray={nightfalls.map((nightfall) => nightfall.data)} />
+      }
     />
   );
 }
