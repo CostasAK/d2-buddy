@@ -3,11 +3,12 @@ import "./DestinyWeapon.scss";
 import DestinyIcon from "./DestinyIcon";
 import Loading from "./Loading";
 import Modal from "./Modal";
+import { bungieApiNew } from "../functions/bungieApi";
 import getScreenshot from "../functions/getScreenshot";
 import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";
 import tierToColor from "../functions/tierToColor";
-import useBungieApi from "../hooks/useBungieApi";
+import { useQuery } from "react-query";
 
 const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
 const bungie_root_path = "https://bungie.net";
@@ -51,8 +52,12 @@ function WeaponLinks({ id }) {
 }
 
 export default function DestinyWeapon({ id, name }) {
-  const { data, error, isPending } = useBungieApi(`${api_item_path}${id}/`);
-  if (isPending) {
+  let { data, error, isLoading } = useQuery(
+    ["DestinyInventoryItemDefinition", id],
+    () => bungieApiNew(`${api_item_path}${id}/`)
+  );
+
+  if (isLoading) {
     return (
       <>
         <div className="destiny-weapon">
@@ -61,10 +66,13 @@ export default function DestinyWeapon({ id, name }) {
       </>
     );
   }
+
   if (error) {
     console.error(error);
     return null;
   }
+
+  data = data.data;
 
   name ||= data.Response.displayProperties.name;
 

@@ -42,7 +42,7 @@ export function Activity({ id, dataArray, name }) {
     }
 
     activities = activities
-      .filter((activity) => activity.isSucces)
+      .filter((activity) => activity.isSuccess)
       .map((activity) => activity.data);
   } else {
     activities = dataArray;
