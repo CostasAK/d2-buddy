@@ -5,7 +5,6 @@ import React, { Suspense, lazy } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
-// import Links from "./pages/Links/index";
 import Main from "./components/Main";
 import Navigation from "./components/Navigation";
 import { HashRouter as Router } from "react-router-dom";

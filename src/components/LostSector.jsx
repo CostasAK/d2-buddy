@@ -1,7 +1,7 @@
 import "./LostSector.scss";
 
-import ActivityHeader from "./Activity/ActivityHeader";
-import ActivityModifiers from "./Activity/ActivityModifiers";
+import { ActivityHeader, ActivityModifiers } from "./Activity";
+
 import Loading from "./Loading";
 import { PropTypes } from "prop-types";
 import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";

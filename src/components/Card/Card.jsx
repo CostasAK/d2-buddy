@@ -22,35 +22,33 @@ export const Card = forwardRef(
       order,
     },
     ref
-  ) => {
-    return (
-      <CardModal
-        className={className}
-        modalContent={modalContent}
-        title={title}
-        icon={icon}
-        customModal={customModal}
+  ) => (
+    <CardModal
+      className={className}
+      modalContent={modalContent}
+      title={title}
+      icon={icon}
+      customModal={customModal}
+    >
+      <CardOuter
+        className={classNames(className, {
+          "floating-icon": floatIcon,
+          "side-icon": !floatIcon && icon,
+        })}
+        hasModal={!!modalContent}
+        link={link}
+        style={{ order }}
       >
-        <CardOuter
-          className={classNames(className, {
-            "floating-icon": floatIcon,
-            "side-icon": !floatIcon && icon,
-          })}
-          hasModal={!!modalContent}
-          link={link}
-          style={{ order }}
+        <CardInner
+          icon={icon}
+          title={title}
+          titleRule={titleRule === undefined ? !floatIcon : titleRule}
         >
-          <CardInner
-            icon={icon}
-            title={title}
-            titleRule={titleRule === undefined ? !floatIcon : titleRule}
-          >
-            {cardContent}
-          </CardInner>
-        </CardOuter>
-      </CardModal>
-    );
-  }
+          {cardContent}
+        </CardInner>
+      </CardOuter>
+    </CardModal>
+  )
 );
 
 Card.propTypes = {

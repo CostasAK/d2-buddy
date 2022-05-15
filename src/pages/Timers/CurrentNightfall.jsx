@@ -40,6 +40,8 @@ export default function CurrentNightfall() {
         nightfalls[0].data.data.Response.displayProperties.description
       }
       icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
+      customModal
+      // modalContent={}
     />
   );
 }
