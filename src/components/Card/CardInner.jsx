@@ -3,7 +3,7 @@ import { cloneElement, isValidElement, useMemo } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-export const CardInner = ({ children, title, icon }) => {
+export const CardInner = ({ children, title, titleRule, icon }) => {
   const icon_element = useMemo(() => {
     if (!icon) return null;
 
@@ -18,7 +18,11 @@ export const CardInner = ({ children, title, icon }) => {
   return (
     <>
       {icon_element && icon_element}
-      {title && <h4 className="title">{title}</h4>}
+      {title && (
+        <h4 className={classNames("title", { "title-rule": titleRule })}>
+          {title}
+        </h4>
+      )}
       {children && <section className="card-content">{children}</section>}
     </>
   );
@@ -26,7 +30,10 @@ export const CardInner = ({ children, title, icon }) => {
 
 CardInner.propTypes = {
   title: PropTypes.string,
+  titleRule: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
-CardInner.defaultProps = {};
+CardInner.defaultProps = {
+  titleRule: false,
+};

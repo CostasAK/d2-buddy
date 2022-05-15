@@ -39,7 +39,7 @@ a.card {
       align-self: center;
     }
 
-    > .title::after {
+    > .title.title-rule::after {
       content: "";
       display: block;
       margin-block: calc(0.95rem - 1px) 0.55rem;
