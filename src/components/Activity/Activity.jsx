@@ -47,8 +47,6 @@ export function Activity({ id, dataArray, name }) {
     activities = dataArray;
   }
 
-  console.log(activities[0].data);
-
   return (
     <article className={classNames("activity", "success")}>
       <ActivityHeader data={activities[0].data} name={name} />
