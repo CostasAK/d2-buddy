@@ -2,6 +2,7 @@ import "./style.scss";
 
 import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
 
+import { Fragment } from "react";
 import Loading from "../Loading";
 import PropTypes from "prop-types";
 import { bungieApiNew } from "../../functions/bungieApi";
@@ -50,11 +51,11 @@ export function Activity({ id, dataArray, name }) {
   return (
     <article className={classNames("activity", "success")}>
       <ActivityHeader data={activities[0].data} name={name} />
-      {activities.map((activity) => (
-        <>
+      {activities.map((activity, index) => (
+        <Fragment key={index}>
           <ActivityDifficulty data={activity.data} />
           <ActivityModifiers data={activity.data} />
-        </>
+        </Fragment>
       ))}
     </article>
   );
