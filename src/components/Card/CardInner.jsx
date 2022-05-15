@@ -3,7 +3,7 @@ import { cloneElement, isValidElement, useMemo } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-export const CardInner = ({ children, icon }) => {
+export const CardInner = ({ children, title, icon }) => {
   const icon_element = useMemo(() => {
     if (!icon) return null;
 
@@ -18,12 +18,14 @@ export const CardInner = ({ children, icon }) => {
   return (
     <>
       {icon_element && icon_element}
-      {children}
+      {title && <h4 className="title">{title}</h4>}
+      {children && <section className="card-content">{children}</section>}
     </>
   );
 };
 
 CardInner.propTypes = {
+  title: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 

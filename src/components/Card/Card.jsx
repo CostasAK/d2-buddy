@@ -1,6 +1,5 @@
 import "./Card.scss";
 
-import { CardContent } from "./CardContent";
 import { CardInner } from "./CardInner";
 import { CardModal } from "./CardModal";
 import { CardOuter } from "./CardOuter";
@@ -39,8 +38,8 @@ export const Card = forwardRef(
         link={link}
         style={{ order }}
       >
-        <CardInner icon={icon}>
-          <CardContent title={title}>{cardContent}</CardContent>
+        <CardInner icon={icon} title={title}>
+          {cardContent}
         </CardInner>
       </CardOuter>
     </CardModal>
