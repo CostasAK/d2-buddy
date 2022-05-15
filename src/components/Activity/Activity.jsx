@@ -17,7 +17,7 @@ export function Activity({ id, dataArray, name }) {
   let activities = useQueries(
     ids.map((id) => {
       return {
-        queryKey: id,
+        queryKey: ["DestinyActivityDefinition", id],
         queryFn: () => bungieApiNew(`${api_activity_path}${id}/`),
       };
     }),
