@@ -48,6 +48,11 @@ export function Activity({ id, dataArray, name }) {
     activities = dataArray;
   }
 
+  activities.sort(
+    (a, b) =>
+      a.data.Response.activityLightLevel - b.data.Response.activityLightLevel
+  );
+
   return (
     <article className={classNames("activity", "success")}>
       <ActivityHeader data={activities[0].data} name={name} />
