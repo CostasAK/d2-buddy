@@ -21,6 +21,14 @@
     background: fun.primary-fg(0.2);
     border-bottom: 1pt solid fun.primary-fg(0.9);
 
+    &.adept {
+      background-color: var.$common;
+    }
+
+    &.hero {
+      background-color: var.$rare;
+    }
+
     &.legend {
       background-color: var.$legendary;
     }

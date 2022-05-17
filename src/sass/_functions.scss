@@ -82,6 +82,14 @@
   @return hsl(223deg 63% 54% / #{$alpha});
 }
 
+@function common($alpha) {
+  @return hsl(133deg 35% 32% / #{$alpha});
+}
+
+@function rare($alpha) {
+  @return hsl(213deg 34% 48% / #{$alpha});
+}
+
 @function legendary($alpha) {
   @return hsl(274deg 33% 29% / #{$alpha});
 }
