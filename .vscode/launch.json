@@ -5,8 +5,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Firefox",
-      "type": "firefox",
+      "name": "Chrome",
+      "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
@@ -15,31 +15,16 @@
       }
     },
     {
-      "name": "Launch index.html",
+      "name": "Firefox",
       "type": "firefox",
       "request": "launch",
-      "reAttach": true,
-      "file": "${workspaceFolder}/index.html"
-    },
-    {
-      "name": "Launch localhost",
-      "type": "firefox",
-      "request": "launch",
-      "reAttach": true,
-      "url": "http://localhost/index.html",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "Attach",
-      "type": "firefox",
-      "request": "attach"
-    },
-    {
-      "name": "Launch WebExtension",
-      "type": "firefox",
-      "request": "launch",
-      "reAttach": true,
-      "addonPath": "${workspaceFolder}"
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src",
+      "pathMappings": [
+        {
+          "${webRoot}/*": "webpack:///src/*"
+        }
+      ]
     }
   ]
 }
