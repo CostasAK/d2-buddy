@@ -51,7 +51,7 @@ export function ActivityModifiers({ data, known_shields, known_champions }) {
 
   const other_modifiers = modifier_data.filter(
     (modifier) =>
-      !/(shielded|champion) foes|champions: mob/i.test(
+      !/(shielded|champion) foes|champions: mob| modifiers$/i.test(
         modifier.Response.displayProperties.name
       )
   );
