@@ -21,7 +21,7 @@ export function ActivityShields({ shields, known_shields }) {
   shields.map((modifier) =>
     known_elements.map(
       (element) =>
-        element.pattern.test(modifier.Response.displayProperties.description) &&
+        element.pattern.test(modifier?.displayProperties?.description) &&
         parsed_shields.add(element.name)
     )
   );

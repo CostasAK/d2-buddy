@@ -1,21 +1,16 @@
 import TimerCard from "../../components/TimerCard";
-import { bungieApiNew } from "../../functions/bungieApi";
 import { useQuery } from "react-query";
 
 const bungie_root = "https://bungie.net";
 
 export default function Season() {
-  const d2settings = useQuery("d2settings", () => bungieApiNew("/Settings/"));
+  const d2settings = useQuery("Settings");
 
   const current_season_hash =
-    d2settings?.data?.data?.Response?.destiny2CoreSettings?.currentSeasonHash;
+    d2settings?.data?.destiny2CoreSettings?.currentSeasonHash;
 
   const { isLoading, error, data } = useQuery(
-    "seasons",
-    () =>
-      bungieApiNew(
-        `/Destiny2/Manifest/DestinySeasonDefinition/${current_season_hash}`
-      ),
+    ["DestinySeasonDefinition", current_season_hash],
     { enabled: !!current_season_hash }
   );
 
@@ -28,15 +23,13 @@ export default function Season() {
     return null;
   }
 
-  const response = data?.data?.Response;
-
   return (
     <TimerCard
-      name={`Season ${response.seasonNumber}: ${response.displayProperties.name}`}
-      description={response.displayProperties.description}
-      start={response.startDate}
-      end={response.endDate}
-      icon={`${bungie_root}${response.displayProperties.icon}`}
+      name={`Season ${data.seasonNumber}: ${data.displayProperties.name}`}
+      description={data.displayProperties.description}
+      start={data.startDate}
+      end={data.endDate}
+      icon={`${bungie_root}${data.displayProperties.icon}`}
     />
   );
 }

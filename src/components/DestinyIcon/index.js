@@ -1,5 +1,6 @@
 import "./style.scss";
 
+import Img from "../Img";
 import Tooltip from "../Tooltip";
 
 const font_symbols = {
@@ -34,11 +35,10 @@ const font_symbols = {
     LostSector: { symbol: "", name: "Lost Sector" },
     Destination: {
       symbol: (
-        <img
+        <Img
           src={
             "https://www.bungie.net/common/destiny2_content/icons/c60303e278aa5fc566a04e98c3d8024c.png"
           }
-          alt=""
           style={{
             aspectRatio: "1 / 1",
             maxWidth: "96px",
@@ -55,11 +55,10 @@ const font_symbols = {
     modifiers: {
       Overload: {
         symbol: (
-          <img
+          <Img
             src={
               "https://bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
             }
-            alt=""
             style={{
               aspectRatio: "1 / 1",
               maxWidth: "60px",
@@ -73,11 +72,10 @@ const font_symbols = {
       },
       Unstoppable: {
         symbol: (
-          <img
+          <Img
             src={
               "https://bungie.net/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
             }
-            alt=""
             style={{
               aspectRatio: "1 / 1",
               maxWidth: "60px",
@@ -91,11 +89,10 @@ const font_symbols = {
       },
       Barrier: {
         symbol: (
-          <img
+          <Img
             src={
               "https://bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
             }
-            alt=""
             style={{
               aspectRatio: "1 / 1",
               maxWidth: "60px",
@@ -133,7 +130,7 @@ function DestinyIcon({ icon, color, style, className, onClick, tooltip }) {
             "destiny-icon " +
             icon.join(" ") +
             " " +
-            (known_colors.includes(color) ? color.toLowerCase() : "") +
+            (known_colors.includes(color) ? color?.toLowerCase() : "") +
             " " +
             (className ? className : "")
           }

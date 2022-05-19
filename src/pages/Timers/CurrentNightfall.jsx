@@ -2,24 +2,16 @@ import { useQueries, useQuery } from "react-query";
 
 import Activity from "../../components/Activity/index";
 import Card from "../../components/Card";
-import { bungieApiNew } from "../../functions/bungieApi";
 
 export default function CurrentNightfall() {
-  const milestone = useQuery("nightfall-milestone", () =>
-    bungieApiNew("/Destiny2/Milestones")
-  );
+  const milestone = useQuery("Milestones");
 
-  const activities =
-    milestone?.data?.data?.Response[1942283261]?.activities || [];
+  const activities = milestone?.data?.[1942283261]?.activities || [];
 
   const nightfalls = useQueries(
     activities.map((activity) => {
       return {
-        queryKey: activity.activityHash,
-        queryFn: () =>
-          bungieApiNew(
-            `/Destiny2/Manifest/DestinyActivityDefinition/${activity.activityHash}`
-          ),
+        queryKey: ["DestinyActivityDefinition", activity.activityHash],
       };
     }),
     { enabled: !!activities }
@@ -37,14 +29,10 @@ export default function CurrentNightfall() {
   return (
     <Card
       title="Nightfall"
-      cardContent={
-        nightfalls[0].data.data.Response.displayProperties.description
-      }
+      cardContent={nightfalls[0].data.displayProperties.description}
       icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
       customModal
-      modalContent={
-        <Activity dataArray={nightfalls.map((nightfall) => nightfall.data)} />
-      }
+      modalContent={<Activity dataArray={nightfalls} />}
     />
   );
 }

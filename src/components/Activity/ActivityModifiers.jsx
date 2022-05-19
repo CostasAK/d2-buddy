@@ -4,21 +4,17 @@ import { ActivityChampions, ActivityModifier, ActivityShields } from ".";
 
 import Loading from "../Loading";
 import PropTypes from "prop-types";
-import { bungieApiNew } from "../../functions/bungieApi";
+import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
 import { useQueries } from "react-query";
 
-const api_path = "/Destiny2/Manifest/DestinyActivityModifierDefinition/";
-
-export function ActivityModifiers({ data, known_shields, known_champions }) {
+export function ActivityModifiers({ data }) {
   const modifiers = useQueries(
-    data.Response.modifiers.map((modifier) => {
+    data.modifiers.map((modifier) => {
       return {
         queryKey: [
           "DestinyActivityModifierDefinition",
           modifier.activityModifierHash,
         ],
-        queryFn: () =>
-          bungieApiNew(`${api_path}${modifier.activityModifierHash}/`),
       };
     })
   );
@@ -37,22 +33,26 @@ export function ActivityModifiers({ data, known_shields, known_champions }) {
     return null;
   }
 
+  const { known_shields, known_champions } = getKnownActivityAmounts(
+    data?.hash
+  );
+
   const modifier_data = modifiers
     .filter((modifier) => modifier.isSuccess)
-    .map((modifier) => modifier.data.data);
+    .map((modifier) => modifier.data);
 
   const shields = modifier_data.filter((modifier) =>
-    /shielded foes/i.test(modifier.Response.displayProperties.name)
+    /shielded foes/i.test(modifier.displayProperties.name)
   );
 
   const champions = modifier_data.filter((modifier) =>
-    /champion foes/i.test(modifier.Response.displayProperties.name)
+    /champion foes/i.test(modifier.displayProperties.name)
   );
 
   const other_modifiers = modifier_data.filter(
     (modifier) =>
       !/(shielded|champion) foes|champions: mob| modifiers$/i.test(
-        modifier.Response.displayProperties.name
+        modifier.displayProperties.name
       )
   );
 

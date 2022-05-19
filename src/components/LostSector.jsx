@@ -1,16 +1,31 @@
 import "./LostSector.scss";
 
-import { ActivityHeader, ActivityModifiers } from "./Activity";
+import { useQueries, useQuery } from "react-query";
 
+import Activity from "./Activity";
 import Loading from "./Loading";
 import { PropTypes } from "prop-types";
-import getKnownActivityAmounts from "../functions/getKnownActivityAmounts";
-import useLostSectors from "../hooks/useLostSectors";
+import getActivityType from "../functions/getActivityType";
+
+const activity_type = "DestinyActivityDefinition";
 
 export default function LostSector({ name }) {
-  const { data, error, isPending } = useLostSectors(name);
+  const {
+    data: search_data,
+    error: search_error,
+    isLoading: search_isLoading,
+  } = useQuery(["Search", activity_type, name]);
 
-  if (isPending) {
+  const search_results = search_data?.results?.results || [];
+
+  const lost_sectors = useQueries(
+    search_results.map((result) => {
+      return { queryKey: [activity_type, result.hash] };
+    }),
+    { enabled: !!search_results }
+  );
+
+  if (search_isLoading || lost_sectors.some((sector) => sector.isLoading)) {
     return (
       <article className="lost-sector">
         <Loading size="page" fadeIn="none" />
@@ -18,8 +33,10 @@ export default function LostSector({ name }) {
     );
   }
 
-  if (error) {
-    console.error(error);
+  if (search_error || lost_sectors.some((sector) => sector.error)) {
+    search_error && console.error(search_error);
+    lost_sectors.map((sector) => sector.error && console.error(sector.error));
+
     return (
       <article className="lost-sector">
         <h2 className="error">Can't find Lost Sector info...</h2>
@@ -27,43 +44,11 @@ export default function LostSector({ name }) {
     );
   }
 
-  const {
-    known_shields: known_shields_legend,
-    known_champions: known_champions_legend,
-  } = getKnownActivityAmounts(data[0].Response.hash);
-
-  const {
-    known_shields: known_shields_master,
-    known_champions: known_champions_master,
-  } = getKnownActivityAmounts(data[1].Response.hash);
-
-  return (
-    <article className="lost-sector success">
-      <ActivityHeader
-        data={data[0]}
-        name={data[0].Response.displayProperties.name.replace(
-          /: (Legend|Master)$/i,
-          ""
-        )}
-      />
-      <section className="legend-difficulty">
-        <h2 className="heading">Legend</h2>
-        <ActivityModifiers
-          data={data[0]}
-          known_shields={known_shields_legend}
-          known_champions={known_champions_legend}
-        />
-      </section>
-      <section className="master-difficulty">
-        <h2 className="heading">Master</h2>
-        <ActivityModifiers
-          data={data[1]}
-          known_shields={known_shields_master}
-          known_champions={known_champions_master}
-        />
-      </section>
-    </article>
+  const filtered_sectors = lost_sectors.filter(
+    (sector) => getActivityType(sector.data) === "Lost Sector"
   );
+
+  return <Activity dataArray={filtered_sectors} />;
 }
 
 LostSector.propTypes = {

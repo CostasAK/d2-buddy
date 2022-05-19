@@ -2,16 +2,13 @@ import "./Destination.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import Loading from "../Loading";
-import { bungieApiNew } from "../../functions/bungieApi";
 import { useQuery } from "react-query";
 
-const api_path = "/Destiny2/Manifest/DestinyDestinationDefinition/";
-
 export function ActivityDestination({ id }) {
-  const { data, error, isLoading } = useQuery(
-    ["DestinyDestinationDefinition", id],
-    () => bungieApiNew(`${api_path}${id}/`)
-  );
+  const { data, error, isLoading } = useQuery([
+    "DestinyDestinationDefinition",
+    id,
+  ]);
 
   if (isLoading) {
     return (
@@ -30,7 +27,7 @@ export function ActivityDestination({ id }) {
   return (
     <p className="destination">
       <DestinyIcon icon={["activities", "Destination"]} />
-      {data.data.Response.displayProperties.name}
+      {data?.displayProperties?.name}
     </p>
   );
 }

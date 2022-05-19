@@ -4,13 +4,13 @@ import { forwardRef } from "react";
 
 export const ActivityDifficulty = forwardRef(
   ({ className, data, ...props }, ref) => {
-    const difficulty = data?.Response?.selectionScreenDisplayProperties?.name;
+    const difficulty = data?.selectionScreenDisplayProperties?.name;
     return (
       <h2
         ref={ref}
         className={classNames(
           "activity-difficulty",
-          difficulty.toLowerCase(),
+          difficulty?.toLowerCase(),
           className
         )}
         {...props}

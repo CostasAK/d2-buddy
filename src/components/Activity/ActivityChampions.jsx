@@ -20,9 +20,8 @@ export function ActivityChampions({ champions, known_champions }) {
   champions.map((modifier) =>
     known_types.map(
       (champion) =>
-        champion.pattern.test(
-          modifier.Response.displayProperties.description
-        ) && parsed_champions.add(champion.class)
+        champion.pattern.test(modifier?.displayProperties?.description) &&
+        parsed_champions.add(champion.class)
     )
   );
 

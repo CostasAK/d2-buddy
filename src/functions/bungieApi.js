@@ -2,20 +2,28 @@ import axios from "axios";
 
 const bungie_api = axios.create({
   baseURL: "https://www.bungie.net/Platform",
+  transformResponse: axios.defaults.transformResponse.concat((data) => {
+    return data?.Response;
+  }),
   headers: {
     Accept: "application/json",
     "X-API-KEY": process.env.REACT_APP_BUNGIE_API_KEY,
   },
 });
 
-export const bungieApiNew = (path, method = "GET", headers = {}) => {
-  return bungie_api({ url: path, method, headers });
+export const bungieApi = async (path, method = "GET", headers = {}) => {
+  const { data } = await bungie_api({ url: path, method, headers });
+  return data;
 };
 
-const bungieApi = (path, method = "GET", headers = {}) => {
-  const paths = Array.isArray(path) ? path : [path];
+export const queryBungieApi = async ({ queryKey }) => {
+  let path_start = "/Destiny2/Manifest";
 
-  return Promise.all(paths.map((p) => bungie_api({ url: p, method, headers })));
+  if (queryKey[0] === "Search") path_start = "/Destiny2/Armory";
+
+  if (queryKey[0] === "Milestones") path_start = "/Destiny2";
+
+  if (queryKey[0] === "Settings") path_start = "";
+
+  return await bungieApi(`${path_start}/${queryKey.join("/")}/`);
 };
-
-export default bungieApi;

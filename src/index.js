@@ -10,8 +10,15 @@ import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
 import SimpleBarReact from "simplebar-react";
+import { queryBungieApi } from "./functions/bungieApi";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: queryBungieApi,
+    },
+  },
+});
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);

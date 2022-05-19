@@ -1,10 +1,10 @@
 import { DestinyAmmunitionType } from "bungie-api-ts/destiny2";
 
 function getWeaponType(data) {
-  let type = data.Response.itemTypeDisplayName;
+  let type = data?.itemTypeDisplayName;
   if (
     type === "Grenade Launcher" &&
-    DestinyAmmunitionType.Heavy === data.Response.equippingBlock.ammoType
+    DestinyAmmunitionType.Heavy === data?.equippingBlock?.ammoType
   ) {
     type = "Heavy " + type;
   }

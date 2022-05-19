@@ -1,5 +1,6 @@
 import { cloneElement, isValidElement, useMemo } from "react";
 
+import Img from "../Img";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -12,7 +13,7 @@ export const CardInner = ({ children, title, titleRule, icon }) => {
         className: classNames("icon", icon.props.className),
       });
 
-    return <img className="icon" src={icon} alt="" />;
+    return <Img className="icon" src={icon} />;
   }, [icon]);
 
   return (

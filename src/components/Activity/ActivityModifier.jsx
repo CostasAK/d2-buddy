@@ -1,17 +1,17 @@
 import "./ActivityModifier.scss";
 
+import Img from "../Img";
 import { PropTypes } from "prop-types";
 import Tooltip from "../Tooltip";
-
-const bungie_root = "https://bungie.net";
+import classNames from "classnames";
 
 export function ActivityModifier({ data }) {
-  const name = data.Response.displayProperties.name;
-  const icon = data.Response.displayProperties.icon;
+  const name = data?.displayProperties?.name;
+  const icon = data?.displayProperties?.icon;
 
-  const description = data.Response.displayProperties.description ? (
+  const description = data?.displayProperties?.description ? (
     <p>
-      {data.Response.displayProperties.description
+      {data?.displayProperties?.description
         .replace(/(?:[\s.,]*\n+[\s.,]*)+/g, "; ")
         .replace(/(\[Disruption|Stagger\])/g, "|$1|")
         .split("|")}
@@ -32,25 +32,24 @@ export function ActivityModifier({ data }) {
   return (
     <section className="activity-modifier">
       <Tooltip contents={name}>
-        <img
-          className={
-            "icon" +
+        <Img
+          className={classNames(
+            "icon",
             known_elements
               .filter((element) => element.pattern.test(name))
-              .reduce((prev, element) => (prev += " " + element.class), "")
-          }
-          src={bungie_root + icon}
-          alt=""
+              .map((element) => element.class)
+          )}
+          src={icon}
         />
       </Tooltip>
       <div className="description">
         <h6
-          className={
-            "heading" +
+          className={classNames(
+            "heading",
             known_elements
               .filter((element) => element.pattern.test(name))
-              .reduce((prev, element) => (prev += " " + element.class), "")
-          }
+              .map((element) => element.class)
+          )}
         >
           {name}
         </h6>

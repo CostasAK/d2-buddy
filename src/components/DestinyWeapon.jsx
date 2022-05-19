@@ -1,17 +1,14 @@
 import "./DestinyWeapon.scss";
 
 import DestinyIcon from "./DestinyIcon";
+import Img from "./Img";
 import Loading from "./Loading";
 import Modal from "./Modal";
-import { bungieApiNew } from "../functions/bungieApi";
-import getScreenshot from "../functions/getScreenshot";
+import { getScreenshot } from "../functions/getScreenshot";
 import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";
 import tierToColor from "../functions/tierToColor";
 import { useQuery } from "react-query";
-
-const api_item_path = "/Destiny2/Manifest/DestinyInventoryItemDefinition/";
-const bungie_root_path = "https://bungie.net";
 
 const sites = [
   {
@@ -42,7 +39,7 @@ function WeaponLinks({ id }) {
             target="_blank"
             rel="noreferrer"
           >
-            {site.icon && <img alt="" src={site.icon} className="site-icon" />}
+            {site.icon && <Img src={site.icon} className="site-icon" />}
             {site.name}
           </a>
         </li>
@@ -52,10 +49,10 @@ function WeaponLinks({ id }) {
 }
 
 export default function DestinyWeapon({ id, name }) {
-  let { data, error, isLoading } = useQuery(
-    ["DestinyInventoryItemDefinition", id],
-    () => bungieApiNew(`${api_item_path}${id}/`)
-  );
+  let { data, error, isLoading } = useQuery([
+    "DestinyInventoryItemDefinition",
+    id,
+  ]);
 
   if (isLoading) {
     return (
@@ -72,15 +69,13 @@ export default function DestinyWeapon({ id, name }) {
     return null;
   }
 
-  data = data.data;
-
-  name ||= data.Response.displayProperties.name;
+  name ||= data?.displayProperties?.name;
 
   const type = getWeaponType(data);
 
   const element = getWeaponElement(data);
 
-  const tier = data.Response.inventory.tierTypeName;
+  const tier = data?.inventory?.tierTypeName;
   const screenshot = getScreenshot(data);
 
   return (
@@ -96,7 +91,7 @@ export default function DestinyWeapon({ id, name }) {
         backgroundColor: tierToColor(tier),
       }}
     >
-      <article className={"weapon-modal " + tier.toLowerCase()}>
+      <article className={"weapon-modal " + tier?.toLowerCase()}>
         <div
           className="weapon-screenshot"
           style={{ backgroundImage: `url(${screenshot})` }}
@@ -104,11 +99,7 @@ export default function DestinyWeapon({ id, name }) {
           <WeaponLinks id={id} />
         </div>
         <div className="weapon-header">
-          <img
-            src={bungie_root_path + data.Response.displayProperties.icon}
-            alt=""
-            className="weapon-icon"
-          />
+          <Img src={data.displayProperties.icon} className="weapon-icon" />
           <div className="weapon-header-text">
             <h3>{name}</h3>
             <p>

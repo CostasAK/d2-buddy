@@ -5,11 +5,8 @@ import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
 import { Fragment } from "react";
 import Loading from "../Loading";
 import PropTypes from "prop-types";
-import { bungieApiNew } from "../../functions/bungieApi";
 import classNames from "classnames";
 import { useQueries } from "react-query";
-
-const api_activity_path = "/Destiny2/Manifest/DestinyActivityDefinition/";
 
 export function Activity({ id, dataArray, name }) {
   const ids = id ? [].concat(id) : [];
@@ -18,7 +15,6 @@ export function Activity({ id, dataArray, name }) {
     ids.map((id) => {
       return {
         queryKey: ["DestinyActivityDefinition", id],
-        queryFn: () => bungieApiNew(`${api_activity_path}${id}/`),
       };
     }),
     { enabled: !!id }
@@ -45,21 +41,18 @@ export function Activity({ id, dataArray, name }) {
       .filter((activity) => activity.isSuccess)
       .map((activity) => activity.data);
   } else {
-    activities = dataArray;
+    activities = dataArray.map((x) => x.data);
   }
 
-  activities.sort(
-    (a, b) =>
-      a.data.Response.activityLightLevel - b.data.Response.activityLightLevel
-  );
+  activities.sort((a, b) => a?.activityLightLevel - b?.activityLightLevel);
 
   return (
     <article className={classNames("activity", "success")}>
-      <ActivityHeader data={activities[0].data} name={name} />
+      <ActivityHeader data={activities[0]} name={name} />
       {activities.map((activity, index) => (
         <Fragment key={index}>
-          <ActivityDifficulty data={activity.data} />
-          <ActivityModifiers data={activity.data} />
+          <ActivityDifficulty data={activity} />
+          <ActivityModifiers data={activity} />
         </Fragment>
       ))}
     </article>
