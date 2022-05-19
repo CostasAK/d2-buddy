@@ -94,12 +94,12 @@ const known_activities = {
 };
 
 function getKnownActivityAmounts(id) {
-  try {
-    return known_activities[id];
-  } catch (error) {
-    console.warn(error);
-    return null;
-  }
+  return (
+    known_activities[id] || {
+      known_shields: undefined,
+      known_champions: undefined,
+    }
+  );
 }
 
 export default getKnownActivityAmounts;
