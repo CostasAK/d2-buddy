@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
+import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 
 export const TimerCardCountdown = ({
@@ -29,13 +30,13 @@ export const TimerCardCountdown = ({
   const checkCondition = (condition) => {
     if (condition === true) return true;
 
-    if (condition === "past") return timestamp - now < 0;
+    if (condition === "past") return isPast(timestamp);
 
-    if (condition === "future") return timestamp - now > 0;
+    if (condition === "future") return !isPast(timestamp);
 
-    if (condition?.when === "past") return condition.timestamp - now < 0;
+    if (condition?.when === "past") return isPast(condition.timestamp);
 
-    if (condition?.when === "future") return condition.timestamp - now > 0;
+    if (condition?.when === "future") return !isPast(condition.timestamp);
   };
 
   if (!timestamp || !conditions.every(checkCondition)) return null;
@@ -50,9 +51,17 @@ export const TimerCardCountdown = ({
   return (
     <p>
       {capitalizeSentence(
-        `${prefix ? `${prefix} ` : ""}${
-          countdown ? `${countdown}, ` : ""
-        }${absolute_time_string}`
+        `${
+          prefix
+            ? `${
+                Array.isArray(prefix)
+                  ? isPast(timestamp)
+                    ? prefix[1]
+                    : prefix[0]
+                  : prefix
+              } `
+            : ""
+        }${countdown ? `${countdown}, ` : ""}${absolute_time_string}`
       )}
     </p>
   );
