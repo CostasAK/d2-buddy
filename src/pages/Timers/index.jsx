@@ -1,12 +1,6 @@
 import "./style.scss";
 
-import {
-  currentDay,
-  currentSeason,
-  currentWeek,
-  currentXur,
-  nextXur,
-} from "@d2api/date";
+import { currentDay, currentWeek, currentXur, nextXur } from "@d2api/date";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
@@ -27,20 +21,20 @@ const week = 7 * day;
 
 const loadResets = () => [
   {
-    name: "Daily Reset",
+    title: "Daily Reset",
     start: currentDay().end,
     period: day,
     icon: <GiClockwiseRotation />,
   },
   {
-    name: "Weekly Reset",
+    title: "Weekly Reset",
     start: currentWeek().end,
     period: week,
     icon: <GiClockwiseRotation />,
     link: "https://kyber3000.com/reset",
   },
   {
-    name: "Weekend Activities",
+    title: "Weekend Activities",
     start: currentXur() ? currentXur().start : nextXur().start,
     end: currentXur() ? currentXur().end : nextXur().end,
     period: week,
@@ -63,11 +57,6 @@ const loadResets = () => [
         </li>
       </ul>
     ),
-  },
-  {
-    name: `Season ${currentSeason().seasonNumber}`,
-    start: currentSeason().start,
-    end: currentSeason().end,
   },
 ];
 
@@ -110,8 +99,6 @@ export default function Timers() {
     return () => clearTimeout(timer);
   }, [now]);
 
-  const cards = [...events, ...resets];
-
   return (
     <div className="timers-wrapper">
       <div className="timers">
@@ -121,18 +108,11 @@ export default function Timers() {
         <PsiOpsLegend />
         <AltarsOfSorrowWeapons />
         <Season />
-        {cards.map((card) => (
-          <TimerCard
-            key={card.name}
-            name={card.name}
-            description={card.description}
-            start={card.start}
-            end={card.end}
-            period={card.period}
-            hasTime={card.hasTime}
-            icon={card.icon}
-            link={card.link}
-          />
+        {events.map((card, index) => (
+          <TimerCard key={index} {...card} />
+        ))}
+        {resets.map((card, index) => (
+          <TimerCard key={index} {...card} />
         ))}
       </div>
       <div className="links">

@@ -1,3 +1,4 @@
+import { CardModalText } from "./CardModalStyle";
 import Modal from "../Modal";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
@@ -14,10 +15,10 @@ export const CardModal = forwardRef(
         {customModal ? (
           modalContent
         ) : (
-          <article ref={ref} className="modal-text" {...props}>
-            {title && <h1 className="title">{title}</h1>}
-            <section className="modal-content">{modalContent}</section>
-          </article>
+          <CardModalText ref={ref} {...props}>
+            {title && <h1>{title}</h1>}
+            <section>{modalContent}</section>
+          </CardModalText>
         )}
       </Modal>
     );

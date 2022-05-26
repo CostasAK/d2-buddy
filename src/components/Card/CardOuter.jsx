@@ -1,44 +1,38 @@
 import { PropTypes } from "prop-types";
-import classNames from "classnames";
+import { StyledArticle } from "./CardOuterStyle";
 import { forwardRef } from "react";
 
 export const CardOuter = forwardRef(
-  ({ children, className, hasModal, link, ...props }, ref) => {
-    const class_name = classNames(
-      "card",
-      { clickable: hasModal || link },
-      className
-    );
-
+  ({ children, hasModal, href, ...props }, ref) => {
     if (hasModal)
       return (
-        <article ref={ref} className={class_name} {...props}>
+        <StyledArticle ref={ref} hasModal={hasModal} {...props}>
           {children}
-        </article>
+        </StyledArticle>
       );
 
-    if (link)
-      return link.startsWith("steam://") ? (
-        <a ref={ref} className={class_name} href={link} {...props}>
+    if (href)
+      return href.startsWith("steam://") ? (
+        <StyledArticle as="a" ref={ref} href={href} {...props}>
           {children}
-        </a>
+        </StyledArticle>
       ) : (
-        <a
+        <StyledArticle
+          as="a"
           ref={ref}
-          className={class_name}
-          href={link}
+          href={href}
           target="_blank"
           rel="noreferrer"
           {...props}
         >
           {children}
-        </a>
+        </StyledArticle>
       );
 
     return (
-      <article ref={ref} className={class_name} {...props}>
+      <StyledArticle ref={ref} {...props}>
         {children}
-      </article>
+      </StyledArticle>
     );
   }
 );
@@ -46,5 +40,5 @@ export const CardOuter = forwardRef(
 CardOuter.propTypes = {
   className: PropTypes.string,
   hasModal: PropTypes.bool,
-  link: PropTypes.string,
+  href: PropTypes.string,
 };

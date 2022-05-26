@@ -68,10 +68,11 @@ export default function Links(props) {
             link={link.link}
             icon={link.logo}
             title={link.title}
-            cardContent={link.description}
             className="link"
             floatIcon
-          />
+          >
+            {link.description}
+          </Card>
         ))}
       </Masonry>
     </div>

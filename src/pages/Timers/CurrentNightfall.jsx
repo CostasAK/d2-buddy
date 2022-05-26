@@ -29,10 +29,11 @@ export default function CurrentNightfall() {
   return (
     <Card
       title="Nightfall"
-      cardContent={nightfalls[0].data.displayProperties.description}
       icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
       customModal
       modalContent={<Activity dataArray={nightfalls} />}
-    />
+    >
+      {nightfalls[0].data.displayProperties.description}
+    </Card>
   );
 }

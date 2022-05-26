@@ -4,10 +4,11 @@ import { ActivityChampions, ActivityModifier, ActivityShields } from ".";
 
 import Loading from "../Loading";
 import PropTypes from "prop-types";
+import { forwardRef } from "react";
 import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
 import { useQueries } from "react-query";
 
-export function ActivityModifiers({ data }) {
+export const ActivityModifiers = forwardRef(({ data }, ref) => {
   const modifiers = useQueries(
     data.modifiers.map((modifier) => {
       return {
@@ -22,7 +23,7 @@ export function ActivityModifiers({ data }) {
   if (!modifiers.every((modifier) => modifier.isSuccess)) {
     if (modifiers.some((modifier) => modifier.isLoading))
       return (
-        <section className="activity-modifiers">
+        <section ref={ref} className="activity-modifiers">
           <Loading size="section" />
         </section>
       );
@@ -57,7 +58,7 @@ export function ActivityModifiers({ data }) {
   );
 
   return (
-    <section className="activity-modifiers">
+    <section ref={ref} className="activity-modifiers">
       {shields.length > 0 && (
         <ActivityShields shields={shields} known_shields={known_shields} />
       )}
@@ -79,7 +80,7 @@ export function ActivityModifiers({ data }) {
       )}
     </section>
   );
-}
+});
 
 ActivityModifiers.propTypes = {
   data: PropTypes.object.isRequired,

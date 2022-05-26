@@ -25,7 +25,7 @@ export default function Season() {
 
   return (
     <TimerCard
-      name={`Season ${data.seasonNumber}: ${data.displayProperties.name}`}
+      title={`Season ${data.seasonNumber}: ${data.displayProperties.name}`}
       description={data.displayProperties.description}
       start={data.startDate}
       end={data.endDate}

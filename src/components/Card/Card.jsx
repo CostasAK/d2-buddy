@@ -1,10 +1,7 @@
-import "./Card.scss";
-
 import { CardInner } from "./CardInner";
 import { CardModal } from "./CardModal";
 import { CardOuter } from "./CardOuter";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { forwardRef } from "react";
 
 export const Card = forwardRef(
@@ -12,14 +9,15 @@ export const Card = forwardRef(
     {
       title,
       titleRule,
-      cardContent,
+      children,
       modalContent,
       customModal,
       link,
       icon,
       className,
       floatIcon,
-      order,
+      highlight,
+      ...props
     },
     ref
   ) => (
@@ -31,20 +29,21 @@ export const Card = forwardRef(
       customModal={customModal}
     >
       <CardOuter
-        className={classNames(className, {
-          "floating-icon": floatIcon,
-          "side-icon": !floatIcon && icon,
-        })}
+        ref={ref}
         hasModal={!!modalContent}
-        link={link}
-        style={{ order }}
+        href={link}
+        icon={icon}
+        floatIcon={floatIcon}
+        highlight={highlight}
+        {...props}
       >
         <CardInner
           icon={icon}
+          floatIcon={floatIcon}
           title={title}
           titleRule={titleRule === undefined ? !floatIcon : titleRule}
         >
-          {cardContent}
+          {children}
         </CardInner>
       </CardOuter>
     </CardModal>
@@ -54,16 +53,23 @@ export const Card = forwardRef(
 Card.propTypes = {
   title: PropTypes.string,
   titleRule: PropTypes.bool,
-  cardContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  modalContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  modalContent: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    ),
+  ]),
   link: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string,
   floatIcon: PropTypes.bool,
+  highlight: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   customModal: PropTypes.bool,
 };
 
 Card.defaultProps = {
   floatIcon: false,
+  highlight: false,
   customModal: false,
 };

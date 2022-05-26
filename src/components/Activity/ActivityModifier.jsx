@@ -4,8 +4,9 @@ import Img from "../Img";
 import { PropTypes } from "prop-types";
 import Tooltip from "../Tooltip";
 import classNames from "classnames";
+import { forwardRef } from "react";
 
-export function ActivityModifier({ data }) {
+export const ActivityModifier = forwardRef(({ data }, ref) => {
   const name = data?.displayProperties?.name;
   const icon = data?.displayProperties?.icon;
 
@@ -30,7 +31,7 @@ export function ActivityModifier({ data }) {
   ];
 
   return (
-    <section className="activity-modifier">
+    <section ref={ref} className="activity-modifier">
       <Tooltip contents={name}>
         <Img
           className={classNames(
@@ -57,7 +58,7 @@ export function ActivityModifier({ data }) {
       </div>
     </section>
   );
-}
+});
 
 ActivityModifier.propTypes = {
   data: PropTypes.object.isRequired,

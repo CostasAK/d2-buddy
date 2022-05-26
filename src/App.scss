@@ -73,7 +73,7 @@ a {
   cursor: pointer;
 
   /* stylelint-disable-next-line selector-class-pattern */
-  &:not(.card):not(.button):not(.KofiButton) {
+  &:not([class^="Card"]):not(.button):not(.KofiButton) {
     color: var.$navigation-fg;
 
     &:hover,

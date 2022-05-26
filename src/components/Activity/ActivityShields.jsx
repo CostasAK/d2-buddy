@@ -3,6 +3,7 @@ import "./ActivityShields.scss";
 import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
 import Tooltip from "../Tooltip";
+import { forwardRef } from "react";
 
 const known_elements = [
   { name: "Arc", pattern: /arc/i },
@@ -11,7 +12,7 @@ const known_elements = [
   { name: "Stasis", pattern: /stasis/i },
 ];
 
-export function ActivityShields({ shields, known_shields }) {
+export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
   if (!shields || shields.length < 1) {
     return null;
   }
@@ -27,7 +28,7 @@ export function ActivityShields({ shields, known_shields }) {
   );
 
   return (
-    <section className="activity-shields">
+    <section ref={ref} className="activity-shields">
       <h5 className="heading">Shields</h5>
       <div className="shields">
         {[...parsed_shields].map((shield, index) => (
@@ -43,7 +44,7 @@ export function ActivityShields({ shields, known_shields }) {
       </div>
     </section>
   );
-}
+});
 
 ActivityShields.propTypes = {
   shields: PropTypes.array,

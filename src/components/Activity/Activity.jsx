@@ -1,14 +1,14 @@
 import "./style.scss";
 
 import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
+import { Fragment, forwardRef } from "react";
 
-import { Fragment } from "react";
 import Loading from "../Loading";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { useQueries } from "react-query";
 
-export function Activity({ id, dataArray, name }) {
+export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
   const ids = id ? [].concat(id) : [];
 
   let activities = useQueries(
@@ -25,7 +25,7 @@ export function Activity({ id, dataArray, name }) {
       if (activities.some((activity) => activity.isLoading))
         return (
           <>
-            <article className="activity">
+            <article ref={ref} className="activity">
               <Loading size="page" fadeIn="none" />
             </article>
           </>
@@ -47,7 +47,7 @@ export function Activity({ id, dataArray, name }) {
   activities.sort((a, b) => a?.activityLightLevel - b?.activityLightLevel);
 
   return (
-    <article className={classNames("activity", "success")}>
+    <article ref={ref} className={classNames("activity", "success")}>
       <ActivityHeader data={activities[0]} name={name} />
       {activities.map((activity, index) => (
         <Fragment key={index}>
@@ -57,7 +57,7 @@ export function Activity({ id, dataArray, name }) {
       ))}
     </article>
   );
-}
+});
 
 Activity.propTypes = {
   id: PropTypes.number,

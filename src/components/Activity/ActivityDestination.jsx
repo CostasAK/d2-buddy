@@ -2,9 +2,11 @@ import "./Destination.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import Loading from "../Loading";
+import { PropTypes } from "prop-types";
+import { forwardRef } from "react";
 import { useQuery } from "react-query";
 
-export function ActivityDestination({ id }) {
+export const ActivityDestination = forwardRef(({ id }, ref) => {
   const { data, error, isLoading } = useQuery([
     "DestinyDestinationDefinition",
     id,
@@ -12,10 +14,10 @@ export function ActivityDestination({ id }) {
 
   if (isLoading) {
     return (
-      <div className="destination">
+      <p ref={ref} className="destination">
         <DestinyIcon icon={["activities", "Destination"]} />
         <Loading size="inline" />
-      </div>
+      </p>
     );
   }
 
@@ -25,9 +27,15 @@ export function ActivityDestination({ id }) {
   }
 
   return (
-    <p className="destination">
+    <p ref={ref} className="destination">
       <DestinyIcon icon={["activities", "Destination"]} />
       {data?.displayProperties?.name}
     </p>
   );
-}
+});
+
+ActivityDestination.propTypes = {
+  id: PropTypes.number,
+};
+
+ActivityDestination.defaultProps = {};

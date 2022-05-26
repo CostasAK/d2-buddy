@@ -2,10 +2,11 @@ import "./ActivityHeader.scss";
 
 import { ActivityDestination } from ".";
 import PropTypes from "prop-types";
+import { forwardRef } from "react";
 import getActivityType from "../../functions/getActivityType";
 import { getScreenshot } from "../../functions/getScreenshot";
 
-export function ActivityHeader({ data, name }) {
+export const ActivityHeader = forwardRef(({ data, name }, ref) => {
   name ||= data.displayProperties.name;
   let type = getActivityType(data);
 
@@ -17,6 +18,7 @@ export function ActivityHeader({ data, name }) {
   const screenshot = getScreenshot(data);
   return (
     <section
+      ref={ref}
       className="activity-header"
       style={{ backgroundImage: `url(${screenshot})` }}
     >
@@ -25,7 +27,7 @@ export function ActivityHeader({ data, name }) {
       <ActivityDestination id={data.destinationHash} />
     </section>
   );
-}
+});
 
 ActivityHeader.propTypes = {
   data: PropTypes.object.isRequired,

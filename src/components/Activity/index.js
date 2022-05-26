@@ -8,6 +8,7 @@ import { ActivityModifiers } from "./ActivityModifiers";
 import { ActivityShields } from "./ActivityShields";
 
 export default Activity;
+
 export {
   ActivityDestination,
   ActivityHeader,

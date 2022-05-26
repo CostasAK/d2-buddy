@@ -1,30 +1,23 @@
-import { cloneElement, isValidElement, useMemo } from "react";
+import { StyledSection, StyledTitle } from "./CardInnerStyle.js";
+import { isValidElement, useMemo } from "react";
 
 import Img from "../Img";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import { PropTypes } from "prop-types";
 
 export const CardInner = ({ children, title, titleRule, icon }) => {
   const icon_element = useMemo(() => {
     if (!icon) return null;
 
-    if (isValidElement(icon))
-      return cloneElement(icon, {
-        className: classNames("icon", icon.props.className),
-      });
+    if (isValidElement(icon)) return icon;
 
-    return <Img className="icon" src={icon} />;
+    return <Img src={icon} />;
   }, [icon]);
 
   return (
     <>
       {icon_element && icon_element}
-      {title && (
-        <h4 className={classNames("title", { "title-rule": titleRule })}>
-          {title}
-        </h4>
-      )}
-      {children && <section className="card-content">{children}</section>}
+      {title && <StyledTitle titleRule={titleRule}>{title}</StyledTitle>}
+      {children && <StyledSection>{children}</StyledSection>}
     </>
   );
 };

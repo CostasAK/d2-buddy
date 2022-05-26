@@ -1,8 +1,11 @@
 import "./Button.scss";
 
-export default function Button({ className, href, children }) {
+import { forwardRef } from "react";
+
+export const Button = forwardRef(({ className, href, children }, ref) => {
   return href.startsWith("steam://") ? (
     <a
+      ref={ref}
       className={"button clickable" + (className ? className : "")}
       href={href}
     >
@@ -10,6 +13,7 @@ export default function Button({ className, href, children }) {
     </a>
   ) : (
     <a
+      ref={ref}
       className={"button clickable" + (className ? className : "")}
       href={href}
       target="_blank"
@@ -18,4 +22,4 @@ export default function Button({ className, href, children }) {
       <div className="button-inner">{children}</div>
     </a>
   );
-}
+});

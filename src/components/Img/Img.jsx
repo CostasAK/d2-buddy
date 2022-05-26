@@ -9,7 +9,9 @@ export const Img = forwardRef(({ className, src, alt, ...props }, ref) => {
     <img
       ref={ref}
       className={classNames(className)}
-      src={/^\/[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src}
+      src={
+        /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src
+      }
       alt={alt || ""}
       {...props}
     />
