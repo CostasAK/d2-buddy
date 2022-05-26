@@ -1,33 +1,34 @@
-import { day, minute, second, year } from "../../constants/time";
+import { day, year } from "../../constants/time";
 import { forwardRef, useEffect, useState } from "react";
 
 import Card from "../Card";
 import PropTypes from "prop-types";
 import { TimerCardCountdown } from "./TimerCardCountdown";
 import { TimerCardDescription } from "./TimerCardDescription";
-import classNames from "classnames";
+import { flexOrder } from "../../functions/flexOrder";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
 
+const determineNextStart = (start, end, period) => {
+  let start_temp = nextTime(period, toTime(start));
+  while (period && end && start_temp >= end) {
+    start_temp -= period;
+  }
+  return start_temp;
+};
+
 export const TimerCard = forwardRef(
-  ({ className, description, start, end, period, hasTime, ...props }, ref) => {
+  ({ description, start, end, period, hasTime, ...props }, ref) => {
     const [nextEnd, setNextEnd] = useState(nextTime(period, toTime(end)));
 
-    const [nextStart, setNextStart] = useState(() => {
-      let nextStart = nextTime(period, toTime(start));
-      while (period && nextEnd && nextStart > nextEnd) {
-        nextStart -= period;
-      }
-      return nextStart;
-    });
-
-    const [now, setNow] = useState(Date.now());
+    const [nextStart, setNextStart] = useState(
+      determineNextStart(start, nextEnd, period)
+    );
 
     useEffect(() => {
       const timer = setTimeout(() => {
         setNextEnd(nextTime(period, toTime(nextEnd)));
-        setNow(() => Date.now());
         setNextStart(() => {
           let start_temp = nextTime(period, toTime(nextStart));
           while (period && nextEnd && start_temp >= nextEnd) {
@@ -35,45 +36,21 @@ export const TimerCard = forwardRef(
           }
           return start_temp;
         });
-      }, nextTime(30 * second, 0) - Date.now());
+      }, Math.min(nextStart, nextEnd) - Date.now + 100);
       return () => clearTimeout(timer);
-    }, [now, nextStart, nextEnd, period]);
+    }, [nextStart, nextEnd, period]);
 
-    let is_recurring = !!period;
-
-    let started = false;
-    if (isPast(nextStart)) {
-      started = true;
-    }
-
-    let ended = false;
     if (
       isPast(nextEnd) ||
       (!nextEnd && isPast(nextStart + day)) ||
-      (!is_recurring &&
-        (isPast(nextEnd) || (!nextEnd && isPast(nextStart + day))))
+      (!period && (isPast(nextEnd) || (!nextEnd && isPast(nextStart + day))))
     ) {
-      ended = true;
-    }
-
-    if (ended) {
       return null;
-    }
-
-    let target_time = nextStart;
-    if (started && nextEnd) {
-      target_time = nextEnd;
-    }
-
-    let flex_order = target_time / minute;
-    if (!is_recurring) {
-      flex_order -= (10 * year) / minute;
     }
 
     return (
       <Card
         ref={ref}
-        className={classNames("timer-card", className)}
         modalContent={
           <TimerCardDescription
             start={nextStart}
@@ -82,8 +59,8 @@ export const TimerCard = forwardRef(
             description={description}
           />
         }
-        style={{ order: flex_order }}
-        highlight={!!started}
+        style={{ order: flexOrder(nextStart, !!period ? 0 : -10 * year) }}
+        highlight={isPast(nextStart)}
         {...props}
       >
         <TimerCardCountdown

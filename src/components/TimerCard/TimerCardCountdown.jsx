@@ -72,9 +72,10 @@ TimerCardCountdown.propTypes = {
     PropTypes.number,
     PropTypes.string,
     PropTypes.instanceOf(Date),
+    PropTypes.oneOf([false]),
   ]),
   hasTime: PropTypes.bool,
-  prefix: PropTypes.string,
+  prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([false])]),
 };
 
 TimerCardCountdown.defaultProps = {
