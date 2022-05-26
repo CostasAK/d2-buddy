@@ -32,6 +32,10 @@ export default function LostSectors() {
         location: "Moon",
       },
       {
+        name: "K1 Revelation",
+        location: "Moon",
+      },
+      {
         name: "Metamorphosis",
         location: "Throne World",
       },
@@ -63,13 +67,9 @@ export default function LostSectors() {
         name: "Chamber of Starlight",
         location: "Dreaming City",
       },
-      {
-        name: "K1 Revelation",
-        location: "Moon",
-      },
     ];
 
-    const drops = ["Arms", "Chest", "Helmet", "Legs"];
+    const drops = ["Chest", "Helmet", "Legs", "Arms"];
 
     let items = [];
 
