@@ -93,7 +93,7 @@ export default function LostSectors() {
     <CycleCard
       name="Legend & Master Lost Sector"
       items={items}
-      start={1648918800 * 1000}
+      start={1653411600 * 1000}
       period={day}
       icon="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_7d11acd7d5a3daebc0a0c906452932d6.png"
     />
