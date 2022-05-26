@@ -1,5 +1,6 @@
 import "./style.scss";
 
+import { day, minute, year } from "../../constants/time";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 import { useEffect, useState } from "react";
 
@@ -9,12 +10,6 @@ import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
-const year = 365.25 * day;
 
 export function CycleCard({ name, items, start, period, icon }) {
   const [now, setNow] = useState(Date.now());

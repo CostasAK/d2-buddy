@@ -1,5 +1,6 @@
 import CycleCard from "../../components/CycleCard";
 import DestinyWeapon from "../../components/DestinyWeapon";
+import { day } from "../../constants/time";
 
 const items = [
   <DestinyWeapon id="2721157927" name="Tarnation" />,
@@ -7,11 +8,6 @@ const items = [
   <DestinyWeapon id="3865728990" name="Father's Sins" />,
   <DestinyWeapon id="927567426" name="Come to Pass" />,
 ];
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
 
 export default function WellspringWeapons() {
   return (

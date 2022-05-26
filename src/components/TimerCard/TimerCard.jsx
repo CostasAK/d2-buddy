@@ -1,21 +1,14 @@
-import React, { forwardRef, useEffect, useState } from "react";
-import { formatDate, formatTime } from "../../functions/formatDateTime";
+import { day, minute, second, year } from "../../constants/time";
+import { forwardRef, useEffect, useState } from "react";
 
 import Card from "../Card";
 import PropTypes from "prop-types";
-import { capitalizeSentence } from "../../functions/capitalizeSentence";
+import { TimerCardCountdown } from "./TimerCardCountdown";
+import { TimerCardDescription } from "./TimerCardDescription";
 import classNames from "classnames";
-import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
-import parse from "html-react-parser";
 import { toTime } from "../../functions/toTime";
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
-const year = 365.25 * day;
 
 export const TimerCard = forwardRef(
   ({ className, description, start, end, period, hasTime, ...props }, ref) => {
@@ -42,7 +35,7 @@ export const TimerCard = forwardRef(
           }
           return start_temp;
         });
-      }, 1000);
+      }, nextTime(30 * second, 0) - Date.now());
       return () => clearTimeout(timer);
     }, [now, nextStart, nextEnd, period]);
 
@@ -72,39 +65,37 @@ export const TimerCard = forwardRef(
       target_time = nextEnd;
     }
 
-    let countdown = formatDuration(target_time - now);
-
-    let absolute_time_string;
-    if (started && !nextEnd) {
-      absolute_time_string = "On " + formatDate(target_time, hasTime);
-    } else if (isPast(target_time - day)) {
-      absolute_time_string = "at " + formatTime(target_time, hasTime);
-    } else {
-      absolute_time_string = "on " + formatDate(target_time, hasTime);
-    }
-
     let flex_order = target_time / minute;
     if (!is_recurring) {
       flex_order -= (10 * year) / minute;
     }
 
-    let long_description =
-      typeof description === "string" || description instanceof String
-        ? parse(description)
-        : description;
-
     return (
       <Card
         ref={ref}
-        className={classNames("timer-card", { highlight: started }, className)}
-        modalContent={long_description ? long_description : undefined}
+        className={classNames("timer-card", className)}
+        modalContent={
+          <TimerCardDescription
+            start={nextStart}
+            end={nextEnd}
+            period={period}
+            description={description}
+          />
+        }
         style={{ order: flex_order }}
+        highlight={!!started}
         {...props}
       >
-        {capitalizeSentence(
-          (is_recurring || !(started && !nextEnd) ? countdown + ", " : "") +
-            absolute_time_string
-        )}
+        <TimerCardCountdown
+          prefix={nextStart && nextEnd && "Starts"}
+          timestamp={nextStart}
+          conditions="future"
+        />
+        <TimerCardCountdown
+          prefix={nextStart && nextEnd && "Ends"}
+          timestamp={nextEnd}
+          conditions={["future", { timestamp: nextStart, when: "past" }]}
+        />
       </Card>
     );
   }

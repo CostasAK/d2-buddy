@@ -1,6 +1,7 @@
 import "./style.scss";
 
 import { currentDay, currentWeek, currentXur, nextXur } from "@d2api/date";
+import { day, hour, week } from "../../constants/time";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
@@ -12,12 +13,6 @@ import React from "react";
 import Season from "./Season";
 import TimerCard from "../../components/TimerCard";
 import WellspringWeapons from "./WellspringWeapons";
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
-const week = 7 * day;
 
 const loadResets = () => [
   {

@@ -1,13 +1,9 @@
 import CycleCard from "../../components/CycleCard";
 import LostSector from "../../components/LostSector";
 import Modal from "../../components/Modal";
+import { day } from "../../constants/time";
 import { lcm } from "../../functions/gcd";
 import { useMemo } from "react";
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
 
 function LostSectorLink({ location }) {
   return (

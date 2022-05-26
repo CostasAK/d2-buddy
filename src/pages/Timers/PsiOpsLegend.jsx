@@ -1,11 +1,7 @@
 import CycleCard from "../../components/CycleCard";
+import { day } from "../../constants/time";
 
 const items = ["EDZ", "Cosmodrome", "Moon"].map((item) => <div>{item}</div>);
-
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
 
 export default function PsiOpsLegend() {
   return (

@@ -1,7 +1,4 @@
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
+import { day, hour, minute, second } from "../constants/time";
 
 export function toNaturalLanguageTime(delta) {
   if (delta < 0) {

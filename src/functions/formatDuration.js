@@ -1,9 +1,4 @@
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
-const month = 30 * day;
-const year = 365 * day;
+import { day, hour, minute, month, second, year } from "../constants/time";
 
 export function formatDuration(duration) {
   if (Math.abs(duration) < 0.75 * second) {
