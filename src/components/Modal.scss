@@ -76,7 +76,6 @@
         .modal-inner {
           width: fit-content;
           max-width: calc(100vw - 2 * var.$margins - 2px);
-          padding-bottom: 0.5rem;
 
           > * {
             max-width: calc(100vw - 2 * var.$margins - 2px);
