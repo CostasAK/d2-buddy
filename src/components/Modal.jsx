@@ -9,6 +9,7 @@ import {
 } from "react";
 
 import DestinyIcon from "./DestinyIcon";
+import Img from "./Img";
 import Measure from "react-measure";
 import { PropTypes } from "prop-types";
 import ReactModal from "react-modal";
@@ -56,10 +57,7 @@ export default function Modal({
           onClick={() => setIsOpen(false)}
           tooltip="Close Pop-up"
         />
-        <div
-          className="background"
-          style={{ backgroundImage: `url(${background})` }}
-        />
+        <Img className="background" src={background} />
         <SimpleBarReact className="modal-scroll">
           <Measure
             bounds
