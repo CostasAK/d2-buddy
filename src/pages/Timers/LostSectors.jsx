@@ -1,9 +1,9 @@
-import { useMemo } from "react";
 import CycleCard from "../../components/CycleCard";
 import LostSector from "../../components/LostSector";
 import Modal from "../../components/Modal";
 import { day } from "../../constants/time";
 import { lcm } from "../../functions/gcd";
+import { useMemo } from "react";
 
 function LostSectorLink({ location }) {
   return (
