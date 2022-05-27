@@ -29,14 +29,8 @@ export const TimerCard = forwardRef(
     useEffect(() => {
       const timer = setTimeout(() => {
         setNextEnd(nextTime(period, toTime(nextEnd)));
-        setNextStart(() => {
-          let start_temp = nextTime(period, toTime(nextStart));
-          while (period && nextEnd && start_temp >= nextEnd) {
-            start_temp -= period;
-          }
-          return start_temp;
-        });
-      }, Math.min(nextStart, nextEnd) - Date.now + 100);
+        setNextStart(determineNextStart(nextStart, nextEnd, period));
+      }, Math.min(nextStart, nextEnd) - Date.now);
       return () => clearTimeout(timer);
     }, [nextStart, nextEnd, period]);
 

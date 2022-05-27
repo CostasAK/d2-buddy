@@ -6,7 +6,6 @@ import { day, hour, week } from "../../constants/time";
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
-import { GiClockwiseRotation } from "react-icons/gi";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
@@ -19,13 +18,13 @@ const loadResets = () => [
     title: "Daily Reset",
     start: currentDay().end,
     period: day,
-    icon: <GiClockwiseRotation />,
+    icon: "https://cdn.jsdelivr.net/gh/game-icons/icons@c10320edc7ae3f28a29d172e0dd3f029411825d7/delapouite/clockwise-rotation.svg",
   },
   {
     title: "Weekly Reset",
     start: currentWeek().end,
     period: week,
-    icon: <GiClockwiseRotation />,
+    icon: "https://cdn.jsdelivr.net/gh/game-icons/icons@c10320edc7ae3f28a29d172e0dd3f029411825d7/delapouite/clockwise-rotation.svg",
     link: "https://kyber3000.com/reset",
   },
   {
@@ -33,7 +32,7 @@ const loadResets = () => [
     start: currentXur() ? currentXur().start : nextXur().start,
     end: currentXur() ? currentXur().end : nextXur().end,
     period: week,
-    icon: <GiClockwiseRotation />,
+    icon: "https://cdn.jsdelivr.net/gh/game-icons/icons@c10320edc7ae3f28a29d172e0dd3f029411825d7/delapouite/clockwise-rotation.svg",
     description: (
       <ul>
         <li>

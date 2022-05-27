@@ -24,3 +24,7 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
   - Shows breakdown of shields, champions and modifiers for legend and master lost sectors.
 - Links
   - Some links to my favorite D2 resources and tools.
+
+## Acknowledgments
+
+- Clockwise rotation icon by [Game Icons](https://game-icons.net/) ([CC BY 3.0](http://creativecommons.org/licenses/by/3.0/))

@@ -3,20 +3,6 @@ import styled, { css, keyframes } from "styled-components/macro";
 import { cssRgb } from "../../functions/cssRgb";
 import { pxToRem } from "../../functions/pxToRem";
 
-const StyledIconFloat = css`
-  float: left;
-  margin: 0 0.5rem -1px 0;
-  max-width: 3rem;
-  max-height: 3rem;
-  opacity: 1;
-`;
-
-const StyledIconSide = css`
-  grid-row: 1 / 3;
-  grid-column-start: 1;
-  align-self: center;
-`;
-
 const StyledIcon = css`
   display: ${({ floatIcon }) => (!floatIcon ? "grid" : "block")};
   ${({ floatIcon }) =>
@@ -25,19 +11,6 @@ const StyledIcon = css`
       grid-template-columns: 4.5rem 1fr;
       column-gap: ${({ theme }) => theme.lengths.gap};
     `};
-
-  & > *:first-child {
-    font-size: 4.5rem;
-    width: 100%;
-    max-width: 4.5rem;
-    height: auto;
-    max-height: 4.5rem;
-    object-fit: scale-down;
-    opacity: var(--card-content-opacity);
-    transition-duration: ${({ theme }) => theme.transition.duration};
-    transition-property: opacity;
-    ${({ floatIcon }) => (floatIcon ? StyledIconFloat : StyledIconSide)};
-  }
 `;
 
 const Highlight = (highlight, theme) => {

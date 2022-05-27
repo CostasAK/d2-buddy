@@ -1,17 +1,14 @@
-import { StyledSection, StyledTitle } from "./CardInnerStyle.js";
-import { isValidElement, useMemo } from "react";
+import { StyledIcon, StyledSection, StyledTitle } from "./CardInnerStyle.js";
 
-import Img from "../Img";
 import { PropTypes } from "prop-types";
+import { useMemo } from "react";
 
-export const CardInner = ({ children, title, titleRule, icon }) => {
+export const CardInner = ({ children, title, titleRule, floatIcon, icon }) => {
   const icon_element = useMemo(() => {
     if (!icon) return null;
 
-    if (isValidElement(icon)) return icon;
-
-    return <Img src={icon} />;
-  }, [icon]);
+    return <StyledIcon $floatIcon={floatIcon} src={icon} />;
+  }, [floatIcon, icon]);
 
   return (
     <>

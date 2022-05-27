@@ -3,6 +3,7 @@ export const theme = {
     margin: "2rem",
     gap: "1rem",
     pad: "0.5rem",
+    expansion: "0.25rem",
   },
   transition: {
     duration: "0.25s",

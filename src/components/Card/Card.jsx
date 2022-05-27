@@ -61,7 +61,7 @@ Card.propTypes = {
     ),
   ]),
   link: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  icon: PropTypes.string,
   className: PropTypes.string,
   floatIcon: PropTypes.bool,
   highlight: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
