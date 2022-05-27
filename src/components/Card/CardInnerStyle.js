@@ -15,11 +15,6 @@ const StyledIconSide = css`
   grid-row: 1 / 3;
   grid-column-start: 1;
   align-self: center;
-
-  ${StyledArticle}:hover &,
-  ${StyledArticle}:active & {
-    scale: 1.1;
-  }
 `;
 
 export const StyledIcon = styled(Img)`
@@ -32,7 +27,12 @@ export const StyledIcon = styled(Img)`
   opacity: var(--card-content-opacity);
   transition-duration: ${({ theme }) => theme.transition.duration};
   transition-property: opacity, scale;
-  ${({ floatIcon }) => (floatIcon ? StyledIconFloat : StyledIconSide)};
+  ${({ $floatIcon }) => ($floatIcon ? StyledIconFloat : StyledIconSide)};
+
+  ${StyledArticle}:hover &,
+  ${StyledArticle}:active & {
+    scale: 1.1;
+  }
 `;
 
 export const StyledTitle = styled.h4`
