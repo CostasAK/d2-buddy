@@ -46,7 +46,7 @@ export const CycleCard = forwardRef(
         icon={icon}
       >
         {items[currentItem]}
-        <TimerCardCountdown prefix={"Cycles"} timestamp={nextCycle} />
+        <TimerCardCountdown prefix="Cycles" timestamp={nextCycle} />
       </Card>
     );
   }

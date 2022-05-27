@@ -8,7 +8,7 @@ export const CycleCardModal = ({ items, nextCycle, currentItem, period }) => (
     <p>Period: {getPeriodString(period)}</p>
     <CurrentItem>
       {items[currentItem]}
-      <TimerCardCountdown prefix={"Cycles"} timestamp={nextCycle} />
+      <TimerCardCountdown prefix="Cycles" timestamp={nextCycle} />
     </CurrentItem>
     {items.length > 1 && (
       <UpcomingItems>

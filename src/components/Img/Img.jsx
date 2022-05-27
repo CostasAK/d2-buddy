@@ -5,6 +5,7 @@ import { forwardRef } from "react";
 const bungie_root_path = "https://bungie.net";
 
 export const Img = forwardRef(({ className, src, alt, ...props }, ref) => {
+  if (!src) return null;
   src = /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src;
   return /\.svg$/i.test(src) ? (
     <SVG
@@ -21,14 +22,16 @@ export const Img = forwardRef(({ className, src, alt, ...props }, ref) => {
       {...props}
     />
   ) : (
-    <img ref={ref} className={className} src={src} alt={alt || ""} {...props} />
+    <img ref={ref} className={className} src={src} alt={alt} {...props} />
   );
 });
 
 Img.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   alt: PropTypes.string,
 };
 
-Img.defaultProps = {};
+Img.defaultProps = {
+  alt: "",
+};

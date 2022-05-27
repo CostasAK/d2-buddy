@@ -94,6 +94,6 @@ export default function Modal({
 }
 
 Modal.propTypes = {
-  triggerContent: PropTypes.element,
+  triggerContent: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   className: PropTypes.string,
 };
