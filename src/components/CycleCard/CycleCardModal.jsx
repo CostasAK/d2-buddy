@@ -1,6 +1,6 @@
 import { CurrentItem, UpcomingItems } from "./CycleCardModalStyle";
 
-import { TimerCardCountdown } from "../TimerCard/TimerCardCountdown";
+import { TimerCardCountdown } from "../TimerCard";
 import { getPeriodString } from "../../functions/getPeriodString";
 
 export const CycleCardModal = ({ items, nextCycle, currentItem, period }) => (

@@ -4,7 +4,7 @@ import { forwardRef, useEffect, useState } from "react";
 import Card from "../Card";
 import { CycleCardModal } from "./CycleCardModal";
 import PropTypes from "prop-types";
-import { TimerCardCountdown } from "../TimerCard/TimerCardCountdown";
+import { TimerCardCountdown } from "../TimerCard";
 import { flexOrder } from "../../functions/flexOrder";
 import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
