@@ -10,7 +10,7 @@ import { nextTime } from "../../functions/nextTime";
 import { toTime } from "../../functions/toTime";
 
 export const CycleCard = forwardRef(
-  ({ name, items, start, period, icon }, ref) => {
+  ({ title, items, start, period, icon }, ref) => {
     const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
     const [currentItem, setCurrentItem] = useState(
       Math.floor((Date.now() - start) / period) % items.length
@@ -33,7 +33,7 @@ export const CycleCard = forwardRef(
       <Card
         ref={ref}
         className="cycle-card"
-        title={name}
+        title={title}
         style={{ order: flexOrder(nextCycle, -5 * year) }}
         modalContent={
           <CycleCardModal
@@ -53,7 +53,7 @@ export const CycleCard = forwardRef(
 );
 
 CycleCard.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.element])
   ).isRequired,

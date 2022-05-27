@@ -91,7 +91,7 @@ export default function LostSectors() {
 
   return (
     <CycleCard
-      name="Legend & Master Lost Sector"
+      title="Legend & Master Lost Sector"
       items={items}
       start={1653411600 * 1000}
       period={day}

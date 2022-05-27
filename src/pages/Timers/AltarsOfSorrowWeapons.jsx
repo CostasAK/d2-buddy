@@ -11,7 +11,7 @@ const items = [
 export default function AltarsOfSorrowWeapons() {
   return (
     <CycleCard
-      name="Altars of Sorrow Weapon"
+      title="Altars of Sorrow Weapon"
       items={items}
       start={1648832400 * 1000}
       period={day}

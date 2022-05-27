@@ -6,7 +6,7 @@ const items = ["EDZ", "Cosmodrome", "Moon"].map((item) => <div>{item}</div>);
 export default function PsiOpsLegend() {
   return (
     <CycleCard
-      name="PsiOps Battleground: Legend"
+      title="PsiOps Battleground: Legend"
       items={items}
       start={1652115600 * 1000}
       period={day}

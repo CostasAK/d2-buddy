@@ -1,7 +1,9 @@
 import { useQueries, useQuery } from "react-query";
 
 import Activity from "../../components/Activity/index";
-import Card from "../../components/Card";
+import CycleCard from "../../components/CycleCard";
+import Modal from "../../components/Modal";
+import { week } from "../../constants/time";
 
 export default function CurrentNightfall() {
   const milestone = useQuery("Milestones");
@@ -27,13 +29,20 @@ export default function CurrentNightfall() {
   }
 
   return (
-    <Card
+    <CycleCard
       title="Nightfall"
+      start={1653411600000}
+      period={week}
+      items={[
+        <Modal
+          triggerContent={nightfalls[0].data.displayProperties.description}
+        >
+          <Activity dataArray={nightfalls} />
+        </Modal>,
+      ]}
       icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
-      customModal
-      modalContent={<Activity dataArray={nightfalls} />}
     >
       {nightfalls[0].data.displayProperties.description}
-    </Card>
+    </CycleCard>
   );
 }

@@ -28,9 +28,13 @@ export default function Modal({
 
   const cloned_trigger_content = useMemo(
     () =>
-      isValidElement(triggerContent)
-        ? cloneElement(triggerContent, { onClick: () => setIsOpen(true) })
-        : triggerContent,
+      isValidElement(triggerContent) ? (
+        cloneElement(triggerContent, { onClick: () => setIsOpen(true) })
+      ) : (
+        <span className="a-link" onClick={() => setIsOpen(true)}>
+          {triggerContent}
+        </span>
+      ),
     [triggerContent]
   );
 

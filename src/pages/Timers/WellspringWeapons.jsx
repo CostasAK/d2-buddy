@@ -12,7 +12,7 @@ const items = [
 export default function WellspringWeapons() {
   return (
     <CycleCard
-      name="Wellspring Weapon"
+      title="Wellspring Weapon"
       items={items}
       start={1648746000 * 1000}
       period={day}

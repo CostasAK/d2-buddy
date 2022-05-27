@@ -11,7 +11,7 @@ const flexColumnCenter = css`
 
 export const CurrentItem = styled.section`
   ${flexColumnCenter}
-  margin-top: 1em;
+  margin-top: ${(props) => props.theme.lengths.pad};
 `;
 
 export const UpcomingItems = styled.section`
@@ -20,7 +20,7 @@ export const UpcomingItems = styled.section`
 
   & > h3 {
     margin: auto;
-    margin-top: 1em;
+    margin-top: ${(props) => props.theme.lengths.gap};
     order: -1;
   }
 `;
