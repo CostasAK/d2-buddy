@@ -26,12 +26,12 @@ export const StyledIcon = styled(Img)`
   object-fit: scale-down;
   opacity: var(--card-content-opacity);
   transition-duration: ${({ theme }) => theme.transition.duration};
-  transition-property: opacity, scale;
+  transition-property: opacity, transform;
   ${({ $floatIcon }) => ($floatIcon ? StyledIconFloat : StyledIconSide)};
 
   ${StyledArticle}:hover &,
   ${StyledArticle}:active & {
-    scale: 1.1;
+    transform: scale(1.1);
   }
 `;
 
