@@ -7,6 +7,7 @@ export const theme = {
   },
   transition: {
     duration: "0.25s",
+    shortDuration: "0.125s",
   },
   colors: {
     primary: {

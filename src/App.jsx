@@ -2,6 +2,7 @@ import "./App.scss";
 
 import React, { Suspense, lazy } from "react";
 
+import DIMSearchBuilder from "./pages/DIMSearchBuilder";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
@@ -17,6 +18,10 @@ const routes = [
   {
     name: "Timers",
     component: <Timers />,
+  },
+  {
+    name: "DIM Search Builder",
+    component: <DIMSearchBuilder />,
   },
   {
     name: "Links",

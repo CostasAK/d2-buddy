@@ -1,5 +1,6 @@
 import "./DestinyWeapon.scss";
 
+import A from "./A";
 import DestinyIcon from "./DestinyIcon";
 import Img from "./Img";
 import Loading from "./Loading";
@@ -33,15 +34,10 @@ function WeaponLinks({ id }) {
     <ul className="weapon-links">
       {sites.map((site) => (
         <li key={site.name}>
-          <a
-            className="site-link"
-            href={site.url + id}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <A className="site-link" href={site.url + id}>
             {site.icon && <Img src={site.icon} className="site-icon" />}
             {site.name}
-          </a>
+          </A>
         </li>
       ))}
     </ul>
