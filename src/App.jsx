@@ -2,7 +2,7 @@ import "./App.scss";
 
 import React, { Suspense, lazy } from "react";
 
-import DIMSearchBuilder from "./pages/DIMSearchBuilder";
+import DimSearchBuilder from "./pages/DimSearchBuilder";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
@@ -21,7 +21,7 @@ const routes = [
   },
   {
     name: "DIM Search Builder",
-    component: <DIMSearchBuilder />,
+    component: <DimSearchBuilder />,
   },
   {
     name: "Links",
