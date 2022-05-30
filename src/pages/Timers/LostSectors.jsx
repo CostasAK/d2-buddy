@@ -40,6 +40,10 @@ export default function LostSectors() {
         location: "Moon",
       },
       {
+        name: "The Conflux",
+        location: "Nessus",
+      },
+      {
         name: "Metamorphosis",
         location: "Throne World",
       },
