@@ -23,54 +23,17 @@ function LostSectorLink({ location }) {
 export default function LostSectors() {
   const items = useMemo(() => {
     const locations = [
-      {
-        name: "K1 Crew Quarters",
-        location: "Moon",
-      },
-      {
-        name: "K1 Logistics",
-        location: "Moon",
-      },
-      {
-        name: "K1 Revelation",
-        location: "Moon",
-      },
-      {
-        name: "K1 Communion",
-        location: "Moon",
-      },
-      {
-        name: "Metamorphosis",
-        location: "Throne World",
-      },
-      {
-        name: "Sepulcher",
-        location: "Throne World",
-      },
-      {
-        name: "Extraction",
-        location: "Throne World",
-      },
-      {
-        name: "Veles Labyrinth",
-        location: "Cosmodrome",
-      },
-      {
-        name: "Exodus Garden A2",
-        location: "Cosmodrome",
-      },
-      {
-        name: "Aphelion's Rest",
-        location: "Dreaming City",
-      },
-      {
-        name: "Bay of Drowned Wishes",
-        location: "Dreaming City",
-      },
-      {
-        name: "Chamber of Starlight",
-        location: "Dreaming City",
-      },
+      { name: "K1 Crew Quarters", location: "Moon" },
+      { name: "K1 Logistics", location: "Moon" },
+      { name: "K1 Revelation", location: "Moon" },
+      { name: "K1 Communion", location: "Moon" },
+      { name: "The Conflux", location: "Nessus" },
+      { name: "Metamorphosis", location: "Throne World" },
+      { name: "Sepulcher", location: "Throne World" },
+      { name: "Extraction", location: "Throne World" },
+      { name: "Excavation Site XII", location: "EDZ" },
+      { name: "Skydock IV", location: "EDZ" },
+      { name: "The Quarry", location: "EDZ" },
     ];
 
     const drops = ["Chest", "Helmet", "Legs", "Arms"];
