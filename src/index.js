@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import SimpleBarReact from "simplebar-react";
 import { ThemeProvider } from "styled-components/macro";
 import { queryBungieApi } from "./functions/bungieApi";
-import { theme } from "./theme";
+import { theme } from "./style/theme";
 
 const queryClient = new QueryClient({
   defaultOptions: {

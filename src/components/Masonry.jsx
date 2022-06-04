@@ -30,6 +30,8 @@ function MasonryItem({ element, rowGap }) {
 }
 
 export default function Masonry({ rowGap = 7, className, children }) {
+  children = children.length ? children : [children];
+
   return (
     <div
       className={"masonry " + (className || "")}

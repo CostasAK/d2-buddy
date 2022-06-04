@@ -1,25 +1,17 @@
 import "./Button.scss";
 
+import A from "../A";
 import { forwardRef } from "react";
 
 export const Button = forwardRef(({ className, href, children }, ref) => {
-  return href.startsWith("steam://") ? (
-    <a
+  return (
+    <A
       ref={ref}
       className={"button clickable" + (className ? className : "")}
       href={href}
+      defaultStyle={false}
     >
       <div className="button-inner">{children}</div>
-    </a>
-  ) : (
-    <a
-      ref={ref}
-      className={"button clickable" + (className ? className : "")}
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <div className="button-inner">{children}</div>
-    </a>
+    </A>
   );
 });

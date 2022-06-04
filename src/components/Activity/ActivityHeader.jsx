@@ -7,7 +7,7 @@ import getActivityType from "../../functions/getActivityType";
 import { getScreenshot } from "../../functions/getScreenshot";
 
 export const ActivityHeader = forwardRef(({ data, name }, ref) => {
-  name ||= data.displayProperties.name;
+  name ||= data.originalDisplayProperties.name;
   let type = getActivityType(data);
 
   if (data.originalDisplayProperties.name === "Nightfall") {

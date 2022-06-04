@@ -3,6 +3,7 @@ import "./style.scss";
 import { currentDay, currentWeek, currentXur, nextXur } from "@d2api/date";
 import { day, hour, week } from "../../constants/time";
 
+import A from "../../components/A";
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
@@ -36,18 +37,10 @@ const loadResets = () => [
     description: (
       <ul>
         <li>
-          <a href="https://kyber3000.com/Xur" target="_blank" rel="noreferrer">
-            Xur
-          </a>
+          <A href="https://kyber3000.com/Xur">Xur</A>
         </li>
         <li>
-          <a
-            href="https://kyber3000.com/Trials"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Trials of Osiris
-          </a>
+          <A href="https://kyber3000.com/Trials">Trials of Osiris</A>
         </li>
       </ul>
     ),

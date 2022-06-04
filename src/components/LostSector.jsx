@@ -45,7 +45,8 @@ export default function LostSector({ name }) {
   }
 
   const filtered_sectors = lost_sectors.filter(
-    (sector) => getActivityType(sector.data) === "Lost Sector"
+    (sector) =>
+      getActivityType(sector.data) === "Lost Sector" && sector.data.tier < 0
   );
 
   return <Activity dataArray={filtered_sectors} />;

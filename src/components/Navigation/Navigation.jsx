@@ -1,28 +1,20 @@
-import "./Navigation.scss";
-
-import { NavLink } from "react-router-dom";
+import { NavigationLink } from "./NavigationLink";
 import { PropTypes } from "prop-types";
+import { StyledNav } from "./NavigationStyle";
 
 export default function Navigation({ routes }) {
   return (
-    <nav id="navigation">
+    <StyledNav id="navigation">
       <ul>
         {routes
           .filter((route) => route.name !== "Root")
           .map((route) => (
             <li key={route.name}>
-              <NavLink
-                to={route.path}
-                className={({ isActive }) =>
-                  "navigation-link" + (isActive ? " active" : "")
-                }
-              >
-                {route.name}
-              </NavLink>
+              <NavigationLink path={route.path}>{route.name}</NavigationLink>
             </li>
           ))}
       </ul>
-    </nav>
+    </StyledNav>
   );
 }
 

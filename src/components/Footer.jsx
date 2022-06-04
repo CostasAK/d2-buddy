@@ -1,5 +1,6 @@
 import "./Footer.scss";
 
+import A from "./A";
 import { FaGithub } from "react-icons/fa";
 import { KofiButton } from "react-kofi-button";
 import SVG from "react-inlinesvg";
@@ -11,9 +12,9 @@ export default function Footer() {
       <div className="credits">
         <div>
           <span>Made by</span>  
-          <a href="https://github.com/CostasAK">
+          <A href="https://github.com/CostasAK">
             <SVG src={avatar} className="avatar" /> <span>CostasAK</span>
-          </a>
+          </A>
         </div>
         <KofiButton
           username="costasak"
@@ -22,9 +23,9 @@ export default function Footer() {
           backgroundColor="kofiGrey"
         />
         <div>
-          <a href="https://github.com/CostasAK/d2-buddy">
+          <A href="https://github.com/CostasAK/d2-buddy">
             <FaGithub /> <span>Source</span>
-          </a>
+          </A>
         </div>
       </div>
     </footer>

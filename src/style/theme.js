@@ -1,12 +1,16 @@
+import { pxToRem } from "../functions/pxToRem";
+
 export const theme = {
   lengths: {
     margin: "2rem",
     gap: "1rem",
     pad: "0.5rem",
     expansion: "0.25rem",
+    cardGap: `${pxToRem(7)} ${pxToRem(6)}`,
   },
   transition: {
     duration: "0.25s",
+    shortDuration: "0.125s",
   },
   colors: {
     primary: {
