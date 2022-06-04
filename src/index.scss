@@ -36,6 +36,7 @@ ol[role="list"] {
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 /* Set core body defaults */
@@ -95,6 +96,7 @@ select {
   width: 100%;
 
   .root-scroll {
+    overflow-x: hidden;
     max-height: 100vh;
     max-height: var(--vh);
   }

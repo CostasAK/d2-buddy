@@ -16,11 +16,6 @@ export const NavigationLink = ({ path, children }) => {
       parseFloat(currentComputedStyle.paddingInlineStart) +
       parseFloat(currentComputedStyle.paddingInlineEnd);
 
-    if (path === "DimSearchBuilder") {
-      console.log(width);
-      console.log(contentRect);
-    }
-
     setWidth(
       contentRect.scroll.width > width + paddingInline
         ? contentRect.scroll.width + paddingInline
