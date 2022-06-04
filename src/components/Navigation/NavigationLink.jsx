@@ -9,23 +9,23 @@ export const NavigationLink = ({ path, children }) => {
 
   const handleResize = (contentRect) => {
     const currentComputedStyle = window.getComputedStyle(ref.current);
-    const parentComputedStyle = window.getComputedStyle(
-      ref.current.parentElement
-    );
 
-    const maxHeight =
-      2 * parseFloat(parentComputedStyle.lineHeight) +
-      parseFloat(currentComputedStyle.paddingBlockStart) +
-      parseFloat(currentComputedStyle.paddingBlockEnd);
+    const underlineHeight = 3;
 
     const paddingInline =
       parseFloat(currentComputedStyle.paddingInlineStart) +
       parseFloat(currentComputedStyle.paddingInlineEnd);
 
+    if (path === "DimSearchBuilder") {
+      console.log(width);
+      console.log(contentRect);
+    }
+
     setWidth(
       contentRect.scroll.width > width + paddingInline
         ? contentRect.scroll.width + paddingInline
-        : contentRect.scroll.height > maxHeight
+        : contentRect.scroll.height >
+          contentRect.client.height + underlineHeight
         ? width + 1
         : width
     );
@@ -36,6 +36,7 @@ export const NavigationLink = ({ path, children }) => {
       innerRef={ref}
       scroll
       client
+      bounds
       onResize={(contentRect) => handleResize(contentRect)}
     >
       {({ measureRef }) => (

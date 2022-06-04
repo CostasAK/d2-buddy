@@ -27,7 +27,7 @@ export const StyledNav = styled.nav`
       line-height: 1.1;
       padding-block: ${1.067 / 2}rem;
       padding-inline: 1.25em;
-      min-height: ${2 * 1.1 * 1.067 + 1.067}rem;
+      height: ${2 * 1.1 * 1.067 + 1.067}rem;
 
       &::after {
         content: "";
