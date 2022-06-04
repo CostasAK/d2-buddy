@@ -38,15 +38,123 @@
       "url": "/#/Timers",
       "icons": [
         {
-          "src": "https://www.bungie.net/common/destiny2_content/icons/4c08762f90f0da8216b744d316e6dae5.png",
-          "sizes": "32x32",
+          "src": "/icons/shortcuts/timers-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-72.png",
+          "sizes": "72x72",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-48.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/timers-36.png",
+          "sizes": "36x36",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "DIM Search Builder",
+      "url": "/#/DimSearchBuilder",
+      "icons": [
+        {
+          "src": "/icons/shortcuts/dim-search-builder-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-72.png",
+          "sizes": "72x72",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-48.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/dim-search-builder-36.png",
+          "sizes": "36x36",
           "type": "image/png"
         }
       ]
     },
     {
       "name": "Links",
-      "url": "/#/Links"
+      "url": "/#/Links",
+      "icons": [
+        {
+          "src": "/icons/shortcuts/links-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-72.png",
+          "sizes": "72x72",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-48.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/shortcuts/links-36.png",
+          "sizes": "36x36",
+          "type": "image/png"
+        }
+      ]
     }
   ],
   "start_url": "https://destiny2.kokke.eu",
