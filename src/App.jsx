@@ -8,6 +8,7 @@ import Loading from "./components/Loading";
 import Main from "./components/Main";
 import Navigation from "./components/Navigation";
 import { HashRouter as Router } from "react-router-dom";
+import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
 const Timers = lazy(() => import("./pages/Timers"));
 const Links = lazy(() => import("./pages/Links"));
@@ -38,6 +39,8 @@ const routes = [
 });
 
 export default function App() {
+  useDailyResetRefetch();
+
   return (
     <div id="app">
       <Header />
