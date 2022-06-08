@@ -21,10 +21,6 @@ const routes = [
     component: <Timers />,
   },
   {
-    name: "DIM Search Builder",
-    component: <DimSearchBuilder />,
-  },
-  {
     name: "Links",
     component: <Links />,
   },
