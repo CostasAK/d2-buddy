@@ -4,23 +4,15 @@ import "./index.scss";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-import { QueryClient, QueryClientProvider } from "react-query";
-
 import App from "./App";
+import { QueryClientProvider } from "react-query";
 import React from "react";
 import ReactDOM from "react-dom";
+import { ReactQueryDevtools } from "react-query/devtools";
 import SimpleBarReact from "simplebar-react";
 import { ThemeProvider } from "styled-components/macro";
-import { queryBungieApi } from "./functions/bungieApi";
+import { queryClient } from "./queryClient";
 import { theme } from "./style/theme";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      queryFn: queryBungieApi,
-    },
-  },
-});
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -35,6 +27,7 @@ ReactDOM.render(
           <App />
         </SimpleBarReact>
       </ThemeProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
