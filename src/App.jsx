@@ -12,7 +12,6 @@ import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
 const Timers = lazy(() => import("./pages/Timers"));
 const Links = lazy(() => import("./pages/Links"));
-const DimSearchBuilder = lazy(() => import("./pages/DimSearchBuilder"));
 
 // Changes to routes should also go in site.webmanifest
 const routes = [
