@@ -8,9 +8,13 @@ export const theme = {
     expansion: "0.25rem",
     cardGap: `${pxToRem(7)} ${pxToRem(6)}`,
   },
+  text: {
+    lineHeight: 1.5,
+  },
   transition: {
     duration: "0.25s",
     shortDuration: "0.125s",
+    longDuration: "1.5s",
   },
   colors: {
     primary: {
@@ -39,6 +43,7 @@ export const theme = {
       red: "#623235",
       green: {
         dim: "#4b4220",
+        mid: "#549b63",
         bright: "#e3d487",
       },
     },
@@ -54,5 +59,13 @@ export const theme = {
       legendary: "#4d3262",
       exotic: "#ccab33",
     },
+  },
+  shadows: {
+    box: "0 0 10px rgb(0 0 0 / 50%)",
+  },
+  fonts: {
+    primary:
+      'neue-haas-grotesk-display, neue-haas-grotesk-text, "Helvetica Neue", helvetica, arial, sans-serif',
+    secondary: "arial, sans-serif",
   },
 };
