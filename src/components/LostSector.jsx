@@ -46,8 +46,17 @@ export default function LostSector({ name }) {
 
   const filtered_sectors = lost_sectors.filter(
     (sector) =>
-      getActivityType(sector.data) === "Lost Sector" && sector.data.tier < 0
+      getActivityType(sector.data) === "Lost Sector" &&
+      (lost_sectors.length <= 2 || sector.data.tier > 0)
   );
+
+  if (filtered_sectors.length === 0) {
+    return (
+      <article className="lost-sector">
+        <h2 className="error">Can't find Lost Sector info...</h2>
+      </article>
+    );
+  }
 
   return <Activity dataArray={filtered_sectors} />;
 }
