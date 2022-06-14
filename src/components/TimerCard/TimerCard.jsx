@@ -1,4 +1,4 @@
-import { day, year } from "../../constants/time";
+import { day, minute, year } from "../../constants/time";
 import { forwardRef, useEffect, useState } from "react";
 
 import Card from "../Card";
@@ -27,10 +27,20 @@ export const TimerCard = forwardRef(
     );
 
     useEffect(() => {
+      const nextTimeout =
+        Math.max(
+          nextStart && nextEnd
+            ? Math.min(nextStart, nextEnd)
+            : nextStart
+            ? nextStart
+            : nextEnd,
+          nextTime(minute, 0)
+        ) - Date.now();
+
       const timer = setTimeout(() => {
         setNextEnd(nextTime(period, toTime(nextEnd)));
         setNextStart(determineNextStart(nextStart, nextEnd, period));
-      }, Math.min(nextStart, nextEnd) - Date.now);
+      }, nextTimeout);
       return () => clearTimeout(timer);
     }, [nextStart, nextEnd, period]);
 

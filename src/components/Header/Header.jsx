@@ -4,6 +4,7 @@ import { useIsFetching, useQueryClient } from "react-query";
 import Button from "../Button";
 import { Img } from "../Img/Img";
 import SVG from "react-inlinesvg";
+import Tooltip from "../Tooltip";
 import logo from "../../assets/clovis_ck.svg";
 import { theme } from "../../style/theme";
 
@@ -92,11 +93,13 @@ export function Header() {
       {navigator.platform.match(/Win\d+/i) && (
         <Buttons>
           <Button href="steam://rungameid/1085660">Play Destiny 2</Button>
-          <Refresh
-            src="https://cdn.jsdelivr.net/gh/game-icons/icons@c10320edc7ae3f28a29d172e0dd3f029411825d7/delapouite/clockwise-rotation.svg"
-            onClick={() => queryClient.invalidateQueries()}
-            spin={isFetching}
-          />
+          <Tooltip contents="Refresh Destiny Data">
+            <Refresh
+              src="https://cdn.jsdelivr.net/gh/game-icons/icons@c10320edc7ae3f28a29d172e0dd3f029411825d7/delapouite/clockwise-rotation.svg"
+              onClick={() => queryClient.invalidateQueries()}
+              spin={isFetching}
+            />
+          </Tooltip>
         </Buttons>
       )}
     </StyledHeader>
