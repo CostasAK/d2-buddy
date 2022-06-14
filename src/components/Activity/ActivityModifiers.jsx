@@ -39,7 +39,7 @@ export const ActivityModifiers = forwardRef(({ data }, ref) => {
   );
 
   const modifier_data = modifiers
-    .filter((modifier) => modifier.isSuccess)
+    .filter((modifier) => modifier.isSuccess && modifier.data)
     .map((modifier) => modifier.data);
 
   const shields = modifier_data.filter((modifier) =>
