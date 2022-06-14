@@ -9,7 +9,8 @@
 
   > :first-child {
     align-self: flex-start;
-    margin-left: var.$margins;
+
+    // margin-left: var.$margins;
   }
 
   .links {
