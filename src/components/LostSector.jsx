@@ -47,7 +47,16 @@ export default function LostSector({ name }) {
   const filtered_sectors = lost_sectors.filter(
     (sector) =>
       getActivityType(sector.data) === "Lost Sector" &&
-      (lost_sectors.length <= 2 || sector.data.tier > 0)
+      sector.data.displayProperties.name.startsWith(name + ": ") &&
+      sector.data.index ===
+        lost_sectors.reduce(
+          (highestIndex, current) =>
+            current.data.displayProperties.name ===
+            sector.data.displayProperties.name
+              ? Math.max(highestIndex, current.data.index)
+              : highestIndex,
+          0
+        )
   );
 
   if (filtered_sectors.length === 0) {
