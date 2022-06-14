@@ -94,8 +94,8 @@ export const StyledArticle = styled.article`
 
   ${({ highlight, theme }) => highlight && Highlight(highlight, theme)}
 
-  ${({ hasModal, href }) =>
-    (hasModal || href) &&
+  ${({ hasModal, href, onClick }) =>
+    (hasModal || href || onClick) &&
     css`
       user-select: none;
       cursor: pointer;

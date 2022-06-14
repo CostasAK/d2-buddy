@@ -88,6 +88,7 @@ export default function Timers() {
 
   return (
     <div className="timers-wrapper">
+      <h1>Timers</h1>
       <div className="timers">
         <CurrentNightfall />
         <WellspringWeapons />

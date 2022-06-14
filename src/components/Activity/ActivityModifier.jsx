@@ -2,7 +2,6 @@ import "./ActivityModifier.scss";
 
 import Img from "../Img";
 import { PropTypes } from "prop-types";
-import Tooltip from "../Tooltip";
 import classNames from "classnames";
 import { forwardRef } from "react";
 
@@ -32,17 +31,16 @@ export const ActivityModifier = forwardRef(({ data }, ref) => {
 
   return (
     <section ref={ref} className="activity-modifier">
-      <Tooltip contents={name}>
-        <Img
-          className={classNames(
-            "icon",
-            known_elements
-              .filter((element) => element.pattern.test(name))
-              .map((element) => element.class)
-          )}
-          src={icon}
-        />
-      </Tooltip>
+      <Img
+        className={classNames(
+          "icon",
+          known_elements
+            .filter((element) => element.pattern.test(name))
+            .map((element) => element.class)
+        )}
+        src={icon}
+        title={name}
+      />
       <div className="description">
         <h6
           className={classNames(

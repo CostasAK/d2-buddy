@@ -58,9 +58,13 @@ const links = [
 export default function Links(props) {
   return (
     <div className="links-page">
-      <p className="description">
-        I have no affiliation with the sites listed. I just think they're great.
-      </p>
+      <div>
+        <h1>Links</h1>
+        <p className="description">
+          I have no affiliation with the sites listed. I just think they're
+          great.
+        </p>
+      </div>
       <Masonry className="links">
         {links.map((link) => (
           <Card
