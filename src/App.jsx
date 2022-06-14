@@ -1,6 +1,6 @@
 import "./App.scss";
 
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -12,6 +12,7 @@ import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
 const Timers = lazy(() => import("./pages/Timers"));
 const Links = lazy(() => import("./pages/Links"));
+const DimSearchBuilder = lazy(() => import("./pages/DimSearchBuilder"));
 
 // Changes to routes should also go in site.webmanifest
 const routes = [

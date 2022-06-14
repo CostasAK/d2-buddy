@@ -16,7 +16,7 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
   const isEnabled = (option) =>
     toggleState?.[option.key] !== undefined
       ? toggleState[option.key]
-      : !!option.enabled;
+      : !!option.default;
 
   const trashString =
     "/* Trash | D2 Buddy */" +

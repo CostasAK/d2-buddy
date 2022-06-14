@@ -31,6 +31,13 @@ export const mixins = {
         border-bottom: 1pt solid ${cssRgb(theme.colors.primary.foreground, 0.9)};
       }
     `,
+    general: css`
+      font-weight: 600;
+      font-style: normal;
+      font-size: ${20 / 22}rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    `,
   },
   grid: {
     reading: css`
