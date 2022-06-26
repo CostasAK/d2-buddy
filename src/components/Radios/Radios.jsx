@@ -33,6 +33,7 @@ const Outer = styled.div`
 
 const Name = styled.span`
   ${mixins.headers.general}
+  padding-left: ${theme.text.lineHeight - checkboxSize}em;
 `;
 
 const Radio = styled.label`
@@ -54,6 +55,7 @@ const Inner = styled.span`
   grid-template-columns: 1fr ${checkboxSize}em;
   align-items: safe center;
   background: ${(props) => cssRgb(radioBackgroundColor(props), 0.2)};
+  padding-left: ${theme.text.lineHeight - checkboxSize}em;
 
   ${Radio}:last-child > && {
     background: none;
