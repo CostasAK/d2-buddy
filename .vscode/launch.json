@@ -13,18 +13,6 @@
       "sourceMapPathOverrides": {
         "webpack:///src/*": "${webRoot}/*"
       }
-    },
-    {
-      "name": "Firefox",
-      "type": "firefox",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src",
-      "pathMappings": [
-        {
-          "${webRoot}/*": "webpack:///src/*"
-        }
-      ]
     }
   ]
 }
