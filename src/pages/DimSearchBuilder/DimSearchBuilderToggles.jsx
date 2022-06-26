@@ -11,16 +11,17 @@ export const DimSearchBuilderToggles = ({ toggles, toggleState, onChange }) => {
           <section key={categoryIndex}>
             {category.display && <h4>{category.display}</h4>}
             {category.options.map((toggle, toggleIndex) => {
-              const checked =
+              const state =
                 toggleState?.[toggle.key] !== undefined
                   ? toggleState[toggle.key]
                   : toggle.default;
+              const checked = state >= 0;
 
               return toggle.options?.length > 1 ? (
                 <Radios
                   key={toggle.key}
                   name={toggle.display}
-                  checked={checked}
+                  checked={state}
                   onChange={(e) =>
                     onChange(toggle.key, toggle.options.indexOf(e.target.value))
                   }
@@ -31,7 +32,7 @@ export const DimSearchBuilderToggles = ({ toggles, toggleState, onChange }) => {
                 <Checkbox
                   key={toggleIndex}
                   checked={checked}
-                  onChange={() => onChange(toggle.key, !checked)}
+                  onChange={() => onChange(toggle.key, checked ? -1 : 0)}
                 >
                   {toggle.display}
                 </Checkbox>

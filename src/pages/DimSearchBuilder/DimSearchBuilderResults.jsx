@@ -13,20 +13,33 @@ const DimCard = ({ children, ...props }) => {
 };
 
 export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
-  const isEnabled = (option) =>
-    toggleState?.[option.key] !== undefined
-      ? toggleState[option.key]
-      : !!option.default;
+  const isEnabled = (option) => {
+    const state =
+      toggleState?.[option.key] !== undefined
+        ? toggleState[option.key]
+        : option.default;
+    return state >= 0 && option.options[state] !== "Don't care";
+  };
+
+  const optionState = (option) => {
+    return option.options[
+      toggleState?.[option.key] !== undefined
+        ? toggleState[option.key]
+        : option.default
+    ];
+  };
 
   const trashString =
-    "/* Trash | D2 Buddy */" +
+    `/* Trash | D2 Buddy | ${new Date().toLocaleString()} */` +
     toggles
       .map((category) =>
         category.options
           .filter(isEnabled)
           .reduce(
             (previous, current) =>
-              `${previous} ${current.keep ? "-" : ""}${current.filter}`,
+              `${previous} ${optionState(current) === "Keep" ? "-" : ""}${
+                current.filter
+              }`,
             ""
           )
       )
@@ -34,7 +47,7 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
       .join(" ");
 
   const wishlistString =
-    "/* Wishlist | D2 Buddy */" +
+    `/* Wishlist | D2 Buddy | ${new Date().toLocaleString()} */` +
     toggles
       .map((category) =>
         category.options
@@ -42,7 +55,7 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
           .reduce(
             (previous, current) =>
               `${previous} ${previous.length > 0 ? "or" : ""} ${
-                current.keep ? "" : "-"
+                optionState(current) === "Keep" ? "" : "-"
               }${current.filter}`,
             ""
           )
