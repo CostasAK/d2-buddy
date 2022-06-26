@@ -1,4 +1,3 @@
-import { mixins } from "../../style/mixins";
 import styled from "styled-components/macro";
 import { theme } from "../../style/theme";
 
@@ -9,17 +8,5 @@ export const StyledDimSearchBuilder = styled.article`
     width: fit-content;
     margin: ${theme.lengths.margin} auto;
     gap: ${theme.lengths.margin};
-
-    > section {
-      > h2 {
-        ${mixins.headers.fullWidth};
-      }
-
-      > div,
-      > section {
-        ${mixins.grid.reading};
-        gap: ${theme.lengths.cardGap};
-      }
-    }
   }
 `;

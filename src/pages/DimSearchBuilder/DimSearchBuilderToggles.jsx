@@ -1,10 +1,25 @@
 import Checkbox from "../../components/Checkbox";
 import Masonry from "../../components/Masonry";
 import Radios from "../../components/Radios";
+import { mixins } from "../../style/mixins";
+import styled from "styled-components/macro";
+import { theme } from "../../style/theme";
+
+const StyledSection = styled.section`
+  > h2 {
+    ${mixins.headers.fullWidth};
+  }
+
+  > div,
+  > section {
+    ${mixins.grid.reading};
+    gap: ${theme.lengths.cardGap};
+  }
+`;
 
 export const DimSearchBuilderToggles = ({ toggles, toggleState, onChange }) => {
   return (
-    <section>
+    <StyledSection>
       <h2>Preferences</h2>
       <Masonry>
         {toggles.map((category, categoryIndex) => (
@@ -41,6 +56,6 @@ export const DimSearchBuilderToggles = ({ toggles, toggleState, onChange }) => {
           </section>
         ))}
       </Masonry>
-    </section>
+    </StyledSection>
   );
 };

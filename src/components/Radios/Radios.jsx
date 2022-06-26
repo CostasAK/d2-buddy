@@ -26,7 +26,7 @@ const Outer = styled.div`
     ${cssRgb(theme.colors.primary.foreground, 0.2)} 100%
   );
   background-size: auto
-    calc(100% + ${checkboxSize}em - ${theme.text.lineHeight});
+    calc(100% + ${checkboxSize}em - ${theme.text.lineHeight}em);
   background-repeat: no-repeat;
   background-position: center;
 `;

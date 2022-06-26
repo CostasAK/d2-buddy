@@ -1,6 +1,21 @@
 import Card from "../../components/Card/index";
 import Masonry from "../../components/Masonry";
 import Tooltip from "../../components/Tooltip";
+import { mixins } from "../../style/mixins";
+import styled from "styled-components/macro";
+import { theme } from "../../style/theme";
+
+const StyledSection = styled.section`
+  > h2 {
+    ${mixins.headers.fullWidth};
+  }
+
+  > div,
+  > section {
+    ${mixins.grid.reading};
+    gap: ${theme.lengths.cardGap};
+  }
+`;
 
 const DimCard = ({ children, ...props }) => {
   return (
@@ -64,12 +79,12 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
       .join(" or ");
 
   return (
-    <section>
+    <StyledSection>
       <h2>Results</h2>
       <Masonry>
         <DimCard title="Trash">{trashString}</DimCard>
         <DimCard title="Wishlist">{wishlistString}</DimCard>
       </Masonry>
-    </section>
+    </StyledSection>
   );
 };
