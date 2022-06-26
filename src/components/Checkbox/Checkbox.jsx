@@ -54,6 +54,7 @@ const Label = styled.span`
   background-size: auto ${checkboxSize}em;
   background-repeat: no-repeat;
   background-position: center;
+  padding-left: ${theme.text.lineHeight - checkboxSize}em;
 `;
 
 export const Checkbox = forwardRef(({ checked, onChange, children }, ref) => {
