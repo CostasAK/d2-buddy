@@ -77,8 +77,9 @@ export const StyledArticle = styled.article`
     ${({ theme }) =>
       cssRgb(theme.colors.primary.foreground, "var(--card-content-opacity)")};
   color: ${({ theme }) => theme.colors.primary.foreground};
-  transition-duration: ${({ theme }) => theme.transition.duration};
-  transition-property: border-color;
+  transition-duration: ${({ theme }) => theme.transition.duration},
+    ${({ theme }) => theme.transition.shortDuration};
+  transition-property: border-color, transform;
   padding: 1rem;
 
   &::before {
@@ -94,8 +95,8 @@ export const StyledArticle = styled.article`
 
   ${({ highlight, theme }) => highlight && Highlight(highlight, theme)}
 
-  ${({ hasModal, href }) =>
-    (hasModal || href) &&
+  ${({ hasModal, href, onClick }) =>
+    (hasModal || href || onClick) &&
     css`
       user-select: none;
       cursor: pointer;
@@ -115,5 +116,9 @@ export const StyledArticle = styled.article`
       }
 
       ${Hover}
+
+      &:active {
+        transform: scale3d(0.99, 0.99, 1);
+      }
     `}
 `;

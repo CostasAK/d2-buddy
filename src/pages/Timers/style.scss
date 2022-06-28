@@ -7,6 +7,12 @@
 
   gap: var.$margins;
 
+  > h1 {
+    align-self: flex-start;
+
+    // margin-left: var.$margins;
+  }
+
   .timers {
     @include mixin.flex-row-wrap;
 

@@ -31,6 +31,7 @@
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.7",
     "styled-components": "^5.3.5",
+    "use-persisted-state": "^0.3.3",
     "web-vitals": "^2.1.2"
   },
   "resolutions": {
@@ -43,6 +44,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "clean": "rm -r build",
     "prepare": "husky install"
   },
   "eslintConfig": {

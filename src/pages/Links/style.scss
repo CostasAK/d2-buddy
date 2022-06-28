@@ -5,7 +5,13 @@
 .links-page {
   @include mixin.flex-column;
 
-  gap: var.$gap;
+  gap: var.$margins;
+
+  > :first-child {
+    align-self: flex-start;
+
+    // margin-left: var.$margins;
+  }
 
   .links {
     @include mixin.grid-reading;
