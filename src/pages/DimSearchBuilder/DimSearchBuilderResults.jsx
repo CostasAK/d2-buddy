@@ -1,9 +1,18 @@
 import Card from "../../components/Card/index";
 import Masonry from "../../components/Masonry";
 import Tooltip from "../../components/Tooltip";
+import dayjs from "dayjs";
+import { formatTime } from "functions/formatDateTime";
 import { mixins } from "../../style/mixins";
 import styled from "styled-components/macro";
 import { theme } from "../../style/theme";
+
+const searchStringStart = (name, filter = true) =>
+  `/* ${name} | D2 Buddy | ${dayjs().format("YYYY-MM-DD")} ${formatTime()} */ ${
+    filter
+      ? "(is:weapon or is:armor or is:ghost or is:emblems or is:ships or is:vehicle) "
+      : ""
+  }`;
 
 const StyledSection = styled.section`
   > h2 {
@@ -44,39 +53,59 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
     ];
   };
 
-  const trashString =
-    `/* Trash | D2 Buddy | ${new Date().toLocaleString()} */` +
-    toggles
-      .map((category) =>
-        category.options
-          .filter(isEnabled)
-          .reduce(
-            (previous, current) =>
-              `${previous} ${optionState(current) === "Keep" ? "-" : ""}${
-                current.filter
-              }`,
-            ""
-          )
-      )
-      .filter((string) => string.length > 0)
-      .join(" ");
+  const valueState = (option) => {
+    return toggleState[option.key + "Value"] !== undefined
+      ? toggleState[option.key + "Value"]
+      : option.value;
+  };
 
-  const wishlistString =
-    `/* Wishlist | D2 Buddy | ${new Date().toLocaleString()} */` +
-    toggles
-      .map((category) =>
-        category.options
-          .filter(isEnabled)
-          .reduce(
-            (previous, current) =>
-              `${previous} ${previous.length > 0 ? "or" : ""} ${
-                optionState(current) === "Keep" ? "" : "-"
-              }${current.filter}`,
-            ""
-          )
-      )
-      .filter((string) => string.length > 0)
-      .join(" or ");
+  const getFilter = (option) =>
+    Array.isArray(option.filter)
+      ? option.filter[
+          toggleState?.[option.key] !== undefined
+            ? toggleState[option.key]
+            : option.default
+        ]
+      : typeof option.filter === "function"
+      ? option.filter(valueState(option))
+      : option.filter;
+
+  const enabledToggles = toggles
+    .map((category) =>
+      category.options
+        .filter(isEnabled)
+        .map((option) =>
+          Object.assign(option, { category: category.display || "Top Level" })
+        )
+    )
+    .flat();
+
+  const enabledKeepToggles = enabledToggles.filter(
+    (option) => optionState(option) !== "Trash"
+  );
+
+  const enabledTrashToggles = enabledToggles.filter(
+    (option) => optionState(option) === "Trash"
+  );
+
+  const trashString = `${searchStringStart(
+    "Trash"
+  )} -is:locked ${enabledKeepToggles.reduce(
+    (previous, current) => `${previous} -${getFilter(current)}`,
+    ""
+  )} (${enabledTrashToggles.reduce(
+    (previous, current, index) =>
+      `${previous} ${index ? "or" : ""} ${getFilter(current)}`,
+    ""
+  )})`;
+
+  const wishlistString = `${searchStringStart(
+    "Wishlist",
+    false
+  )} is:wishlist or is:weaponmod or is:armormod ${enabledKeepToggles.reduce(
+    (previous, current, index) => `${previous} or ${getFilter(current)}`,
+    ""
+  )}`;
 
   return (
     <StyledSection>

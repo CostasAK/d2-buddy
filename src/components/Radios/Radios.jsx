@@ -7,14 +7,14 @@ import { theme } from "../../style/theme";
 const checkboxSize = 1.3;
 
 const radioColor = ({ option }) =>
-  option === "Keep"
+  option !== "Trash" && option !== "Don't care"
     ? theme.colors.highlight.green.mid
     : option === "Trash"
     ? theme.colors.highlight.red
     : "#888";
 
 const radioBackgroundColor = ({ option }) =>
-  option === "Keep"
+  option !== "Trash" && option !== "Don't care"
     ? theme.colors.highlight.green.mid
     : option === "Trash"
     ? theme.colors.highlight.red

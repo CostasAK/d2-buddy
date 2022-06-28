@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export function formatTime(time, include_time = true) {
+export function formatTime(time = Date.now(), include_time = true) {
   if (!include_time) {
     return formatDate(time, false);
   }
