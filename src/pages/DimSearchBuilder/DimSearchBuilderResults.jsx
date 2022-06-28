@@ -97,7 +97,11 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
     (previous, current, index) =>
       `${previous} ${index ? "or" : ""} ${getFilter(current)}`,
     ""
-  )})`;
+  )}${
+    enabledKeepToggles.some((toggle) => toggle.category === "Armor")
+      ? " or is:armor"
+      : ""
+  })`;
 
   const wishlistString = `${searchStringStart(
     "Wishlist",
