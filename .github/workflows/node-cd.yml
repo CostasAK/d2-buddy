@@ -45,4 +45,4 @@ jobs:
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # PUBLIC_URL: https://costasak.github.io/d2-buddy
+          PUBLIC_URL: https://costasak.github.io/d2-buddy
