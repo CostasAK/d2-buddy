@@ -26,10 +26,10 @@ const StyledSection = styled.section`
   }
 `;
 
-const DimCard = ({ children, ...props }) => {
+const DimCard = ({ children, search, ...props }) => {
   return (
     <Tooltip contents="Click to Copy">
-      <Card {...props} onClick={() => navigator.clipboard.writeText(children)}>
+      <Card {...props} onClick={() => navigator.clipboard.writeText(search)}>
         {children}
       </Card>
     </Tooltip>
@@ -115,8 +115,14 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
     <StyledSection>
       <h2>Results</h2>
       <Masonry>
-        <DimCard title="Trash">{trashString}</DimCard>
-        <DimCard title="Wishlist">{wishlistString}</DimCard>
+        <DimCard title="Trash" search={trashString}>
+          This search will help you clear out your vault, highlighting items
+          that you would probably consider trash.
+        </DimCard>
+        <DimCard title="Wishlist" search={wishlistString}>
+          This search can be used to find desirable items in, for example, the
+          Vendors tab.
+        </DimCard>
       </Masonry>
     </StyledSection>
   );
