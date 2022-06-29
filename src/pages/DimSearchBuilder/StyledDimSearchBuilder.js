@@ -5,7 +5,6 @@ export const StyledDimSearchBuilder = styled.article`
   & > div:not(:first-child) {
     display: flex;
     flex-flow: column;
-    width: fit-content;
     margin: ${theme.lengths.margin} auto;
     gap: ${theme.lengths.margin};
   }
