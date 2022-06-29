@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="credits">
         <div>
           <span>Made by</span>  
-          <A href="https://github.com/CostasAK">
+          <A href="https://costas.kokke.eu">
             <SVG src={avatar} className="avatar" /> <span>CostasAK</span>
           </A>
         </div>
