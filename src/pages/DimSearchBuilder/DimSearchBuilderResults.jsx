@@ -99,7 +99,7 @@ export const DimSearchBuilderResults = ({ toggles, toggleState }) => {
     ""
   )}${
     enabledKeepToggles.some((toggle) => toggle.category === "Armor")
-      ? " or is:armor"
+      ? " or (is:armor -(is:exotic -is:dupe))"
       : ""
   })`;
 
