@@ -9,8 +9,7 @@ export const NavigationLink = ({ path, children }) => {
 
   const handleResize = (contentRect) => {
     const currentComputedStyle = window.getComputedStyle(ref.current);
-
-    const underlineHeight = 3;
+    const textHeight = ref.current.children[0].clientHeight;
 
     const paddingInline =
       parseFloat(currentComputedStyle.paddingInlineStart) +
@@ -19,8 +18,7 @@ export const NavigationLink = ({ path, children }) => {
     setWidth(
       contentRect.scroll.width > width + paddingInline
         ? contentRect.scroll.width + paddingInline
-        : contentRect.scroll.height >
-          contentRect.client.height + underlineHeight
+        : textHeight > contentRect.client.height
         ? width + 1
         : width
     );
@@ -31,7 +29,6 @@ export const NavigationLink = ({ path, children }) => {
       innerRef={ref}
       scroll
       client
-      bounds
       onResize={(contentRect) => handleResize(contentRect)}
     >
       {({ measureRef }) => (
@@ -43,7 +40,7 @@ export const NavigationLink = ({ path, children }) => {
           }
           style={{ width: width }}
         >
-          {children}
+          <span>{children}</span>
         </NavLink>
       )}
     </Measure>
