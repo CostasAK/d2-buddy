@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "https://costasak.github.io/d2-buddy/static/css/main.0442e392.css",
-    "main.js": "https://costasak.github.io/d2-buddy/static/js/main.fa54216f.js",
+    "main.js": "https://costasak.github.io/d2-buddy/static/js/main.d6ba7528.js",
     "static/css/589.0b7f0b2f.chunk.css": "https://costasak.github.io/d2-buddy/static/css/589.0b7f0b2f.chunk.css",
     "static/js/589.0faa7dca.chunk.js": "https://costasak.github.io/d2-buddy/static/js/589.0faa7dca.chunk.js",
     "static/css/935.b971ded7.chunk.css": "https://costasak.github.io/d2-buddy/static/css/935.b971ded7.chunk.css",
     "static/js/935.e1fc73eb.chunk.js": "https://costasak.github.io/d2-buddy/static/js/935.e1fc73eb.chunk.js",
     "static/css/382.a4f0bc3e.chunk.css": "https://costasak.github.io/d2-buddy/static/css/382.a4f0bc3e.chunk.css",
-    "static/js/382.27b3506d.chunk.js": "https://costasak.github.io/d2-buddy/static/js/382.27b3506d.chunk.js",
+    "static/js/382.32b89bd0.chunk.js": "https://costasak.github.io/d2-buddy/static/js/382.32b89bd0.chunk.js",
     "static/js/948.7594d371.chunk.js": "https://costasak.github.io/d2-buddy/static/js/948.7594d371.chunk.js",
     "static/js/924.b4f5a3b7.chunk.js": "https://costasak.github.io/d2-buddy/static/js/924.b4f5a3b7.chunk.js",
     "service-worker.js": "https://costasak.github.io/d2-buddy/service-worker.js",
@@ -16,18 +16,18 @@
     "static/media/initialen.svg": "https://costasak.github.io/d2-buddy/static/media/initialen.03daac03d2cb4d0f265222adfa5236e9.svg",
     "static/media/clovis_ck.svg": "https://costasak.github.io/d2-buddy/static/media/clovis_ck.a929758d1ddef9c2cf95b8f4dec35e8d.svg",
     "main.0442e392.css.map": "https://costasak.github.io/d2-buddy/static/css/main.0442e392.css.map",
-    "main.fa54216f.js.map": "https://costasak.github.io/d2-buddy/static/js/main.fa54216f.js.map",
+    "main.d6ba7528.js.map": "https://costasak.github.io/d2-buddy/static/js/main.d6ba7528.js.map",
     "589.0b7f0b2f.chunk.css.map": "https://costasak.github.io/d2-buddy/static/css/589.0b7f0b2f.chunk.css.map",
     "589.0faa7dca.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/589.0faa7dca.chunk.js.map",
     "935.b971ded7.chunk.css.map": "https://costasak.github.io/d2-buddy/static/css/935.b971ded7.chunk.css.map",
     "935.e1fc73eb.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/935.e1fc73eb.chunk.js.map",
     "382.a4f0bc3e.chunk.css.map": "https://costasak.github.io/d2-buddy/static/css/382.a4f0bc3e.chunk.css.map",
-    "382.27b3506d.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/382.27b3506d.chunk.js.map",
+    "382.32b89bd0.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/382.32b89bd0.chunk.js.map",
     "948.7594d371.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/948.7594d371.chunk.js.map",
     "924.b4f5a3b7.chunk.js.map": "https://costasak.github.io/d2-buddy/static/js/924.b4f5a3b7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0442e392.css",
-    "static/js/main.fa54216f.js"
+    "static/js/main.d6ba7528.js"
   ]
 }
