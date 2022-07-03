@@ -18,7 +18,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-inlinesvg": "^2.3.0",
-    "react-kofi-button": "^0.4.4",
+    "react-kofi-button": ">0.4.4",
     "react-masonry-css": "^1.0.16",
     "react-measure": "^2.5.2",
     "react-modal": "^3.14.4",
