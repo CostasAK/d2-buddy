@@ -2,11 +2,20 @@ import CycleCard from "../../components/CycleCard";
 import { week } from "../../constants/time";
 
 const items = [
-  "Shattered Throne",
-  "Pit of Heresy",
-  "Prophecy",
-  "Grasp of Avarice",
-].map((item) => <div>{item}</div>);
+  {
+    name: "Shattered Throne",
+    id: 2032534090,
+  },
+  {
+    name: "Pit of Heresy",
+  },
+  {
+    name: "Prophecy",
+  },
+  {
+    name: "Grasp of Avarice",
+  },
+].map((item) => item.name);
 
 export default function DungeonRotation() {
   return (
