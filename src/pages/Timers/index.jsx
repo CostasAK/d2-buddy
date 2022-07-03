@@ -7,6 +7,7 @@ import A from "../../components/A";
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
+import DungeonRotation from "pages/Timers/DungeonRotation";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
@@ -94,6 +95,7 @@ export default function Timers() {
         <WellspringWeapons />
         <LostSectors />
         <PsiOpsLegend />
+        <DungeonRotation />
         <AltarsOfSorrowWeapons />
         <Season />
         {events.map((card, index) => (
