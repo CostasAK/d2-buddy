@@ -6,11 +6,11 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import App from "./App";
 import { QueryClientProvider } from "react-query";
-import React from "react";
-import ReactDOM from "react-dom";
 import { ReactQueryDevtools } from "react-query/devtools";
 import SimpleBarReact from "simplebar-react";
+import { StrictMode } from "react";
 import { ThemeProvider } from "styled-components/macro";
+import { createRoot } from "react-dom/client";
 import { queryClient } from "./queryClient";
 import { theme } from "./style/theme";
 
@@ -19,8 +19,8 @@ const updateInnerHeight = () =>
 updateInnerHeight();
 window.addEventListener("resize", updateInnerHeight);
 
-ReactDOM.render(
-  <React.StrictMode>
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <SimpleBarReact className="root-scroll">
@@ -29,7 +29,7 @@ ReactDOM.render(
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );
 
