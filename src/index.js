@@ -29,8 +29,7 @@ createRoot(document.getElementById("root")).render(
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  </StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );
 
 serviceWorkerRegistration.register();
