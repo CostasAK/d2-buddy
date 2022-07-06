@@ -1,18 +1,28 @@
 import "./ActivityHeader.scss";
 
 import { ActivityDestination } from ".";
+import Loading from "components/Loading";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
-import getActivityType from "../../functions/getActivityType";
 import { getScreenshot } from "../../functions/getScreenshot";
+import { useActivityMode } from "hooks/useActivityMode";
 
 export const ActivityHeader = forwardRef(({ data, name }, ref) => {
   name ||= data.originalDisplayProperties.name;
-  let type = getActivityType(data);
+
+  console.log(data?.directActivityModeHash);
+
+  const { activityMode, someIsLoading: modeIsLoading } = useActivityMode(
+    data?.directActivityModeHash
+  );
+
+  console.log(activityMode);
+  console.log(modeIsLoading);
+
+  const type = modeIsLoading ? <Loading size="inline" /> : activityMode;
 
   if (data.originalDisplayProperties.name === "Nightfall") {
     name = data.originalDisplayProperties.description;
-    type = "Nightfall";
   }
 
   const screenshot = getScreenshot(data);

@@ -5,7 +5,7 @@ import { useQueries, useQuery } from "react-query";
 import Activity from "./Activity";
 import Loading from "./Loading";
 import { PropTypes } from "prop-types";
-import getActivityType from "../functions/getActivityType";
+import { useActivityMode } from "hooks/useActivityMode";
 
 const activity_type = "DestinyActivityDefinition";
 
@@ -25,7 +25,18 @@ export default function LostSector({ name }) {
     { enabled: !!search_results }
   );
 
-  if (search_isLoading || lost_sectors.some((sector) => sector.isLoading)) {
+  const activityModeHashes = lost_sectors.map(
+    (sector) => sector?.data?.directActivityModeHash
+  );
+
+  const { activityMode, someIsLoading: activityModeIsLoading } =
+    useActivityMode(activityModeHashes);
+
+  if (
+    search_isLoading ||
+    lost_sectors.some((sector) => sector.isLoading) ||
+    activityModeIsLoading
+  ) {
     return (
       <article className="lost-sector">
         <Loading size="page" fadeIn="none" />
@@ -45,8 +56,8 @@ export default function LostSector({ name }) {
   }
 
   const filtered_sectors = lost_sectors.filter(
-    (sector) =>
-      getActivityType(sector.data) === "Lost Sector" &&
+    (sector, index) =>
+      activityMode[index] === "Lost Sector" &&
       sector.data.displayProperties.name.startsWith(name + ": ") &&
       sector.data.index ===
         lost_sectors.reduce(

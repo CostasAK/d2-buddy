@@ -23,7 +23,9 @@ export const queryBungieApi = async ({ queryKey }) => {
 
   if (queryKey[0] === "Milestones") path_start = "/Destiny2";
 
-  if (queryKey[0] === "Settings") path_start = "";
+  if (queryKey[0] === "Settings" || queryKey[0] === "Manifest") path_start = "";
 
-  return await bungieApi(`${path_start}/${queryKey.join("/")}/`);
+  const path = `${path_start}/${queryKey.join("/")}/`;
+
+  return await bungieApi(path);
 };
