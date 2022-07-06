@@ -10,14 +10,9 @@ import { useActivityMode } from "hooks/useActivityMode";
 export const ActivityHeader = forwardRef(({ data, name }, ref) => {
   name ||= data.originalDisplayProperties.name;
 
-  console.log(data?.directActivityModeHash);
-
   const { activityMode, someIsLoading: modeIsLoading } = useActivityMode(
     data?.directActivityModeHash
   );
-
-  console.log(activityMode);
-  console.log(modeIsLoading);
 
   const type = modeIsLoading ? <Loading size="inline" /> : activityMode;
 
