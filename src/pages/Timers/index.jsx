@@ -10,6 +10,7 @@ import CurrentNightfall from "./CurrentNightfall";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
+import RaidRotation from "pages/Timers/RaidRotation";
 import React from "react";
 import Season from "./Season";
 import TimerCard from "../../components/TimerCard";
@@ -91,13 +92,17 @@ export default function Timers() {
     <div className="timers-wrapper">
       <h1>Timers</h1>
       <div className="timers">
+        {/* Loot Drops */}
         <CurrentNightfall />
-        <WellspringWeapons />
         <LostSectors />
-        <PsiOpsLegend />
-        <DungeonRotation />
+        <WellspringWeapons />
         <AltarsOfSorrowWeapons />
+        {/* Bonus Rewards */}
+        <DungeonRotation />
+        <RaidRotation />
+        {/* Seasonal */}
         <Season />
+        <PsiOpsLegend />
         {events.map((card, index) => (
           <TimerCard key={index} {...card} />
         ))}
