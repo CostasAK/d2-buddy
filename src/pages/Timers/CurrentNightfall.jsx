@@ -11,12 +11,10 @@ export default function CurrentNightfall() {
   const activities = milestone?.data?.[1942283261]?.activities || [];
 
   const nightfalls = useQueries(
-    activities.map((activity) => {
-      return {
-        queryKey: ["DestinyActivityDefinition", activity.activityHash],
-      };
-    }),
-    { enabled: !!activities }
+    activities.map((activity) => ({
+      queryKey: ["DestinyActivityDefinition", activity.activityHash],
+      enabled: !!activity?.activityHash,
+    }))
   );
 
   if (

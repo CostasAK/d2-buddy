@@ -19,10 +19,10 @@ export default function LostSector({ name }) {
   const search_results = search_data?.results?.results || [];
 
   const lost_sectors = useQueries(
-    search_results.map((result) => {
-      return { queryKey: [activity_type, result.hash] };
-    }),
-    { enabled: !!search_results }
+    search_results.map((result) => ({
+      queryKey: [activity_type, result.hash],
+      enabled: !!result?.hash,
+    }))
   );
 
   const activityModeHashes = lost_sectors.map(

@@ -15,9 +15,9 @@ export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
     ids.map((id) => {
       return {
         queryKey: ["DestinyActivityDefinition", id],
+        enabled: !!id,
       };
-    }),
-    { enabled: !!id }
+    })
   );
 
   if (!!id) {
