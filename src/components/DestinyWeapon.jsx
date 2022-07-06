@@ -6,10 +6,10 @@ import Img from "./Img";
 import Loading from "./Loading";
 import Modal from "./Modal";
 import { getScreenshot } from "../functions/getScreenshot";
-import getWeaponElement from "../functions/getWeaponElement";
 import getWeaponType from "../functions/getWeaponType";
 import tierToColor from "../functions/tierToColor";
 import { useQuery } from "react-query";
+import { useWeaponElement } from "hooks/useWeaponElement";
 
 const sites = [
   {
@@ -50,7 +50,10 @@ export default function DestinyWeapon({ id, name }) {
     id,
   ]);
 
-  if (isLoading) {
+  const { weaponElement: element, someIsLoading: elementIsLoading } =
+    useWeaponElement(data?.defaultDamageTypeHash);
+
+  if (isLoading || elementIsLoading) {
     return (
       <>
         <div className="destiny-weapon">
@@ -68,8 +71,6 @@ export default function DestinyWeapon({ id, name }) {
   name ||= data?.displayProperties?.name;
 
   const type = getWeaponType(data);
-
-  const element = getWeaponElement(data);
 
   const tier = data?.inventory?.tierTypeName;
   const screenshot = getScreenshot(data);
