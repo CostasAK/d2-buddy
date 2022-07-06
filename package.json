@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@d2api/date": "^3.0.0",
     "@popperjs/core": "^2.11.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.3.0",

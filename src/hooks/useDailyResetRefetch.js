@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { currentDay } from "@d2api/date";
+import { dailyReset } from "constants/resets";
+import { day } from "constants/time";
+import { nextTime } from "functions/nextTime";
 import { useQueryClient } from "react-query";
 
 export const useDailyResetRefetch = () => {
@@ -8,11 +10,13 @@ export const useDailyResetRefetch = () => {
 
   const queryClient = useQueryClient();
 
+  console.log(nextTime(day, dailyReset));
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setFlipFlop(!flipFlop);
       queryClient.invalidateQueries();
-    }, currentDay().end.getTime() - Date.now());
+    }, nextTime(day, dailyReset) - Date.now());
 
     return () => {
       clearTimeout(timer);
