@@ -18,6 +18,15 @@
 
   .activity-type {
     opacity: 0.75;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    gap: var.$pad;
+
+    > img {
+      height: 2.71rem;
+      width: auto;
+    }
   }
 
   .activity-name {

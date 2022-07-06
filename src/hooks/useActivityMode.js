@@ -18,6 +18,17 @@ export const useActivityMode = (hash) => {
     activityMode: isArray
       ? data.map((d) => renameMode(d?.data?.displayProperties?.name))
       : renameMode(data?.[0]?.data?.displayProperties?.name),
+    activityModeIcon: isArray
+      ? data.map(
+          (d) =>
+            d?.data?.displayProperties?.hasIcon &&
+            d?.data?.displayProperties?.icon
+        )
+      : data?.[0]?.data?.displayProperties?.hasIcon &&
+        data?.[0]?.data?.displayProperties?.icon,
+    activityModeDescription: isArray
+      ? data.map((d) => d?.data?.displayProperties?.description)
+      : data?.[0]?.data?.displayProperties?.description,
     data,
     isLoading: data.map((d) => d.isLoading),
     someIsLoading: data.some((d) => d.isLoading),
