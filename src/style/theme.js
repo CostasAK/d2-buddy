@@ -48,7 +48,7 @@ export const theme = {
       },
     },
     elements: {
-      arc: "#77ebf3",
+      arc: "#7aecf3",
       solar: "#f46d25",
       void: "#986eb4",
       stasis: "#406ad4",

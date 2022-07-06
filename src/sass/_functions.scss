@@ -67,7 +67,7 @@
 }
 
 @function arc($alpha) {
-  @return hsl(184deg 84% 71% / #{$alpha});
+  @return hsl(183deg 83% 72% / #{$alpha});
 }
 
 @function solar($alpha) {
