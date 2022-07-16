@@ -1,0 +1,83 @@
+[
+  {
+    "name": "dependencies",
+    "description": "Pull requests that update a dependency file",
+    "color": "#0366d6"
+  },
+  {
+    "name": "priority::low",
+    "color": "#ff2d87"
+  },
+  {
+    "name": "priority::medium",
+    "color": "#db2780"
+  },
+  {
+    "name": "priority::high",
+    "color": "#a71d62"
+  },
+  {
+    "name": "priority::critical",
+    "color": "#741444"
+  },
+  {
+    "name": "status::abandoned",
+    "color": "#dfe9e9"
+  },
+  {
+    "name": "status::backlog",
+    "color": "#fdd600"
+  },
+  {
+    "name": "status::blocked",
+    "color": "#e11d21"
+  },
+  {
+    "name": "status::completed",
+    "color": "#fdd600"
+  },
+  {
+    "name": "status::to do",
+    "color": "#fdd600"
+  },
+  {
+    "name": "status::in progress",
+    "color": "#fdd600"
+  },
+  {
+    "name": "status::on hold",
+    "color": "#dfe9e9"
+  },
+  {
+    "name": "status::review needed",
+    "color": "#fdd600"
+  },
+  {
+    "name": "status::revision needed",
+    "color": "#fdd600"
+  },
+  {
+    "name": "type::bug",
+    "color": "#ff5050"
+  },
+  {
+    "name": "type::security",
+    "color": "#ff5050"
+  },
+  {
+    "name": "type::maintenance",
+    "color": "#ffa572"
+  },
+  {
+    "name": "type::enhancement",
+    "color": "#41d6c3"
+  },
+  {
+    "name": "good first issue",
+    "color": "#ffd791"
+  },
+  {
+    "name": "help wanted",
+    "color": "#ffd791"
+  }
+]
