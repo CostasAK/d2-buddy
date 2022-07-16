@@ -1,4 +1,4 @@
-# [Destiny 2 Buddy](https://destiny2.kokke.eu/) <img src="./public/icons/apple-icon-180.png" align="right">
+# [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" align="right">](https://destiny2.kokke.eu/)
 
 [![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fdestiny2.kokke.eu)](https://destiny2.kokke.eu/)
 [![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/gh-pages?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
