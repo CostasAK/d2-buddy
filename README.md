@@ -12,7 +12,7 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
 
 ## What it does
 
-### Timers
+### [Timers](https://destiny2.kokke.eu/#/Timers)
 
 - Shows upcoming events, followed by recurring events such as resets.
 - Events are sorted by end or start time, depending on whether they are currently ongoing or not, respectively.
@@ -21,12 +21,13 @@ Reset Timers and other Countdowns for Destiny 2, in your local time with countdo
 - Recurring events are sorted in order of occurence from now.
 - Recurring events are reset and re-ordered on each occurence.
 - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
+- Activities can be clicked for full breakdowns of modifiers, shields and champions.
 
-### DIM Search Builder
+### [DIM Search Builder](https://destiny2.kokke.eu/#/DimSearchBuilder)
 
 Customize what you want to label as trash and what you want to keep using this tools. It will produce various search strings that you can put into [Destiny Item Manager](http://destinyitemmanager.com/) to find trash, highlight interesting vendor items, etc, based on your preferences. Heavily inspired by and utilizing parts of [TMMania's Vault Analyzer](https://docs.google.com/spreadsheets/d/1fzn1iLI91aJOe3Wj9Vp7x41qIujjW1tRtoTLB6V_X7E/edit?usp=sharing).
 
-### Links
+### [Links](https://destiny2.kokke.eu/#/Links)
 
 Some links to my favorite D2 resources and tools.
 
