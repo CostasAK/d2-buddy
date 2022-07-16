@@ -1,4 +1,4 @@
-# [Destiny 2 Buddy](https://destiny2.kokke.eu/)
+# [Destiny 2 Buddy](https://destiny2.kokke.eu/) <img src="./public/icons/favicon-196.png" align="right">
 
 [![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fdestiny2.kokke.eu)](https://destiny2.kokke.eu/)
 [![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/gh-pages?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
