@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: 'type::bug'
+title: '[Bug]: '
+labels: ['type::bug', 'status::backlog']
 assignees: ''
 
 ---
