@@ -46,6 +46,13 @@ const links = [
       "Look up weapons in the game and all the perks they can roll with. Has ratings for weapons and perk combinations and will rate the rolls in your vault for you as well when you log in. Do note that most of the time these rating will be automated and therefore might not be the most useful in finding a god roll, but it's a start.",
     logo: "https://www.light.gg/Content/Images/new-icon.png",
   },
+  {
+    title: "Engram Blue",
+    link: "https://engram.blue/",
+    description:
+      "Check the state of your weapon crafts, and other tools of questionable worth (their words, not mine).",
+    logo: "https://engram.blue/favicon.png",
+  },
 ];
 
 export default function Links(props) {
