@@ -28,7 +28,7 @@ jobs:
       - name: "Build"
         run: npm run build
         env:
-          PUBLIC_URL: https://${{ github.head_ref }}.d2-buddy.pages.dev
+          PUBLIC_URL: https://${{ github.ref_name }}.d2-buddy.pages.dev
       - name: "Cloudflare Config"
         run: cp ./.cloudflare/* ./build/
       - name: Publish
