@@ -4,6 +4,7 @@ import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
 import DungeonRotation from "pages/Timers/DungeonRotation";
+import Events from "pages/Timers/Events";
 import LostSectors from "./LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import RaidRotation from "pages/Timers/RaidRotation";
@@ -42,6 +43,7 @@ export default function Timers() {
     <div className="timers-wrapper">
       <h1>Timers</h1>
       <div className="timers">
+        <Events />
         {/* Loot Drops */}
         <CurrentNightfall />
         <LostSectors />
