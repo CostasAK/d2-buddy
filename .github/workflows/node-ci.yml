@@ -2,7 +2,10 @@ name: NodeJS Continuous Integration
 
 on:
   workflow_dispatch:
-  pull_request:
+  push:
+    branches-ignore:
+      - "main"
+      - "gh-pages"
 
 jobs:
   tests:
