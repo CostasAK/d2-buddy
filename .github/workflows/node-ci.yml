@@ -29,6 +29,7 @@ jobs:
         run: npm run build
         env:
           PUBLIC_URL: https://${{ github.ref_name }}.d2-buddy.pages.dev
+          REACT_APP_BUNGIE_API_KEY: ${{ secrets.DEV_BUNGIE_API_KEY }}
       - name: "Cloudflare Config"
         run: cp ./.cloudflare/* ./build/
       - name: Publish
@@ -39,3 +40,5 @@ jobs:
           projectName: d2-buddy
           directory: build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: "Clean"
+        run: npm run clean
