@@ -10,8 +10,6 @@ export const useDailyResetRefetch = () => {
 
   const queryClient = useQueryClient();
 
-  console.log(nextTime(day, dailyReset));
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setFlipFlop(!flipFlop);
