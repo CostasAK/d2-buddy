@@ -1,7 +1,7 @@
 # [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" align="right">](https://destiny2.kokke.eu/)
 
 [![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fdestiny2.kokke.eu)](https://destiny2.kokke.eu/)
-[![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/gh-pages?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
+[![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/main?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/costasak/d2-buddy/Node.js%20CD/main?style=for-the-badge&logo=createreactapp)](https://github.com/CostasAK/d2-buddy/actions/workflows/node.js.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=prettier)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/costasak/d2-buddy?style=for-the-badge)](https://github.com/CostasAK/d2-buddy/blob/main/LICENSE)
