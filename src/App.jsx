@@ -2,11 +2,10 @@ import "./App.scss";
 
 import { Suspense, lazy } from "react";
 
+import AppBar from "components/AppBar";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Loading from "./components/Loading";
 import Main from "./components/Main";
-import Navigation from "./components/Navigation";
 import { HashRouter as Router } from "react-router-dom";
 import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
@@ -42,16 +41,14 @@ export default function App() {
   useDailyResetRefetch();
 
   return (
-    <div id="app">
-      <Header />
-
+    <>
       <Router>
-        <Navigation routes={routes} />
+        <AppBar routes={routes} />
 
         <Main routes={routes} />
       </Router>
 
       <Footer />
-    </div>
+    </>
   );
 }

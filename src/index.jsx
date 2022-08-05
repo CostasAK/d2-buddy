@@ -1,18 +1,19 @@
 import "simplebar";
 import "simplebar/dist/simplebar.min.css";
-import "./index.scss";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import App from "./App";
 import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import SimpleBarReact from "simplebar-react";
 import { StrictMode } from "react";
-import { ThemeProvider } from "styled-components/macro";
+import { ThemeProvider as StyledThemeProvider } from "styled-components/macro";
 import { createRoot } from "react-dom/client";
 import { queryClient } from "./queryClient";
-import { theme } from "./style/theme";
+import { theme as styledTheme } from "./style/theme";
+import { theme } from "theme";
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -21,14 +22,15 @@ window.addEventListener("resize", updateInnerHeight);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <SimpleBarReact className="root-scroll">
+    <ThemeProvider theme={theme}>
+      <CssBaseline enableColorScheme />
+      <QueryClientProvider client={queryClient}>
+        <StyledThemeProvider theme={styledTheme}>
           <App />
-        </SimpleBarReact>
-      </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+        </StyledThemeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </ThemeProvider>
   </StrictMode>
 );
 
