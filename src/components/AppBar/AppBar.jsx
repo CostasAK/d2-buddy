@@ -4,6 +4,8 @@ import {
   SvgIcon,
   Toolbar,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { matchPath, useLocation } from "react-router-dom";
 
@@ -34,6 +36,9 @@ const Padding = () => (
 export const AppBar = ({ routes }) => {
   const currentTab = useRouteMatch(routes);
 
+  const theme = useTheme();
+  const viewportIsBig = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <>
       <Padding />
@@ -58,7 +63,9 @@ export const AppBar = ({ routes }) => {
           }}
         >
           {/* Navigation Menu */}
-          <NavigationDrawer routes={routes} currentTab={currentTab} />
+          {!viewportIsBig && (
+            <NavigationDrawer routes={routes} currentTab={currentTab} />
+          )}
 
           {/* Logo and Title */}
           <SvgIcon
@@ -78,7 +85,9 @@ export const AppBar = ({ routes }) => {
           </Typography>
 
           {/* Navigation Tabs */}
-          <NavigationTabs routes={routes} currentTab={currentTab} />
+          {viewportIsBig && (
+            <NavigationTabs routes={routes} currentTab={currentTab} />
+          )}
 
           {/* Right-hand side buttons */}
           <Box sx={{ flexGrow: 0 }}>

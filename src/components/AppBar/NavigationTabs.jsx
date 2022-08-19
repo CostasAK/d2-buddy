@@ -57,7 +57,6 @@ export const NavigationTabs = ({ routes, currentTab }) => {
       value={currentTab}
       sx={{
         flexGrow: 1,
-        display: { xs: "none", md: "flex" },
         alignSelf: "stretch",
       }}
     >

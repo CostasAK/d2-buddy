@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
-import { theme } from "theme";
 import { useState } from "react";
 
 export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
@@ -23,7 +23,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box flexGrow="1">
         <IconButton
           size="large"
           aria-label="navigation menu"
@@ -46,7 +46,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
           flexDirection="row"
           alignItems="center"
           p={1}
-          backgroundColor={theme.palette.appBar.main}
+          backgroundColor="appBar.main"
           boxShadow="0 0 10px rgb(0 0 0 / 50%)"
         >
           <SvgIcon
@@ -74,7 +74,24 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
         </Box>
         <List>
           {routes.map((route, index) => (
-            <ListItemButton selected={currentTab === index}>
+            <ListItemButton
+              key={index}
+              component={Link}
+              to={route.path}
+              selected={currentTab === index}
+              onClick={handleDrawerClose}
+              sx={{
+                "&&.Mui-selected::after": {
+                  content: "''",
+                  width: "100%",
+                  height: "3px",
+                  bgcolor: "primary.main",
+                  position: "absolute",
+                  bottom: "0",
+                  left: "0",
+                },
+              }}
+            >
               <ListItemText
                 primary={route.name}
                 sx={{ textTransform: "uppercase" }}
