@@ -1,5 +1,3 @@
-import { baseTheme } from "theme/baseTheme";
-
 export const MuiCssBaseline = {
   styleOverrides: `
     *, ::before, ::after {
@@ -29,23 +27,12 @@ export const MuiCssBaseline = {
       max-width: 100vw;
       text-rendering: optimizeLegibility;
       hyphen: auto;
+      overflow-x: hidden;
     }
 
     #root {
       height: 100vh;
       height: var(--vh);
-      overflow-y: auto;
-      scrollbar-color: #f1f1f1 ${baseTheme.palette.appBar.main};
-      scrollbar-width: thin;
-
-      &::-webkit-scrollbar {
-        width: 8px;
-        background: ${baseTheme.palette.appBar.main};
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: #f1f1f1;
-      }
     }
 
     img,
@@ -59,7 +46,7 @@ export const MuiCssBaseline = {
     img[src$=".jpeg"] {
       image-rendering: -webkit-optimize-contrast;
     }
-    
+
     @media (prefers-reduced-motion: reduce) {
       html:focus-within {
         scroll-behavior: auto;

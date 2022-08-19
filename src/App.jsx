@@ -2,8 +2,8 @@ import "./App.scss";
 
 import { Suspense, lazy } from "react";
 
-import AppBar from "components/AppBar";
-import Footer from "./components/Footer";
+import AppBar from "layout/AppBar";
+import Footer from "./layout/Footer";
 import Loading from "./components/Loading";
 import Main from "./components/Main";
 import { HashRouter as Router } from "react-router-dom";
