@@ -1,20 +1,8 @@
-import { Link, matchPath, useLocation } from "react-router-dom";
 import { Tab, Tabs } from "@mui/material";
 import { useCallback, useState } from "react";
 
+import { Link } from "react-router-dom";
 import useDimensions from "react-cool-dimensions";
-
-const useRouteMatch = (routes) => {
-  const { pathname } = useLocation();
-
-  for (const route of routes) {
-    const possibleMatch = matchPath(route.path, pathname);
-
-    if (possibleMatch) return possibleMatch;
-  }
-
-  return null;
-};
 
 const NavigationTab = ({ name, path, ...props }) => {
   const [width, setWidth] = useState(1);
@@ -63,12 +51,10 @@ const NavigationTab = ({ name, path, ...props }) => {
   );
 };
 
-export const NavigationTabs = ({ routes }) => {
-  const currentTab = useRouteMatch(routes)?.pattern?.path;
-
+export const NavigationTabs = ({ routes, currentTab }) => {
   return (
     <Tabs
-      value={routes.findIndex((p) => p.path === currentTab)}
+      value={currentTab}
       sx={{
         flexGrow: 1,
         display: { xs: "none", md: "flex" },

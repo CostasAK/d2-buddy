@@ -1,16 +1,29 @@
 import {
   Box,
-  IconButton,
   AppBar as MuiAppBar,
   SvgIcon,
   Toolbar,
   Typography,
 } from "@mui/material";
+import { matchPath, useLocation } from "react-router-dom";
 
-import MenuIcon from "@mui/icons-material/Menu";
+import { NavigationDrawer } from "components/AppBar/NavigationDrawer";
 import { NavigationTabs } from "components/AppBar/NavigationTabs";
 import { RefreshButton } from "components/AppBar/RefreshButton";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
+
+const useRouteMatch = (routes) => {
+  const { pathname } = useLocation();
+
+  for (const route of routes) {
+    const possibleMatch = matchPath(route.path, pathname);
+
+    if (possibleMatch)
+      return routes.findIndex((p) => p.path === possibleMatch?.pattern?.path);
+  }
+
+  return null;
+};
 
 const Padding = () => (
   <MuiAppBar position="static" sx={{ visibility: "hidden" }}>
@@ -19,6 +32,8 @@ const Padding = () => (
 );
 
 export const AppBar = ({ routes }) => {
+  const currentTab = useRouteMatch(routes);
+
   return (
     <>
       <Padding />
@@ -43,17 +58,7 @@ export const AppBar = ({ routes }) => {
           }}
         >
           {/* Navigation Menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="navigation menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              // onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
+          <NavigationDrawer routes={routes} currentTab={currentTab} />
 
           {/* Logo and Title */}
           <SvgIcon
@@ -73,7 +78,7 @@ export const AppBar = ({ routes }) => {
           </Typography>
 
           {/* Navigation Tabs */}
-          <NavigationTabs routes={routes} />
+          <NavigationTabs routes={routes} currentTab={currentTab} />
 
           {/* Right-hand side buttons */}
           <Box sx={{ flexGrow: 0 }}>
