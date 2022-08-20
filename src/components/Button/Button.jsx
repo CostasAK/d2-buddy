@@ -9,7 +9,6 @@ export const Button = forwardRef(({ className, href, children }, ref) => {
       ref={ref}
       className={"button clickable" + (className ? className : "")}
       href={href}
-      defaultStyle={false}
     >
       <div className="button-inner">{children}</div>
     </A>

@@ -11,7 +11,7 @@ const fontFamily1 = [
   "segoe ui symbol",
 ].join(",");
 
-const fontFamily2 = [
+export const fontFamily2 = [
   "arial",
   "helvetica",
   "neue-haas-grotesk-text",
@@ -131,11 +131,10 @@ export const typography = {
     letterSpacing: "0.01em",
   },
   button: {
-    fontFamily: fontFamily2,
+    fontFamily: fontFamily1,
     fontWeight: 500,
-    fontSize: "0.875rem",
     lineHeight: 1.1,
-    letterSpacing: "normal",
+    letterSpacing: "0.1em",
   },
   caption: {
     fontFamily: fontFamily1,
