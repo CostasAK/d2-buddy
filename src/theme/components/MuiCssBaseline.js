@@ -38,6 +38,7 @@ export const MuiCssBaseline = {
     img,
     picture {
       display: block;
+      content-visibility: auto;
     }
 
     img[src$=".gif"],
