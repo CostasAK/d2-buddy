@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { matchPath, useLocation } from "react-router-dom";
 
+import { BackToTopButton } from "layout/AppBar/BackToTopButton";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import { NavigationTabs } from "layout/AppBar/NavigationTabs";
 import { RefreshButton } from "layout/AppBar/RefreshButton";
@@ -96,6 +97,7 @@ export const AppBar = ({ routes }) => {
           </Toolbar>
         </MuiAppBar>
       </Slide>
+      <BackToTopButton />
     </>
   );
 };
