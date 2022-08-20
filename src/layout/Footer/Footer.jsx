@@ -1,4 +1,4 @@
-import { Box, SvgIcon, Typography } from "@mui/material";
+import { Box, SvgIcon } from "@mui/material";
 
 import A from "components/A";
 import { ReactComponent as Avatar } from "assets/initialen.svg";
@@ -32,7 +32,8 @@ export default function Footer() {
           alignItems: "safe center",
         }}
       >
-        <Typography minWidth="max-content">Made by</Typography>  
+        <Box minWidth="max-content">Made by</Box>
+          
         <A
           href="https://costas.kokke.eu"
           sx={{
