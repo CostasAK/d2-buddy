@@ -60,7 +60,6 @@ a {
 
   cursor: pointer;
 
-  /* stylelint-disable-next-line selector-class-pattern */
   &:not([class^="Card"]):not([class^="AStyle"]):not(.button):not(.navigation-link):not(.KofiButton) {
     color: var.$navigation-fg;
 
