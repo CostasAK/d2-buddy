@@ -44,7 +44,7 @@ const NavigationTab = ({ name, path, ...props }) => {
       component={Link}
       wrapped={wrapped}
       sx={{ height: "100%" }}
-      style={{ width: width }}
+      style={{ width: wrapped && width }}
       {...props}
     />
   );
