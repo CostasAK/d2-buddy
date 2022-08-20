@@ -8,6 +8,13 @@ export const queryClient = new QueryClient({
       cacheTime: 30 * minute,
       queryFn: queryBungieApi,
       retry: true,
+      retryDelay: (attemptIndex) =>
+        attemptIndex < 6
+          ? Math.min(
+              Math.ceil(1000 * (2 ** attemptIndex + Math.random())),
+              64000
+            )
+          : 64000,
     },
   },
 });
