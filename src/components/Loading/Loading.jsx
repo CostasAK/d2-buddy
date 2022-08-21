@@ -22,7 +22,7 @@ const LoadingText = ({ fadeIn }) => (
   </>
 );
 
-export const Loading = ({ size, className, fadeIn }) => (
+export const Loading = ({ size, className, fadeIn, ...props }) => (
   <Typography
     variant={size === "page" ? "h1" : size === "section" ? "h2" : "body1"}
     className={
@@ -39,6 +39,7 @@ export const Loading = ({ size, className, fadeIn }) => (
         height: "1em",
       },
     }}
+    {...props}
   >
     {size === "page" || size === "section" ? (
       <>
