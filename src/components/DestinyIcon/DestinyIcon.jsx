@@ -1,7 +1,6 @@
-import "./style.scss";
+import { Box, Tooltip, useTheme } from "@mui/material";
 
 import Img from "../Img";
-import { Tooltip } from "@mui/material";
 
 const font_symbols = {
   weapons: {
@@ -45,6 +44,7 @@ const font_symbols = {
             maxHeight: "96px",
             height: "1.5em",
             lineHeight: "1",
+            display: "block",
           }}
         />
       ),
@@ -65,6 +65,7 @@ const font_symbols = {
               maxHeight: "60px",
               height: "1.5em",
               lineHeight: "1",
+              display: "block",
             }}
           />
         ),
@@ -82,6 +83,7 @@ const font_symbols = {
               maxHeight: "60px",
               height: "1.5em",
               lineHeight: "1",
+              display: "block",
             }}
           />
         ),
@@ -99,6 +101,7 @@ const font_symbols = {
               maxHeight: "60px",
               height: "1.5em",
               lineHeight: "1",
+              display: "block",
             }}
           />
         ),
@@ -113,38 +116,50 @@ const font_symbols = {
   },
 };
 
-const known_elements = ["Kinetic", "Arc", "Solar", "Void", "Stasis"];
-const known_colors = [...known_elements];
+export const DestinyIcon = ({ icon, onClick, tooltip, sx = [], ...props }) => {
+  const theme = useTheme();
 
-export const DestinyIcon = ({
-  icon,
-  color,
-  style,
-  className,
-  onClick,
-  tooltip,
-}) => {
   try {
     const font_symbol = icon.reduce(
       (previous, current) => previous[current],
       font_symbols
     );
+
     return (
       <Tooltip title={tooltip}>
-        <span
-          className={
-            "destiny-icon " +
-            icon.join(" ") +
-            " " +
-            (known_colors.includes(color) ? color?.toLowerCase() : "") +
-            " " +
-            (className ? className : "")
+        <Box
+          component="span"
+          color={
+            icon.includes("Arc")
+              ? "arc"
+              : icon.includes("Solar")
+              ? "solar"
+              : icon.includes("Void")
+              ? "void"
+              : icon.includes("Stasis")
+              ? "stasis"
+              : ""
           }
-          style={style}
+          style={{
+            fontFamily: "Destiny_Keys",
+          }}
+          sx={[
+            {
+              fontSize: "1em",
+              textTransform: "uppercase",
+              lineHeight: theme.typography.body1.lineHeight,
+              width: "max-content",
+              height: "min-content",
+              display: "inline-block",
+              cursor: "default",
+            },
+            ...(Array.isArray(sx) ? sx : [sx]),
+          ]}
           onClick={onClick}
+          {...props}
         >
           {font_symbol.symbol}
-        </span>
+        </Box>
       </Tooltip>
     );
   } catch (e) {

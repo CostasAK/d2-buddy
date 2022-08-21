@@ -1,5 +1,11 @@
 export const MuiCssBaseline = {
   styleOverrides: `
+    @font-face {
+      font-family: "Destiny_Keys";
+      src: url("https://cdn.jsdelivr.net/gh/nathanrsxtn/Destiny-2-Font-Symbols@e4cef44cb28f51545e4bc5e7924c97247e4a3c88/fonts/Destiny_Keys.otf");
+      font-display: swap;
+    }
+
     *, ::before, ::after {
       max-width: 100%;
     }

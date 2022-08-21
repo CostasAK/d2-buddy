@@ -22,4 +22,8 @@ export const palette = {
     main: "hsl(47deg 40% 21%)",
     contrastText: "#fff",
   },
+  arc: "#7aecf3",
+  solar: "#f46d25",
+  void: "#986eb4",
+  stasis: "#406ad4",
 };
