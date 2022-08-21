@@ -68,6 +68,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "eslint-config-prettier": "^8.5.0",
     "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
