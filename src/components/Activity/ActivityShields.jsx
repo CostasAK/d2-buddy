@@ -2,7 +2,7 @@ import "./ActivityShields.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
-import Tooltip from "../Tooltip";
+import { Tooltip } from "@mui/material";
 import { forwardRef } from "react";
 
 const known_elements = [
@@ -32,7 +32,7 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
       <h5 className="heading">Shields</h5>
       <div className="shields">
         {[...parsed_shields].map((shield, index) => (
-          <Tooltip contents={`${shield} Shields`} key={index}>
+          <Tooltip title={`${shield} Shields`} key={index}>
             <div className="shield" key={index}>
               <DestinyIcon icon={["elements", shield]} color={shield} />
               {known_shields[shield] > 0 && (

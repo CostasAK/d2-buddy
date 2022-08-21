@@ -2,7 +2,7 @@ import { Box, Icon } from "@mui/material";
 
 import PropTypes from "prop-types";
 import SVG from "react-inlinesvg";
-import Tooltip from "../Tooltip";
+import { Tooltip } from "@mui/material";
 import { forwardRef } from "react";
 
 const bungie_root_path = "https://bungie.net";
@@ -31,7 +31,7 @@ export const Img = forwardRef(({ src, alt, title, ...props }, ref) => {
       {...props}
     />
   ) : title ? (
-    <Tooltip contents={title}>
+    <Tooltip title={title}>
       <ImgBox ref={ref} src={src} alt={alt} {...props} />
     </Tooltip>
   ) : (

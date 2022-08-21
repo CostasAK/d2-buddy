@@ -1,6 +1,6 @@
 import Card from "../../components/Card/index";
 import Masonry from "../../components/Masonry";
-import Tooltip from "../../components/Tooltip";
+import { Tooltip } from "@mui/material";
 import dayjs from "dayjs";
 import { formatTime } from "functions/formatDateTime";
 import { mixins } from "../../style/mixins";
@@ -28,7 +28,7 @@ const StyledSection = styled.section`
 
 const DimCard = ({ children, search, ...props }) => {
   return (
-    <Tooltip contents="Click to Copy">
+    <Tooltip title="Click to Copy">
       <Card {...props} onClick={() => navigator.clipboard.writeText(search)}>
         {children}
       </Card>

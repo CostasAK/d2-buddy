@@ -1,4 +1,4 @@
-const fontFamily1 = [
+export const fontFamily1 = [
   "neue-haas-grotesk-display",
   "neue-haas-grotesk-text",
   "helvetica",

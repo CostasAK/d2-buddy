@@ -14,7 +14,7 @@ import Measure from "react-measure";
 import { PropTypes } from "prop-types";
 import ReactModal from "react-modal";
 import SimpleBarReact from "simplebar-react";
-import Tooltip from "./Tooltip";
+import { Tooltip } from "@mui/material";
 
 export default function Modal({
   triggerContent,

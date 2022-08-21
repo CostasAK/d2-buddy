@@ -2,7 +2,7 @@ import "./ActivityChampions.scss";
 
 import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
-import Tooltip from "../Tooltip";
+import { Tooltip } from "@mui/material";
 import { forwardRef } from "react";
 
 const known_types = [
@@ -32,7 +32,7 @@ export const ActivityChampions = forwardRef(
         <h5 className="heading">Champions</h5>
         <div className="champions">
           {[...parsed_champions].map((champion, index) => (
-            <Tooltip key={index} contents={`${champion} Champions`}>
+            <Tooltip key={index} title={`${champion} Champions`}>
               <div className={"champion " + champion} key={index}>
                 <DestinyIcon
                   icon={["champions", "modifiers", champion]}
