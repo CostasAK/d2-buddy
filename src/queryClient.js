@@ -1,12 +1,12 @@
 import { QueryClient } from "react-query";
+import { defaultQueryFn } from "./functions/query";
 import { minute } from "constants/time";
-import { queryBungieApi } from "./functions/bungieApi";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       cacheTime: 30 * minute,
-      queryFn: queryBungieApi,
+      queryFn: defaultQueryFn,
       retry: true,
       retryDelay: (attemptIndex) =>
         attemptIndex < 6
