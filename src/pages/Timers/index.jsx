@@ -3,9 +3,11 @@ import "./style.scss";
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
+import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
 import LostSectors from "pages/Timers/LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
+import RaidRotation from "pages/Timers/RaidRotation";
 import React from "react";
 import Resets from "pages/Timers/Resets";
 import Season from "./Season";
@@ -39,13 +41,7 @@ export default function Timers() {
 
   return (
     <div className="timers-wrapper">
-      <div>
-        <h1>Timers</h1>
-        <p>
-          Some Timers have been temporarily disabled because of the launch of
-          the new season. Work to bring them back is underway.
-        </p>
-      </div>
+      <h1>Timers</h1>
       <div className="timers">
         <Events />
         {/* Loot Drops */}
@@ -54,8 +50,8 @@ export default function Timers() {
         <WellspringWeapons />
         <AltarsOfSorrowWeapons />
         {/* Bonus Rewards */}
-        {/* <DungeonRotation /> */}
-        {/* <RaidRotation /> */}
+        <DungeonRotation />
+        <RaidRotation />
         {/* Seasonal */}
         <Season />
         <PsiOpsLegend />
