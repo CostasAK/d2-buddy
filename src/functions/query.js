@@ -20,7 +20,6 @@ const bungie_api = axios.create({
 
 export const buddyData = async (path, method = "GET", headers = {}) => {
   const data = await buddy_data({ url: path, method, headers });
-  console.log(data);
   return data;
 };
 
