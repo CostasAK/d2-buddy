@@ -4,6 +4,7 @@ import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import Button from "../../components/Button";
 import CurrentNightfall from "./CurrentNightfall";
 import Events from "pages/Timers/Events";
+import LostSectors from "pages/Timers/LostSectors";
 import PsiOpsLegend from "./PsiOpsLegend";
 import React from "react";
 import Resets from "pages/Timers/Resets";
@@ -49,7 +50,7 @@ export default function Timers() {
         <Events />
         {/* Loot Drops */}
         <CurrentNightfall />
-        {/* <LostSectors /> */}
+        <LostSectors />
         <WellspringWeapons />
         <AltarsOfSorrowWeapons />
         {/* Bonus Rewards */}
