@@ -2,9 +2,6 @@ import axios from "axios";
 
 const buddy_data = axios.create({
   baseURL: "https://cdn.jsdelivr.net/gh/CostasAK/d2-buddy-database@main/data",
-  transformResponse: axios.defaults.transformResponse.concat((data) => {
-    return data?.Response;
-  }),
   headers: {
     Accept: "application/json",
   },
@@ -22,7 +19,8 @@ const bungie_api = axios.create({
 });
 
 export const buddyData = async (path, method = "GET", headers = {}) => {
-  const { data } = await buddy_data({ url: path, method, headers });
+  const data = await buddy_data({ url: path, method, headers });
+  console.log(data);
   return data;
 };
 
