@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const buddy_data = axios.create({
-  baseURL: "https://cdn.jsdelivr.net/gh/CostasAK/d2-buddy-database@main/data",
+  baseURL:
+    "https://raw.githubusercontent.com/CostasAK/d2-buddy-database/main/data",
   headers: {
     Accept: "application/json",
   },
