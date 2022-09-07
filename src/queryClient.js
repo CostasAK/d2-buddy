@@ -15,6 +15,7 @@ export const queryClient = new QueryClient({
               64000
             )
           : 64000,
+      refetchInterval: 30 * 1000,
     },
   },
 });
