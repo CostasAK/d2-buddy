@@ -1,4 +1,5 @@
 import { Box, Icon } from "@mui/material";
+import { Else, If, Then } from "react-if";
 
 import PropTypes from "prop-types";
 import SVG from "react-inlinesvg";
@@ -16,26 +17,36 @@ export const Img = forwardRef(({ src, alt, title, ...props }, ref) => {
 
   src = /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src;
 
-  return /\.svg$/i.test(src) ? (
-    <Icon
-      component={SVG}
-      innerRef={ref}
-      src={src}
-      loader={<Box ref={ref} {...props} />}
-      preProcessor={(svg) =>
-        svg
-          .replace(/fill=".*?"/g, 'fill="currentColor"')
-          .replace(/stroke=".*?"/g, 'stroke="currentColor"')
-          .replace(/<path(?:(?!fill|stroke).)*(?:<\/\s?path>|\/>)/g, "")
-      }
-      {...props}
-    />
-  ) : title ? (
-    <Tooltip title={title}>
-      <ImgBox ref={ref} src={src} alt={alt} {...props} />
-    </Tooltip>
-  ) : (
-    <ImgBox ref={ref} src={src} alt={alt} {...props} />
+  return (
+    <If condition={/\.svg$/i.test(src)}>
+      <Then>
+        <Icon
+          component={SVG}
+          innerRef={ref}
+          src={src}
+          loader={<Box ref={ref} {...props} />}
+          preProcessor={(svg) =>
+            svg
+              .replace(/fill=".*?"/g, 'fill="currentColor"')
+              .replace(/stroke=".*?"/g, 'stroke="currentColor"')
+              .replace(/<path(?:(?!fill|stroke).)*(?:<\/\s?path>|\/>)/g, "")
+          }
+          {...props}
+        />
+      </Then>
+      <Else>
+        <If condition={title}>
+          <Then>
+            <Tooltip title={title}>
+              <ImgBox ref={ref} src={src} alt={alt} {...props} />
+            </Tooltip>
+          </Then>
+          <Else>
+            <ImgBox ref={ref} src={src} alt={alt} {...props} />
+          </Else>
+        </If>
+      </Else>
+    </If>
   );
 });
 
