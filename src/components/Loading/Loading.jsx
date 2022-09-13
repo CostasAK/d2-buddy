@@ -1,9 +1,13 @@
 import { Box, Typography } from "@mui/material";
+import { Else, If, Then } from "react-if";
+import {
+  FulfillingBouncingCircleSpinner,
+  OrbitSpinner,
+} from "react-epic-spinners";
 
-import Spinner from "react-spinkit";
 import { motion } from "framer-motion";
 
-const LoadingText = ({ fadeIn }) => (
+const LoadingText = () => (
   <>
     <Box ml="0.35em">Loading</Box>
     {"...".split("").map((char, index) => (
@@ -13,7 +17,6 @@ const LoadingText = ({ fadeIn }) => (
         transition={{
           duration: 2,
           repeat: Infinity,
-          delay: fadeIn === "none" || !fadeIn ? 0 : fadeIn,
           times: [0, (index + 1) / 4, (index + 1) / 4, 1],
         }}
       >
@@ -23,44 +26,24 @@ const LoadingText = ({ fadeIn }) => (
   </>
 );
 
-export const Loading = ({ size, className, fadeIn, ...props }) => (
+export const Loading = ({ size, className, ...props }) => (
   <Typography
     variant={size === "page" ? "h1" : size === "section" ? "h2" : "body1"}
-    className={
-      "loading " +
-      (className ? className : "") +
-      " " +
-      (fadeIn === "none" || !fadeIn ? "no-fade" : "")
-    }
+    className={"loading " + (className ? className : "")}
     sx={{
       display: "flex",
       alignItems: "center",
-      "> .sk-spinner": {
-        width: "1em",
-        height: "1em",
-      },
     }}
     {...props}
   >
-    {size === "page" || size === "section" ? (
-      <>
-        <Spinner name="cube-grid" color="inherit" fadeIn={fadeIn || "none"} />
-        <LoadingText fadeIn={fadeIn} />
-      </>
-    ) : (
-      <Box
-        component={Spinner}
-        color="inherit"
-        fadeIn={fadeIn || "none"}
-        sx={{
-          display: "inline",
-          width: "auto !important",
-          "& > div": {
-            width: "0.75em !important",
-            height: "0.75em !important",
-          },
-        }}
-      />
-    )}
+    <If condition={size === "page" || size === "section"}>
+      <Then>
+        <FulfillingBouncingCircleSpinner />
+        <LoadingText />
+      </Then>
+      <Else>
+        <OrbitSpinner size={16} />
+      </Else>
+    </If>
   </Typography>
 );
