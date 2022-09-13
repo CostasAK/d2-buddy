@@ -26,10 +26,9 @@ const LoadingText = () => (
   </>
 );
 
-export const Loading = ({ size, className, ...props }) => (
+export const Loading = ({ size, ...props }) => (
   <Typography
     variant={size === "page" ? "h1" : size === "section" ? "h2" : "body1"}
-    className={"loading " + (className ? className : "")}
     sx={{
       display: "flex",
       alignItems: "center",
