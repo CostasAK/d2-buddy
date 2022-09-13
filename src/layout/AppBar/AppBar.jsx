@@ -9,6 +9,7 @@ import {
   useScrollTrigger,
   useTheme,
 } from "@mui/material";
+import { Unless, When } from "react-if";
 import { matchPath, useLocation } from "react-router-dom";
 
 import { BackToTopButton } from "layout/AppBar/BackToTopButton";
@@ -64,9 +65,9 @@ export const AppBar = ({ routes }) => {
             }}
           >
             {/* Navigation Menu */}
-            {!viewportIsBig && (
+            <Unless condition={viewportIsBig}>
               <NavigationDrawer routes={routes} currentTab={currentTab} />
-            )}
+            </Unless>
 
             {/* Logo and Title */}
             <SvgIcon
@@ -86,9 +87,9 @@ export const AppBar = ({ routes }) => {
             </Typography>
 
             {/* Navigation Tabs */}
-            {viewportIsBig && (
+            <When condition={viewportIsBig}>
               <NavigationTabs routes={routes} currentTab={currentTab} />
-            )}
+            </When>
 
             {/* Right-hand side buttons */}
             <Box sx={{ flexGrow: 0 }}>
