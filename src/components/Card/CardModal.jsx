@@ -4,19 +4,15 @@ import PropTypes from "prop-types";
 import { forwardRef } from "react";
 
 export const CardModal = forwardRef(
-  (
-    { children, className, modalContent, customModal, title, icon, ...props },
-    ref
-  ) => {
+  ({ children, modalContent, customModal, title, icon, ...props }, ref) => {
     if (!modalContent) return children;
 
     return (
-      <Modal triggerContent={children} className={className} background={icon}>
+      <Modal triggerContent={children} title={title} background={icon}>
         {customModal ? (
           modalContent
         ) : (
           <CardModalText ref={ref} {...props}>
-            {title && <h1>{title}</h1>}
             <section>{modalContent}</section>
           </CardModalText>
         )}
@@ -26,7 +22,6 @@ export const CardModal = forwardRef(
 );
 
 CardModal.propTypes = {
-  className: PropTypes.string,
   modalContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   title: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

@@ -1,6 +1,3 @@
-import "simplebar";
-import "simplebar/dist/simplebar.min.css";
-
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
