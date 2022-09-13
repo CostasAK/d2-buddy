@@ -8,6 +8,7 @@ const LoadingText = ({ fadeIn }) => (
     <Box ml="0.35em">Loading</Box>
     {"...".split("").map((char, index) => (
       <motion.div
+        key={index}
         animate={{ opacity: [0, 0, 1, 1] }}
         transition={{
           duration: 2,
