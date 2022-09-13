@@ -8,6 +8,7 @@ export const MuiTooltip = {
   styleOverrides: {
     tooltip: {
       borderRadius: 0,
+      backgroundImage: "none",
       backgroundColor: "rgba(52, 52, 62, 0.9)",
       "@supports (backdrop-filter: blur(16px))": {
         backdropFilter: "blur(16px) saturate(180%)",
