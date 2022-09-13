@@ -19,9 +19,9 @@ const StyledIconSide = css`
 
 export const StyledIcon = styled(Img)`
   color: ${(props) => props.theme.colors.heading};
-  width: 100%;
+  width: 100% !important;
   max-width: 4.5rem;
-  height: auto;
+  height: auto !important;
   max-height: 4.5rem;
   object-fit: scale-down;
   opacity: var(--card-content-opacity);
