@@ -12,7 +12,7 @@ const ImgBox = forwardRef(({ ...props }, ref) => (
   <Box component="img" ref={ref} loading="lazy" decoding="async" {...props} />
 ));
 
-export const Img = forwardRef(({ src, alt, title, ...props }, ref) => {
+export const Img = forwardRef(({ src, alt, title, sx = [], ...props }, ref) => {
   if (!src) return null;
 
   src = /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src;
@@ -31,6 +31,13 @@ export const Img = forwardRef(({ src, alt, title, ...props }, ref) => {
               .replace(/stroke=".*?"/g, 'stroke="currentColor"')
               .replace(/<path(?:(?!fill|stroke).)*(?:<\/\s?path>|\/>)/g, "")
           }
+          sx={[
+            {
+              width: "auto",
+              height: "auto",
+            },
+            ...(Array.isArray(sx) ? sx : [sx]),
+          ]}
           {...props}
         />
       </Then>
@@ -38,11 +45,11 @@ export const Img = forwardRef(({ src, alt, title, ...props }, ref) => {
         <If condition={title}>
           <Then>
             <Tooltip title={title}>
-              <ImgBox ref={ref} src={src} alt={alt} {...props} />
+              <ImgBox ref={ref} src={src} alt={alt} sx={sx} {...props} />
             </Tooltip>
           </Then>
           <Else>
-            <ImgBox ref={ref} src={src} alt={alt} {...props} />
+            <ImgBox ref={ref} src={src} alt={alt} sx={sx} {...props} />
           </Else>
         </If>
       </Else>

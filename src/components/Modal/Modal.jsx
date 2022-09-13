@@ -8,6 +8,7 @@ import {
 import { Else, If, Then, When } from "react-if";
 import { cloneElement, isValidElement, useMemo, useState } from "react";
 
+import Img from "components/Img";
 import { PropTypes } from "prop-types";
 
 export default function Modal({
@@ -44,6 +45,19 @@ export default function Modal({
         fullWidth={false}
         maxWidth="sm"
       >
+        <When condition={background}>
+          <Img
+            src={background}
+            sx={{
+              position: "absolute",
+              right: 4,
+              bottom: 4,
+              opacity: 0.25,
+              maxWidth: "50%",
+              maxHeight: "50%",
+            }}
+          />
+        </When>
         <When condition={title}>
           <DialogTitle variant="h1">{title}</DialogTitle>
         </When>
