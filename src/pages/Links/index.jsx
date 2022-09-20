@@ -20,13 +20,6 @@ const links = [
     logo: "https://bray.tech/static/images/icons/icon-192.png",
   },
   {
-    title: "DeerTrivia's Daily Optimized Bounties",
-    link: "https://www.reddit.com/search?q=author%3ADeerTrivia%20Optimized%20Bounties&t=week&sort=new",
-    description:
-      "DeerTrivia makes a list of bounties every day that are efficiently completable and how you can complete them easiest.",
-    logo: "https://styles.redditmedia.com/t5_bzs62/styles/profileIcon_rod7enjmt3751.jpg?width=256&height=256&crop=256:256,smart&s=e31e50dc38e85ea18681a82b9fb68addb733d823",
-  },
-  {
     title: "Ishtar Collective",
     link: "https://www.ishtar-collective.net/",
     description: "Here you can find all the organised lore entries of Destiny.",
