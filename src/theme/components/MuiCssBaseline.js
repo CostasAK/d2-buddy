@@ -57,6 +57,10 @@ export const MuiCssBaseline = {
     #root {
       height: 100vh;
       height: var(--vh);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      align-items: stretch;
     }
 
     img,
