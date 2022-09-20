@@ -1,31 +1,29 @@
-import Measure from "react-measure";
+import useDimensions from "react-cool-dimensions";
 import { useState } from "react";
 
-function MasonryItem({ element, rowGap }) {
-  const [height, setHeight] = useState(0);
+function MasonryItem({ children, rowGap }) {
+  const [heightState, setHeight] = useState(0);
+
+  const { observe } = useDimensions({
+    onResize: ({ height }) => setHeight(Math.ceil(height)),
+    useBorderBoxSize: true,
+  });
+
+  console.log(heightState);
 
   return (
-    <Measure
-      scroll
-      onResize={(contentRect) => {
-        setHeight(contentRect.scroll.height);
+    <div
+      ref={observe}
+      className="masonry-item"
+      style={{
+        gridRowEnd: "span " + (heightState + rowGap),
+        display: "inline-block",
+        height: "max-content",
+        alignItems: "start",
       }}
     >
-      {({ measureRef }) => (
-        <div
-          ref={measureRef}
-          className="masonry-item"
-          style={{
-            gridRowEnd: "span " + (height + rowGap),
-            display: "inline-block",
-            height: "max-content",
-            alignItems: "start",
-          }}
-        >
-          {element}
-        </div>
-      )}
-    </Measure>
+      {children}
+    </div>
   );
 }
 
@@ -44,7 +42,9 @@ export default function Masonry({ rowGap = 7, className, children }) {
       }}
     >
       {children.map((child, index) => (
-        <MasonryItem key={index} element={child} rowGap={rowGap} />
+        <MasonryItem key={index} rowGap={rowGap}>
+          {child}
+        </MasonryItem>
       ))}
     </div>
   );
