@@ -1,22 +1,14 @@
 import useDimensions from "react-cool-dimensions";
-import { useState } from "react";
 
 function MasonryItem({ children, rowGap }) {
-  const [heightState, setHeight] = useState(0);
-
-  const { observe } = useDimensions({
-    onResize: ({ height }) => setHeight(Math.ceil(height)),
-    useBorderBoxSize: true,
-  });
-
-  console.log(heightState);
+  const { observe, height } = useDimensions();
 
   return (
     <div
       ref={observe}
       className="masonry-item"
       style={{
-        gridRowEnd: "span " + (heightState + rowGap),
+        gridRowEnd: "span " + (Math.ceil(height) + rowGap),
         display: "inline-block",
         height: "max-content",
         alignItems: "start",
