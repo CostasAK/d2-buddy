@@ -1,85 +1,16 @@
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Skeleton,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { Else, If, Then, When } from "react-if";
+import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
+import { Else, If, Then } from "react-if";
 
-import A from "../A";
 import DestinyIcon from "../DestinyIcon";
 import Img from "../Img";
 import Loading from "components/Loading";
 import Modal from "../Modal";
+import { WeaponLinks } from "components/DestinyWeapon/WeaponLinks";
 import { getScreenshot } from "../../functions/getScreenshot";
 import getWeaponType from "../../functions/getWeaponType";
 import tierToColor from "functions/tierToColor";
 import { useQuery } from "react-query";
 import { useWeaponElement } from "hooks/useWeaponElement";
-import { weaponSites } from "constants/weaponSites";
-
-function WeaponLinks({ id }) {
-  const linksBackground = "rgb(0 0 0 / 50%)";
-  const gap = "1rem";
-
-  return (
-    <List
-      dense
-      sx={{
-        width: "max-content",
-        backgroundImage: `linear-gradient(
-            0deg,
-            ${linksBackground} 0%,
-            ${linksBackground} 100%
-          ),
-          linear-gradient(
-            0deg,
-            rgb(0 0 0 / 0%) 0%,
-            ${linksBackground} 100%
-          ),
-          radial-gradient(
-            farthest-side at top left,
-            ${linksBackground} 0%,
-            rgb(0 0 0 / 0%) 100%
-          ),
-          linear-gradient(
-            -90deg,
-            rgb(0 0 0 / 0%) 0%,
-            ${linksBackground} 100%
-          )`,
-        backgroundSize: `calc(100% - ${gap}) calc(100% - ${gap}),
-          calc(100% - ${gap}) ${gap}, ${gap} ${gap},
-          ${gap} calc(100% - ${gap})`,
-        backgroundPosition: "0 0, bottom left, bottom right, right top",
-        backgroundRepeat: "no-repeat",
-        padding: `0.25rem ${gap} ${gap} 0`,
-      }}
-    >
-      {weaponSites.map((site) => (
-        <ListItem key={site.name} sx={{ padding: 0 }}>
-          <ListItemButton
-            component={A}
-            href={site.url + id}
-            sx={{ paddingInline: "0.5rem", gap: "0.5rem" }}
-          >
-            <When condition={site.icon}>
-              <Img src={site.icon} height="2em" />
-            </When>
-            <ListItemText
-              primary={site.name}
-              primaryTypographyProps={{ fontStyle: "normal" }}
-            />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-  );
-}
 
 export function DestinyWeapon({ id, name }) {
   let { data, error, isLoading } = useQuery([
