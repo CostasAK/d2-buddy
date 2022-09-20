@@ -2,6 +2,20 @@ import { Box, Tooltip, useTheme } from "@mui/material";
 
 import Img from "../Img";
 
+const ImgIcon = ({ src }) => (
+  <Img
+    src={src}
+    style={{
+      aspectRatio: "1 / 1",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      height: "1.5em",
+      lineHeight: "1",
+      display: "block",
+    }}
+  />
+);
+
 const font_symbols = {
   weapons: {
     "Combat Bow": { symbol: "", name: "Bow" },
@@ -24,7 +38,16 @@ const font_symbols = {
     "Trace Rifle": { symbol: "", name: "Trace Rifle" },
   },
   elements: {
-    Kinetic: { symbol: "", name: "Kinetic" },
+    Kinetic: {
+      symbol: (
+        <ImgIcon
+          src={
+            "https://www.bungie.net/img/destiny_content/damage_types/destiny2/kinetic_trans.png"
+          }
+        />
+      ),
+      name: "Kinetic",
+    },
     Void: { symbol: "", name: "Void" },
     Solar: { symbol: "", name: "Solar" },
     Arc: { symbol: "", name: "Arc" },
@@ -34,18 +57,10 @@ const font_symbols = {
     LostSector: { symbol: "", name: "Lost Sector" },
     Destination: {
       symbol: (
-        <Img
+        <ImgIcon
           src={
             "https://www.bungie.net/common/destiny2_content/icons/c60303e278aa5fc566a04e98c3d8024c.png"
           }
-          style={{
-            aspectRatio: "1 / 1",
-            maxWidth: "96px",
-            maxHeight: "96px",
-            height: "1.5em",
-            lineHeight: "1",
-            display: "block",
-          }}
         />
       ),
       name: "Destination",
@@ -55,54 +70,30 @@ const font_symbols = {
     modifiers: {
       Overload: {
         symbol: (
-          <Img
+          <ImgIcon
             src={
               "https://bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
             }
-            style={{
-              aspectRatio: "1 / 1",
-              maxWidth: "60px",
-              maxHeight: "60px",
-              height: "1.5em",
-              lineHeight: "1",
-              display: "block",
-            }}
           />
         ),
         name: "Overload Champions",
       },
       Unstoppable: {
         symbol: (
-          <Img
+          <ImgIcon
             src={
               "https://bungie.net/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
             }
-            style={{
-              aspectRatio: "1 / 1",
-              maxWidth: "60px",
-              maxHeight: "60px",
-              height: "1.5em",
-              lineHeight: "1",
-              display: "block",
-            }}
           />
         ),
         name: "Unstoppable Champions",
       },
       Barrier: {
         symbol: (
-          <Img
+          <ImgIcon
             src={
               "https://bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
             }
-            style={{
-              aspectRatio: "1 / 1",
-              maxWidth: "60px",
-              maxHeight: "60px",
-              height: "1.5em",
-              lineHeight: "1",
-              display: "block",
-            }}
           />
         ),
         name: "Barrier Champions",
@@ -116,7 +107,14 @@ const font_symbols = {
   },
 };
 
-export const DestinyIcon = ({ icon, onClick, tooltip, sx = [], ...props }) => {
+export const DestinyIcon = ({
+  icon,
+  onClick,
+  tooltip,
+  color,
+  sx = [],
+  ...props
+}) => {
   const theme = useTheme();
 
   try {
@@ -130,7 +128,9 @@ export const DestinyIcon = ({ icon, onClick, tooltip, sx = [], ...props }) => {
         <Box
           component="span"
           color={
-            icon.includes("Arc")
+            color
+              ? color.toLowerCase()
+              : icon.includes("Arc")
               ? "arc"
               : icon.includes("Solar")
               ? "solar"
@@ -151,7 +151,6 @@ export const DestinyIcon = ({ icon, onClick, tooltip, sx = [], ...props }) => {
               width: "max-content",
               height: "min-content",
               display: "inline-block",
-              cursor: "default",
             },
             ...(Array.isArray(sx) ? sx : [sx]),
           ]}

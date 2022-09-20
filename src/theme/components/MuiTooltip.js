@@ -1,3 +1,4 @@
+import { cssRgb } from "../../functions/cssRgb";
 import { fontFamily1 } from "theme/typography";
 
 export const MuiTooltip = {
@@ -16,14 +17,18 @@ export const MuiTooltip = {
     },
   },
   styleOverrides: {
-    tooltip: {
+    tooltip: ({ ownerState }) => ({
       borderRadius: 0,
       backgroundImage: "none",
-      backgroundColor: "rgba(52, 52, 62, 0.9)",
+      backgroundColor: ownerState?.bgcolor
+        ? cssRgb(ownerState?.bgcolor, 0.9)
+        : "rgba(52, 52, 62, 0.9)",
       "@supports (backdrop-filter: blur(16px))": {
         backdropFilter: "blur(16px) saturate(180%)",
         "-webkit-backdrop-filter": "blur(16px) saturate(180%)",
-        backgroundColor: "rgba(52, 52, 62, 0.5)",
+        backgroundColor: ownerState?.tooltipcolor
+          ? cssRgb(ownerState?.tooltipcolor, 0.5)
+          : "rgba(52, 52, 62, 0.5)",
       },
       fontFamily: fontFamily1,
       fontWeight: 600,
@@ -33,6 +38,6 @@ export const MuiTooltip = {
       textTransform: "uppercase",
       overflowWrap: "break-word",
       padding: "0.5em 1em",
-    },
+    }),
   },
 };

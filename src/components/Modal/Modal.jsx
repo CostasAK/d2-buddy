@@ -21,10 +21,13 @@ export default function Modal({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const cloned_trigger_content = useMemo(
+  const trigger_link = useMemo(
     () =>
       isValidElement(triggerContent) ? (
-        cloneElement(triggerContent, { onClick: () => setIsOpen(true) })
+        cloneElement(triggerContent, {
+          onClick: () => setIsOpen(true),
+          as: Link,
+        })
       ) : (
         <Link onClick={() => setIsOpen(true)}>{triggerContent}</Link>
       ),
@@ -35,9 +38,9 @@ export default function Modal({
     <>
       <If condition={tooltip}>
         <Then>
-          <Tooltip {...tooltip}>{cloned_trigger_content}</Tooltip>
+          <Tooltip {...tooltip}>{trigger_link}</Tooltip>
         </Then>
-        <Else>{cloned_trigger_content}</Else>
+        <Else>{trigger_link}</Else>
       </If>
       <Dialog
         onClose={() => setIsOpen(false)}
