@@ -10,6 +10,24 @@ export const MuiCssBaseline = {
       max-width: 100%;
     }
 
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: white rgba(127, 127, 127, 0.5);
+    }
+
+    *::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background-color: rgba(127, 127, 127, 0.5);
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: white;
+    }
+
     body,
     h1,
     h2,
@@ -69,4 +87,13 @@ export const MuiCssBaseline = {
       }
     }
   `,
+  "@global": {
+    "*": {
+      "scrollbar-width": "thin",
+    },
+    "*::-webkit-scrollbar": {
+      width: "4px",
+      height: "4px",
+    },
+  },
 };
