@@ -4,6 +4,16 @@ export const MuiTooltip = {
   defaultProps: {
     title: "",
     followCursor: true,
+    PopperProps: {
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 10],
+          },
+        },
+      ],
+    },
   },
   styleOverrides: {
     tooltip: {
