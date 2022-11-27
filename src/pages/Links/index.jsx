@@ -1,7 +1,7 @@
 import "./style.scss";
 
 import Card from "../../components/Card";
-import Masonry from "../../components/Masonry";
+import Masonry from "@mui/lab/Masonry";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
 const links = [
@@ -58,7 +58,7 @@ export default function Links(props) {
           great.
         </p>
       </div>
-      <Masonry className="links">
+      <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={1}>
         {links.map((link) => (
           <Card
             key={link.title}
