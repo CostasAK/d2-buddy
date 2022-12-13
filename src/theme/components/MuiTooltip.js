@@ -1,5 +1,5 @@
 import { cssRgb } from "../../functions/cssRgb";
-import { fontFamily1 } from "theme/typography";
+import { fontFamily3 } from "theme/typography";
 
 export const MuiTooltip = {
   defaultProps: {
@@ -30,7 +30,7 @@ export const MuiTooltip = {
           ? cssRgb(ownerState?.tooltipcolor, 0.5)
           : "rgba(52, 52, 62, 0.5)",
       },
-      fontFamily: fontFamily1,
+      fontFamily: fontFamily3,
       fontWeight: 600,
       fontSize: "1rem",
       lineHeight: 1.1,
