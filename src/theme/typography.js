@@ -1,6 +1,6 @@
 export const fontFamily1 = [
-  "neue-haas-grotesk-display",
   "neue-haas-grotesk-text",
+  "neue-haas-grotesk-display",
   "helvetica",
   "arial",
   "-apple-system",
@@ -24,14 +24,28 @@ export const fontFamily2 = [
   "segoe ui symbol",
 ].join(",");
 
+export const fontFamily3 = [
+  "neue-haas-grotesk-display",
+  "neue-haas-grotesk-text",
+  "helvetica",
+  "arial",
+  "-apple-system",
+  "blinkmacsystemfont",
+  "sans-serif",
+  "apple color emoji",
+  "segoe ui emoji",
+  "segoe ui symbol",
+].join(",");
+
 export const typography = {
   fontFamily: fontFamily1,
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
+  fontSize: 16,
   h1: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 700,
     fontSize: `${62 / 22}rem`,
     lineHeight: 1.1,
@@ -42,7 +56,7 @@ export const typography = {
   },
   h2: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 600,
     fontSize: `${35 / 22}rem`,
     lineHeight: 1.1,
@@ -53,7 +67,7 @@ export const typography = {
   },
   h3: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 600,
     fontSize: `${36 / 22}rem`,
     lineHeight: 1.1,
@@ -64,7 +78,7 @@ export const typography = {
   },
   h4: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 600,
     fontSize: "1rem",
     lineHeight: 1.1,
@@ -75,7 +89,7 @@ export const typography = {
   },
   h5: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 400,
     fontSize: "1rem",
     lineHeight: 1.1,
@@ -86,7 +100,7 @@ export const typography = {
   },
   h6: {
     color: "white",
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 600,
     fontSize: `${20 / 22}rem`,
     lineHeight: 1.1,
@@ -96,7 +110,7 @@ export const typography = {
     overflowWrap: "break-word",
   },
   subtitle1: {
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 600,
     fontSize: "1rem",
     lineHeight: 1.1,
@@ -106,7 +120,7 @@ export const typography = {
     overflowWrap: "break-word",
   },
   subtitle2: {
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily3,
     fontWeight: 400,
     fontSize: "1rem",
     lineHeight: 1.1,
@@ -131,7 +145,7 @@ export const typography = {
     letterSpacing: "0.01em",
   },
   button: {
-    fontFamily: fontFamily1,
+    fontFamily: fontFamily2,
     fontWeight: 500,
     lineHeight: 1.1,
     letterSpacing: "0.1em",
