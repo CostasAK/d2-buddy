@@ -20,7 +20,7 @@ const routes = [
     component: <Timers />,
   },
   {
-    name: "DIM Search Builder",
+    name: "DIM Search \n Builder",
     component: <DimSearchBuilder />,
   },
   {
@@ -34,6 +34,10 @@ const routes = [
   route.path = (" " + route.name)
     .toLowerCase()
     .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
+  route.name = route.name
+    .split(/\s*\n\s*/)
+    .reduce((previous, current) => [...previous, <br />, current], [])
+    .splice(1);
   return route;
 });
 

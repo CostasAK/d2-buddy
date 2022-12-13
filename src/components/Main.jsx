@@ -25,7 +25,7 @@ export default function Main({ routes }) {
       <Routes>
         {routes.map((route) => (
           <Route
-            key={route.name}
+            key={route.path}
             path={route.path}
             element={<MainInner>{route.component}</MainInner>}
           />
