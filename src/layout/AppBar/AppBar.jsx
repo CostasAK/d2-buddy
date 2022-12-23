@@ -3,6 +3,8 @@ import {
   AppBar as MuiAppBar,
   Slide,
   SvgIcon,
+  Tab,
+  Tabs,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -13,8 +15,8 @@ import { Unless, When } from "react-if";
 import { matchPath, useLocation } from "react-router-dom";
 
 import { BackToTopButton } from "layout/AppBar/BackToTopButton";
+import { Link } from "react-router-dom";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
-import { NavigationTabs } from "layout/AppBar/NavigationTabs";
 import { RefreshButton } from "layout/AppBar/RefreshButton";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
 import useDimensions from "react-cool-dimensions";
@@ -25,8 +27,7 @@ const useRouteMatch = (routes) => {
   for (const route of routes) {
     const possibleMatch = matchPath(route.path, pathname);
 
-    if (possibleMatch)
-      return routes.findIndex((p) => p.path === possibleMatch?.pattern?.path);
+    if (possibleMatch?.pattern?.path) return possibleMatch.pattern.path;
   }
 
   return null;
@@ -88,7 +89,25 @@ export const AppBar = ({ routes }) => {
 
             {/* Navigation Tabs */}
             <When condition={viewportIsBig}>
-              <NavigationTabs routes={routes} currentTab={currentTab} />
+              <Tabs
+                value={currentTab}
+                sx={{
+                  flexGrow: 1,
+                  alignSelf: "stretch",
+                }}
+              >
+                {routes.map((route) => (
+                  <Tab
+                    key={route.path}
+                    label={route.name}
+                    value={route.path}
+                    to={route.path}
+                    component={Link}
+                    wrapped={route.name.length > 1}
+                    sx={{ height: "100%" }}
+                  />
+                ))}
+              </Tabs>
             </When>
 
             {/* Right-hand side buttons */}

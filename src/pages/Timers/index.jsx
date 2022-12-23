@@ -1,7 +1,7 @@
 import "./style.scss";
 
 import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import Button from "../../components/Button";
+import Button from "@mui/material/Button";
 import CurrentNightfall from "./CurrentNightfall";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
@@ -60,7 +60,7 @@ export default function Timers() {
       </div>
       <div className="links">
         {links.map((link) => (
-          <Button key={link.name} href={link.link}>
+          <Button key={link.name} href={link.link} variant="destiny">
             {link.name}
           </Button>
         ))}

@@ -59,15 +59,6 @@ a {
   }
 
   cursor: pointer;
-
-  &:not([class^="Card"]):not([class^="AStyle"]):not(.button):not(.navigation-link):not(.KofiButton) {
-    color: var.$navigation-fg;
-
-    &:hover,
-    &:active {
-      color: #bcbdbf;
-    }
-  }
 }
 
 .simplebar-track {
