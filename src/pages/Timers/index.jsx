@@ -54,7 +54,6 @@ export default function Timers() {
         <RaidRotation />
         {/* Seasonal */}
         <Season />
-        <PsiOpsLegend />
         {/* General Resets */}
         <Resets />
       </div>
