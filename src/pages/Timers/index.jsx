@@ -6,7 +6,6 @@ import CurrentNightfall from "./CurrentNightfall";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
 import LostSectors from "pages/Timers/LostSectors";
-import PsiOpsLegend from "./PsiOpsLegend";
 import RaidRotation from "pages/Timers/RaidRotation";
 import React from "react";
 import Resets from "pages/Timers/Resets";
@@ -54,7 +53,6 @@ export default function Timers() {
         <RaidRotation />
         {/* Seasonal */}
         <Season />
-        <PsiOpsLegend />
         {/* General Resets */}
         <Resets />
       </div>
