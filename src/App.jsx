@@ -1,27 +1,22 @@
 import "./App.scss";
 
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 
 import AppBar from "layout/AppBar";
-import Footer from "./layout/Footer";
+import { HashRouter as Router } from "react-router-dom";
 import Loading from "./components/Loading";
 import Main from "./components/Main";
-import { HashRouter as Router } from "react-router-dom";
 import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
+import Footer from "./layout/Footer";
 
 const Timers = lazy(() => import("./pages/Timers"));
 const Links = lazy(() => import("./pages/Links"));
-const DimSearchBuilder = lazy(() => import("./pages/DimSearchBuilder"));
 
 // Changes to routes should also go in site.webmanifest
 const routes = [
   {
     name: "Timers",
     component: <Timers />,
-  },
-  {
-    name: "DIM Search \n Builder",
-    component: <DimSearchBuilder />,
   },
   {
     name: "Links",
