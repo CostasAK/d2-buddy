@@ -135,6 +135,7 @@ export const typography = {
     fontSize: "1rem",
     lineHeight: 1.5,
     letterSpacing: "0.1em",
+    textTransform: "none",
   },
   body2: {
     fontFamily: fontFamily1,
@@ -143,12 +144,14 @@ export const typography = {
     fontSize: "1rem",
     lineHeight: 1.5,
     letterSpacing: "0.01em",
+    textTransform: "none",
   },
   button: {
-    fontFamily: fontFamily2,
+    fontFamily: fontFamily3,
     fontWeight: 500,
     lineHeight: 1.1,
     letterSpacing: "0.1em",
+    textTransform: "none",
   },
   caption: {
     fontFamily: fontFamily1,

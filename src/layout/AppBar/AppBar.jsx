@@ -1,6 +1,6 @@
 import {
-  Box,
   AppBar as MuiAppBar,
+  Box,
   Slide,
   SvgIcon,
   Tab,
@@ -14,12 +14,12 @@ import {
 import { Unless, When } from "react-if";
 import { matchPath, useLocation } from "react-router-dom";
 
+import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
 import { BackToTopButton } from "layout/AppBar/BackToTopButton";
-import { Link } from "react-router-dom";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import { RefreshButton } from "layout/AppBar/RefreshButton";
-import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
 import useDimensions from "react-cool-dimensions";
+import { Link } from "react-router-dom";
 
 const useRouteMatch = (routes) => {
   const { pathname } = useLocation();
@@ -104,7 +104,7 @@ export const AppBar = ({ routes }) => {
                     to={route.path}
                     component={Link}
                     wrapped={route.name.length > 1}
-                    sx={{ height: "100%" }}
+                    sx={{ height: "100%", textTransform: "uppercase" }}
                   />
                 ))}
               </Tabs>

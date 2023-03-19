@@ -1,8 +1,8 @@
 export const transitions = {
   duration: {
-    shortest: 125,
-    shorter: 165,
-    short: 210,
-    standard: 250,
+    shortest: "0.125s",
+    shorter: "0.165s",
+    short: "0.21s",
+    standard: "0.25s",
   },
 };
