@@ -54,6 +54,7 @@ export const MuiButton = {
     {
       props: { variant: "triumph" },
       style: {
+        textAlign: "left",
         "--card-content-opacity": 0.9,
         position: "relative",
         border:
@@ -82,6 +83,11 @@ export const MuiButton = {
         "*": {
           pointerEvents: "none",
         },
+        ">*": {
+          opacity: "var(--card-content-opacity)",
+          transitionDuration: baseTheme.transitions.duration.standard,
+          transitionProperty: "opacity",
+        },
         "&::after": {
           content: "''",
           position: "absolute",
@@ -92,6 +98,7 @@ export const MuiButton = {
         },
         "&:hover,&:active": {
           "--card-content-opacity": 1,
+          color: baseTheme.palette.text.primary,
           background: "none",
           borderColor: baseTheme.palette.text.primary,
           "&::before": {
