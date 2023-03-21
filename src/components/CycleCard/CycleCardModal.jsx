@@ -1,36 +1,62 @@
-import { CurrentItem, UpcomingItems } from "./CycleCardModalStyle";
+import { Box, Typography } from "@mui/material";
 
-import { TimerCardCountdown } from "../TimerCard";
 import { getPeriodString } from "../../functions/getPeriodString";
+import { TimerCardCountdown } from "../TimerCard";
 
 export const CycleCardModal = ({ items, nextCycle, currentItem, period }) => (
   <>
-    <p>Period: {getPeriodString(period)}</p>
-    <CurrentItem>
-      {items[currentItem]}
+    <Typography>Period: {getPeriodString(period)}</Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexFlow: "column",
+        justifyContent: "flex-start",
+        alignItems: "safe center",
+        textAlign: "center",
+        margin: "auto",
+        marginTop: 2,
+      }}
+    >
+      <Typography>{items[currentItem]}</Typography>
       <TimerCardCountdown prefix="Cycles" timestamp={nextCycle} />
-    </CurrentItem>
+    </Box>
     {items.length > 1 && (
-      <UpcomingItems>
-        <h3>Upcoming</h3>
+      <Box
+        sx={{
+          display: "flex",
+          flexFlow: "column",
+          justifyContent: "flex-start",
+          alignItems: "safe center",
+          textAlign: "center",
+          margin: "auto",
+          marginTop: 1,
+          gap: 2,
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{ margin: "auto", marginTop: 2, order: -1 }}
+        >
+          Upcoming
+        </Typography>
         {items.map((item, index) => {
           const shifted_index =
             (index - currentItem + items.length - 1) % items.length;
           return (
-            <section
+            <Box
               key={index}
               style={{
                 order: shifted_index,
               }}
             >
-              {item}
+              <Typography>{item}</Typography>
               <TimerCardCountdown
                 timestamp={nextCycle + shifted_index * period}
               />
-            </section>
+            </Box>
           );
         })}
-      </UpcomingItems>
+      </Box>
     )}
   </>
 );
