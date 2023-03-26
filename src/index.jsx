@@ -2,15 +2,13 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import App from "./App";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { StrictMode } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components/macro";
-import { createRoot } from "react-dom/client";
-import { queryClient } from "./queryClient";
-import { theme as styledTheme } from "./style/theme";
 import { theme } from "theme";
+import App from "./App";
+import { queryClient } from "./queryClient";
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -22,9 +20,7 @@ createRoot(document.getElementById("root")).render(
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
       <QueryClientProvider client={queryClient}>
-        <StyledThemeProvider theme={styledTheme}>
-          <App />
-        </StyledThemeProvider>
+        <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ThemeProvider>

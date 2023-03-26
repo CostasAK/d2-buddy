@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
-import Page from "layout/Page";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
 import LostSectors from "pages/Timers/LostSectors";
@@ -39,7 +38,7 @@ export default function Timers() {
   }, [now]);
 
   return (
-    <Page title="Timers">
+    <>
       <Box
         sx={{
           display: "flex",
@@ -84,6 +83,6 @@ export default function Timers() {
           </Button>
         ))}
       </Box>
-    </Page>
+    </>
   );
 }

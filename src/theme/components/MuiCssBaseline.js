@@ -33,15 +33,14 @@ export const MuiCssBaseline = {
       text-rendering: optimizeLegibility;
       hyphen: auto;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      hyphens: auto;
     }
 
-    #root {
-      height: 100vh;
-      height: var(--vh);
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr auto;
-      align-items: stretch;
+    p {
+      max-width: min(100%, 75ch);
+      hyphenate-limit-chars: 6 3 2;
     }
 
     img,

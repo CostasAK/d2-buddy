@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-import A from "components/A";
-import { ReactComponent as Avatar } from "assets/initialen.svg";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { ReactComponent as Avatar } from "assets/initialen.svg";
+import A from "components/A";
 import { KofiButton } from "react-kofi-button";
 import { fontFamily2 } from "theme/typography";
 
@@ -23,6 +23,7 @@ export default function Footer() {
       flexWrap="wrap"
       rowGap="0.5em"
       columnGap="3em"
+      zIndex={1}
     >
       <Box
         width="max-content"

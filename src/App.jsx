@@ -1,11 +1,17 @@
-import "./App.scss";
-
 import { lazy, Suspense } from "react";
+import {
+  HashRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 
+import { Box } from "@mui/material";
 import AppBar from "layout/AppBar";
-import { HashRouter as Router } from "react-router-dom";
+import { BackToTopButton } from "layout/AppBar/BackToTopButton";
+import Background from "layout/Background";
+import Page from "layout/Page";
 import Loading from "./components/Loading";
-import Main from "./components/Main";
 import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 import Footer from "./layout/Footer";
 
@@ -42,14 +48,37 @@ export default function App() {
   useDailyResetRefetch();
 
   return (
-    <>
+    <Box
+      sx={{
+        height: "100vh",
+        display: "grid",
+        gridTemplateColumns: "1fr",
+        gridTemplateRows: "auto 1fr auto",
+        alignItems: "stretch",
+      }}
+    >
       <Router>
+        <Background />
         <AppBar routes={routes} />
 
-        <Main routes={routes} />
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <Page title={route.name} description={route.description}>
+                  {route.component}
+                </Page>
+              }
+            />
+          ))}
+          <Route path="*" element={<Navigate to="Timers" replace />} />
+        </Routes>
       </Router>
 
       <Footer />
-    </>
+      <BackToTopButton />
+    </Box>
   );
 }

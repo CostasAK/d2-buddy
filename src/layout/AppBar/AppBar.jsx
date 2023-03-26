@@ -15,7 +15,6 @@ import { Unless, When } from "react-if";
 import { matchPath, useLocation } from "react-router-dom";
 
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
-import { BackToTopButton } from "layout/AppBar/BackToTopButton";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import { RefreshButton } from "layout/AppBar/RefreshButton";
 import useDimensions from "react-cool-dimensions";
@@ -117,7 +116,6 @@ export const AppBar = ({ routes }) => {
           </Toolbar>
         </MuiAppBar>
       </Slide>
-      <BackToTopButton />
     </>
   );
 };

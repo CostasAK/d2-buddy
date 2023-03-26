@@ -4,7 +4,7 @@ const { Box, Typography } = require("@mui/material");
 
 export const Page = ({ title, description, children }) => {
   return (
-    <Box>
+    <Box as="main" id="main" sx={{ paddingInline: 2, paddingBlock: 4 }}>
       <When condition={!!title || !!description}>
         <Box sx={{ alignSelf: "flex-start", marginBottom: 4 }}>
           <When condition={!!title}>

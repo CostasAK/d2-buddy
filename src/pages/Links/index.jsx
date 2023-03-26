@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import Page from "layout/Page";
 import Card from "../../components/Card";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
@@ -49,31 +48,26 @@ const links = [
 
 export default function Links(props) {
   return (
-    <Page
-      title="Links"
-      description="I have no affiliation with the sites listed. I just think they're great."
+    <Box
+      sx={{
+        display: "grid",
+        rowGap: "7px",
+        columnGap: "6px",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 45ch), 1fr))",
+      }}
     >
-      <Box
-        sx={{
-          display: "grid",
-          rowGap: "7px",
-          columnGap: "6px",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 45ch), 1fr))",
-        }}
-      >
-        {links.map((link) => (
-          <Card
-            key={link.title}
-            link={link.link}
-            icon={link.logo}
-            title={link.title}
-            className="link"
-            floatIcon
-          >
-            {link.description}
-          </Card>
-        ))}
-      </Box>
-    </Page>
+      {links.map((link) => (
+        <Card
+          key={link.title}
+          link={link.link}
+          icon={link.logo}
+          title={link.title}
+          className="link"
+          floatIcon
+        >
+          {link.description}
+        </Card>
+      ))}
+    </Box>
   );
 }
