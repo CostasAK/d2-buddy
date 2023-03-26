@@ -74,6 +74,7 @@ export default function Timers() {
           alignItems: "stretch",
           justifyContent: "safe center",
           marginInline: "auto",
+          marginTop: 4,
           gap: 2,
         }}
       >
