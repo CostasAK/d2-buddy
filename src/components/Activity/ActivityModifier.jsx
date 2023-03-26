@@ -1,21 +1,20 @@
-import "./ActivityModifier.scss";
+import { Box, Typography } from "@mui/material";
 
-import Img from "../Img";
 import { PropTypes } from "prop-types";
-import classNames from "classnames";
 import { forwardRef } from "react";
+import Img from "../Img";
 
 export const ActivityModifier = forwardRef(({ data }, ref) => {
   const name = data?.displayProperties?.name;
   const icon = data?.displayProperties?.icon;
 
   const description = data?.displayProperties?.description ? (
-    <p>
+    <Typography variant="body1">
       {data?.displayProperties?.description
         .replace(/(?:[\s.,]*\n+[\s.,]*)+/g, "; ")
         .replace(/(\[Disruption|Stagger\])/g, "|$1|")
         .split("|")}
-    </p>
+    </Typography>
   ) : null;
 
   if (!(icon && name)) {
@@ -27,34 +26,50 @@ export const ActivityModifier = forwardRef(({ data }, ref) => {
     { class: "solar", pattern: /solar/i },
     { class: "void", pattern: /void/i },
     { class: "stasis", pattern: /stasis/i },
+    { class: "strand", pattern: /strand/i },
   ];
 
   return (
-    <section ref={ref} className="activity-modifier">
+    <Box
+      ref={ref}
+      sx={{
+        display: "flex",
+        flexFlow: "row",
+        textAlign: "left",
+        gap: "0.5em",
+        width: "fit-content",
+      }}
+    >
       <Img
-        className={classNames(
-          "icon",
-          known_elements
-            .filter((element) => element.pattern.test(name))
-            .map((element) => element.class)
-        )}
         src={icon}
         title={name}
+        sx={{
+          margin: "0.25em 0",
+          height: "2.5em",
+          width: "auto",
+          maxWidth: "60px",
+          maxHeight: "60px",
+        }}
       />
-      <div className="description">
-        <h6
-          className={classNames(
-            "heading",
-            known_elements
-              .filter((element) => element.pattern.test(name))
-              .map((element) => element.class)
-          )}
+      <Box
+        sx={{
+          display: "flex",
+          flexFlow: "column",
+          alignItems: "flexStart",
+          height: "max-content",
+        }}
+      >
+        <Typography
+          variant="h6"
+          color={known_elements
+            .filter((element) => element.pattern.test(name))
+            .map((element) => element.class)}
         >
           {name}
-        </h6>
-        {description}
-      </div>
-    </section>
+        </Typography>
+        <Typography variant="body1">{description}</Typography>
+      </Box>
+    </Box>
   );
 });
 

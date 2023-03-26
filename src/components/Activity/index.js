@@ -6,6 +6,7 @@ import { ActivityHeader } from "./ActivityHeader";
 import { ActivityModifier } from "./ActivityModifier";
 import { ActivityModifiers } from "./ActivityModifiers";
 import { ActivityShields } from "./ActivityShields";
+import { LostSector } from "./LostSector";
 
 export default Activity;
 
@@ -17,4 +18,5 @@ export {
   ActivityChampions,
   ActivityShields,
   ActivityDifficulty,
+  LostSector,
 };

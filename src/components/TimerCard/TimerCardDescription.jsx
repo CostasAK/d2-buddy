@@ -1,6 +1,6 @@
-import { StyledDescription } from "./TimerCardDescriptionStyle";
-import { TimerCardCountdown } from "./TimerCardCountdown";
+import { Typography } from "@mui/material";
 import { getPeriodString } from "../../functions/getPeriodString";
+import { TimerCardCountdown } from "./TimerCardCountdown";
 
 export const TimerCardDescription = ({ start, end, period, description }) => {
   return (
@@ -14,7 +14,9 @@ export const TimerCardDescription = ({ start, end, period, description }) => {
         timestamp={end}
       />
       {getPeriodString(period) && <p>Period: {getPeriodString(period)}</p>}
-      {description && <StyledDescription>{description}</StyledDescription>}
+      {description && (
+        <Typography sx={{ marginTop: 2 }}>{description}</Typography>
+      )}
     </>
   );
 };

@@ -19,12 +19,12 @@ jobs:
           cache: "npm"
       - name: "Clean Install"
         run: npm ci
-      - name: "Stylelint"
-        run: npx stylelint "public/**/*.{css,scss}" "src/**/*.{css,scss}"
       - name: "Run Tests"
         run: npm test
       - name: "Build"
         run: npm run build
+        env:
+          REACT_APP_BUNGIE_API_KEY: ${{ secrets.PROD_BUNGIE_API_KEY }}
       - name: "Cloudflare Config"
         run: cp ./.cloudflare/* ./build/
       - name: Publish
@@ -37,12 +37,3 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: "Clean"
         run: npm run clean
-      - name: "No Jekyll"
-        run: touch ./public/.nojekyll
-      - name: "GH Pages Deploy"
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLIC_URL: https://costasak.github.io/d2-buddy

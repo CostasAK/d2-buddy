@@ -1,17 +1,16 @@
-import "./style.scss";
-
-import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import Button from "../../components/Button";
-import CurrentNightfall from "./CurrentNightfall";
+import { Box } from "@mui/material";
+import Button from "@mui/material/Button";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
 import LostSectors from "pages/Timers/LostSectors";
 import RaidRotation from "pages/Timers/RaidRotation";
-import React from "react";
 import Resets from "pages/Timers/Resets";
+import React from "react";
+import { hour } from "../../constants/time";
+import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
+import CurrentNightfall from "./CurrentNightfall";
 import Season from "./Season";
 import WellspringWeapons from "./WellspringWeapons";
-import { hour } from "../../constants/time";
 
 const links = [
   {
@@ -39,9 +38,20 @@ export default function Timers() {
   }, [now]);
 
   return (
-    <div className="timers-wrapper">
-      <h1>Timers</h1>
-      <div className="timers">
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          flexFlow: "row wrap",
+          alignItems: "stretch",
+          justifyContent: "flex-start",
+          rowGap: "7px",
+          columnGap: "6px",
+          "> *": {
+            flex: "1 1 auto",
+          },
+        }}
+      >
         <Events />
         {/* Loot Drops */}
         <CurrentNightfall />
@@ -55,14 +65,24 @@ export default function Timers() {
         <Season />
         {/* General Resets */}
         <Resets />
-      </div>
-      <div className="links">
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexFlow: "row wrap",
+          alignItems: "stretch",
+          justifyContent: "safe center",
+          marginInline: "auto",
+          marginTop: 4,
+          gap: 2,
+        }}
+      >
         {links.map((link) => (
-          <Button key={link.name} href={link.link}>
+          <Button key={link.name} href={link.link} variant="destiny">
             {link.name}
           </Button>
         ))}
-      </div>
-    </div>
+      </Box>
+    </>
   );
 }

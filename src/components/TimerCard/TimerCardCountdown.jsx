@@ -1,7 +1,8 @@
+import { forwardRef, useEffect, useState } from "react";
 import { day, second } from "../../constants/time";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
-import { forwardRef, useEffect, useState } from "react";
 
+import { Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
@@ -45,7 +46,7 @@ export const TimerCardCountdown = forwardRef(
     }
 
     return (
-      <p ref={ref} className={className}>
+      <Typography ref={ref}>
         {capitalizeSentence(
           `${
             prefix
@@ -59,7 +60,7 @@ export const TimerCardCountdown = forwardRef(
               : ""
           }${countdown ? `${countdown}, ` : ""}${absolute_time_string}`
         )}
-      </p>
+      </Typography>
     );
   }
 );

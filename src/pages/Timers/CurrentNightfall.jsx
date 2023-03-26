@@ -8,7 +8,10 @@ import { week } from "../../constants/time";
 export default function CurrentNightfall() {
   const milestone = useQuery("Milestones");
 
-  const activities = milestone?.data?.[1942283261]?.activities || [];
+  const activities =
+    milestone?.data?.[1942283261]?.activities?.filter(
+      (activity) => activity?.activityHash !== 743628305
+    ) || [];
 
   const nightfalls = useQueries(
     activities.map((activity) => ({
@@ -34,6 +37,8 @@ export default function CurrentNightfall() {
       items={[
         <Modal
           triggerContent={nightfalls[0].data.displayProperties.description}
+          maxWidth={false}
+          width="xl"
         >
           <Activity dataArray={nightfalls} />
         </Modal>,

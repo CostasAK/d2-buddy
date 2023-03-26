@@ -1,9 +1,8 @@
-import "./ActivityChampions.scss";
+import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 
-import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
-import Tooltip from "../Tooltip";
 import { forwardRef } from "react";
+import DestinyIcon from "../DestinyIcon";
 
 const known_types = [
   { class: "Overload", pattern: /Disruption|Overload/i },
@@ -13,6 +12,8 @@ const known_types = [
 
 export const ActivityChampions = forwardRef(
   ({ champions, known_champions }, ref) => {
+    const theme = useTheme();
+
     if (!champions || champions.length < 1) {
       return null;
     }
@@ -28,28 +29,63 @@ export const ActivityChampions = forwardRef(
     );
 
     return (
-      <section ref={ref} className="activity-champions">
-        <h5 className="heading">Champions</h5>
-        <div className="champions">
+      <Box ref={ref}>
+        <Typography
+          variant="h5"
+          sx={{
+            textAlign: "left",
+            justifyContent: "flex-start",
+            borderBottom: "1pt solid rgb(255 255 255 / 50%)",
+          }}
+        >
+          Champions
+        </Typography>
+        <Typography
+          variant="bigNumber"
+          sx={{ display: "flex", flexFlow: "row wrap", gap: 2 }}
+        >
           {[...parsed_champions].map((champion, index) => (
-            <Tooltip key={index} contents={`${champion} Champions`}>
-              <div className={"champion " + champion} key={index}>
+            <Tooltip key={index} title={`${champion} Champions`}>
+              <Box
+                key={index}
+                sx={{
+                  display: "grid",
+                  justifyItems: "flex-end",
+                  alignItems: "flex-end",
+                  "> *": { gridColumnStart: 1, gridRowStart: 1 },
+                }}
+              >
                 <DestinyIcon
                   icon={["champions", "modifiers", champion]}
+                  sx={{
+                    zIndex: 0,
+                    fontSize: "1.5em",
+                    height: "1.5em",
+                    display: "flex",
+                    justifyContent: "safe center",
+                    alignItems: "safe center",
+                    "> img": { margin: "0.01em" },
+                  }}
                   style={{
                     filter: `brightness(${known_champions[champion] && "75%"})`,
                   }}
                 />
                 {known_champions[champion] > 0 && (
-                  <span className="champion-amount">
+                  <Typography
+                    variant="bigNumber"
+                    sx={{
+                      zIndex: 1,
+                      textShadow: `1px 1px 0.25em ${theme.palette.background.default}, 1px -1px 0.25em ${theme.palette.background.default}, -1px 1px 0.25em ${theme.palette.background.default}, -1px -1px 0.25em ${theme.palette.background.default}`,
+                    }}
+                  >
                     {known_champions[champion]}
-                  </span>
+                  </Typography>
                 )}
-              </div>
+              </Box>
             </Tooltip>
           ))}
-        </div>
-      </section>
+        </Typography>
+      </Box>
     );
   }
 );
