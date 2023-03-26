@@ -1,4 +1,4 @@
-import Masonry from "@mui/lab/Masonry";
+import { Box } from "@mui/material";
 import Page from "layout/Page";
 import Card from "../../components/Card";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
@@ -53,7 +53,14 @@ export default function Links(props) {
       title="Links"
       description="I have no affiliation with the sites listed. I just think they're great."
     >
-      <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={2}>
+      <Box
+        sx={{
+          display: "grid",
+          rowGap: "7px",
+          columnGap: "6px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 45ch), 1fr))",
+        }}
+      >
         {links.map((link) => (
           <Card
             key={link.title}
@@ -66,7 +73,7 @@ export default function Links(props) {
             {link.description}
           </Card>
         ))}
-      </Masonry>
+      </Box>
     </Page>
   );
 }
