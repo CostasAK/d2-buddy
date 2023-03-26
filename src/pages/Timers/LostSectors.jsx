@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useMemo } from "react";
 import { useQuery } from "react-query";
 import { LostSector } from "../../components/Activity/LostSector";
@@ -9,9 +10,9 @@ function LostSectorLink({ location }) {
   return (
     <Modal
       triggerContent={
-        <span className="a-link">
+        <Typography sx={{ cursor: "pointer" }}>
           {location.name} - {location.location}
-        </span>
+        </Typography>
       }
       maxWidth={false}
       width="xl"

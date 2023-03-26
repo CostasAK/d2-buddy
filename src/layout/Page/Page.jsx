@@ -1,10 +1,15 @@
 import { When } from "react-if";
 
-const { Box, Typography } = require("@mui/material");
+const { Box, Typography, Container } = require("@mui/material");
 
 export const Page = ({ title, description, children }) => {
   return (
-    <Box as="main" id="main" sx={{ paddingInline: 2, paddingBlock: 4 }}>
+    <Container
+      as="main"
+      id="main"
+      maxWidth="xl"
+      sx={{ paddingInline: 2, paddingBlock: 4 }}
+    >
       <When condition={!!title || !!description}>
         <Box sx={{ alignSelf: "flex-start", marginBottom: 4 }}>
           <When condition={!!title}>
@@ -16,6 +21,6 @@ export const Page = ({ title, description, children }) => {
         </Box>
       </When>
       {children}
-    </Box>
+    </Container>
   );
 };
