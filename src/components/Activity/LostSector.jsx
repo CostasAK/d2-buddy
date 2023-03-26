@@ -1,15 +1,14 @@
-import "./LostSector.scss";
-
+import { Box, Typography } from "@mui/material";
 import { useQueries, useQuery } from "react-query";
 
-import Activity from "./Activity";
-import Loading from "./Loading";
-import { PropTypes } from "prop-types";
 import { useActivityMode } from "hooks/useActivityMode";
+import { PropTypes } from "prop-types";
+import Activity from ".";
+import Loading from "../Loading";
 
 const activity_type = "DestinyActivityDefinition";
 
-export default function LostSector({ name }) {
+export function LostSector({ name }) {
   const {
     data: search_data,
     error: search_error,
@@ -38,9 +37,9 @@ export default function LostSector({ name }) {
     activityModeIsLoading
   ) {
     return (
-      <article className="lost-sector">
+      <Box sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
         <Loading size="page" fadeIn="none" />
-      </article>
+      </Box>
     );
   }
 
@@ -49,9 +48,14 @@ export default function LostSector({ name }) {
     lost_sectors.map((sector) => sector.error && console.error(sector.error));
 
     return (
-      <article className="lost-sector">
-        <h2 className="error">Can't find Lost Sector info...</h2>
-      </article>
+      <Box sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
+        <Typography
+          variant="h2"
+          sx={{ margin: 4, display: "flex", flexFlow: "row wrap", gap: 2 }}
+        >
+          Can't find Lost Sector info...
+        </Typography>
+      </Box>
     );
   }
 
@@ -72,9 +76,14 @@ export default function LostSector({ name }) {
 
   if (filtered_sectors.length === 0) {
     return (
-      <article className="lost-sector">
-        <h2 className="error">Can't find Lost Sector info...</h2>
-      </article>
+      <Box sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
+        <Typography
+          variant="h2"
+          sx={{ margin: 4, display: "flex", flexFlow: "row wrap", gap: 2 }}
+        >
+          Can't find Lost Sector info...
+        </Typography>
+      </Box>
     );
   }
 

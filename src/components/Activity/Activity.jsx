@@ -22,11 +22,9 @@ export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
     if (!activities.every((activity) => activity.isSuccess)) {
       if (activities.some((activity) => activity.isLoading))
         return (
-          <>
-            <Box ref={ref} sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
-              <Loading size="page" fadeIn="none" />
-            </Box>
-          </>
+          <Box ref={ref} sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
+            <Loading size="page" fadeIn="none" />
+          </Box>
         );
 
       activities

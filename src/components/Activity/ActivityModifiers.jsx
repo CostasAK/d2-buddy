@@ -65,8 +65,6 @@ export const ActivityModifiers = forwardRef(({ data }, ref) => {
         justifyContent: "space-between",
         alignItems: "flex-start",
         gap: 2,
-        margin: 2,
-        marginTop: 0,
         "> *": { flex: "1 1 auto" },
       }}
     >
