@@ -1,7 +1,7 @@
-import { CardModalText } from "./CardModalStyle";
-import Modal from "../Modal";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
+import Modal from "../Modal";
 
 export const CardModal = forwardRef(
   ({ children, modalContent, customModal, title, icon, ...props }, ref) => {
@@ -12,9 +12,9 @@ export const CardModal = forwardRef(
         {customModal ? (
           modalContent
         ) : (
-          <CardModalText ref={ref} {...props}>
+          <Box ref={ref} {...props}>
             <section>{modalContent}</section>
-          </CardModalText>
+          </Box>
         )}
       </Modal>
     );
