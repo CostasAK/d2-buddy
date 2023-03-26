@@ -20,6 +20,8 @@ const routes = [
   },
   {
     name: "Links",
+    description:
+      "I have no affiliation with the sites listed. I just think they're great.",
     component: <Links />,
   },
 ].map((route) => {

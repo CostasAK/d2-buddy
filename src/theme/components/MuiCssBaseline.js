@@ -6,10 +6,6 @@ export const MuiCssBaseline = {
       font-display: swap;
     }
 
-    *, ::before, ::after {
-      max-width: 100%;
-    }
-
     * {
       scrollbar-width: thin;
       scrollbar-color: white rgba(127, 127, 127, 0.5);
@@ -26,21 +22,6 @@ export const MuiCssBaseline = {
 
     *::-webkit-scrollbar-thumb {
       background-color: white;
-    }
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    figure,
-    blockquote,
-    dl,
-    dd {
-      margin: 0;
     }
 
     html:focus-within {
