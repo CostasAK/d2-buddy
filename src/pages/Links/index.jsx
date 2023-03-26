@@ -1,7 +1,8 @@
 import "./style.scss";
 
-import Card from "../../components/Card";
 import Masonry from "@mui/lab/Masonry";
+import Page from "layout/Page";
+import Card from "../../components/Card";
 import blueberries_logo from "./assets/blueberries.gg.jpg";
 
 const links = [
@@ -50,14 +51,11 @@ const links = [
 
 export default function Links(props) {
   return (
-    <div className="links-page">
-      <div>
-        <h1>Links</h1>
-        <p className="description">
-          I have no affiliation with the sites listed. I just think they're
-          great.
-        </p>
-      </div>
+    <Page
+      title="Links"
+      description="I have no affiliation with the sites listed. I just think they're
+          great."
+    >
       <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={1}>
         {links.map((link) => (
           <Card
@@ -72,6 +70,6 @@ export default function Links(props) {
           </Card>
         ))}
       </Masonry>
-    </div>
+    </Page>
   );
 }

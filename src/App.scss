@@ -15,30 +15,6 @@
   font-family: var.$primary-font-stack;
 }
 
-h1 {
-  @include mixin.header-subscreen;
-}
-
-h2 {
-  @include mixin.header-tracked;
-}
-
-h3 {
-  @include mixin.header-tooltip;
-}
-
-h4 {
-  @include mixin.text-bold-subtitle;
-}
-
-h5 {
-  @include mixin.text-subtitle;
-}
-
-h6 {
-  @include mixin.header;
-}
-
 p {
   max-width: min(100%, 75ch);
   hyphenate-limit-chars: 6 3 2;
