@@ -167,4 +167,10 @@ export const typography = {
     textTransform: "uppercase",
     lineHeight: 1.1,
   },
+  bigNumber: {
+    fontFamily: fontFamily3,
+    fontSize: "2.18rem",
+    fontWeight: 700,
+    letterSpacing: "0.01em",
+  },
 };

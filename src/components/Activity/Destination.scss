@@ -1,7 +1,0 @@
-@use "../../sass/mixins" as mixin;
-
-.destination {
-  @include mixin.flex-row-wrap;
-
-  gap: 0.5em;
-}

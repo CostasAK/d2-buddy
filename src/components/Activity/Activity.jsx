@@ -1,12 +1,10 @@
-import "./style.scss";
-
+import { forwardRef, Fragment } from "react";
 import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
-import { Fragment, forwardRef } from "react";
 
-import Loading from "../Loading";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { useQueries } from "react-query";
+import Loading from "../Loading";
 
 export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
   const ids = id ? [].concat(id) : [];
@@ -25,9 +23,9 @@ export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
       if (activities.some((activity) => activity.isLoading))
         return (
           <>
-            <article ref={ref} className="activity">
+            <Box ref={ref} sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
               <Loading size="page" fadeIn="none" />
-            </article>
+            </Box>
           </>
         );
 
@@ -47,7 +45,7 @@ export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
   activities.sort((a, b) => a?.activityLightLevel - b?.activityLightLevel);
 
   return (
-    <article ref={ref} className={classNames("activity", "success")}>
+    <Box ref={ref} sx={{ display: "flex", flexFlow: "column", gap: 2 }}>
       <ActivityHeader data={activities[0]} name={name} />
       {activities.map((activity, index) => (
         <Fragment key={index}>
@@ -55,7 +53,7 @@ export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
           <ActivityModifiers data={activity} />
         </Fragment>
       ))}
-    </article>
+    </Box>
   );
 });
 

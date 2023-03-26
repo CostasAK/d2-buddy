@@ -5,8 +5,8 @@ import {
   Link,
   Tooltip,
 } from "@mui/material";
-import { Else, If, Then, When } from "react-if";
 import { cloneElement, isValidElement, useMemo, useState } from "react";
+import { Else, If, Then, When } from "react-if";
 
 import Img from "components/Img";
 import { PropTypes } from "prop-types";
@@ -18,6 +18,7 @@ export default function Modal({
   background,
   filled,
   children,
+  ...props
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +48,7 @@ export default function Modal({
         open={isOpen}
         fullWidth={false}
         maxWidth="sm"
+        {...props}
       >
         <When condition={background}>
           <Img

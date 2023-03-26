@@ -37,6 +37,8 @@ export default function CurrentNightfall() {
       items={[
         <Modal
           triggerContent={nightfalls[0].data.displayProperties.description}
+          maxWidth={false}
+          width="xl"
         >
           <Activity dataArray={nightfalls} />
         </Modal>,

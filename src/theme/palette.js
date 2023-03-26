@@ -28,7 +28,10 @@ export const palette = {
   solar: "#f46d25",
   void: "#986eb4",
   stasis: "#406ad4",
+  strand: "#38da65",
   grandmaster: "#623235",
-  legendary: "hsl(274, 33%, 29%)",
-  exotic: "hsl(47, 60%, 50%)",
+  common: { main: "#356e41" },
+  rare: { main: "#5176a4" },
+  legendary: { main: "hsl(274, 33%, 29%)" },
+  exotic: { main: "hsl(47, 60%, 50%)", dark: "hsl(43deg 58% 39%)" },
 };

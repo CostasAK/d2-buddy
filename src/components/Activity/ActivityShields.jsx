@@ -1,9 +1,8 @@
-import "./ActivityShields.scss";
+import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 
-import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
-import { Tooltip } from "@mui/material";
 import { forwardRef } from "react";
+import DestinyIcon from "../DestinyIcon";
 
 const known_elements = [
   { name: "Arc", pattern: /arc/i },
@@ -13,6 +12,8 @@ const known_elements = [
 ];
 
 export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
+  const theme = useTheme();
+
   if (!shields || shields.length < 1) {
     return null;
   }
@@ -28,21 +29,50 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
   );
 
   return (
-    <section ref={ref} className="activity-shields">
-      <h5 className="heading">Shields</h5>
-      <div className="shields">
+    <Box ref={ref}>
+      <Typography
+        variant="h5"
+        sx={{
+          textAlign: "left",
+          justifyContent: "flex-start",
+          borderBottom: "1pt solid rgb(255 255 255 / 50%)",
+        }}
+      >
+        Shields
+      </Typography>
+      <Box sx={{ display: "flex", flexFlow: "row wrap", gap: 2 }}>
         {[...parsed_shields].map((shield, index) => (
           <Tooltip title={`${shield} Shields`} key={index}>
-            <div className="shield" key={index}>
-              <DestinyIcon icon={["elements", shield]} color={shield} />
+            <Box
+              key={index}
+              sx={{
+                display: "grid",
+                justifyItems: "flex-end",
+                alignItems: "flex-end",
+                "> *": { gridColumnStart: 1, gridRowStart: 1 },
+              }}
+            >
+              <DestinyIcon
+                icon={["elements", shield]}
+                color={shield}
+                sx={{ zIndex: 0, fontSize: "1.5em" }}
+              />
               {known_shields[shield] > 0 && (
-                <span className="shield-amount">{known_shields[shield]}</span>
+                <Typography
+                  variant="bigNumber"
+                  sx={{
+                    zIndex: 1,
+                    textShadow: `1px 1px 0.25em ${theme.palette.background.default}, 1px -1px 0.25em ${theme.palette.background.default}, -1px 1px 0.25em ${theme.palette.background.default}, -1px -1px 0.25em ${theme.palette.background.default}`,
+                  }}
+                >
+                  {known_shields[shield]}
+                </Typography>
               )}
-            </div>
+            </Box>
           </Tooltip>
         ))}
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 });
 

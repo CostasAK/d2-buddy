@@ -1,12 +1,11 @@
-import "./ActivityModifiers.scss";
-
+import { Box, Typography } from "@mui/material";
 import { ActivityChampions, ActivityModifier, ActivityShields } from ".";
 
-import Loading from "../Loading";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
-import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
 import { useQueries } from "react-query";
+import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
+import Loading from "../Loading";
 
 export const ActivityModifiers = forwardRef(({ data }, ref) => {
   const modifiers = useQueries(
@@ -58,7 +57,19 @@ export const ActivityModifiers = forwardRef(({ data }, ref) => {
   );
 
   return (
-    <section ref={ref} className="activity-modifiers">
+    <Box
+      ref={ref}
+      sx={{
+        display: "flex",
+        flexFlow: "row wrap",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        gap: 2,
+        margin: 2,
+        marginTop: 0,
+        "> *": { flex: "1 1 auto" },
+      }}
+    >
       {shields.length > 0 && (
         <ActivityShields shields={shields} known_shields={known_shields} />
       )}
@@ -69,16 +80,31 @@ export const ActivityModifiers = forwardRef(({ data }, ref) => {
         />
       )}
       {other_modifiers.length > 0 && (
-        <section className="other-modifiers">
-          <h5 className="heading">Modifiers</h5>
-          <div className="modifiers">
+        <Box sx={{ width: "100%" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              width: "100%",
+              borderBottom: "1pt solid rgb(255 255 255 / 50%)",
+              marginBottom: 1,
+            }}
+          >
+            Modifiers
+          </Typography>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, 20rem), 1fr))`,
+              gap: 2,
+            }}
+          >
             {other_modifiers.map((modifier, index) => (
               <ActivityModifier key={index} data={modifier} />
             ))}
-          </div>
-        </section>
+          </Box>
+        </Box>
       )}
-    </section>
+    </Box>
   );
 });
 

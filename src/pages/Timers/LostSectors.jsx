@@ -1,9 +1,9 @@
+import { useMemo } from "react";
+import { useQuery } from "react-query";
 import CycleCard from "../../components/CycleCard";
 import LostSector from "../../components/LostSector";
 import Modal from "../../components/Modal";
 import { lcm } from "../../functions/gcd";
-import { useMemo } from "react";
-import { useQuery } from "react-query";
 
 function LostSectorLink({ location }) {
   return (
@@ -13,6 +13,8 @@ function LostSectorLink({ location }) {
           {location.name} - {location.location}
         </span>
       }
+      maxWidth={false}
+      width="xl"
       background="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_7d11acd7d5a3daebc0a0c906452932d6.png"
     >
       <LostSector name={location.name} />
