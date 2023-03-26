@@ -1,5 +1,3 @@
-import "./style.scss";
-
 import Masonry from "@mui/lab/Masonry";
 import Page from "layout/Page";
 import Card from "../../components/Card";
@@ -53,10 +51,9 @@ export default function Links(props) {
   return (
     <Page
       title="Links"
-      description="I have no affiliation with the sites listed. I just think they're
-          great."
+      description="I have no affiliation with the sites listed. I just think they're great."
     >
-      <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={1}>
+      <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={2}>
         {links.map((link) => (
           <Card
             key={link.title}
