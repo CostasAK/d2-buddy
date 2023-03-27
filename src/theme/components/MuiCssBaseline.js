@@ -39,7 +39,7 @@ export const MuiCssBaseline = {
     }
 
     p {
-      max-width: min(100%, 75ch);
+      max-width: min(100%, 80ch);
       hyphenate-limit-chars: 6 3 2;
     }
 
