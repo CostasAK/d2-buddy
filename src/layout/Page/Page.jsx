@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { When } from "react-if";
 
 const { Box, Typography, Container } = require("@mui/material");
@@ -13,6 +14,9 @@ export const Page = ({ title, description, children }) => {
       <When condition={!!title || !!description}>
         <Box sx={{ alignSelf: "flex-start", marginBottom: 4 }}>
           <When condition={!!title}>
+            <Helmet>
+              <title>{`${title} - ${process.env.REACT_APP_SHORT_TITLE}`}</title>
+            </Helmet>
             <Typography variant="h1">{title}</Typography>
           </When>
           <When condition={!!description}>
