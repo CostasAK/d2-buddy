@@ -29,13 +29,13 @@
       "purpose": "maskable"
     }
   ],
-  "name": "Destiny 2 Buddy",
+  "name": "D2 Buddy",
   "scope": "/",
   "short_name": "D2 Buddy",
   "shortcuts": [
     {
       "name": "Timers",
-      "url": "/#/Timers",
+      "url": "/Timers",
       "icons": [
         {
           "src": "/icons/shortcuts/timers-512.png",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Links",
-      "url": "/#/Links",
+      "url": "/Links",
       "icons": [
         {
           "src": "/icons/shortcuts/links-512.png",

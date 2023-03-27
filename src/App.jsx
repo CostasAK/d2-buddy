@@ -1,19 +1,19 @@
-import { lazy, Suspense } from "react";
 import {
-  HashRouter as Router,
   Navigate,
   Route,
+  BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
-import { Box } from "@mui/material";
 import AppBar from "layout/AppBar";
 import { BackToTopButton } from "layout/AppBar/BackToTopButton";
 import Background from "layout/Background";
-import Page from "layout/Page";
-import Loading from "./components/Loading";
-import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
+import { Box } from "@mui/material";
 import Footer from "./layout/Footer";
+import Loading from "./components/Loading";
+import Page from "layout/Page";
+import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
 const Timers = lazy(() => import("./pages/Timers"));
 const Links = lazy(() => import("./pages/Links"));
