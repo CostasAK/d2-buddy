@@ -35,7 +35,7 @@
   "shortcuts": [
     {
       "name": "Timers",
-      "url": "/#/Timers",
+      "url": "/Timers",
       "icons": [
         {
           "src": "/icons/shortcuts/timers-512.png",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Links",
-      "url": "/#/Links",
+      "url": "/Links",
       "icons": [
         {
           "src": "/icons/shortcuts/links-512.png",
