@@ -1,9 +1,10 @@
-import { Box, SvgIcon } from "@mui/material";
+import { Box, Button, SvgIcon } from "@mui/material";
 
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { ReactComponent as Avatar } from "assets/initialen.svg";
-import A from "components/A";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { KofiButton } from "react-kofi-button";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { fontFamily2 } from "theme/typography";
 
 export default function Footer() {
@@ -22,7 +23,7 @@ export default function Footer() {
       flexDirection="row"
       flexWrap="wrap"
       rowGap="0.5em"
-      columnGap="3em"
+      columnGap={4}
       zIndex={1}
     >
       <Box
@@ -34,23 +35,22 @@ export default function Footer() {
         }}
       >
         <Box minWidth="max-content">Made by</Box>
-          
-        <A
+        <Button
+          variant="footer"
           href="https://costas.kokke.eu"
-          sx={{
-            display: "flex",
-            flexFlow: "row nowrap",
-            alignItems: "safe center",
-          }}
+          target="_blank"
+          rel="noreferrer"
+          startIcon={
+            <SvgIcon
+              component={Avatar}
+              inheritViewBox
+              fontSize="small"
+              sx={{ borderRadius: "50%" }}
+            />
+          }
         >
-          <SvgIcon
-            component={Avatar}
-            inheritViewBox
-            fontSize="small"
-            sx={{ borderRadius: "50%" }}
-          />
-           <span>CostasAK</span>
-        </A>
+          CostasAK
+        </Button>
       </Box>
       <KofiButton
         username="costasak"
@@ -58,16 +58,24 @@ export default function Footer() {
         preset="thin"
         backgroundColor="kofiGrey"
       />
-      <A
-        href="https://github.com/CostasAK/d2-buddy"
-        sx={{
-          display: "flex",
-          flexFlow: "row nowrap",
-          alignItems: "safe center",
-        }}
+      <Button
+        variant="footer"
+        href="https://discord.gg/Rs5hdN86wJ"
+        target="_blank"
+        rel="noreferrer"
+        startIcon={<FontAwesomeIcon icon={faDiscord} />}
       >
-        <GitHubIcon fontSize="small" /> <span>Source</span>
-      </A>
+        Discord
+      </Button>
+      <Button
+        variant="footer"
+        href="https://github.com/CostasAK/d2-buddy"
+        target="_blank"
+        rel="noreferrer"
+        startIcon={<GitHubIcon />}
+      >
+        Source
+      </Button>
     </Box>
   );
 }

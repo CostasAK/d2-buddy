@@ -22,6 +22,16 @@ const borderAnimation = keyframes`
 export const MuiButton = {
   variants: [
     {
+      props: { variant: "footer" },
+      style: {
+        paddingInline: "1rem",
+        fontSize: "0.875rem",
+        fontFamily: fontFamily2,
+        letterSpacing: "normal",
+        borderRadius: "5px",
+      },
+    },
+    {
       props: { variant: "destiny" },
       style: {
         letterSpacing: "normal",

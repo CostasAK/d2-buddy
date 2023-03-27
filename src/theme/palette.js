@@ -2,6 +2,7 @@ export const palette = {
   mode: "dark",
   text: {
     primary: "#f5f5f5",
+    main: "#f5f5f5",
     secondary: "rgba(245, 245, 245, 0.9)",
     disabled: "rgba(245, 245, 245, 0.5)",
   },
