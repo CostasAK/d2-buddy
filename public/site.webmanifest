@@ -1,7 +1,7 @@
 {
   "background_color": "#12171c",
   "categories": ["games", "utilities", "entertainment"],
-  "description": "Reset Timers, DIM searches and links for Destiny 2",
+  "description": "Reset Timers, Schedules, Activity Info and other helpers for Destiny 2",
   "display": "standalone",
   "icons": [
     {
