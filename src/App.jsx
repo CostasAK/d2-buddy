@@ -7,7 +7,6 @@ import {
 import { Suspense, lazy } from "react";
 
 import AppBar from "layout/AppBar";
-import { BackToTopButton } from "layout/AppBar/BackToTopButton";
 import Background from "layout/Background";
 import { Box } from "@mui/material";
 import Footer from "./layout/Footer";
@@ -78,7 +77,6 @@ export default function App() {
       </Router>
 
       <Footer />
-      <BackToTopButton />
     </Box>
   );
 }

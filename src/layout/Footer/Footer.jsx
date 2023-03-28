@@ -13,6 +13,7 @@ export default function Footer() {
       component="footer"
       bgcolor="#141a1f"
       minHeight="4em"
+      height="fit-content"
       p="0.67em"
       fontSize="0.875rem"
       fontFamily={fontFamily2}

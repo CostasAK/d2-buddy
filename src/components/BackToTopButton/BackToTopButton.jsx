@@ -2,7 +2,7 @@ import { Fab, Fade, useScrollTrigger } from "@mui/material";
 
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-export const BackToTopButton = () => {
+export const BackToTopButton = ({ sx = [] }) => {
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true });
 
   return (
@@ -16,7 +16,15 @@ export const BackToTopButton = () => {
         }}
         size="small"
         aria-label="scroll back to top"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        sx={[
+          {
+            position: "sticky",
+            bottom: "1rem",
+            float: "right",
+            marginInline: "1rem",
+          },
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
       >
         <KeyboardArrowUpIcon />
       </Fab>
