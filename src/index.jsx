@@ -2,13 +2,15 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import App from "./App";
 import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { theme } from "theme";
-import App from "./App";
+import { StrictMode } from "react";
+import { create } from "zustand";
+import { createRoot } from "react-dom/client";
 import { queryClient } from "./queryClient";
+import { subscribeWithSelector } from "zustand/middleware";
+import { theme } from "theme";
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -27,4 +29,15 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-serviceWorkerRegistration.register();
+export const useServiceWorkerStore = create(
+  subscribeWithSelector((set) => ({
+    updateReady: false,
+    registration: undefined,
+    resetUpdateReady: () => set(() => ({ updateReady: false })),
+  }))
+);
+
+serviceWorkerRegistration.register({
+  onUpdate: (registration) =>
+    useServiceWorkerStore.setState({ updateReady: registration }),
+});

@@ -1,13 +1,27 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
+import { Badge, Box, IconButton, Tooltip } from "@mui/material";
 import { useIsFetching, useQueryClient } from "react-query";
 
 import Img from "components/Img";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import { useServiceWorkerStore } from "index";
 
 export const RefreshButton = () => {
   const isFetching = useIsFetching() > 0;
   const queryClient = useQueryClient();
+  const serviceWorkerStore = useServiceWorkerStore();
+
+  const handleClick = () => {
+    if (serviceWorkerStore.updateReady) {
+      serviceWorkerStore.resetUpdateReady();
+      serviceWorkerStore.registration.waiting.postMessage({
+        type: "SKIP_WAITING",
+      });
+      window.location.reload();
+    } else {
+      queryClient.invalidateQueries();
+    }
+  };
 
   const Icon = useMemo(
     () => (
@@ -26,10 +40,20 @@ export const RefreshButton = () => {
   );
 
   return (
-    <Tooltip title="Refresh Destiny Data">
-      <IconButton onClick={() => queryClient.invalidateQueries()}>
-        {Icon}
-      </IconButton>
+    <Tooltip
+      title={
+        serviceWorkerStore.updateReady
+          ? "Update D2 Buddy"
+          : "Refresh Destiny Data"
+      }
+    >
+      <Badge
+        badgeContent=" "
+        overlap="circular"
+        invisible={!serviceWorkerStore.updateReady}
+      >
+        <IconButton onClick={handleClick}>{Icon}</IconButton>
+      </Badge>
     </Tooltip>
   );
 };
