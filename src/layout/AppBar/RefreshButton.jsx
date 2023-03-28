@@ -8,33 +8,36 @@ import { useServiceWorkerStore } from "index";
 export const RefreshButton = () => {
   const isFetching = useIsFetching() > 0;
   const queryClient = useQueryClient();
-  const serviceWorkerStore = useServiceWorkerStore();
+  const { registration, updateReady, clearUpdateReady } =
+    useServiceWorkerStore();
 
   const handleClick = () => {
-    if (serviceWorkerStore.updateReady) {
-      serviceWorkerStore.resetUpdateReady();
-      serviceWorkerStore.registration.waiting.postMessage({
-        type: "SKIP_WAITING",
-      });
-      window.location.reload();
+    if (updateReady) {
+      if (registration?.waiting) {
+        let preventReloadLoop = false;
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          if (preventReloadLoop) {
+            return;
+          }
+          preventReloadLoop = true;
+          clearUpdateReady();
+          global.location.reload();
+        });
+        registration.waiting.postMessage({
+          type: "SKIP_WAITING",
+        });
+      } else {
+        clearUpdateReady();
+        global.location.reload();
+      }
     } else {
       queryClient.invalidateQueries();
     }
   };
 
   return (
-    <Tooltip
-      title={
-        serviceWorkerStore.updateReady
-          ? "Update D2 Buddy"
-          : "Refresh Destiny Data"
-      }
-    >
-      <Badge
-        badgeContent=" "
-        overlap="circular"
-        invisible={!serviceWorkerStore.updateReady}
-      >
+    <Tooltip title={updateReady ? "Update D2 Buddy" : "Refresh Destiny Data"}>
+      <Badge badgeContent=" " overlap="circular" invisible={!updateReady}>
         <IconButton onClick={handleClick}>
           <Box
             component={motion(Img)}
