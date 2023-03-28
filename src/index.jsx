@@ -1,6 +1,7 @@
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { persist, subscribeWithSelector } from "zustand/middleware";
 
 import App from "./App";
 import { QueryClientProvider } from "react-query";
@@ -9,7 +10,6 @@ import { StrictMode } from "react";
 import { create } from "zustand";
 import { createRoot } from "react-dom/client";
 import { queryClient } from "./queryClient";
-import { subscribeWithSelector } from "zustand/middleware";
 import { theme } from "theme";
 
 const updateInnerHeight = () =>
@@ -30,11 +30,19 @@ createRoot(document.getElementById("root")).render(
 );
 
 export const useServiceWorkerStore = create(
-  subscribeWithSelector((set) => ({
-    updateReady: false,
-    registration: undefined,
-    clearUpdateReady: () => set(() => ({ updateReady: false })),
-  }))
+  subscribeWithSelector(
+    persist(
+      (set) => ({
+        updateReady: false,
+        registration: undefined,
+        clearUpdateReady: () => set(() => ({ updateReady: false })),
+      }),
+      {
+        name: "service-worker-storage",
+        partialize: (state) => ({ updateReady: state.updateReady }),
+      }
+    )
+  )
 );
 
 serviceWorkerRegistration.register({
