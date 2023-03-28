@@ -33,11 +33,18 @@ export const useServiceWorkerStore = create(
   subscribeWithSelector((set) => ({
     updateReady: false,
     registration: undefined,
-    resetUpdateReady: () => set(() => ({ updateReady: false })),
+    clearUpdateReady: () => set(() => ({ updateReady: false })),
   }))
 );
 
 serviceWorkerRegistration.register({
+  onRegister: (registration) =>
+    useServiceWorkerStore.setState({
+      registration: registration,
+    }),
   onUpdate: (registration) =>
-    useServiceWorkerStore.setState({ updateReady: registration }),
+    useServiceWorkerStore.setState({
+      updateReady: true,
+      registration: registration,
+    }),
 });
