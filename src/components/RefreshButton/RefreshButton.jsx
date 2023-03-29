@@ -1,18 +1,19 @@
 import { Badge, Box, IconButton, Tooltip } from "@mui/material";
-import { useIsFetching, useQueryClient } from "react-query";
 
 import Img from "components/Img";
 import { motion } from "framer-motion";
 import { updateApp } from "./updateApp";
+import { useQueryClient } from "react-query";
 import { useServiceWorkerStore } from "index";
+import { useTransformRotate } from "components/RefreshButton/useTransformRotate";
 
 export const RefreshButton = () => {
-  const isFetching = useIsFetching() > 0;
-
   const queryClient = useQueryClient();
 
   const { registration, updateReady, clearUpdateReady } =
     useServiceWorkerStore();
+
+  const transform = useTransformRotate();
 
   const handleClick = () => {
     updateApp(registration, updateReady, clearUpdateReady);
@@ -31,8 +32,7 @@ export const RefreshButton = () => {
               width: "2rem",
               height: "2rem",
             }}
-            animate={isFetching && { transform: "rotate(360deg)" }}
-            transition={{ ease: "linear", duration: 1, repeat: Infinity }}
+            style={{ transform }}
           />
         </IconButton>
       </Badge>
