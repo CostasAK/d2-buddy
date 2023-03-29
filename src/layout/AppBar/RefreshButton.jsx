@@ -36,7 +36,7 @@ export const RefreshButton = () => {
   };
 
   return (
-    <Tooltip title={updateReady ? "Update D2 Buddy" : "Refresh Destiny Data"}>
+    <Tooltip title={updateReady ? "Update Buddy" : "Refresh Data"}>
       <Badge badgeContent=" " overlap="circular" invisible={!updateReady}>
         <IconButton onClick={handleClick}>
           <Box
