@@ -3,36 +3,21 @@ import { useIsFetching, useQueryClient } from "react-query";
 
 import Img from "components/Img";
 import { motion } from "framer-motion";
+import { updateApp } from "./updateApp";
 import { useServiceWorkerStore } from "index";
 
 export const RefreshButton = () => {
   const isFetching = useIsFetching() > 0;
+
   const queryClient = useQueryClient();
+
   const { registration, updateReady, clearUpdateReady } =
     useServiceWorkerStore();
 
   const handleClick = () => {
-    if (updateReady) {
-      if (registration?.waiting) {
-        let preventReloadLoop = false;
-        navigator.serviceWorker.addEventListener("controllerchange", () => {
-          if (preventReloadLoop) {
-            return;
-          }
-          preventReloadLoop = true;
-          clearUpdateReady();
-          global.location.reload();
-        });
-        registration.waiting.postMessage({
-          type: "SKIP_WAITING",
-        });
-      } else {
-        clearUpdateReady();
-        global.location.reload();
-      }
-    } else {
-      queryClient.invalidateQueries();
-    }
+    updateApp(registration, updateReady, clearUpdateReady);
+
+    queryClient.invalidateQueries();
   };
 
   return (
