@@ -1,16 +1,17 @@
+import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
+import CurrentNightfall from "./CurrentNightfall";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import Events from "pages/Timers/Events";
 import LostSectors from "pages/Timers/LostSectors";
+import Page from "layout/Page";
 import RaidRotation from "pages/Timers/RaidRotation";
-import Resets from "pages/Timers/Resets";
 import React from "react";
-import { hour } from "../../constants/time";
-import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
-import CurrentNightfall from "./CurrentNightfall";
+import Resets from "pages/Timers/Resets";
 import Season from "./Season";
 import WellspringWeapons from "./WellspringWeapons";
+import { hour } from "../../constants/time";
 
 const links = [
   {
@@ -38,7 +39,7 @@ export default function Timers() {
   }, [now]);
 
   return (
-    <>
+    <Page title="Timers">
       <Box
         sx={{
           display: "flex",
@@ -83,6 +84,6 @@ export default function Timers() {
           </Button>
         ))}
       </Box>
-    </>
+    </Page>
   );
 }

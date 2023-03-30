@@ -7,7 +7,7 @@ import { KofiButton } from "react-kofi-button";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { fontFamily2 } from "theme/typography";
 
-export default function Footer() {
+export default function Footer({ sx = [] }) {
   return (
     <Box
       component="footer"
@@ -26,6 +26,7 @@ export default function Footer() {
       rowGap="0.5em"
       columnGap={4}
       zIndex={1}
+      sx={sx}
     >
       <Box
         width="max-content"

@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import RefreshButton from "components/RefreshButton";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
+import { routes } from "App";
 import useDimensions from "react-cool-dimensions";
 
 const useRouteMatch = (routes) => {
@@ -32,8 +33,9 @@ const useRouteMatch = (routes) => {
   return null;
 };
 
-export const AppBar = ({ routes }) => {
-  const currentTab = useRouteMatch(routes);
+export const AppBar = () => {
+  const rootRoutes = routes.filter((route) => route.path === "/")[0].children;
+  const currentTab = useRouteMatch(rootRoutes);
 
   const theme = useTheme();
   const viewportIsBig = useMediaQuery(theme.breakpoints.up("md"));
@@ -66,7 +68,7 @@ export const AppBar = ({ routes }) => {
           >
             {/* Navigation Menu */}
             <Unless condition={viewportIsBig}>
-              <NavigationDrawer routes={routes} currentTab={currentTab} />
+              <NavigationDrawer routes={rootRoutes} currentTab={currentTab} />
             </Unless>
 
             {/* Logo and Title */}
@@ -95,7 +97,7 @@ export const AppBar = ({ routes }) => {
                   alignSelf: "stretch",
                 }}
               >
-                {routes.map((route) => (
+                {rootRoutes.map((route) => (
                   <Tab
                     key={route.path}
                     label={route.name}
