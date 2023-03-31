@@ -13,7 +13,7 @@ export default function CurrentNightfall() {
       (activity) => activity?.activityHash !== 743628305
     ) || [];
 
-  const nightfalls = useQueries(
+  let nightfalls = useQueries(
     activities.map((activity) => ({
       queryKey: ["DestinyActivityDefinition", activity.activityHash],
       enabled: !!activity?.activityHash,
@@ -28,6 +28,13 @@ export default function CurrentNightfall() {
   ) {
     return null;
   }
+
+  nightfalls.map((nightfall, index) => {
+    nightfall.data.modifiers = activities[index].modifierHashes.map((hash) => ({
+      activityModifierHash: hash,
+    }));
+    return nightfall;
+  });
 
   return (
     <CycleCard
