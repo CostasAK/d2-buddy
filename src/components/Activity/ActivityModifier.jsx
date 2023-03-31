@@ -1,20 +1,21 @@
 import { Box, Typography } from "@mui/material";
 
+import Description from "components/Description";
+import Img from "../Img";
 import { PropTypes } from "prop-types";
 import { forwardRef } from "react";
-import Img from "../Img";
 
 export const ActivityModifier = forwardRef(({ data }, ref) => {
   const name = data?.displayProperties?.name;
   const icon = data?.displayProperties?.icon;
 
   const description = data?.displayProperties?.description ? (
-    <Typography variant="body1">
+    <Description>
       {data?.displayProperties?.description
         .replace(/(?:[\s.,]*\n+[\s.,]*)+/g, "; ")
         .replace(/(\[Disruption|Stagger\])/g, "|$1|")
         .split("|")}
-    </Typography>
+    </Description>
   ) : null;
 
   if (!(icon && name)) {
