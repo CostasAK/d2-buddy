@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
 import Links from "pages/Links";
 import Root from "layout/Root";
@@ -10,16 +14,19 @@ export const routes = [
     path: "/",
     element: <Root />,
     children: [
+      { index: true, element: <Navigate to="/Timers" /> },
       { name: "Timers", element: <Timers /> },
       { name: "Links", element: <Links /> },
     ].map((child) => {
-      child.path = (" " + child.name)
-        .toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
-      child.name = child.name
-        .split(/\s*\n\s*/)
-        .reduce((previous, current) => [...previous, <br />, current], [])
-        .splice(1);
+      if (!child.index) {
+        child.path = (" " + child.name)
+          .toLowerCase()
+          .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
+        child.name = child.name
+          .split(/\s*\n\s*/)
+          .reduce((previous, current) => [...previous, <br />, current], [])
+          .splice(1);
+      }
       return child;
     }),
   },

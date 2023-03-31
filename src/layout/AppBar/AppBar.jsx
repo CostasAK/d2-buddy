@@ -25,7 +25,7 @@ const useRouteMatch = (routes) => {
   const { pathname } = useLocation();
 
   for (const route of routes) {
-    const possibleMatch = matchPath(route.path, pathname);
+    const possibleMatch = matchPath(route?.path || "/Timers", pathname);
 
     if (possibleMatch?.pattern?.path) return possibleMatch.pattern.path;
   }
@@ -34,7 +34,9 @@ const useRouteMatch = (routes) => {
 };
 
 export const AppBar = () => {
-  const rootRoutes = routes.filter((route) => route.path === "/")[0].children;
+  const rootRoutes = routes
+    .filter((route) => route.path === "/")[0]
+    .children.filter((child) => !child.index);
   const currentTab = useRouteMatch(rootRoutes);
 
   const theme = useTheme();
