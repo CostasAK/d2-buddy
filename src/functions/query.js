@@ -1,4 +1,6 @@
+import Papa from "papaparse";
 import axios from "axios";
+import { queryClient } from "queryClient";
 
 const buddy_data = axios.create({
   baseURL:
@@ -6,6 +8,11 @@ const buddy_data = axios.create({
   headers: {
     Accept: "application/json",
   },
+});
+
+const buddy_database = axios.create({
+  baseURL:
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYGH7Py5g05fXRRj_wsUtZ3me3m68Qb1RxNKiDgxwMoKL15Zc13uh0rz8VJ-3NJSvtJv33LLpeKNPD",
 });
 
 const bungie_api = axios.create({
@@ -24,6 +31,12 @@ export const buddyData = async (path, method = "GET", headers = {}) => {
   return data;
 };
 
+export const buddyDatabase = async (path, method = "GET", headers = {}) => {
+  const { data } = await buddy_database({ url: path, method, headers });
+  const { data: json } = Papa.parse(data, { header: true });
+  return json;
+};
+
 export const bungieApi = async (path, method = "GET", headers = {}) => {
   const { data } = await bungie_api({ url: path, method, headers });
   return data;
@@ -32,6 +45,18 @@ export const bungieApi = async (path, method = "GET", headers = {}) => {
 export const defaultQueryFn = async ({ queryKey }) => {
   if (queryKey[0] === "buddyData")
     return await buddyData(`/${queryKey.slice(1).join("/")}.json`);
+
+  if (queryKey[0] === "buddyDatabase") {
+    if (isNaN(queryKey[1])) {
+      const gid = queryClient.getQueryData(["buddyDatabase", 1676824259]);
+      return await buddyDatabase(
+        `pub?single=true&output=csv&gid=${
+          gid.find((element) => element.name === queryKey[1]).gid
+        }`
+      );
+    }
+    return await buddyDatabase(`pub?single=true&output=csv&gid=${queryKey[1]}`);
+  }
 
   let path_start = "/Destiny2/Manifest";
 
