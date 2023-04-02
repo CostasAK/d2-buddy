@@ -35,7 +35,7 @@ const resets = [
           <A href="https://kyber3000.com/Xur">Xur</A>
         </li>
         <li>
-          <A href="https://kyber3000.com/Trials">Trials of Osiris</A>
+          <A href="http://kyber3000.com/XurandTrials">Trials of Osiris</A>
         </li>
       </ul>
     ),

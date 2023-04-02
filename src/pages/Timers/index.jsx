@@ -1,16 +1,18 @@
-import AltarsOfSorrowWeapons from "./AltarsOfSorrowWeapons";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import CurrentNightfall from "./CurrentNightfall";
+import DefiantRotation from "pages/Timers/DefiantRotation";
 import DungeonRotation from "pages/Timers/DungeonRotation";
-import Events from "pages/Timers/Events";
+import EuropaRotation from "pages/Timers/EuropaRotation";
 import LostSectors from "pages/Timers/LostSectors";
+import MoonRotation from "./MoonRotation";
+import NeomunaRotation from "pages/Timers/NeomunaRotation";
 import Page from "layout/Page";
 import RaidRotation from "pages/Timers/RaidRotation";
 import React from "react";
 import Resets from "pages/Timers/Resets";
-import Season from "./Season";
-import WellspringWeapons from "./WellspringWeapons";
+import SavathunsThroneWorldRotation from "pages/Timers/SavathunsThroneWorldRotation";
+import Season from "pages/Timers/Season";
 import { hour } from "../../constants/time";
 
 const links = [
@@ -23,8 +25,8 @@ const links = [
     link: "https://twitter.com/BungieHelp",
   },
   {
-    name: "Patch Notes",
-    link: "https://www.bungie.net/en/Explore/Category?category=Updates",
+    name: "Destiny News",
+    link: "https://www.bungie.net/7/en/News/destiny",
   },
 ];
 
@@ -53,17 +55,21 @@ export default function Timers() {
           },
         }}
       >
-        <Events />
+        {/* <Events /> */}
+        {/* Seasonal */}
+        <Season />
+        <DefiantRotation />
         {/* Loot Drops */}
         <CurrentNightfall />
         <LostSectors />
-        <WellspringWeapons />
-        <AltarsOfSorrowWeapons />
         {/* Bonus Rewards */}
         <DungeonRotation />
         <RaidRotation />
-        {/* Seasonal */}
-        <Season />
+        {/* Expansions */}
+        <NeomunaRotation />
+        <SavathunsThroneWorldRotation />
+        <EuropaRotation />
+        <MoonRotation />
         {/* General Resets */}
         <Resets />
       </Box>

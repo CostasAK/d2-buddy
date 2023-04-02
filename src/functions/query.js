@@ -1,6 +1,5 @@
 import Papa from "papaparse";
 import axios from "axios";
-import { queryClient } from "queryClient";
 
 const buddy_data = axios.create({
   baseURL:
@@ -46,17 +45,8 @@ export const defaultQueryFn = async ({ queryKey }) => {
   if (queryKey[0] === "buddyData")
     return await buddyData(`/${queryKey.slice(1).join("/")}.json`);
 
-  if (queryKey[0] === "buddyDatabase") {
-    if (isNaN(queryKey[1])) {
-      const gid = queryClient.getQueryData(["buddyDatabase", 1676824259]);
-      return await buddyDatabase(
-        `pub?single=true&output=csv&gid=${
-          gid.find((element) => element.name === queryKey[1]).gid
-        }`
-      );
-    }
+  if (queryKey[0] === "buddyDatabase")
     return await buddyDatabase(`pub?single=true&output=csv&gid=${queryKey[1]}`);
-  }
 
   let path_start = "/Destiny2/Manifest";
 

@@ -5,7 +5,7 @@ import Img from "../Img";
 import { When } from "react-if";
 import { weaponSites } from "constants/weaponSites";
 
-export function WeaponLinks({ id }) {
+export function WeaponLinks({ id: hash }) {
   const linksBackground = "rgb(0 0 0 / 50%)";
   const gap = "1rem";
 
@@ -46,7 +46,7 @@ export function WeaponLinks({ id }) {
         <ListItem key={site.name} sx={{ padding: 0 }}>
           <ListItemButton
             component={A}
-            href={site.url + id}
+            href={site.url + hash}
             sx={{ paddingInline: "0.5rem", gap: "0.5rem" }}
           >
             <When condition={site.icon}>

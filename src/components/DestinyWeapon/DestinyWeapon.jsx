@@ -12,11 +12,11 @@ import tierToColor from "functions/tierToColor";
 import { useQuery } from "react-query";
 import { useWeaponElement } from "hooks/useWeaponElement";
 
-export function DestinyWeapon({ id, name }) {
-  let { data, error, isLoading } = useQuery([
-    "DestinyInventoryItemDefinition",
-    id,
-  ]);
+export function DestinyWeapon({ hash, name }) {
+  let { data, error, isLoading } = useQuery(
+    ["DestinyInventoryItemDefinition", hash],
+    { enabled: !!hash }
+  );
 
   if (error) {
     console.error(error);
@@ -35,7 +35,11 @@ export function DestinyWeapon({ id, name }) {
   return (
     <If condition={error}>
       <Then>
-        <Stack spacing={0.5} direction="row">
+        <Stack
+          spacing={0.5}
+          direction="row"
+          sx={{ maxWidth: "max-content", display: "inline-flex" }}
+        >
           <DestinyIcon
             icon={["controllers", "playstation", "Cross"]}
             color="grandmaster"
@@ -46,7 +50,11 @@ export function DestinyWeapon({ id, name }) {
       <Else>
         <Modal
           triggerContent={
-            <Stack spacing={0.5} direction="row">
+            <Stack
+              spacing={0.5}
+              direction="row"
+              sx={{ maxWidth: "max-content", display: "inline-flex" }}
+            >
               <If condition={isLoading || elementIsLoading}>
                 <Then>
                   <Loading size="inline" />
@@ -83,7 +91,7 @@ export function DestinyWeapon({ id, name }) {
                 backgroundImage: `url(${screenshot})`,
               }}
             >
-              <WeaponLinks id={id} />
+              <WeaponLinks hash={hash} />
             </Box>
             <Stack
               direction="row"

@@ -4,10 +4,10 @@ import { Box } from "@mui/material";
 import Card from "../../components/Card";
 import Loading from "components/Loading";
 import Page from "layout/Page";
-import { useQuery } from "react-query";
+import { useQueryDatabase } from "hooks/useQueryDatabase";
 
 export default function Links(props) {
-  const { data: links, isLoading } = useQuery(["buddyDatabase", "links"]);
+  const { data: links, isLoading } = useQueryDatabase("links");
 
   return (
     <Page
