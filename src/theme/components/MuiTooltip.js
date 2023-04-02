@@ -25,7 +25,7 @@ export const MuiTooltip = {
         : "rgba(52, 52, 62, 0.9)",
       "@supports (backdrop-filter: blur(16px))": {
         backdropFilter: "blur(16px) saturate(180%)",
-        "-webkit-backdrop-filter": "blur(16px) saturate(180%)",
+        WebkitBackdropFilter: "blur(16px) saturate(180%)",
         backgroundColor: ownerState?.tooltipcolor
           ? cssRgb(ownerState?.tooltipcolor, 0.5)
           : "rgba(52, 52, 62, 0.5)",

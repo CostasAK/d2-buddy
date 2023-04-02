@@ -1,67 +1,63 @@
-import { day, year } from "../../constants/time";
+import { Else, If, Then } from "react-if";
 import { forwardRef, useEffect, useState } from "react";
+import { minute, year } from "../../constants/time";
 
 import Card from "../Card";
 import { CycleCardModal } from "./CycleCardModal";
 import PropTypes from "prop-types";
+import { Skeleton } from "@mui/material";
 import { TimerCardCountdown } from "../TimerCard";
 import { flexOrder } from "../../functions/flexOrder";
-import { nextTime } from "../../functions/nextTime";
-import { toTime } from "../../functions/toTime";
+import { slicePastItems } from "components/CycleCard/slicePastItems";
+import { trimFutureItems } from "components/CycleCard/trimFutureItems";
 
 export const CycleCard = forwardRef(
-  ({ title, items, start, period, icon }, ref) => {
-    const [nextCycle, setNextCycle] = useState(nextTime(period, toTime(start)));
-    const [currentItem, setCurrentItem] = useState(
-      Math.floor((Date.now() - start) / period) % items.length
+  ({ title, items, icon, isLoading }, ref) => {
+    const [futureItems, setFutureItems] = useState(
+      trimFutureItems(slicePastItems(items))
     );
 
     useEffect(() => {
       const timer = setTimeout(() => {
-        setNextCycle(nextTime(period, toTime(start)));
-        setCurrentItem(
-          Math.floor((Date.now() - start) / period) % items.length
-        );
-      }, nextCycle - Date.now());
+        setFutureItems(trimFutureItems(slicePastItems(items)));
+      }, Math.min(5 * minute, futureItems?.[1]?.timestamp - Date.now()));
 
       return () => {
         clearTimeout(timer);
       };
-    }, [start, period, nextCycle, items.length]);
+    }, [futureItems, items]);
 
     return (
       <Card
         ref={ref}
-        className="cycle-card"
         title={title}
-        style={{ order: flexOrder(nextCycle, -5 * year) }}
-        modalContent={
-          <CycleCardModal
-            items={items}
-            nextCycle={nextCycle}
-            currentItem={currentItem}
-            period={period}
-          />
-        }
+        style={{ order: flexOrder(futureItems?.[1]?.timestamp, -5 * year) }}
+        modalContent={!isLoading && <CycleCardModal items={futureItems} />}
         icon={icon}
       >
-        {items[currentItem]}
-        <TimerCardCountdown prefix="Cycles" timestamp={nextCycle} />
+        <If condition={isLoading}>
+          <Then>
+            <Skeleton />
+            <Skeleton />
+          </Then>
+          <Else>
+            {futureItems?.[0]?.element}
+            <TimerCardCountdown
+              prefix="Cycles"
+              timestamp={futureItems?.[1]?.timestamp}
+            />
+          </Else>
+        </If>
       </Card>
     );
   }
 );
 
 CycleCard.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-  ).isRequired,
-  start: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  period: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  ),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-};
-
-CycleCard.defaultProps = {
-  period: day,
+  isLoading: PropTypes.bool,
 };

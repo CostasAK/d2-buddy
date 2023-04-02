@@ -1,8 +1,6 @@
 import TimerCard from "../../components/TimerCard";
 import { useQuery } from "react-query";
 
-const bungie_root = "https://bungie.net";
-
 export default function Season() {
   const d2settings = useQuery("Settings");
 
@@ -29,7 +27,7 @@ export default function Season() {
       description={data.displayProperties.description}
       start={data.startDate}
       end={data.endDate}
-      icon={`${bungie_root}${data.displayProperties.icon}`}
+      icon={`${data.displayProperties.icon}`}
     />
   );
 }

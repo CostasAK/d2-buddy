@@ -1,10 +1,10 @@
 import { Button, Typography, useTheme } from "@mui/material";
 
-import Img from "components/Img";
-import { cssRgb } from "functions/cssRgb";
-import PropTypes from "prop-types";
-import { forwardRef } from "react";
 import { CardModal } from "./CardModal";
+import Img from "components/Img";
+import PropTypes from "prop-types";
+import { cssRgb } from "functions/cssRgb";
+import { forwardRef } from "react";
 
 export const Card = forwardRef(
   (
@@ -42,9 +42,9 @@ export const Card = forwardRef(
 
     const sxButton = Object.assign(
       {
-        display: !floatIcon ? "grid" : "block",
+        display: !floatIcon && icon ? "grid" : "block",
         padding: 2,
-        gridTemplateColumns: !floatIcon && "4.5rem 1fr",
+        gridTemplateColumns: !floatIcon && icon && "4.5rem 1fr",
         columnGap: 2,
         color: theme?.palette?.[highlight]?.constrastText || "#fff",
         "&:hover": {

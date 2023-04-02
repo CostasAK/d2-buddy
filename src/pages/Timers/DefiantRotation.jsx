@@ -2,8 +2,8 @@ import CycleCard from "../../components/CycleCard";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
 
-export default function DungeonRotation() {
-  let { data: items, isLoading } = useQueryDatabase("dungeonRotation");
+export default function DefiantRotation() {
+  let { data: items, isLoading } = useQueryDatabase("defiantRotation");
 
   items?.map((item, index) => {
     item.id = item?.name;
@@ -14,10 +14,10 @@ export default function DungeonRotation() {
 
   return (
     <CycleCard
-      title="Featured Dungeon"
+      title="Defiant Battlegrounds: Legend"
       items={items}
       isLoading={isLoading}
-      icon="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_f20ebb76bee675ca429e470cec58cc7b.png"
+      icon="https://bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_50d80a655bccddfd26e954dbfc3b9746.png"
     />
   );
 }

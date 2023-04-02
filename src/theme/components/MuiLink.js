@@ -5,6 +5,7 @@ export const MuiLink = {
   },
   styleOverrides: {
     root: {
+      cursor: "pointer",
       color: "white",
       transition: "0.25s color",
       "&:hover, &:active": {

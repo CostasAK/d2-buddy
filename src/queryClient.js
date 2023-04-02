@@ -1,11 +1,13 @@
+import { minute, second } from "constants/time";
+
 import { QueryClient } from "react-query";
 import { defaultQueryFn } from "./functions/query";
-import { minute } from "constants/time";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       cacheTime: 30 * minute,
+      staleTime: 5 * second,
       queryFn: defaultQueryFn,
       retry: true,
       retryDelay: (attemptIndex) =>
@@ -15,7 +17,7 @@ export const queryClient = new QueryClient({
               64000
             )
           : 64000,
-      refetchInterval: 30 * 1000,
+      refetchInterval: 30 * second,
     },
   },
 });

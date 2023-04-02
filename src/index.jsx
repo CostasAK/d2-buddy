@@ -12,6 +12,8 @@ import { createRoot } from "react-dom/client";
 import { queryClient } from "./queryClient";
 import { theme } from "theme";
 
+queryClient.prefetchQuery({ queryKey: ["buddyDatabase", 1676824259] });
+
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
 updateInnerHeight();
