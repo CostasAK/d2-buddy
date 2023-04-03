@@ -1,5 +1,6 @@
 import CycleCard from "../../components/CycleCard";
 import DestinyWeapon from "../../components/DestinyWeapon";
+import WellspringIcon from "assets/Wellspring.png";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
 
@@ -56,7 +57,7 @@ export default function SavathunsThroneWorldRotation() {
         title="Wellspring Weapon"
         items={wellspringItems}
         isLoading={wellspringIsLoading}
-        titleRule={true}
+        icon={WellspringIcon}
       />
       <CycleCard
         title="Witch Queen: Altar of Reflection"
