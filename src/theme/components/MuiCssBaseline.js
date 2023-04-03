@@ -7,21 +7,23 @@ export const MuiCssBaseline = {
     }
 
     * {
-      scrollbar-width: thin;
-      scrollbar-color: white rgba(127, 127, 127, 0.5);
-    }
-
-    *::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      scrollbar-color: #232936 #181c25;
     }
 
     *::-webkit-scrollbar-track {
-      background-color: rgba(127, 127, 127, 0.5);
+      background-color: #181c25;
+      box-shadow: inset 0 0 5px #12171c;
     }
 
     *::-webkit-scrollbar-thumb {
-      background-color: white;
+      border: 1px solid #181c25;
+      background: #232936;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+    }
+
+    *::-webkit-scrollbar {
+      width: 1rem;
+      height: 1rem;
     }
 
     html:focus-within {
