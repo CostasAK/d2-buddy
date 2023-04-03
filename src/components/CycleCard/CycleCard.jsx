@@ -56,7 +56,7 @@ export const CycleCard = forwardRef(
 CycleCard.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.object])
   ),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   isLoading: PropTypes.bool,

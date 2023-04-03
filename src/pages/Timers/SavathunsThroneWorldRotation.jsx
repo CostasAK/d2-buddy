@@ -7,8 +7,14 @@ export default function SavathunsThroneWorldRotation() {
   const { data: items, isLoading } = useQueryDatabase(
     "savathunsThroneWorldRotation"
   );
+
   const { data: wellspringItems, isLoading: wellspringIsLoading } =
     useQueryDatabase("wellspringRotation");
+
+  items?.map((item) => {
+    item.timestamp = dateToTimestamp(item?.date);
+    return null;
+  });
 
   const campaignMissionItems = structuredClone(items)
     ?.filter((item) => item?.campaignMission)
