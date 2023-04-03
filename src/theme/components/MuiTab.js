@@ -5,7 +5,7 @@ export const MuiTab = {
   styleOverrides: {
     root: {
       "&.Mui-selected": {
-        color: "initial",
+        color: "white",
       },
     },
   },
