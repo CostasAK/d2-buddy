@@ -35,6 +35,7 @@ export const Img = forwardRef(({ src, alt, title, sx = [], ...props }, ref) => {
             {
               width: "auto",
               height: "auto",
+              objectFit: "scale-down",
             },
             ...(Array.isArray(sx) ? sx : [sx]),
           ]}
@@ -45,11 +46,37 @@ export const Img = forwardRef(({ src, alt, title, sx = [], ...props }, ref) => {
         <If condition={title}>
           <Then>
             <Tooltip title={title}>
-              <ImgBox ref={ref} src={src} alt={alt} sx={sx} {...props} />
+              <ImgBox
+                ref={ref}
+                src={src}
+                alt={alt}
+                sx={[
+                  {
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    objectFit: "scale-down",
+                  },
+                  ...(Array.isArray(sx) ? sx : [sx]),
+                ]}
+                {...props}
+              />
             </Tooltip>
           </Then>
           <Else>
-            <ImgBox ref={ref} src={src} alt={alt} sx={sx} {...props} />
+            <ImgBox
+              ref={ref}
+              src={src}
+              alt={alt}
+              sx={[
+                {
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "scale-down",
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+              ]}
+              {...props}
+            />
           </Else>
         </If>
       </Else>
