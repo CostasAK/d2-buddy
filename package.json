@@ -30,8 +30,8 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.0",
     "react-string-replace": "^1.1.0",
-    "web-vitals": "^2.1.2",
-    "zustand": "^4.3.6"
+    "use-local-storage-state": "^18.2.1",
+    "web-vitals": "^2.1.2"
   },
   "resolutions": {
     "styled-components": "^5"

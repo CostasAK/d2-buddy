@@ -1,14 +1,13 @@
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { persist, subscribeWithSelector } from "zustand/middleware";
 
 import App from "./App";
 import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { StrictMode } from "react";
-import { create } from "zustand";
 import { createRoot } from "react-dom/client";
+import { minute } from "constants/time";
 import { queryClient } from "./queryClient";
 import { theme } from "theme";
 
@@ -31,30 +30,11 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-export const useServiceWorkerStore = create(
-  subscribeWithSelector(
-    persist(
-      (set) => ({
-        updateReady: false,
-        registration: undefined,
-        clearUpdateReady: () => set(() => ({ updateReady: false })),
-      }),
-      {
-        name: "service-worker-storage",
-        partialize: (state) => ({ updateReady: state.updateReady }),
-      }
-    )
-  )
-);
-
 serviceWorkerRegistration.register({
-  onRegister: (registration) =>
-    useServiceWorkerStore.setState({
-      registration: registration,
-    }),
-  onUpdate: (registration) =>
-    useServiceWorkerStore.setState({
-      updateReady: true,
-      registration: registration,
-    }),
+  onRegister: (registration) => {
+    setInterval(() => registration.update(), 15 * minute);
+  },
+  onUpdate: (registration) => {
+    localStorage.setItem("updateReady", true);
+  },
 });
