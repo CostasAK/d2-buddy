@@ -1,9 +1,12 @@
+import ChestIcon from "assets/Chest.png";
 import CycleCard from "../../components/CycleCard";
 import { LostSector } from "../../components/Activity/LostSector";
 import Modal from "../../components/Modal";
 import { Typography } from "@mui/material";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
+
+const gearIcons = { Chest: ChestIcon };
 
 function LostSectorLink({ name }) {
   return (
@@ -31,6 +34,7 @@ export default function LostSectors() {
         <LostSectorLink name={item?.name} /> - {item?.reward}
       </>
     );
+    item.listIcon = gearIcons[item?.reward];
     return null;
   });
 
