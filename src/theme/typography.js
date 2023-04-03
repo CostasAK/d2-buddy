@@ -134,7 +134,7 @@ export const typography = {
     fontWeight: 400,
     fontSize: "1rem",
     lineHeight: 1.5,
-    letterSpacing: "0.1em",
+    letterSpacing: "0.01em",
     textTransform: "none",
   },
   body2: {

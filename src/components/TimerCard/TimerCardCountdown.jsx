@@ -1,16 +1,16 @@
-import { forwardRef, useEffect, useState } from "react";
 import { day, second } from "../../constants/time";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
+import { forwardRef, useEffect, useState } from "react";
 
-import { Typography } from "@mui/material";
 import PropTypes from "prop-types";
+import { Typography } from "@mui/material";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";
 import { nextTime } from "../../functions/nextTime";
 
 export const TimerCardCountdown = forwardRef(
-  ({ timestamp, hasTime, prefix, conditions, className }, ref) => {
+  ({ timestamp, hasTime, prefix, conditions, sx }, ref) => {
     const [now, setNow] = useState(Date.now());
     const [countdown, setCountdown] = useState(formatDuration(timestamp - now));
 
@@ -46,7 +46,7 @@ export const TimerCardCountdown = forwardRef(
     }
 
     return (
-      <Typography ref={ref}>
+      <Typography variant="body2" ref={ref} sx={sx}>
         {capitalizeSentence(
           `${
             prefix
