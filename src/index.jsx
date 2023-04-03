@@ -32,6 +32,7 @@ createRoot(document.getElementById("root")).render(
 
 serviceWorkerRegistration.register({
   onRegister: (registration) => {
+    registration.update();
     setInterval(() => registration.update(), 15 * minute);
   },
   onUpdate: (registration) => {

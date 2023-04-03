@@ -56,5 +56,17 @@ export const updateApp = () => {
         }
       });
     });
+  } else {
+    navigator.serviceWorker.getRegistrations().then((regs) => {
+      if (regs?.length > 0) {
+        regs.map((registration) => {
+          registration.update();
+          return null;
+        });
+      }
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        registration.update();
+      });
+    });
   }
 };
