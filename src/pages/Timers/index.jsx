@@ -85,7 +85,13 @@ export default function Timers() {
         }}
       >
         {links.map((link) => (
-          <Button key={link.name} href={link.link} variant="destiny">
+          <Button
+            key={link.name}
+            href={link.link}
+            target="_blank"
+            rel="noreferrer"
+            variant="destiny"
+          >
             {link.name}
           </Button>
         ))}
