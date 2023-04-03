@@ -21,6 +21,10 @@ export const MuiCssBaseline = {
       box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
     }
 
+    *::-webkit-scrollbar-thumb:hover {
+      background: #262d3b;
+    }
+
     *::-webkit-scrollbar {
       width: 1rem;
       height: 1rem;
