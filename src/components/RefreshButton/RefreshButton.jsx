@@ -2,21 +2,21 @@ import { Badge, Box, IconButton, Tooltip } from "@mui/material";
 
 import Img from "components/Img";
 import { motion } from "framer-motion";
-import { updateApp } from "./updateApp";
+import { updateApp } from "components/RefreshButton/updateApp";
+import useLocalStorageState from "use-local-storage-state";
 import { useQueryClient } from "react-query";
-import { useServiceWorkerStore } from "index";
 import { useTransformRotate } from "components/RefreshButton/useTransformRotate";
 
 export const RefreshButton = () => {
+  const [updateReady] = useLocalStorageState("updateReady", {
+    defaultValue: true,
+  });
   const queryClient = useQueryClient();
-
-  const { registration, updateReady, clearUpdateReady } =
-    useServiceWorkerStore();
 
   const transform = useTransformRotate();
 
   const handleClick = () => {
-    updateApp(registration, updateReady, clearUpdateReady);
+    updateApp();
 
     queryClient.invalidateQueries();
   };
