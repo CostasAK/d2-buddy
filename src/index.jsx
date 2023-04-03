@@ -7,8 +7,8 @@ import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { minute } from "constants/time";
 import { queryClient } from "./queryClient";
+import { second } from "constants/time";
 import { theme } from "theme";
 
 queryClient.prefetchQuery({ queryKey: ["buddyDatabase", 1676824259] });
@@ -33,7 +33,7 @@ createRoot(document.getElementById("root")).render(
 serviceWorkerRegistration.register({
   onRegister: (registration) => {
     registration.update();
-    setInterval(() => registration.update(), 15 * minute);
+    setInterval(() => registration.update(), 15 * second);
   },
   onUpdate: (registration) => {
     localStorage.setItem("updateReady", true);

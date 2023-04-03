@@ -1,7 +1,8 @@
 export const updateApp = () => {
-  const updateReady = localStorage.getItem("updateReady") || true;
-  if (updateReady) {
+  const updateReady = localStorage.getItem("updateReady") || "true";
+  if (updateReady === "true") {
     navigator.serviceWorker.getRegistrations().then((regs) => {
+      console.log(regs);
       if (regs?.length > 0) {
         regs.map((registration) => {
           if (registration?.waiting) {
@@ -31,6 +32,7 @@ export const updateApp = () => {
         });
       }
       navigator.serviceWorker.getRegistration().then((registration) => {
+        console.log(registration);
         if (registration?.waiting) {
           let preventReloadLoop = false;
 
@@ -58,6 +60,7 @@ export const updateApp = () => {
     });
   } else {
     navigator.serviceWorker.getRegistrations().then((regs) => {
+      console.log(regs);
       if (regs?.length > 0) {
         regs.map((registration) => {
           registration.update();
@@ -65,6 +68,7 @@ export const updateApp = () => {
         });
       }
       navigator.serviceWorker.getRegistration().then((registration) => {
+        console.log(registration);
         registration.update();
       });
     });
