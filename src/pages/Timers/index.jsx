@@ -55,18 +55,19 @@ export default function Timers() {
           },
         }}
       >
-        {/* <Events /> */}
-        {/* Seasonal */}
+        {/* Current Season */}
         <Season />
         <DefiantRotation />
+        <NeomunaRotation />
         {/* Loot Drops */}
         <CurrentNightfall />
         <LostSectors />
         {/* Bonus Rewards */}
         <DungeonRotation />
         <RaidRotation />
-        {/* Expansions */}
-        <NeomunaRotation />
+        {/* <Events /> */}
+        {/* Past Seasons */}
+        {/* Past Expansions */}
         <SavathunsThroneWorldRotation />
         <EuropaRotation />
         <MoonRotation />

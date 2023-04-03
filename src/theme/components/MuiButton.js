@@ -1,7 +1,7 @@
-import { keyframes } from "@mui/system";
-import { cssRgb } from "functions/cssRgb";
 import { baseTheme } from "theme/baseTheme";
+import { cssRgb } from "functions/cssRgb";
 import { fontFamily2 } from "theme/typography";
+import { keyframes } from "@mui/system";
 
 const borderExpansion = "0.25rem";
 const transitionSeconds = "0.25s";
@@ -63,9 +63,9 @@ export const MuiButton = {
     },
     {
       props: { variant: "triumph" },
-      style: {
+      style: ({ ownerState: { disabled } }) => ({
         textAlign: "left",
-        "--card-content-opacity": 0.9,
+        "--card-content-opacity": disabled ? 0.6 : 0.9,
         position: "relative",
         border:
           "1px solid " +
@@ -89,7 +89,8 @@ export const MuiButton = {
             "background-color " + baseTheme.transitions.duration.standard,
         },
         userSelect: "none",
-        cursor: "pointer",
+        cursor: disabled ? "auto" : "pointer",
+        ...(disabled && { pointerEvents: "none" }),
         "*": {
           pointerEvents: "none",
         },
@@ -121,7 +122,7 @@ export const MuiButton = {
         "&:active": {
           transform: "scale3d(0.99, 0.99, 1)",
         },
-      },
+      }),
     },
   ],
 };
