@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const randomCenter = () => {
   return {
-    x: -Math.round((Math.random() * 100) / 1.5),
+    x: -Math.round((Math.random() * 100) / 2),
     y: Math.round((Math.random() * 50) / 1.5),
   };
 };
