@@ -8,24 +8,22 @@
 [![Stars](https://img.shields.io/github/stars/costasak/d2-buddy?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-buddy)
 [![Ko-fi](https://img.shields.io/badge/support_me_on_ko--fi-F16061?style=for-the-badge&logo=kofi&logoColor=f5f5f5)](https://ko-fi.com/CostasAK)
 
-Reset Timers and other Countdowns for Destiny 2, in your local time with countdowns.
+Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 
 ## What it does
 
 ### [Timers](https://destiny2.kokke.eu/#/Timers)
 
-- Shows upcoming events, followed by recurring events such as resets.
+- Shows upcoming events, and recurring events such as resets.
+- Shows countdowns and times adjusted to your local timezone.
 - Events are sorted by end or start time, depending on whether they are currently ongoing or not, respectively.
-- Events disappear from the list once they are finished.
-- Events without an end time, such as patches, remain in the list for 24 hours after their start time.
 - Recurring events are sorted in order of occurence from now.
-- Recurring events are reset and re-ordered on each occurence.
 - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
 - Activities can be clicked for full breakdowns of modifiers, shields and champions.
 
 ### [Links](https://destiny2.kokke.eu/#/Links)
 
-Some links to my favorite D2 resources and tools.
+Some links to my favorite D2 resources and tools. I have no affiliation with the sites listed. I just think they're great.
 
 ## Acknowledgments
 
