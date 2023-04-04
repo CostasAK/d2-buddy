@@ -4,7 +4,7 @@
 [![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/main?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/costasak/d2-buddy/node-cd.yml?branch=main&style=for-the-badge&logo=createreactapp)](https://github.com/CostasAK/d2-buddy/actions/workflows/node.js.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=prettier)](https://github.com/prettier/prettier)
-[![GitHub](https://img.shields.io/github/license/costasak/d2-buddy?style=for-the-badge)](https://github.com/CostasAK/d2-buddy/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/github/license/costasak/d2-buddy?style=for-the-badge)](https://github.com/CostasAK/d2-buddy/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/costasak/d2-buddy?style=for-the-badge&logo=github)](https://github.com/CostasAK/d2-buddy)
 [![Ko-fi](https://img.shields.io/badge/support_me_on_ko--fi-F16061?style=for-the-badge&logo=kofi&logoColor=f5f5f5)](https://ko-fi.com/CostasAK)
 
