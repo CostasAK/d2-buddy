@@ -12,7 +12,7 @@ Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 
 ## What it does
 
-### [Timers](https://destiny2.kokke.eu/#/Timers)
+### [Timers](https://destiny2.kokke.eu/Timers)
 
 - Shows upcoming events, and recurring events such as resets.
 - Shows countdowns and times adjusted to your local timezone.
@@ -21,7 +21,7 @@ Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
 - Activities can be clicked for full breakdowns of modifiers, shields and champions.
 
-### [Links](https://destiny2.kokke.eu/#/Links)
+### [Links](https://destiny2.kokke.eu/Links)
 
 Some links to my favorite D2 resources and tools. I have no affiliation with the sites listed. I just think they're great.
 
