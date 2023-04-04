@@ -1,7 +1,7 @@
 export const updateApp = () => {
   const updateReady = localStorage.getItem("updateReady") || "true";
   if (updateReady === "true") {
-    navigator.serviceWorker.getRegistrations().then((regs) => {
+    navigator.serviceWorker?.getRegistrations()?.then((regs) => {
       if (regs?.length > 0)
         regs?.map((registration) => {
           if (registration?.waiting) {
@@ -31,7 +31,7 @@ export const updateApp = () => {
         });
     });
   } else {
-    navigator.serviceWorker.getRegistrations().then((regs) => {
+    navigator?.serviceWorker?.getRegistrations()?.then((regs) => {
       if (regs?.length > 0)
         regs?.map((registration) => {
           registration?.update();
