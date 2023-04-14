@@ -1,4 +1,4 @@
-import { useQueries } from "react-query";
+import { useQueries } from "@tanstack/react-query";
 
 const renameMap = { "Scored Nightfall Strikes": "Nightfall" };
 
@@ -9,12 +9,13 @@ export const useActivityMode = (hash) => {
 
   hash = isArray ? hash : [hash];
 
-  const data = useQueries(
-    hash.map((h) => ({
+  const data = useQueries({
+    queries: hash?.map((h) => ({
       queryKey: ["DestinyActivityModeDefinition", h],
       enabled: !!h,
-    }))
-  );
+    })),
+    enabled: !!hash,
+  });
 
   return {
     activityMode: isArray

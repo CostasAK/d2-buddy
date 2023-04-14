@@ -1,13 +1,13 @@
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { persistOptions, queryClient } from "./queryClient";
 
 import App from "./App";
-import { QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { queryClient } from "./queryClient";
 import { second } from "constants/time";
 import { theme } from "theme";
 
@@ -22,10 +22,13 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
-      <QueryClientProvider client={queryClient}>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={persistOptions}
+      >
         <App />
         <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+      </PersistQueryClientProvider>
     </ThemeProvider>
   </StrictMode>
 );

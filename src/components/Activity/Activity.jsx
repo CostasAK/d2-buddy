@@ -1,22 +1,23 @@
-import { forwardRef, Fragment } from "react";
 import { ActivityDifficulty, ActivityHeader, ActivityModifiers } from ".";
+import { Fragment, forwardRef } from "react";
 
 import { Box } from "@mui/material";
-import PropTypes from "prop-types";
-import { useQueries } from "react-query";
 import Loading from "../Loading";
+import PropTypes from "prop-types";
+import { useQueries } from "@tanstack/react-query";
 
 export const Activity = forwardRef(({ id, dataArray, name }, ref) => {
   const ids = id ? [].concat(id) : [];
 
-  let activities = useQueries(
-    ids.map((id) => {
+  let activities = useQueries({
+    queries: ids?.map((id) => {
       return {
         queryKey: ["DestinyActivityDefinition", id],
         enabled: !!id,
       };
-    })
-  );
+    }),
+    enabled: !!ids,
+  });
 
   if (!!id) {
     if (!activities.every((activity) => activity.isSuccess)) {

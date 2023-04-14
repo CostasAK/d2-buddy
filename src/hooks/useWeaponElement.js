@@ -1,16 +1,17 @@
-import { useQueries } from "react-query";
+import { useQueries } from "@tanstack/react-query";
 
 export const useWeaponElement = (hash) => {
   const isArray = Array.isArray(hash);
 
   hash = isArray ? hash : [hash];
 
-  const data = useQueries(
-    hash.map((h) => ({
+  const data = useQueries({
+    queries: hash?.map((h) => ({
       queryKey: ["DestinyDamageTypeDefinition", h],
       enabled: !!h,
-    }))
-  );
+    })),
+    enabled: !!hash,
+  });
 
   return {
     weaponElement: isArray

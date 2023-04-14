@@ -1,8 +1,8 @@
 import TimerCard from "../../components/TimerCard";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Season() {
-  const d2settings = useQuery("Settings");
+  const d2settings = useQuery(["Settings"]);
 
   const current_season_hash =
     d2settings?.data?.destiny2CoreSettings?.currentSeasonHash;

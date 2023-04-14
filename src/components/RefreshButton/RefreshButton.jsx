@@ -4,7 +4,7 @@ import Img from "components/Img";
 import { motion } from "framer-motion";
 import { updateApp } from "components/RefreshButton/updateApp";
 import useLocalStorageState from "use-local-storage-state";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useTransformRotate } from "components/RefreshButton/useTransformRotate";
 
 export const RefreshButton = () => {

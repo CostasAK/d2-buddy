@@ -35,7 +35,7 @@ export const CycleCard = forwardRef(
         modalContent={!isLoading && <CycleCardModal items={futureItems} />}
         icon={icon}
       >
-        <If condition={isLoading}>
+        <If condition={isLoading || !futureItems?.[0]?.element}>
           <Then>
             <Skeleton />
             <Skeleton />
@@ -44,7 +44,7 @@ export const CycleCard = forwardRef(
             {futureItems?.[0]?.element}
             <TimerCardCountdown
               prefix="Cycles"
-              timestamp={futureItems?.[1]?.timestamp}
+              timestamp={futureItems?.[1]?.timestamp || 0}
             />
           </Else>
         </If>

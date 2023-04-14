@@ -7,7 +7,6 @@ import { Typography } from "@mui/material";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
 import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";
-import { nextTime } from "../../functions/nextTime";
 
 export const TimerCardCountdown = forwardRef(
   ({ timestamp, hasTime, prefix, conditions, sx }, ref) => {
@@ -16,11 +15,14 @@ export const TimerCardCountdown = forwardRef(
 
     useEffect(() => {
       const timer = setTimeout(() => {
-        setNow(() => Date.now());
-        setCountdown(() => formatDuration(timestamp - now));
-      }, nextTime(30 * second, 0) - Date.now());
+        setNow(Date.now());
+      }, 30 * second);
       return () => clearTimeout(timer);
-    }, [now, timestamp]);
+    }, [now]);
+
+    useEffect(() => {
+      setCountdown(formatDuration(timestamp - now));
+    }, [timestamp, now]);
 
     conditions = Array.isArray(conditions) ? conditions : [conditions];
 

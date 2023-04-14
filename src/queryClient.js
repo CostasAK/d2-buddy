@@ -1,12 +1,16 @@
-import { minute, second } from "constants/time";
+import { compress, decompress } from "lz-string";
+import { month, second } from "constants/time";
 
-import { QueryClient } from "react-query";
+import { QueryClient } from "@tanstack/react-query";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { defaultQueryFn } from "./functions/query";
+
+const CACHE_MAX_AGE = 1 * month;
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: 30 * minute,
+      cacheTime: CACHE_MAX_AGE,
       staleTime: 5 * second,
       queryFn: defaultQueryFn,
       retry: true,
@@ -21,3 +25,12 @@ export const queryClient = new QueryClient({
     },
   },
 });
+
+const persister = createSyncStoragePersister({
+  storage: window.localStorage,
+  key: "D2_BUDDY_TANSTACK_QUERY_OFFLINE_CACHE",
+  serialize: (data) => compress(JSON.stringify(data)),
+  deserialize: (data) => JSON.parse(decompress(data)),
+});
+
+export const persistOptions = { persister, maxAge: CACHE_MAX_AGE };

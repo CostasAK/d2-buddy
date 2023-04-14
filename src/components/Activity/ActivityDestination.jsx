@@ -1,9 +1,9 @@
-import { Typography } from "@mui/material";
-import { PropTypes } from "prop-types";
-import { forwardRef } from "react";
-import { useQuery } from "react-query";
 import DestinyIcon from "../DestinyIcon";
 import Loading from "../Loading";
+import { PropTypes } from "prop-types";
+import { Typography } from "@mui/material";
+import { forwardRef } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export const ActivityDestination = forwardRef(({ id, sx = [] }, ref) => {
   const { data, error, isLoading } = useQuery([

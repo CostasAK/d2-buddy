@@ -1,4 +1,4 @@
-import { useQueries, useQuery } from "react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 import Activity from "components/Activity";
 import CycleCard from "components/CycleCard";
@@ -18,19 +18,20 @@ export default function CurrentNightfall() {
     return null;
   });
 
-  const milestone = useQuery("Milestones");
+  const milestone = useQuery(["Milestones"]);
 
   const activities =
     milestone?.data?.[1942283261]?.activities?.filter(
       (activity) => activity?.activityHash !== 743628305
     ) || [];
 
-  let nightfalls = useQueries(
-    activities.map((activity) => ({
+  let nightfalls = useQueries({
+    queries: activities?.map((activity) => ({
       queryKey: ["DestinyActivityDefinition", activity.activityHash],
       enabled: !!activity?.activityHash,
-    }))
-  );
+    })),
+    enabled: !!activities,
+  });
 
   nightfalls?.map((nightfall, index) => {
     if (nightfall?.data?.modifiers) {

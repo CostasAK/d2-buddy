@@ -1,5 +1,5 @@
 import { minute } from "constants/time";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export const useQueryDatabase = (sheet) => {
   const {

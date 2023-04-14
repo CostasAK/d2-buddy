@@ -1,23 +1,24 @@
-import { Box, Typography } from "@mui/material";
 import { ActivityChampions, ActivityModifier, ActivityShields } from ".";
+import { Box, Typography } from "@mui/material";
 
+import Loading from "../Loading";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
-import { useQueries } from "react-query";
 import getKnownActivityAmounts from "../../functions/getKnownActivityAmounts";
-import Loading from "../Loading";
+import { useQueries } from "@tanstack/react-query";
 
 export const ActivityModifiers = forwardRef(({ data }, ref) => {
-  const modifiers = useQueries(
-    data.modifiers.map((modifier) => {
+  const modifiers = useQueries({
+    queries: data?.modifiers?.map((modifier) => {
       return {
         queryKey: [
           "DestinyActivityModifierDefinition",
           modifier.activityModifierHash,
         ],
       };
-    })
-  );
+    }),
+    enabled: !!data?.modifiers,
+  });
 
   if (!modifiers.every((modifier) => modifier.isSuccess)) {
     if (modifiers.some((modifier) => modifier.isLoading))

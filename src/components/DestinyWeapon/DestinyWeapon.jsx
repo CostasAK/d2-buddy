@@ -9,7 +9,7 @@ import { WeaponLinks } from "components/DestinyWeapon/WeaponLinks";
 import { getScreenshot } from "../../functions/getScreenshot";
 import getWeaponType from "../../functions/getWeaponType";
 import tierToColor from "functions/tierToColor";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useWeaponElement } from "hooks/useWeaponElement";
 
 export function DestinyWeapon({ hash, name }) {

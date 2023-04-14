@@ -1,7 +1,7 @@
 import { Else, If, Then } from "react-if";
 
 import { Skeleton } from "@mui/material";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export const StringVariable = ({ variable }) => {
   variable = variable.replace(/\D/g, "");

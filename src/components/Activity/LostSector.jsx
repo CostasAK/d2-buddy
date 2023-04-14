@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import { useQueries, useQuery } from "react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
-import { useActivityMode } from "hooks/useActivityMode";
-import { PropTypes } from "prop-types";
 import Activity from ".";
 import Loading from "../Loading";
+import { PropTypes } from "prop-types";
+import { useActivityMode } from "hooks/useActivityMode";
 
 const activity_type = "DestinyActivityDefinition";
 
@@ -17,12 +17,13 @@ export function LostSector({ name }) {
 
   const search_results = search_data?.results?.results || [];
 
-  const lost_sectors = useQueries(
-    search_results.map((result) => ({
+  const lost_sectors = useQueries({
+    queries: search_results?.map((result) => ({
       queryKey: [activity_type, result.hash],
       enabled: !!result?.hash,
-    }))
-  );
+    })),
+    enabled: !!search_results,
+  });
 
   const activityModeHashes = lost_sectors.map(
     (sector) => sector?.data?.directActivityModeHash

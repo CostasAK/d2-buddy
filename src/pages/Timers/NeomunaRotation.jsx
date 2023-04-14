@@ -5,6 +5,7 @@ import { useQueryDatabase } from "hooks/useQueryDatabase";
 
 export default function NeomunaRotation() {
   const { data: items, isLoading } = useQueryDatabase("neomunaRotation");
+
   const { data: terminalOverloadItems, isLoading: terminalOverloadIsLoading } =
     useQueryDatabase("terminalOverloadRotation");
 
