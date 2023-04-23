@@ -1,8 +1,8 @@
-import CycleCard from "../../components/CycleCard";
-import DestinyWeapon from "../../components/DestinyWeapon";
 import WellspringIcon from "assets/Wellspring.png";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
+import CycleCard from "../../components/CycleCard";
+import DestinyWeapon from "../../components/DestinyWeapon";
 
 export default function SavathunsThroneWorldRotation() {
   const { data: items, isLoading } = useQueryDatabase(
@@ -48,7 +48,7 @@ export default function SavathunsThroneWorldRotation() {
   return (
     <>
       <CycleCard
-        title="Witch Queen Weekly Campaign Mission"
+        title="Witch Queen Campaign Mission"
         items={campaignMissionItems}
         isLoading={isLoading}
         icon="https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png"
