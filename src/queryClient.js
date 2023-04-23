@@ -1,11 +1,11 @@
 import { compress, decompress } from "lz-string";
-import { month, second } from "constants/time";
+import { second, week } from "constants/time";
 
 import { QueryClient } from "@tanstack/react-query";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { defaultQueryFn } from "./functions/query";
 
-const CACHE_MAX_AGE = 1 * month;
+const CACHE_MAX_AGE = 3 * week;
 
 export const queryClient = new QueryClient({
   defaultOptions: {
