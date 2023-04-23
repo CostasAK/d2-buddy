@@ -12,7 +12,7 @@ import { slicePastItems } from "components/CycleCard/slicePastItems";
 import { trimFutureItems } from "components/CycleCard/trimFutureItems";
 
 export const CycleCard = forwardRef(
-  ({ title, items, icon, isLoading }, ref) => {
+  ({ title, items, icon, isLoading, disabled }, ref) => {
     const [futureItems, setFutureItems] = useState(
       trimFutureItems(slicePastItems(items))
     );
@@ -34,6 +34,7 @@ export const CycleCard = forwardRef(
         style={{ order: flexOrder(futureItems?.[1]?.timestamp, -5 * year) }}
         modalContent={!isLoading && <CycleCardModal items={futureItems} />}
         icon={icon}
+        disabled={disabled || isLoading || futureItems?.[0]?.element === "???"}
       >
         <If condition={isLoading || !futureItems?.[0]?.element}>
           <Then>
