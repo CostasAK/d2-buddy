@@ -1,19 +1,20 @@
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
-import CurrentNightfall from "./CurrentNightfall";
+import Page from "layout/Page";
+import CrucibleRotation from "pages/Timers/CrucibleRotation";
 import DefiantRotation from "pages/Timers/DefiantRotation";
 import DungeonRotation from "pages/Timers/DungeonRotation";
 import EuropaRotation from "pages/Timers/EuropaRotation";
 import LostSectors from "pages/Timers/LostSectors";
-import MoonRotation from "./MoonRotation";
 import NeomunaRotation from "pages/Timers/NeomunaRotation";
-import Page from "layout/Page";
 import RaidRotation from "pages/Timers/RaidRotation";
-import React from "react";
 import Resets from "pages/Timers/Resets";
 import SavathunsThroneWorldRotation from "pages/Timers/SavathunsThroneWorldRotation";
 import Season from "pages/Timers/Season";
+import React from "react";
 import { hour } from "../../constants/time";
+import CurrentNightfall from "./CurrentNightfall";
+import MoonRotation from "./MoonRotation";
 
 const links = [
   {
@@ -65,6 +66,7 @@ export default function Timers() {
         {/* Bonus Rewards */}
         <DungeonRotation />
         <RaidRotation />
+        <CrucibleRotation />
         {/* <Events /> */}
         {/* Past Seasons */}
         {/* Past Expansions */}
