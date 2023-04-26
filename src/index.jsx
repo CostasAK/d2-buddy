@@ -15,12 +15,11 @@ if (
   process.env.NODE_ENV === "production" &&
   !window.location.href.startsWith("https://d2buddy.net")
 ) {
-  console.log("No Match!");
-  console.log(
-    window.location.href.replace(/https?:\/\/.*?\//i, "https://d2buddy.net/")
-  );
   window.location.replace(
-    window.location.href.replace(/https?:\/\/.*?\//i, "https://d2buddy.net/")
+    window.location.href.replace(
+      /https?:\/\/.*?(?:\/|$)/i,
+      "https://d2buddy.net/"
+    )
   );
 }
 
