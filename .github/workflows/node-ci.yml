@@ -11,6 +11,9 @@ jobs:
   tests:
     name: Continuous Integration
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
       - name: "Checkout Repository"
         uses: actions/checkout@v3
