@@ -1,7 +1,7 @@
-# [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" align="right">](https://destiny2.kokke.eu/)
+# [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" align="right">](https://d2buddy.net/)
 
-[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fdestiny2.kokke.eu)](https://destiny2.kokke.eu/)
-[![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/main?label=last%20update&style=for-the-badge)](https://destiny2.kokke.eu/)
+[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fd2buddy.net)](https://d2buddy.net/)
+[![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/main?label=last%20update&style=for-the-badge)](https://d2buddy.net/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/costasak/d2-buddy/node-cd.yml?branch=main&style=for-the-badge&logo=createreactapp)](https://github.com/CostasAK/d2-buddy/actions/workflows/node.js.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=prettier)](https://github.com/prettier/prettier)
 [![License: MIT](https://img.shields.io/github/license/costasak/d2-buddy?style=for-the-badge)](https://github.com/CostasAK/d2-buddy/blob/main/LICENSE)
@@ -12,7 +12,7 @@ Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 
 ## What it does
 
-### [Timers](https://destiny2.kokke.eu/Timers)
+### [Timers](https://d2buddy.net/Timers)
 
 - Shows upcoming events, and recurring events such as resets.
 - Shows countdowns and times adjusted to your local timezone.
@@ -21,7 +21,7 @@ Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
 - Activities can be clicked for full breakdowns of modifiers, shields and champions.
 
-### [Links](https://destiny2.kokke.eu/Links)
+### [Links](https://d2buddy.net/Links)
 
 Some links to my favorite D2 resources and tools. I have no affiliation with the sites listed. I just think they're great.
 

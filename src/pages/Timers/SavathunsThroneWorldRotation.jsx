@@ -48,7 +48,7 @@ export default function SavathunsThroneWorldRotation() {
   return (
     <>
       <CycleCard
-        title="Witch Queen Weekly Campaign Mission"
+        title="Witch Queen Campaign Mission"
         items={campaignMissionItems}
         isLoading={isLoading}
         icon="https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png"

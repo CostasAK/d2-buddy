@@ -11,6 +11,18 @@ import { createRoot } from "react-dom/client";
 import { second } from "constants/time";
 import { theme } from "theme";
 
+if (
+  process.env.NODE_ENV === "production" &&
+  !window.location.href.startsWith("https://d2buddy.net")
+) {
+  window.location.replace(
+    window.location.href.replace(
+      /https?:\/\/.*?(?:\/|$)/i,
+      "https://d2buddy.net/"
+    )
+  );
+}
+
 queryClient.prefetchQuery({ queryKey: ["buddyDatabase", 1676824259] });
 
 const updateInnerHeight = () =>
