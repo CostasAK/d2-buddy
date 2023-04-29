@@ -42,6 +42,7 @@ export const MuiCssBaseline = {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       hyphens: auto;
+      overflow-y: scroll;
     }
 
     p {
