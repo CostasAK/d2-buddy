@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
+import { ErrorPage } from "pages/ErrorPage";
 import Root from "layout/Root";
 import Timers from "pages/Timers";
 import { pascalCase } from "functions/pascalCase";
@@ -24,6 +25,7 @@ export const routes = [
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Navigate to="/Timers" /> },
       { name: "Timers", element: <Timers /> },
