@@ -104,7 +104,7 @@ export const AppBar = () => {
                     key={route.path}
                     label={route.name}
                     value={route.path}
-                    to={route.path}
+                    to={route.path.replace(/\/\*$/, "")}
                     component={Link}
                     wrapped={route.name.length > 1}
                     sx={{ height: "100%", textTransform: "uppercase" }}

@@ -4,10 +4,21 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
-import Links from "pages/Links";
 import Root from "layout/Root";
 import Timers from "pages/Timers";
+import { pascalCase } from "functions/pascalCase";
 import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
+
+const formatNameAndPath = (child) => {
+  if (!child.index) {
+    child.path = pascalCase(child.name) + "/*";
+    child.name = child.name
+      .split(/\s*\n\s*/)
+      .reduce((previous, current) => [...previous, <br />, current], [])
+      .splice(1);
+  }
+  return child;
+};
 
 export const routes = [
   {
@@ -16,19 +27,8 @@ export const routes = [
     children: [
       { index: true, element: <Navigate to="/Timers" /> },
       { name: "Timers", element: <Timers /> },
-      { name: "Links", element: <Links /> },
-    ].map((child) => {
-      if (!child.index) {
-        child.path = (" " + child.name)
-          .toLowerCase()
-          .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
-        child.name = child.name
-          .split(/\s*\n\s*/)
-          .reduce((previous, current) => [...previous, <br />, current], [])
-          .splice(1);
-      }
-      return child;
-    }),
+      { name: "Links", lazy: () => import("./pages/Links") },
+    ].map(formatNameAndPath),
   },
 ];
 

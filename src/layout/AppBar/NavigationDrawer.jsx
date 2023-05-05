@@ -77,7 +77,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
             <ListItemButton
               key={index}
               component={Link}
-              to={route.path}
+              to={route.path.replace(/\/\*$/, "")}
               selected={currentTab === index}
               onClick={handleDrawerClose}
               sx={{

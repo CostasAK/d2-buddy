@@ -8,6 +8,7 @@ import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { gidSheetGid } from "constants/gid";
 import { second } from "constants/time";
 import { theme } from "theme";
 
@@ -23,7 +24,7 @@ if (
   );
 }
 
-queryClient.prefetchQuery({ queryKey: ["buddyDatabase", 1676824259] });
+queryClient.prefetchQuery({ queryKey: ["buddyDatabase", gidSheetGid] });
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);

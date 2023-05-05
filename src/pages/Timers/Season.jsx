@@ -22,12 +22,14 @@ export default function Season() {
   }
 
   return (
-    <TimerCard
-      title={`Season ${data.seasonNumber}: ${data.displayProperties.name}`}
-      description={data.displayProperties.description}
-      start={data.startDate}
-      end={data.endDate}
-      icon={`${data.displayProperties.icon}`}
-    />
+    <>
+      <TimerCard
+        title={`Season ${data.seasonNumber}: ${data.displayProperties.name}`}
+        description={data.displayProperties.description}
+        start={data.startDate}
+        end={data.endDate}
+        icon={`${data.displayProperties.icon}`}
+      />
+    </>
   );
 }

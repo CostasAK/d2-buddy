@@ -1,10 +1,12 @@
 import { Button, Typography, useTheme } from "@mui/material";
 
-import { CardModal } from "./CardModal";
+import DestinyDialog from "components/DestinyDialog";
 import Img from "components/Img";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { cssRgb } from "functions/cssRgb";
 import { forwardRef } from "react";
+import { pascalCase } from "functions/pascalCase";
 
 export const Card = forwardRef(
   (
@@ -110,29 +112,26 @@ export const Card = forwardRef(
       },
     };
 
+    console.log(link || pascalCase(title));
+
+    const linkProps =
+      link || props.disabled
+        ? { href: link, target: "_blank", rel: "noreferrer" }
+        : { component: Link, to: pascalCase(title) };
+
     return (
-      <CardModal
-        className={className}
-        modalContent={modalContent}
-        title={title}
-        icon={icon}
-        customModal={customModal}
-      >
-        <Button
-          variant="triumph"
-          href={link}
-          target="_blank"
-          rel="noreferrer"
-          sx={sxButton}
-          {...props}
-        >
+      <>
+        <DestinyDialog title={title} background={icon}>
+          {modalContent}
+        </DestinyDialog>
+        <Button variant="triumph" {...linkProps} sx={sxButton} {...props}>
           <Img src={icon} sx={sxIcon} />
           <Typography variant="h4" sx={sxTitle}>
             {title}
           </Typography>
           <Typography variant="body1">{children}</Typography>
         </Button>
-      </CardModal>
+      </>
     );
   }
 );
