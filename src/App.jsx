@@ -40,5 +40,5 @@ export const router = createBrowserRouter(routes);
 export default function App() {
   useDailyResetRefetch();
 
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} fallbackElement={<Root />} />;
 }
