@@ -4,6 +4,7 @@ import { second, week } from "constants/time";
 import { QueryClient } from "@tanstack/react-query";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { defaultQueryFn } from "./functions/query";
+import { removeOldestQuery } from "@tanstack/react-query-persist-client";
 
 const CACHE_MAX_AGE = 3 * week;
 
@@ -28,6 +29,7 @@ export const queryClient = new QueryClient({
 
 const persister = createSyncStoragePersister({
   storage: window.localStorage,
+  retry: removeOldestQuery,
   key: "D2_BUDDY_TANSTACK_QUERY_OFFLINE_CACHE",
   serialize: (data) => compress(JSON.stringify(data)),
   deserialize: (data) => JSON.parse(decompress(data)),
