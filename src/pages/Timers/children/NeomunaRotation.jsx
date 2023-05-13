@@ -1,5 +1,4 @@
 import CycleCard from "../../components/CycleCard";
-import DestinyWeapon from "components/DestinyWeapon";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
 
@@ -19,10 +18,10 @@ export default function NeomunaRotation() {
     item.id = item?.location;
     item.element = (
       <>
-        <DestinyWeapon hash={item?.weaponHash} name={item?.weapon} /> -{" "}
-        {item?.location}
+        {item?.weapon} - {item?.location}
       </>
     );
+    item.to = `/Weapon/${item?.weaponHash}`;
     return null;
   });
 

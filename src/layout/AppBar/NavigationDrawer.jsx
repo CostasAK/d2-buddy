@@ -77,7 +77,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
             <ListItemButton
               key={index}
               component={Link}
-              to={route.path.replace(/\/\*$/, "")}
+              to={route.path}
               selected={currentTab === index}
               onClick={handleDrawerClose}
               sx={{
@@ -93,7 +93,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
               }}
             >
               <ListItemText
-                primary={route.name}
+                primary={route.title}
                 sx={{ textTransform: "uppercase" }}
               />
             </ListItemButton>

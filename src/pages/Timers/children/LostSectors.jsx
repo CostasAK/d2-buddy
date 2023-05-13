@@ -1,6 +1,6 @@
-import CycleCard from "../../components/CycleCard";
-import { LostSector } from "../../components/Activity/LostSector";
-import Modal from "../../components/Modal";
+import CycleCard from "../../../components/CycleCard";
+import { LostSector } from "../../../components/Activity/LostSector";
+import Modal from "../../../components/Modal";
 import { Typography } from "@mui/material";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";

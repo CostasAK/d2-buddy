@@ -1,2 +1,2 @@
-export { Component } from "./Component";
+export { Links as Component } from "./Links";
 export { loader } from "./loader";

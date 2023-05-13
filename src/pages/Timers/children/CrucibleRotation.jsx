@@ -1,4 +1,4 @@
-import CycleCard from "../../components/CycleCard";
+import CycleCard from "../../../components/CycleCard";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
 

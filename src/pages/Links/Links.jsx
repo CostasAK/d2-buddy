@@ -6,7 +6,7 @@ import Loading from "components/Loading";
 import Page from "layout/Page";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
 
-export const Component = (props) => {
+export const Links = () => {
   const { data: links, isLoading } = useQueryDatabase("links");
 
   return (

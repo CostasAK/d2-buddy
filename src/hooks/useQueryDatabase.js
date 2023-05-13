@@ -3,7 +3,7 @@ import { gidSheetGid } from "constants/gid";
 import { minute } from "constants/time";
 import { useQuery } from "@tanstack/react-query";
 
-export const useQueryDatabase = (sheet) => {
+export const useQueryDatabase = (sheet, includePast = false) => {
   const {
     data: gids,
     isLoading: gidIsLoading,

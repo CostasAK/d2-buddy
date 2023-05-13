@@ -2,6 +2,7 @@ import { Else, If, Then, When } from "react-if";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 
 import Img from "components/Img";
+import { Link } from "react-router-dom";
 import { TimerCardCountdown } from "../TimerCard";
 import { isValidElement } from "react";
 
@@ -9,7 +10,11 @@ export const CycleCardModal = ({ items }) => (
   <List sx={{ width: "max-content", marginInline: "auto" }}>
     {items?.map((item, index) => {
       return (
-        <ListItem>
+        <ListItem
+          button={!!item?.to}
+          component={!!item?.to && Link}
+          to={item?.to}
+        >
           <When condition={item?.listIcon}>
             <ListItemIcon
               sx={{

@@ -36,7 +36,8 @@ const useRouteMatch = (routes) => {
 export const AppBar = () => {
   const rootRoutes = routes
     .filter((route) => route.path === "/")[0]
-    .children.filter((child) => !child.index);
+    .children[0].children.filter((child) => !child.index && !!child.title);
+
   const currentTab = useRouteMatch(rootRoutes);
 
   const theme = useTheme();
@@ -102,11 +103,11 @@ export const AppBar = () => {
                 {rootRoutes.map((route) => (
                   <Tab
                     key={route.path}
-                    label={route.name}
+                    label={route.title}
                     value={route.path}
-                    to={route.path.replace(/\/\*$/, "")}
+                    to={route.path}
                     component={Link}
-                    wrapped={route.name.length > 1}
+                    wrapped={route.title.length > 1}
                     sx={{ height: "100%", textTransform: "uppercase" }}
                   />
                 ))}

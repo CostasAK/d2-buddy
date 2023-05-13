@@ -5,7 +5,7 @@ import Img from "../Img";
 import { When } from "react-if";
 import { weaponSites } from "constants/weaponSites";
 
-export function WeaponLinks({ id: hash }) {
+export function WeaponLinks({ hash }) {
   const linksBackground = "rgb(0 0 0 / 50%)";
   const gap = "1rem";
 
@@ -50,11 +50,14 @@ export function WeaponLinks({ id: hash }) {
             sx={{ paddingInline: "0.5rem", gap: "0.5rem" }}
           >
             <When condition={site.icon}>
-              <Img src={site.icon} height="2em" />
+              <Img src={site.icon} height="1.75em" />
             </When>
             <ListItemText
               primary={site.name}
-              primaryTypographyProps={{ fontStyle: "normal" }}
+              primaryTypographyProps={{
+                fontStyle: "normal",
+                fontSize: "0.875rem",
+              }}
             />
           </ListItemButton>
         </ListItem>

@@ -22,6 +22,8 @@ const variants = {
 export const Root = () => {
   const navigation = useNavigation();
 
+  const isLoading = navigation?.state === "loading";
+
   return (
     <Box
       sx={{
@@ -40,13 +42,13 @@ export const Root = () => {
         id="main"
         sx={{ marginBlock: 2, gridRow: 2, gridColumn: 1 }}
         variants={variants}
-        animate={navigation?.state === "loading" ? "loading" : "active"}
+        animate={isLoading ? "loading" : "active"}
       >
         <Outlet />
         <BackToTopButton />
       </Box>
 
-      <When condition={navigation?.state === "loading"}>
+      <When condition={isLoading}>
         <Loading
           size="page"
           sx={{ gridRow: 2, gridColumn: 1, zIndex: 1 }}

@@ -1,20 +1,8 @@
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
-import CrucibleRotation from "pages/Timers/CrucibleRotation";
-import CurrentNightfall from "./CurrentNightfall";
-import DefiantRotation from "pages/Timers/DefiantRotation";
-import DungeonRotation from "pages/Timers/DungeonRotation";
-import EuropaRotation from "pages/Timers/EuropaRotation";
-import LostSectors from "pages/Timers/LostSectors";
-import Modals from "layout/Modals";
-import MoonRotation from "./MoonRotation";
-import NeomunaRotation from "pages/Timers/NeomunaRotation";
+import { Outlet } from "react-router-dom";
 import Page from "layout/Page";
-import RaidRotation from "pages/Timers/RaidRotation";
 import React from "react";
-import Resets from "pages/Timers/Resets";
-import SavathunsThroneWorldRotation from "pages/Timers/SavathunsThroneWorldRotation";
-import Season from "pages/Timers/Season";
 import { hour } from "../../constants/time";
 
 const links = [
@@ -27,8 +15,8 @@ const links = [
     link: "https://twitter.com/BungieHelp",
   },
   {
-    name: "Destiny News",
-    link: "https://www.bungie.net/7/en/News/destiny",
+    name: "Bungie News",
+    link: "https://www.bungie.net/7/en/News",
   },
 ];
 
@@ -58,24 +46,24 @@ export default function Timers() {
         }}
       >
         {/* Current Season */}
-        <Season />
+        {/* <Season />
         <DefiantRotation />
-        <NeomunaRotation />
+        <NeomunaRotation /> */}
         {/* Loot Drops */}
-        <CurrentNightfall />
-        <LostSectors />
+        {/* <CurrentNightfall />
+        <LostSectors /> */}
         {/* Bonus Rewards */}
-        <DungeonRotation />
+        {/* <DungeonRotation />
         <RaidRotation />
-        <CrucibleRotation />
+        <CrucibleRotation /> */}
         {/* <Events /> */}
         {/* Past Seasons */}
         {/* Past Expansions */}
-        <SavathunsThroneWorldRotation />
+        {/* <SavathunsThroneWorldRotation />
         <EuropaRotation />
-        <MoonRotation />
+        <MoonRotation /> */}
         {/* General Resets */}
-        <Resets />
+        {/* <Resets /> */}
       </Box>
       <Box
         sx={{
@@ -100,7 +88,10 @@ export default function Timers() {
           </Button>
         ))}
       </Box>
-      <Modals />
+      <Outlet />
     </Page>
   );
 }
+
+export { Timers as Component } from "./Timers";
+export { loader } from "./loader";

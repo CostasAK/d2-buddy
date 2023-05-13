@@ -1,12 +1,10 @@
 import { Button, Typography, useTheme } from "@mui/material";
 
-import DestinyDialog from "components/DestinyDialog";
 import Img from "components/Img";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { cssRgb } from "functions/cssRgb";
 import { forwardRef } from "react";
-import { pascalCase } from "functions/pascalCase";
 
 export const Card = forwardRef(
   (
@@ -17,6 +15,7 @@ export const Card = forwardRef(
       modalContent,
       customModal,
       link,
+      to,
       icon,
       className,
       floatIcon,
@@ -112,26 +111,21 @@ export const Card = forwardRef(
       },
     };
 
-    console.log(link || pascalCase(title));
-
     const linkProps =
       link || props.disabled
         ? { href: link, target: "_blank", rel: "noreferrer" }
-        : { component: Link, to: pascalCase(title) };
+        : to
+        ? { component: Link, to }
+        : {};
 
     return (
-      <>
-        <DestinyDialog title={title} background={icon}>
-          {modalContent}
-        </DestinyDialog>
-        <Button variant="triumph" {...linkProps} sx={sxButton} {...props}>
-          <Img src={icon} sx={sxIcon} />
-          <Typography variant="h4" sx={sxTitle}>
-            {title}
-          </Typography>
-          <Typography variant="body1">{children}</Typography>
-        </Button>
-      </>
+      <Button variant="triumph" {...linkProps} sx={sxButton} {...props}>
+        <Img src={icon} sx={sxIcon} />
+        <Typography variant="h4" sx={sxTitle}>
+          {title}
+        </Typography>
+        <Typography variant="body1">{children}</Typography>
+      </Button>
     );
   }
 );

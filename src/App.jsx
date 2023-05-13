@@ -6,14 +6,13 @@ import {
 
 import { ErrorPage } from "pages/ErrorPage";
 import Root from "layout/Root";
-import Timers from "pages/Timers";
 import { pascalCase } from "functions/pascalCase";
 import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
 
-const formatNameAndPath = (child) => {
-  if (!child.index) {
-    child.path = pascalCase(child.name) + "/*";
-    child.name = child.name
+const formatTitleAndPath = (child) => {
+  if (!child.index && !child.path && !!child.title) {
+    child.path = pascalCase(child.title);
+    child.title = child.title
       .split(/\s*\n\s*/)
       .reduce((previous, current) => [...previous, <br />, current], [])
       .splice(1);
@@ -27,10 +26,41 @@ export const routes = [
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Navigate to="/Timers" /> },
-      { name: "Timers", element: <Timers /> },
-      { name: "Links", lazy: () => import("./pages/Links") },
-    ].map(formatNameAndPath),
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Navigate to="/Timers" /> },
+          {
+            title: "Timers",
+            lazy: () => import("pages/Timers"),
+            children: [
+              {
+                lazy: () => import("components/SideDialog"),
+                children: [
+                  {
+                    errorElement: <ErrorPage />,
+                    children: [
+                      {
+                        path: ":to",
+                        lazy: () => import("pages/Timers/children"),
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Links",
+            lazy: () => import("pages/Links"),
+          },
+          {
+            path: "Weapon/:hash",
+            lazy: () => import("pages/WeaponPage"),
+          },
+        ].map(formatTitleAndPath),
+      },
+    ],
   },
 ];
 
