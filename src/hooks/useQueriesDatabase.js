@@ -41,7 +41,7 @@ export const useQueriesDatabase = (sheets, includePast = false) => {
 
   return {
     data,
-    isLoading: gidIsLoading ? [gidIsLoading] : results?.map((x) => x.isLoading),
+    isLoading: results?.map((x) => gidIsLoading || x.isLoading),
     error:
       gidError ||
       results
