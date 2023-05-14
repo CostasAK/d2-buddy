@@ -1,9 +1,10 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
 
-import { dateToTimestamp } from "functions/dateToTimestamp";
 import { getGid } from "functions/getGid";
 import { gidSheetGid } from "constants/gid";
 import { minute } from "constants/time";
+import { processDatabaseSheet } from "functions/processDatabaseSheet";
+import { useNow } from "hooks/useNow";
 
 export const useQueriesDatabase = (sheets, includePast = false) => {
   const {
@@ -28,21 +29,17 @@ export const useQueriesDatabase = (sheets, includePast = false) => {
     enabled: !!sheets,
   });
 
+  const now = useNow();
+
   const data = results
     ?.map((x) => x.data)
-    ?.map((sheet) =>
-      sheet?.map((item, index, arr) => {
-        item.startTimestamp ||=
-          dateToTimestamp(item?.start) || dateToTimestamp(item?.date);
-        item.endTimestamp ||=
-          dateToTimestamp(item?.end) ||
-          dateToTimestamp(arr?.[index + 1]?.date) ||
-          2 * dateToTimestamp(item?.date) -
-            dateToTimestamp(arr?.[index - 1]?.date);
-        item.id ||= item?.hash || item?.name;
-        item.element ||= item?.name;
-        return item;
-      })
+    ?.map((sheet) => sheet?.map(processDatabaseSheet))
+    ?.filter(
+      (item) =>
+        includePast ||
+        item?.startTimestamp > now ||
+        item?.endTimestamp > now ||
+        (!item?.startTimestamp && !item?.endTimestamp)
     );
 
   return {

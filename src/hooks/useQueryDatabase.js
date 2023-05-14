@@ -1,6 +1,8 @@
 import { getGid } from "functions/getGid";
 import { gidSheetGid } from "constants/gid";
 import { minute } from "constants/time";
+import { processDatabaseSheet } from "functions/processDatabaseSheet";
+import { useNow } from "hooks/useNow";
 import { useQuery } from "@tanstack/react-query";
 
 export const useQueryDatabase = (sheet, includePast = false) => {
@@ -23,8 +25,18 @@ export const useQueryDatabase = (sheet, includePast = false) => {
     }
   );
 
+  const now = useNow();
+
   return {
-    data: data,
+    data: data
+      ?.map(processDatabaseSheet)
+      ?.filter(
+        (item) =>
+          includePast ||
+          item?.startTimestamp > now ||
+          item?.endTimestamp > now ||
+          (!item?.startTimestamp && !item?.endTimestamp)
+      ),
     isLoading: isLoading || gidIsLoading,
     error: error || gidError,
   };
