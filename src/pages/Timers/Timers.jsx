@@ -3,16 +3,45 @@ import { Else, If, Then } from "react-if";
 
 import CycleCard from "components/CycleCard";
 import Loading from "components/Loading";
-import { useQueriesDatabase } from "hooks/useQueriesDatabase";
+import { Outlet } from "react-router-dom";
 import Page from "layout/Page";
 import { links } from "pages/Timers/links";
 import { timers } from "pages/Timers/timers";
-import { Outlet } from "react-router-dom";
+import { useQueriesDatabase } from "hooks/useQueriesDatabase";
 
 export const Timers = () => {
   const { data, isLoading } = useQueriesDatabase(
     timers.map((timer) => timer.sheet)
   );
+
+  const actualTimers = timers
+    .map((timer, index) => {
+      timer.items = data?.[index]?.map(timer.dataToItems);
+      timer.isLoading = isLoading?.[index];
+      return timer;
+    })
+    .filter((timer) => timer?.items?.length > 0)
+    .sort((a, b) =>
+      a.isLoading && b.isLoading
+        ? 0
+        : !a.isLoading && b.isLoading
+        ? -1
+        : a.isLoading && !b.isLoading
+        ? 1
+        : a.items[0].endTimestamp < b.items[0].endTimestamp
+        ? -1
+        : a.items[0].endTimestamp > b.items[0].endTimestamp
+        ? 1
+        : a.items[0].startTimestamp < b.items[0].startTimestamp
+        ? -1
+        : a.items[0].startTimestamp > b.items[0].startTimestamp
+        ? 1
+        : a.release < b.release
+        ? 1
+        : a.release > b.release
+        ? -1
+        : a.title.localeCompare(b.title)
+    );
 
   return (
     <Page title="Timers">
@@ -34,13 +63,15 @@ export const Timers = () => {
             <Loading size="page" />
           </Then>
           <Else>
-            {timers.map((timer, index) => (
+            {actualTimers.map((timer, index) => (
               <CycleCard
+                key={timer.to}
                 title={timer.title}
                 to={timer.to}
-                items={data?.[index]?.map(timer.dataToItems)}
-                isLoading={isLoading?.[index]}
+                items={timer.items}
+                isLoading={timer.isLoading}
                 icon={timer.icon}
+                titleRule
               />
             ))}
           </Else>

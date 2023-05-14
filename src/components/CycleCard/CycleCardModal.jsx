@@ -11,6 +11,7 @@ export const CycleCardModal = ({ items }) => (
     {items?.map((item, index) => {
       return (
         <ListItem
+          key={item.startTimestamp}
           button={!!item?.to}
           component={!!item?.to && Link}
           to={item?.to}
@@ -38,7 +39,7 @@ export const CycleCardModal = ({ items }) => (
               <TimerCardCountdown
                 prefix={index === 0 && "Cycles"}
                 timestamp={
-                  index === 0 ? items?.[1]?.timestamp : item?.timestamp
+                  index === 0 ? item?.endTimestamp : item?.startTimestamp
                 }
               />
             }

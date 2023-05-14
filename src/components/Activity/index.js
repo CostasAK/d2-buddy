@@ -7,6 +7,7 @@ import { ActivityModifier } from "./ActivityModifier";
 import { ActivityModifiers } from "./ActivityModifiers";
 import { ActivityShields } from "./ActivityShields";
 import { LostSector } from "./LostSector";
+import { LostSectorLink } from "./LostSectorLink";
 
 export default Activity;
 
@@ -19,4 +20,5 @@ export {
   ActivityShields,
   ActivityDifficulty,
   LostSector,
+  LostSectorLink,
 };
