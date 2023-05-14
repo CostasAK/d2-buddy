@@ -33,15 +33,17 @@ export const useQueriesDatabase = (sheets, includePast = false) => {
 
   const data = results
     ?.map((x) => x.data)
-    ?.map((sheet) => sheet?.map(processDatabaseSheet))
-    ?.filter(
-      (item) =>
-        includePast ||
-        item?.startTimestamp > now ||
-        item?.endTimestamp > now ||
-        (!item?.startTimestamp && !item?.endTimestamp)
+    ?.map((sheet) =>
+      sheet
+        ?.map(processDatabaseSheet)
+        ?.filter(
+          (item) =>
+            includePast ||
+            item?.startTimestamp > now ||
+            item?.endTimestamp > now ||
+            (!item?.startTimestamp && !item?.endTimestamp)
+        )
     );
-
   return {
     data,
     isLoading: results?.map((x) => gidIsLoading || x.isLoading),
