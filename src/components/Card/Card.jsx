@@ -119,7 +119,7 @@ export const Card = forwardRef(
         : {};
 
     return (
-      <Button variant="triumph" {...linkProps} sx={sxButton} {...props}>
+      <Button variant="destinyOutlined" {...linkProps} sx={sxButton} {...props}>
         <Img src={icon} sx={sxIcon} />
         <Typography variant="h4" sx={sxTitle}>
           {title}

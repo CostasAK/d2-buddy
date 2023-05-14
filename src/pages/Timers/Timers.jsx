@@ -94,7 +94,7 @@ export const Timers = () => {
             href={link.link}
             target="_blank"
             rel="noreferrer"
-            variant="destiny"
+            variant="bungie"
           >
             {link.name}
           </Button>
