@@ -30,10 +30,14 @@ export const useQueriesDatabase = (sheets, includePast = false) => {
 
   const data = results
     ?.map((x) => x.data)
-    ?.map((item, index) => {
-      item.timestamp ||= dateToTimestamp(item?.date);
-      item.startTimestamp ||= dateToTimestamp(item?.start);
-      item.endTimestamp ||= dateToTimestamp(item?.end);
+    ?.map((item, index, arr) => {
+      item.startTimestamp ||=
+        dateToTimestamp(item?.start) || dateToTimestamp(item?.date);
+      item.endTimestamp ||=
+        dateToTimestamp(item?.end) ||
+        dateToTimestamp(arr?.[index + 1]?.date) ||
+        2 * dateToTimestamp(item?.date) -
+          dateToTimestamp(arr?.[index - 1]?.date);
       item.id ||= item?.hash || item?.name;
       item.element ||= item?.name;
       return item;
