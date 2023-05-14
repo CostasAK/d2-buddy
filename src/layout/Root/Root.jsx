@@ -15,7 +15,6 @@ const variants = {
   },
   loading: {
     filter: "opacity(50%) saturate(50%)",
-    transition: { delay: 0.25 },
   },
 };
 
@@ -54,7 +53,7 @@ export const Root = () => {
           sx={{ gridRow: 2, gridColumn: 1, zIndex: 1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.25 }}
+          transition={{ delay: 0.5 }}
         />
       </When>
 
