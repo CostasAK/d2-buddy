@@ -12,39 +12,38 @@ import {
   useTheme,
 } from "@mui/material";
 import { Unless, When } from "react-if";
-import { matchPath, useLocation } from "react-router-dom";
+import { matchRoutes, useLocation } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import RefreshButton from "components/RefreshButton";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
-import { routes } from "App";
+import { routes } from "Router";
 import useDimensions from "react-cool-dimensions";
 
 const useRouteMatch = (routes) => {
   const { pathname } = useLocation();
 
-  for (const route of routes) {
-    const possibleMatch = matchPath(route?.path || "/Timers", pathname);
-
-    if (possibleMatch?.pattern?.path) return possibleMatch.pattern.path;
-  }
-
-  return null;
+  return matchRoutes(routes, pathname)?.[0]?.pathnameBase.slice(1);
 };
 
 export const AppBar = () => {
   const rootRoutes = routes
     .filter((route) => route.path === "/")[0]
-    .children.filter((child) => !child.index);
+    .children[0].children.filter((child) => !child.index && !!child.title);
+
   const currentTab = useRouteMatch(rootRoutes);
 
   const theme = useTheme();
   const viewportIsBig = useMediaQuery(theme.breakpoints.up("md"));
 
-  const { observe, height } = useDimensions();
+  const { observe, height } = useDimensions({
+    shouldUpdate: ({ currentBreakpoint, width, height, entry }) => {
+      return !viewportIsBig && height > 64;
+    },
+  });
 
-  const scrollTrigger = useScrollTrigger({ threshold: height || 100 });
+  const scrollTrigger = useScrollTrigger({ threshold: height || 64 });
 
   return (
     <>
@@ -102,11 +101,11 @@ export const AppBar = () => {
                 {rootRoutes.map((route) => (
                   <Tab
                     key={route.path}
-                    label={route.name}
+                    label={route.title}
                     value={route.path}
                     to={route.path}
                     component={Link}
-                    wrapped={route.name.length > 1}
+                    wrapped={route.title.length > 1}
                     sx={{ height: "100%", textTransform: "uppercase" }}
                   />
                 ))}

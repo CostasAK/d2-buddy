@@ -35,4 +35,7 @@ export const palette = {
   rare: { main: "#5176a4" },
   legendary: { main: "hsl(274, 33%, 29%)" },
   exotic: { main: "hsl(47, 60%, 50%)", dark: "hsl(43deg 58% 39%)" },
+  heavyAmmo: { main: "hsl(265, 92%, 75%)" },
+  specialAmmo: { main: "hsl(140, 87%, 67%)" },
+  primaryAmmo: { main: "hsl(0, 0%, 90%)" },
 };

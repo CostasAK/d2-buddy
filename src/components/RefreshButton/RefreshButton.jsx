@@ -1,13 +1,16 @@
 import { Badge, Box, IconButton, Tooltip } from "@mui/material";
 
-import Img from "components/Img";
-import { motion } from "framer-motion";
-import { updateApp } from "components/RefreshButton/updateApp";
-import useLocalStorageState from "use-local-storage-state";
 import { useQueryClient } from "@tanstack/react-query";
+import Img from "components/Img";
+import { updateApp } from "components/RefreshButton/updateApp";
 import { useTransformRotate } from "components/RefreshButton/useTransformRotate";
+import { motion } from "framer-motion";
+import { useDailyResetRefetch } from "hooks/useDailyResetRefetch";
+import useLocalStorageState from "use-local-storage-state";
 
 export const RefreshButton = () => {
+  useDailyResetRefetch();
+
   const [updateReady] = useLocalStorageState("updateReady", {
     defaultValue: true,
   });

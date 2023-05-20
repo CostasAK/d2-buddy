@@ -1,3 +1,4 @@
-export function isPast(time) {
-  return time && time <= Date.now();
+export function isPast(time, now) {
+  now ||= Date.now();
+  return time && time <= now;
 }

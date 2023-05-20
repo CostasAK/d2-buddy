@@ -12,40 +12,65 @@ const ImgBox = forwardRef(({ ...props }, ref) => (
   <Box component="img" ref={ref} loading="lazy" decoding="async" {...props} />
 ));
 
-export const Img = forwardRef(({ src, alt, title, sx = [], ...props }, ref) => {
-  if (!src) return null;
+export const Img = forwardRef(
+  ({ src, alt, title, background, sx = [], ...props }, ref) => {
+    if (!src) return null;
 
-  src = /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src;
+    src = /^\/(?!static\/)[\w\d]/.test(src) ? `${bungie_root_path}${src}` : src;
+    background = /^\/(?!static\/)[\w\d]/.test(background)
+      ? `${bungie_root_path}${background}`
+      : background;
 
-  return (
-    <If condition={/\.svg$/i.test(src)}>
-      <Then>
-        <Icon
-          component={SVG}
-          innerRef={ref}
-          src={src}
-          loader={<Box ref={ref} {...props} />}
-          preProcessor={(svg) =>
-            svg
-              .replace(/fill=".*?"/g, 'fill="currentColor"')
-              .replace(/stroke=".*?"/g, 'stroke="currentColor"')
-              .replace(/<path(?:(?!fill|stroke).)*(?:<\/\s?path>|\/>)/g, "")
-          }
-          sx={[
-            {
-              width: "auto",
-              height: "auto",
-              objectFit: "scale-down",
-            },
-            ...(Array.isArray(sx) ? sx : [sx]),
-          ]}
-          {...props}
-        />
-      </Then>
-      <Else>
-        <If condition={title}>
-          <Then>
-            <Tooltip title={title}>
+    return (
+      <If condition={/\.svg$/i.test(src)}>
+        <Then>
+          <Icon
+            component={SVG}
+            innerRef={ref}
+            src={src}
+            loader={<Box ref={ref} {...props} />}
+            preProcessor={(svg) =>
+              svg
+                .replace(/fill=".*?"/g, 'fill="currentColor"')
+                .replace(/stroke=".*?"/g, 'stroke="currentColor"')
+                .replace(/<path(?:(?!fill|stroke).)*(?:<\/\s?path>|\/>)/g, "")
+            }
+            sx={[
+              {
+                width: "auto",
+                height: "auto",
+                objectFit: "object-fit",
+                background: background && `url(${background})`,
+                backgroundSize: background && "cover",
+              },
+              ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
+            {...props}
+          />
+        </Then>
+        <Else>
+          <If condition={title}>
+            <Then>
+              <Tooltip title={title}>
+                <ImgBox
+                  ref={ref}
+                  src={src}
+                  alt={alt}
+                  sx={[
+                    {
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      objectFit: "scale-down",
+                      background: background && `url(${background})`,
+                      backgroundSize: background && "cover",
+                    },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                  ]}
+                  {...props}
+                />
+              </Tooltip>
+            </Then>
+            <Else>
               <ImgBox
                 ref={ref}
                 src={src}
@@ -54,35 +79,23 @@ export const Img = forwardRef(({ src, alt, title, sx = [], ...props }, ref) => {
                   {
                     maxWidth: "100%",
                     maxHeight: "100%",
+                    width: "auto",
+                    height: "auto",
                     objectFit: "scale-down",
+                    background: background && `url(${background})`,
+                    backgroundSize: background && "cover",
                   },
                   ...(Array.isArray(sx) ? sx : [sx]),
                 ]}
                 {...props}
               />
-            </Tooltip>
-          </Then>
-          <Else>
-            <ImgBox
-              ref={ref}
-              src={src}
-              alt={alt}
-              sx={[
-                {
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  objectFit: "scale-down",
-                },
-                ...(Array.isArray(sx) ? sx : [sx]),
-              ]}
-              {...props}
-            />
-          </Else>
-        </If>
-      </Else>
-    </If>
-  );
-});
+            </Else>
+          </If>
+        </Else>
+      </If>
+    );
+  }
+);
 
 Img.propTypes = {
   src: PropTypes.string,

@@ -3,13 +3,14 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { persistOptions, queryClient } from "./queryClient";
 
-import App from "./App";
-import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { gidSheetGid } from "constants/gid";
+import { second } from "constants/time";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { second } from "constants/time";
 import { theme } from "theme";
+import Router from "./Router";
 
 if (
   process.env.NODE_ENV === "production" &&
@@ -23,7 +24,7 @@ if (
   );
 }
 
-queryClient.prefetchQuery({ queryKey: ["buddyDatabase", 1676824259] });
+queryClient.prefetchQuery({ queryKey: ["buddyDatabase", gidSheetGid] });
 
 const updateInnerHeight = () =>
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
@@ -38,7 +39,7 @@ createRoot(document.getElementById("root")).render(
         client={queryClient}
         persistOptions={persistOptions}
       >
-        <App />
+        <Router />
         <ReactQueryDevtools initialIsOpen={false} />
       </PersistQueryClientProvider>
     </ThemeProvider>

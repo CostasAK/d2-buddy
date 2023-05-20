@@ -93,7 +93,7 @@ export const NavigationDrawer = ({ routes, currentTab, ...props }) => {
               }}
             >
               <ListItemText
-                primary={route.name}
+                primary={route.title}
                 sx={{ textTransform: "uppercase" }}
               />
             </ListItemButton>

@@ -32,7 +32,7 @@ export const MuiButton = {
       },
     },
     {
-      props: { variant: "destiny" },
+      props: { variant: "bungie" },
       style: {
         letterSpacing: "normal",
         fontFamily: fontFamily2,
@@ -62,10 +62,10 @@ export const MuiButton = {
       },
     },
     {
-      props: { variant: "triumph" },
+      props: { variant: "destinyOutlined" },
       style: ({ ownerState: { disabled } }) => ({
         textAlign: "left",
-        "--card-content-opacity": disabled ? 0.6 : 0.9,
+        "--card-content-opacity": disabled ? 0.7 : 0.9,
         position: "relative",
         border:
           "1px solid " +
@@ -73,6 +73,7 @@ export const MuiButton = {
         color: baseTheme.palette.text.primary,
         transitionDuration: baseTheme.transitions.duration.shortest,
         transitionProperty: "border-color, transform",
+        "&.Mui-disabled": { color: baseTheme.palette.text.primary },
         "&::before": {
           content: "''",
           zIndex: -1,

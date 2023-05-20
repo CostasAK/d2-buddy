@@ -26,13 +26,19 @@ const LoadingText = () => (
   </>
 );
 
-export const Loading = ({ size, ...props }) => (
+export const Loading = ({ size, sx = [], ...props }) => (
   <Typography
+    component={motion.div}
     variant={size === "page" ? "h1" : size === "section" ? "h2" : "body1"}
-    sx={{
-      display: "flex",
-      alignItems: "center",
-    }}
+    sx={[
+      {
+        display: "flex",
+        alignItems: "center",
+        justifySelf: "center",
+        maxHeight: "var(--vh)",
+      },
+      ...(Array.isArray(sx) ? sx : [sx]),
+    ]}
     {...props}
   >
     <If condition={size === "page" || size === "section"}>
@@ -41,7 +47,7 @@ export const Loading = ({ size, ...props }) => (
         <LoadingText />
       </Then>
       <Else>
-        <OrbitSpinner size={16} style={{ marginBlock: 4 }} />
+        <OrbitSpinner size={16} style={{ marginInline: 4 }} />
       </Else>
     </If>
   </Typography>
