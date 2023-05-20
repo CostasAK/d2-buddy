@@ -50,6 +50,11 @@ export const MuiCssBaseline = {
       hyphenate-limit-chars: 6 3 2;
     }
 
+    a:-webkit-any-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
     img,
     picture {
       display: block;

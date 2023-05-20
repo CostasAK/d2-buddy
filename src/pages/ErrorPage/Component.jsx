@@ -12,7 +12,7 @@ export const Component = () => {
       <Typography variant="body2" marginBottom={4}>
         {error.statusText || error.message}
       </Typography>
-      <Button component={Link} to="/" variant="destiny">
+      <Button component={Link} to="/" variant="bungie">
         {"Home"}
       </Button>
     </Page>

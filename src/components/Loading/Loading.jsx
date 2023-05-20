@@ -47,7 +47,7 @@ export const Loading = ({ size, sx = [], ...props }) => (
         <LoadingText />
       </Then>
       <Else>
-        <OrbitSpinner size={16} style={{ marginBlock: 4 }} />
+        <OrbitSpinner size={16} style={{ marginInline: 4 }} />
       </Else>
     </If>
   </Typography>

@@ -12,25 +12,19 @@ import {
   useTheme,
 } from "@mui/material";
 import { Unless, When } from "react-if";
-import { matchPath, useLocation } from "react-router-dom";
+import { matchRoutes, useLocation } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { NavigationDrawer } from "layout/AppBar/NavigationDrawer";
 import RefreshButton from "components/RefreshButton";
 import { ReactComponent as clovisCk } from "assets/clovis_ck.svg";
-import { routes } from "App";
+import { routes } from "Router";
 import useDimensions from "react-cool-dimensions";
 
 const useRouteMatch = (routes) => {
   const { pathname } = useLocation();
 
-  for (const route of routes) {
-    const possibleMatch = matchPath(route?.path || "/Timers", pathname);
-
-    if (possibleMatch?.pattern?.path) return possibleMatch.pattern.path;
-  }
-
-  return null;
+  return matchRoutes(routes, pathname)?.[0]?.pathnameBase.slice(1);
 };
 
 export const AppBar = () => {
@@ -43,9 +37,13 @@ export const AppBar = () => {
   const theme = useTheme();
   const viewportIsBig = useMediaQuery(theme.breakpoints.up("md"));
 
-  const { observe, height } = useDimensions();
+  const { observe, height } = useDimensions({
+    shouldUpdate: ({ currentBreakpoint, width, height, entry }) => {
+      return !viewportIsBig && height > 64;
+    },
+  });
 
-  const scrollTrigger = useScrollTrigger({ threshold: height || 100 });
+  const scrollTrigger = useScrollTrigger({ threshold: height || 64 });
 
   return (
     <>

@@ -1,24 +1,9 @@
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import { ErrorPage } from "pages/ErrorPage";
+import { formatRouteTitleAndPath } from "functions/formatRouteTitleAndPath";
 import Root from "layout/Root";
-import { pascalCase } from "functions/pascalCase";
-import { useDailyResetRefetch } from "./hooks/useDailyResetRefetch";
-
-const formatTitleAndPath = (child) => {
-  if (!child.index && !child.path && !!child.title) {
-    child.path = pascalCase(child.title);
-    child.title = child.title
-      .split(/\s*\n\s*/)
-      .reduce((previous, current) => [...previous, <br />, current], [])
-      .splice(1);
-  }
-  return child;
-};
+import { ErrorPage } from "pages/ErrorPage";
+import { RouterProvider } from "react-router-dom";
 
 export const routes = [
   {
@@ -55,20 +40,18 @@ export const routes = [
             lazy: () => import("pages/Links"),
           },
           {
-            path: "Weapon/:hash",
+            path: "Weapons/:hash",
             lazy: () => import("pages/WeaponPage"),
           },
-        ].map(formatTitleAndPath),
+        ].map(formatRouteTitleAndPath),
       },
     ],
   },
 ];
 
 // Changes to routes should also go in site.webmanifest
-export const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes);
 
-export default function App() {
-  useDailyResetRefetch();
-
+export default function Router() {
   return <RouterProvider router={router} fallbackElement={<Root />} />;
 }

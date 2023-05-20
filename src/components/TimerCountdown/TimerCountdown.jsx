@@ -1,24 +1,19 @@
-import { day, second } from "../../constants/time";
 import { formatDate, formatTime } from "../../functions/formatDateTime";
 import { forwardRef, useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 import { Typography } from "@mui/material";
 import { capitalizeSentence } from "../../functions/capitalizeSentence";
+import { day } from "../../constants/time";
 import { formatDuration } from "../../functions/formatDuration";
 import { isPast } from "../../functions/isPast";
+import { useNow } from "hooks/useNow";
 
-export const TimerCardCountdown = forwardRef(
+export const TimerCountdown = forwardRef(
   ({ timestamp, hasTime, prefix, conditions, sx }, ref) => {
-    const [now, setNow] = useState(Date.now());
-    const [countdown, setCountdown] = useState(formatDuration(timestamp - now));
+    const now = useNow();
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setNow(Date.now());
-      }, 30 * second);
-      return () => clearTimeout(timer);
-    }, [now]);
+    const [countdown, setCountdown] = useState(formatDuration(timestamp - now));
 
     useEffect(() => {
       setCountdown(formatDuration(timestamp - now));
@@ -29,13 +24,14 @@ export const TimerCardCountdown = forwardRef(
     const checkCondition = (condition) => {
       if (condition === true) return true;
 
-      if (condition === "past") return isPast(timestamp);
+      if (condition === "past") return isPast(timestamp, now);
 
-      if (condition === "future") return !isPast(timestamp);
+      if (condition === "future") return !isPast(timestamp, now);
 
-      if (condition?.when === "past") return isPast(condition.timestamp);
+      if (condition?.when === "past") return isPast(condition.timestamp, now);
 
-      if (condition?.when === "future") return !isPast(condition.timestamp);
+      if (condition?.when === "future")
+        return !isPast(condition.timestamp, now);
     };
 
     if (!timestamp || !conditions.every(checkCondition)) return null;
@@ -67,7 +63,7 @@ export const TimerCardCountdown = forwardRef(
   }
 );
 
-TimerCardCountdown.propTypes = {
+TimerCountdown.propTypes = {
   timestamp: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -75,10 +71,14 @@ TimerCardCountdown.propTypes = {
     PropTypes.oneOf([false]),
   ]),
   hasTime: PropTypes.bool,
-  prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([false])]),
+  prefix: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf([false]),
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
 };
 
-TimerCardCountdown.defaultProps = {
+TimerCountdown.defaultProps = {
   hasTime: true,
   conditions: [true],
 };

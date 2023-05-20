@@ -1,13 +1,13 @@
 import { Outlet, useNavigation } from "react-router-dom";
 
-import AppBar from "layout/AppBar";
-import BackToTopButton from "components/BackToTopButton";
-import Background from "layout/Background";
 import { Box } from "@mui/material";
-import Footer from "layout/Footer";
+import BackToTopButton from "components/BackToTopButton";
 import Loading from "components/Loading";
-import { When } from "react-if";
 import { motion } from "framer-motion";
+import AppBar from "layout/AppBar";
+import Background from "layout/Background";
+import Footer from "layout/Footer";
+import { When } from "react-if";
 
 const variants = {
   active: {
@@ -15,6 +15,7 @@ const variants = {
   },
   loading: {
     filter: "opacity(50%) saturate(50%)",
+    transition: { delay: 0.25 },
   },
 };
 
@@ -53,7 +54,7 @@ export const Root = () => {
           sx={{ gridRow: 2, gridColumn: 1, zIndex: 1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.75 }}
         />
       </When>
 

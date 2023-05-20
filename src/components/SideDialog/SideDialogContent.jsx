@@ -34,7 +34,7 @@ export const SideDialogContent = ({
     >
       <When condition={title}>
         <Box sx={{ flexShrink: 1, flexBasis: "3.2rem" }} />
-        <Typography variant="h2">{title}</Typography>
+        <Typography variant="h1">{title}</Typography>
       </When>
       <When condition={children}>
         <Box sx={{ flexGrow: 5 }} />

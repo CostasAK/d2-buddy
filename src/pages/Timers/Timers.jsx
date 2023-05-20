@@ -1,47 +1,62 @@
 import { Box, Button } from "@mui/material";
 import { Else, If, Then } from "react-if";
 
-import CycleCard from "components/CycleCard";
 import Loading from "components/Loading";
 import { Outlet } from "react-router-dom";
 import Page from "layout/Page";
+import { TimerButton } from "components/TimerButton";
+import { isPast } from "functions/isPast";
 import { links } from "pages/Timers/links";
-import { timers } from "pages/Timers/timers";
+import { timersData } from "pages/Timers/timersData";
+import { useNow } from "hooks/useNow";
 import { useQueriesDatabase } from "hooks/useQueriesDatabase";
+import { useResets } from "pages/Timers/children/Resets";
 
 export const Timers = () => {
+  const now = useNow();
+
   const { data, isLoading } = useQueriesDatabase(
-    timers.map((timer) => timer.sheet)
+    timersData?.map((timer) => timer.sheet)
   );
 
-  const actualTimers = timers
+  const actualTimers = timersData
     .map((timer, index) => {
-      timer.items = data?.[index]?.map(timer.dataToItems);
-      timer.isLoading = isLoading?.[index];
+      timer.items = data?.[index]?.map(timer.useDataToItems);
+      timer.isLoading = isLoading?.[index] || timer.items?.[0]?.isLoading;
       return timer;
     })
     .filter((timer) => timer?.items?.length > 0)
-    .sort((a, b) =>
-      a.isLoading && b.isLoading
+    .concat(useResets())
+    .sort((a, b) => {
+      const aTimestamp = isPast(a.items[0].startTimestamp, now)
+        ? a.items[0].endTimestamp
+        : a.items[0].startTimestamp;
+      const bTimestamp = isPast(b.items[0].startTimestamp, now)
+        ? b.items[0].endTimestamp
+        : b.items[0].startTimestamp;
+
+      return a.isLoading && b.isLoading
         ? 0
         : !a.isLoading && b.isLoading
         ? -1
         : a.isLoading && !b.isLoading
         ? 1
-        : a.items[0].endTimestamp < b.items[0].endTimestamp
+        : a.disabled && b.disabled
+        ? 0
+        : !a.disabled && b.disabled
         ? -1
-        : a.items[0].endTimestamp > b.items[0].endTimestamp
+        : a.disabled && !b.disabled
         ? 1
-        : a.items[0].startTimestamp < b.items[0].startTimestamp
+        : aTimestamp < bTimestamp
         ? -1
-        : a.items[0].startTimestamp > b.items[0].startTimestamp
+        : aTimestamp > bTimestamp
         ? 1
         : a.release < b.release
         ? 1
         : a.release > b.release
         ? -1
-        : a.title.localeCompare(b.title)
-    );
+        : a.title.localeCompare(b.title, "en", { ignorePunctuation: true });
+    });
 
   return (
     <Page title="Timers">
@@ -64,14 +79,15 @@ export const Timers = () => {
           </Then>
           <Else>
             {actualTimers.map((timer, index) => (
-              <CycleCard
-                key={timer.to}
+              <TimerButton
+                key={timer.title}
                 title={timer.title}
                 to={timer.to}
                 items={timer.items}
                 isLoading={timer.isLoading}
-                icon={timer.icon}
-                titleRule
+                icon={timer.icon || timer.items[0].icon}
+                rotation={timer?.rotation || timer?.sheet?.endsWith("Rotation")}
+                disabled={timer.disabled}
               />
             ))}
           </Else>

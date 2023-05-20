@@ -2,9 +2,14 @@ import { animate, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { useCheckFetching } from "components/RefreshButton/useCheckFetching";
+import { useNavigation } from "react-router-dom";
 
 export const useTransformRotate = () => {
-  const isFetching = useCheckFetching();
+  const navigation = useNavigation();
+
+  const isLoading = navigation?.state === "loading";
+
+  const isFetching = useCheckFetching() || isLoading;
 
   const rotate = useMotionValue(0);
 

@@ -1,7 +1,6 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
 
 import Activity from "components/Activity";
-import CycleCard from "components/CycleCard";
 import Modal from "components/Modal";
 import { dateToTimestamp } from "functions/dateToTimestamp";
 import { useQueryDatabase } from "hooks/useQueryDatabase";
@@ -62,12 +61,5 @@ export default function CurrentNightfall() {
       }) || items;
   }
 
-  return (
-    <CycleCard
-      title="Nightfall"
-      items={items}
-      isLoading={isLoading}
-      icon="https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png"
-    />
-  );
+  return null;
 }

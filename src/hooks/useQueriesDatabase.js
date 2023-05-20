@@ -12,7 +12,7 @@ export const useQueriesDatabase = (sheets, includePast = false) => {
     isLoading: gidIsLoading,
     error: gidError,
   } = useQuery(["buddyDatabase", gidSheetGid], {
-    enabled: sheets.some((sheet) => isNaN(sheet)),
+    enabled: !!sheets && sheets?.some((sheet) => isNaN(sheet)),
     staleTime: 2.5 * minute,
     refetchInterval: 5 * minute,
   });

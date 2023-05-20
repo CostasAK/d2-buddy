@@ -1,7 +1,6 @@
+import { Typography } from "@mui/material";
 import { LostSector } from "components/Activity";
 import Modal from "components/Modal";
-
-const { Typography } = require("@mui/material");
 
 export function LostSectorLink({ name }) {
   return (

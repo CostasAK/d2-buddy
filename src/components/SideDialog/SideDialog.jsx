@@ -1,6 +1,7 @@
+import { Dialog, DialogActions, DialogContent, Fab } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 
-import { Dialog } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const SideDialog = ({
   maxWidth = "md",
@@ -13,9 +14,11 @@ export const SideDialog = ({
 }) => {
   const navigate = useNavigate();
 
+  const handleClose = () => navigate(".");
+
   return (
     <Dialog
-      onClose={() => navigate(".")}
+      onClose={handleClose}
       open
       fullWidth={false}
       maxWidth={maxWidth}
@@ -37,11 +40,21 @@ export const SideDialog = ({
           maxHeight: "100%",
           border: "none",
           justify: "flex-end",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "stretch",
         },
       }}
       {...props}
     >
-      <Outlet />
+      <DialogContent>
+        <Outlet />
+      </DialogContent>
+      <DialogActions sx={{ justifyContent: "center" }}>
+        <Fab size="small" autoFocus onClick={handleClose} variant="bungie">
+          <CloseIcon />
+        </Fab>
+      </DialogActions>
     </Dialog>
   );
 };
