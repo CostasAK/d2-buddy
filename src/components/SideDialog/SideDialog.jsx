@@ -1,4 +1,4 @@
-import { Dialog, DialogActions, DialogContent, Fab } from "@mui/material";
+import { Dialog, DialogActions, Fab } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -36,7 +36,7 @@ export const SideDialog = ({
       PaperProps={{
         sx: {
           margin: 0,
-          // minWidth: "max(46.8%, min(100%, 35ch))",
+          maxWidth: "100% !important",
           maxHeight: "100%",
           border: "none",
           justify: "flex-end",
@@ -47,9 +47,7 @@ export const SideDialog = ({
       }}
       {...props}
     >
-      <DialogContent>
-        <Outlet />
-      </DialogContent>
+      <Outlet />
       <DialogActions sx={{ justifyContent: "center" }}>
         <Fab size="small" autoFocus onClick={handleClose} variant="bungie">
           <CloseIcon />
