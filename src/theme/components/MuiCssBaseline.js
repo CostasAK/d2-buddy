@@ -15,6 +15,11 @@ export const MuiCssBaseline = {
       box-shadow: inset 0 0 5px #12171c;
     }
 
+    *::-webkit-scrollbar-corner {
+      background-color: #181c25;
+      box-shadow: inset 0 0 5px #12171c;
+    }
+
     *::-webkit-scrollbar-thumb {
       border: 1px solid #181c25;
       background: #232936;
