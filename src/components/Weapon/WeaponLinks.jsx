@@ -7,10 +7,10 @@ import {
   Paper,
 } from "@mui/material";
 
+import { weaponSites } from "constants/weaponSites";
+import { When } from "react-if";
 import A from "../A";
 import Img from "../Img";
-import { When } from "react-if";
-import { weaponSites } from "constants/weaponSites";
 
 export function WeaponLinks({ hash }) {
   return (
@@ -18,6 +18,7 @@ export function WeaponLinks({ hash }) {
       sx={{
         float: "right",
         marginLeft: 4,
+        marginBottom: 2,
       }}
     >
       <List dense>

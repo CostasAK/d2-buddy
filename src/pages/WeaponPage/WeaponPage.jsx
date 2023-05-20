@@ -1,15 +1,15 @@
 import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
 import { Else, If, Then, When } from "react-if";
 
+import { useQuery } from "@tanstack/react-query";
 import DestinyIcon from "components/DestinyIcon";
-import Page from "layout/Page";
 import { Weapon } from "components/Weapon";
 import { WeaponLinks } from "components/Weapon/WeaponLinks";
 import { getScreenshot } from "functions/getScreenshot";
 import getWeaponType from "functions/getWeaponType";
-import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { useWeaponElement } from "hooks/useWeaponElement";
+import Page from "layout/Page";
+import { useParams } from "react-router-dom";
 
 export const WeaponPage = (props) => {
   const { hash } = useParams();
@@ -59,24 +59,27 @@ export const WeaponPage = (props) => {
       banner={screenshot}
     >
       <WeaponLinks hash={hash} />
+      {[
+        data?.displayProperties?.description,
+        data?.flavorText,
+        data?.displaySource,
+      ].map((p) => (
+        <When condition={p}>
+          <Typography sx={{ "p+&": { marginTop: 2 } }}>{p}</Typography>
+        </When>
+      ))}
 
-      <Stack gap={4}>
-        <Stack gap={2}>
-          <When condition={data?.displayProperties?.description}>
-            <Typography>{data?.displayProperties?.description}</Typography>
-          </When>
-
-          <When condition={data?.flavorText}>
-            <Typography variant="body2">{data?.flavorText}</Typography>
-          </When>
-
-          <When condition={data?.displaySource}>
-            <Typography>{data?.displaySource}</Typography>
-          </When>
-        </Stack>
-
-        <Typography variant="h2">{"🚧Under construction🚧"}</Typography>
-      </Stack>
+      <Typography
+        variant="h2"
+        sx={{
+          clear: "both",
+          marginTop: 4,
+          textAlign: "center",
+          marginInline: "auto",
+        }}
+      >
+        {"🚧Under construction🚧"}
+      </Typography>
     </Page>
   );
 };
