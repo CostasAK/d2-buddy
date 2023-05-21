@@ -5,6 +5,7 @@ import DestinyIcon from "components/DestinyIcon";
 import Page from "layout/Page";
 import { Weapon } from "components/Weapon";
 import { WeaponLinks } from "components/Weapon/WeaponLinks";
+import { getAmmunitionType } from "functions/getAmmunitionType";
 import { getScreenshot } from "functions/getScreenshot";
 import getWeaponType from "functions/getWeaponType";
 import { useParams } from "react-router-dom";
@@ -24,6 +25,7 @@ export const WeaponPage = (props) => {
   const name = data?.displayProperties?.name;
 
   const type = getWeaponType(data);
+  const ammo = getAmmunitionType(data?.equippingBlock?.ammoType);
 
   const tier = data?.inventory?.tierTypeName;
   const screenshot = getScreenshot(data);
@@ -50,6 +52,10 @@ export const WeaponPage = (props) => {
               </Stack>
             </Else>
           </If>
+          <Stack direction="row" spacing={0.5}>
+            <DestinyIcon icon={["ammo", ammo]} />
+            <Box>{ammo}</Box>
+          </Stack>
           <Stack direction="row" spacing={0.5}>
             <DestinyIcon icon={["weapons", type]} />
             <Box>{type}</Box>

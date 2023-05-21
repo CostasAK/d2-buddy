@@ -58,6 +58,41 @@ const font_symbols = {
     Stasis: { symbol: "", name: "Stasis" },
     Strand: { symbol: "", name: "Strand" },
   },
+  ammo: {
+    Primary: {
+      symbol: (
+        <ImgIcon
+          src={
+            "https://www.bungie.net/img/destiny_content/ammo_types/primary.png"
+          }
+          style={{ maxWidth: "192px", maxHeight: "135px" }}
+        />
+      ),
+      name: "Primary",
+    },
+    Special: {
+      symbol: (
+        <ImgIcon
+          src={
+            "https://www.bungie.net/img/destiny_content/ammo_types/special.png"
+          }
+          style={{ maxWidth: "192px", maxHeight: "135px" }}
+        />
+      ),
+      name: "Special",
+    },
+    Heavy: {
+      symbol: (
+        <ImgIcon
+          src={
+            "https://www.bungie.net/img/destiny_content/ammo_types/heavy.png"
+          }
+          style={{ maxWidth: "192px", maxHeight: "135px" }}
+        />
+      ),
+      name: "Heavy",
+    },
+  },
   activities: {
     LostSector: { symbol: "", name: "Lost Sector" },
     Destination: {
