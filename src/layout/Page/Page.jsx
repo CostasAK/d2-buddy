@@ -3,6 +3,7 @@ import { Else, If, Then, When } from "react-if";
 
 import { Helmet } from "react-helmet";
 import { Img } from "components/Img/Img";
+import { cssRgb } from "functions/cssRgb";
 import { isValidElement } from "react";
 import useDimensions from "react-cool-dimensions";
 
@@ -74,6 +75,21 @@ export const Page = ({
                         height: "fit-content",
                         width: "100%",
                         position: "relative",
+                        "& .MuiTypography-root img": {
+                          filter: `drop-shadow(1px 1px ${0.25 / 1.5}em ${cssRgb(
+                            theme.palette.background.default,
+                            0.5
+                          )}) drop-shadow(1px -1px ${0.25 / 1.5}em ${cssRgb(
+                            theme.palette.background.default,
+                            0.5
+                          )}) drop-shadow(-1px 1px ${0.25 / 1.5}em ${cssRgb(
+                            theme.palette.background.default,
+                            0.5
+                          )}) drop-shadow(-1px -1px ${0.25 / 1.5}em ${cssRgb(
+                            theme.palette.background.default,
+                            0.5
+                          )}) `,
+                        },
                         "&:before": {
                           opacity: 0.9,
                           content: "''",
