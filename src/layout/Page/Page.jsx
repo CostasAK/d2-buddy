@@ -86,7 +86,7 @@ export const Page = ({
                           right: "-1.5rem",
                           bottom: 0,
                           left: "-1.5rem",
-                          maxWidth: "none",
+                          maxWidth: "100vw",
                           maskImage:
                             currentBreakpoint === "gradient" &&
                             "linear-gradient(90deg, transparent, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 95%, transparent)",
