@@ -56,6 +56,7 @@ const font_symbols = {
     Solar: { symbol: "", name: "Solar" },
     Arc: { symbol: "", name: "Arc" },
     Stasis: { symbol: "", name: "Stasis" },
+    Strand: { symbol: "", name: "Strand" },
   },
   activities: {
     LostSector: { symbol: "", name: "Lost Sector" },
@@ -146,6 +147,8 @@ export const DestinyIcon = ({
               ? "void"
               : icon.includes("Stasis")
               ? "stasis"
+              : icon.includes("Strand")
+              ? "strand"
               : ""
           }
           style={{

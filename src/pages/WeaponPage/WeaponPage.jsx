@@ -1,15 +1,15 @@
 import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
 import { Else, If, Then, When } from "react-if";
 
-import { useQuery } from "@tanstack/react-query";
 import DestinyIcon from "components/DestinyIcon";
+import Page from "layout/Page";
 import { Weapon } from "components/Weapon";
 import { WeaponLinks } from "components/Weapon/WeaponLinks";
 import { getScreenshot } from "functions/getScreenshot";
 import getWeaponType from "functions/getWeaponType";
-import { useWeaponElement } from "hooks/useWeaponElement";
-import Page from "layout/Page";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useWeaponElement } from "hooks/useWeaponElement";
 
 export const WeaponPage = (props) => {
   const { hash } = useParams();
@@ -63,9 +63,14 @@ export const WeaponPage = (props) => {
         data?.displayProperties?.description,
         data?.flavorText,
         data?.displaySource,
-      ].map((p) => (
+      ].map((p, index) => (
         <When condition={p}>
-          <Typography sx={{ "p+&": { marginTop: 2 } }}>{p}</Typography>
+          <Typography
+            sx={{ "p+&": { marginTop: 2 } }}
+            variant={index === 1 ? "body2" : "body1"}
+          >
+            {p}
+          </Typography>
         </When>
       ))}
 
