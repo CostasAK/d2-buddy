@@ -9,6 +9,18 @@ import { pascalCase } from "functions/pascalCase";
 
 export const timersData = [
   {
+    title: "Altars of Sorrow Weapon",
+    sheet: "altarsOfSorrowRotation",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/58bf5b93ae8cfefc55852fe664179757.png",
+    release: expansionRelease.shadowkeep,
+    useDataToItems: (item) => {
+      item.element = <Weapon hash={item.hash} name={item.name} />;
+      item.icon = <Weapon hash={item.hash} variant="icon" />;
+      item.to = `/Weapons/${item.weaponHash}`;
+      return item;
+    },
+  },
+  {
     title: "Crucible: Party Rotator",
     sheet: "cruciblePartyRotation",
     icon: "https://www.bungie.net/common/destiny2_content/icons/cc8e6eea2300a1e27832d52e9453a227.png",
@@ -60,6 +72,12 @@ export const timersData = [
     release: Infinity,
   },
   {
+    title: "Lightfall Campaign Mission",
+    sheet: "lightfallCampaignMissionRotation",
+    release: expansionRelease.lightfall,
+    icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_67326996f903b5961421421e60ba128c.png",
+  },
+  {
     title: "Legend & Master Lost Sector",
     sheet: "lostSectorRotation",
     icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_7d11acd7d5a3daebc0a0c906452932d6.png",
@@ -77,16 +95,33 @@ export const timersData = [
     },
   },
   {
-    title: "Altars of Sorrow Weapon",
-    sheet: "altarsOfSorrowRotation",
-    icon: "https://www.bungie.net/common/destiny2_content/icons/58bf5b93ae8cfefc55852fe664179757.png",
-    release: expansionRelease.shadowkeep,
+    title: "Neomuna: Partition",
+    sheet: "neomunaPartitionRotation",
+    release: expansionRelease.lightfall,
+    icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_67326996f903b5961421421e60ba128c.png",
+  },
+  {
+    title: "Neomuna: Terminal Overload",
+    sheet: "neomunaTerminalOverloadRotation",
+    release: expansionRelease.lightfall,
+    icon: "https://www.bungie.net/common/destiny2_content/icons/70cbe108aa054523eac9defadfa27a57.png",
     useDataToItems: (item) => {
-      item.element = <Weapon hash={item.hash} name={item.name} />;
-      item.icon = <Weapon hash={item.hash} variant="icon" />;
+      item.id = item?.location;
+      item.element = (
+        <>
+          <Weapon hash={item.weaponHash} name={item.weapon} /> -{" "}
+          {item?.location}
+        </>
+      );
+      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
       item.to = `/Weapons/${item.weaponHash}`;
       return item;
     },
+  },
+  {
+    title: "Neomuna: Vex Incursion",
+    sheet: "neomunaVexIncursionRotation",
+    release: expansionRelease.lightfall,
   },
   {
     title: "Nightfall",
@@ -147,10 +182,27 @@ export const timersData = [
     icon: "https://www.bungie.net/common/destiny2_content/icons/8b1bfd1c1ce1cab51d23c78235a6e067.png",
   },
   {
-    title: "Lightfall Campaign Mission",
-    sheet: "lightfallCampaignMissionRotation",
-    release: expansionRelease.lightfall,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_67326996f903b5961421421e60ba128c.png",
+    title: "Savathûn's Throne World: Altars of Reflection",
+    sheet: "savathunsThroneWorldAltarsOfReflectionRotation",
+    release: expansionRelease.witchQueen,
+    icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
+  },
+  {
+    title: "The Wellspring",
+    sheet: "savathunsThroneWorldWellspringRotation",
+    release: expansionRelease.witchQueen,
+    icon: WellspringIcon,
+    useDataToItems: (item) => {
+      item.id = item?.weaponHash;
+      item.element = (
+        <>
+          <Weapon hash={item.weaponHash} name={item.weapon} /> - {item?.boss}
+        </>
+      );
+      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
+      item.to = `/Weapons/${item.weaponHash}`;
+      return item;
+    },
   },
   {
     title: "Seasons",
@@ -190,60 +242,8 @@ export const timersData = [
     },
   },
   {
-    title: "Neomuna: Terminal Overload",
-    sheet: "terminalOverloadRotation",
-    release: expansionRelease.lightfall,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/70cbe108aa054523eac9defadfa27a57.png",
-    useDataToItems: (item) => {
-      item.id = item?.location;
-      item.element = (
-        <>
-          <Weapon hash={item.weaponHash} name={item.weapon} /> -{" "}
-          {item?.location}
-        </>
-      );
-      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item.weaponHash}`;
-      return item;
-    },
-  },
-  {
-    title: "Neomuna: Partition",
-    sheet: "neomunaPartitionRotation",
-    release: expansionRelease.lightfall,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_67326996f903b5961421421e60ba128c.png",
-  },
-  {
-    title: "Neomuna: Vex Incursion",
-    sheet: "neomunaVexIncursionRotation",
-    release: expansionRelease.lightfall,
-  },
-  {
     title: "Witch Queen Campaign Mission",
     sheet: "witchQueenCampaignMissionRotation",
-    release: expansionRelease.witchQueen,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
-  },
-  {
-    title: "The Wellspring",
-    sheet: "wellspringRotation",
-    release: expansionRelease.witchQueen,
-    icon: WellspringIcon,
-    useDataToItems: (item) => {
-      item.id = item?.weaponHash;
-      item.element = (
-        <>
-          <Weapon hash={item.weaponHash} name={item.weapon} /> - {item?.boss}
-        </>
-      );
-      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item.weaponHash}`;
-      return item;
-    },
-  },
-  {
-    title: "Savathûn's Throne World: Altars of Reflection",
-    sheet: "savathunsThroneWorldAltarsOfReflectionRotation",
     release: expansionRelease.witchQueen,
     icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
   },
