@@ -90,6 +90,9 @@ export const Page = ({
                             0.5
                           )}) `,
                         },
+                        "& .MuiTypography-root span:has(> img) + *": {
+                          zIndex: 1,
+                        },
                         "&:before": {
                           opacity: 0.9,
                           content: "''",
