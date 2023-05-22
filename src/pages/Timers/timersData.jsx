@@ -6,6 +6,7 @@ import Modal from "components/Modal";
 import { Weapon } from "components/Weapon";
 import WellspringIcon from "assets/Wellspring.png";
 import { pascalCase } from "functions/pascalCase";
+import { useQueryDatabase } from "hooks/useQueryDatabase";
 
 export const timersData = [
   {
@@ -31,6 +32,18 @@ export const timersData = [
     sheet: "crucibleRelentlessRotation",
     icon: "https://www.bungie.net/common/destiny2_content/icons/cc8e6eea2300a1e27832d52e9453a227.png",
     release: expansionRelease[0],
+    useDataToItems: (item) => {
+      const { data } = useQueryDatabase("trialsOfOsiris");
+
+      item.endTimestamp =
+        data?.find(
+          (trial) =>
+            trial.startTimestamp > item.startTimestamp &&
+            trial.startTimestamp < item.endTimestamp
+        )?.startTimestamp || item.endTimestamp;
+
+      return item;
+    },
   },
   {
     title: "Defiant Battlegrounds: Legend",
@@ -240,6 +253,12 @@ export const timersData = [
 
       return item;
     },
+  },
+  {
+    title: "Trials of Osiris",
+    sheet: "trialsOfOsiris",
+    release: seasonRelease[19],
+    icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png",
   },
   {
     title: "Witch Queen Campaign Mission",
