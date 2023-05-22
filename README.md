@@ -27,4 +27,31 @@ Some links to my favorite D2 resources and tools. I have no affiliation with the
 
 ## Acknowledgments
 
-- Clockwise rotation icon by [Game Icons](https://game-icons.net/) ([CC BY 3.0](http://creativecommons.org/licenses/by/3.0/))
+Made using:
+
+[<img src="https://axios-http.com/assets/favicon.ico" title="Axios" alt="Axios" width="48" height="48"/>](https://axios-http.com)
+[<img src="https://commitlint.js.org/assets/icon.svg" title="commitlint" alt="commitlint" width="48" height="48"/>](https://commitlint.js.org/#/)
+[<img src="https://create-react-app.dev/img/logo.svg" title="Create React App" alt="Create React App" width="48" height="48"/>](https://create-react-app.dev)
+[<img src="https://day.js.org/img/logo.png" title="Day.js" alt="Day.js" width="48" height="48"/>](https://day.js.org)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" title="ESLint" alt="ESLint" width="48" height="48"/>](https://eslint.org)
+[<img src="https://fontawesome.com/images/favicon/icon.svg" title="Font Awesome" alt="Font Awesome" width="48" height="48"/>](https://fontawesome.com/start)
+[<img src="https://www.framer.com/images/favicons/iOS/120.png" title="Framer Motion" alt="Framer Motion" width="48" height="48"/>](https://www.framer.com/motion/)
+[<img src="https://game-icons.net/favicon.ico" title="Game Icons" alt="Game Icons" width="48" height="48"/>](https://game-icons.net)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" title="Jest" alt="Jest" width="48" height="48"/>](https://jestjs.io)
+[<img src="https://pieroxy.net/blog/themes/user-pieroxy.net/images/favicon.ico" title="lz-string" alt="lz-string" width="48" height="48"/>](https://github.com/pieroxy/lz-string/)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" title="MUI" alt="MUI" width="48" height="48"/>](https://mui.com)
+[<img src="https://www.papaparse.com/favicon.ico" title="Papa Parse" alt="Papa Parse" width="48" height="48"/>](https://www.papaparse.com)
+[<img src="https://prettier.io/icon.png" title="Prettier" alt="Prettier" width="48" height="48"/>](https://prettier.io)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" title="React" alt="React" width="48" height="48"/>](https://react.dev)
+[<img src="https://tanstack.com/favicons/apple-touch-icon.png" title="TanStack Query" alt="TanStack Query" width="48" height="48"/>](https://tanstack.com/query)
+
+- [Husky](https://typicode.github.io/husky/)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [React Cool Dimensions](https://github.com/wellyshen/react-cool-dimensions)
+- [React Epic Spinners](https://bondz.github.io/react-epic-spinners/)
+- [React Helmet](https://github.com/nfl/react-helmet)
+- [React If](https://github.com/romac/react-if)
+- [react-inlinesvg](https://github.com/gilbarbara/react-inlinesvg)
+- [react-kofi-button](https://costasak.github.io/react-kofi-button)
+- [React String Replace](https://github.com/iansinnott/react-string-replace)
+- [use-local-storage-state](https://github.com/astoilkov/use-local-storage-state)
