@@ -15,9 +15,9 @@ export const timersData = [
     icon: "https://www.bungie.net/common/destiny2_content/icons/58bf5b93ae8cfefc55852fe664179757.png",
     release: expansionRelease.shadowkeep,
     useDataToItems: (item) => {
-      item.element = <Weapon hash={item.hash} name={item.name} />;
-      item.icon = <Weapon hash={item.hash} variant="icon" />;
-      item.to = `/Weapons/${item.weaponHash}`;
+      item.element = <Weapon hash={item?.hash} name={item?.name} />;
+      item.icon = <Weapon hash={item?.hash} variant="icon" />;
+      item.to = `/Weapons/${item?.weaponHash}`;
       return item;
     },
   },
@@ -38,9 +38,9 @@ export const timersData = [
       item.endTimestamp =
         data?.find(
           (trial) =>
-            trial.startTimestamp > item.startTimestamp &&
-            trial.startTimestamp < item.endTimestamp
-        )?.startTimestamp || item.endTimestamp;
+            trial?.startTimestamp > item?.startTimestamp &&
+            trial?.startTimestamp < item?.endTimestamp
+        )?.startTimestamp || item?.endTimestamp;
 
       return item;
     },
@@ -122,12 +122,12 @@ export const timersData = [
       item.id = item?.location;
       item.element = (
         <>
-          <Weapon hash={item.weaponHash} name={item.weapon} /> -{" "}
+          <Weapon hash={item?.weaponHash} name={item?.weapon} /> -{" "}
           {item?.location}
         </>
       );
-      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item.weaponHash}`;
+      item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
+      item.to = `/Weapons/${item?.weaponHash}`;
       return item;
     },
   },
@@ -142,11 +142,12 @@ export const timersData = [
     release: expansionRelease.lightfall,
     icon: "https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png",
     useDataToItems: (item) => {
-      item.reward &&=
-        item.grandmaster &&
-        (item.reward.endsWith(" (Adept)")
-          ? item.reward
-          : item.reward + " (Adept)");
+      item.reward =
+        item?.reward &&
+        item?.grandmaster === "TRUE" &&
+        (item?.reward?.endsWith(" (Adept)")
+          ? item?.reward
+          : item?.reward + " (Adept)");
 
       item.element = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
         item?.name
@@ -215,11 +216,11 @@ export const timersData = [
       item.id = item?.weaponHash;
       item.element = (
         <>
-          <Weapon hash={item.weaponHash} name={item.weapon} /> - {item?.boss}
+          <Weapon hash={item?.weaponHash} name={item?.weapon} /> - {item?.boss}
         </>
       );
-      item.icon = <Weapon hash={item.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item.weaponHash}`;
+      item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
+      item.to = `/Weapons/${item?.weaponHash}`;
       return item;
     },
   },
@@ -255,7 +256,7 @@ export const timersData = [
       }`;
 
       item.isLoading =
-        d2settings?.isLoading || seasons?.some((x) => x.isLoading);
+        d2settings?.isLoading || seasons?.some((x) => x?.isLoading);
 
       return item;
     },
@@ -268,17 +269,19 @@ export const timersData = [
     useDataToItems: (item) => {
       item.id = item?.weaponHash;
 
-      item.name &&= item.name.endsWith(" (Adept)")
-        ? item.name
-        : item.name + " (Adept)";
+      item.name =
+        item?.name &&
+        (item?.name?.endsWith(" (Adept)")
+          ? item?.name
+          : item?.name + " (Adept)");
 
-      item.element = item.hash ? (
-        <Weapon hash={item.hash} name={item.name} />
+      item.element = item?.hash ? (
+        <Weapon hash={item?.hash} name={item?.name} />
       ) : (
         item?.name || "Reward Unknown..."
       );
-      item.icon = item?.hash && <Weapon hash={item.hash} variant="icon" />;
-      item.to = item?.hash && `/Weapons/${item.hash}`;
+      item.icon = item?.hash && <Weapon hash={item?.hash} variant="icon" />;
+      item.to = item?.hash && `/Weapons/${item?.hash}`;
       return item;
     },
   },
@@ -289,7 +292,7 @@ export const timersData = [
     icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
   },
 ].map((timer) => {
-  timer.to ||= pascalCase(timer.title);
+  timer.to ||= pascalCase(timer?.title);
 
   if (!timer?.useDataToItems) timer.useDataToItems = (item) => item;
 

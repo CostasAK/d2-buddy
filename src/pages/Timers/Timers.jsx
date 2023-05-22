@@ -19,43 +19,45 @@ export const Timers = () => {
     timersData?.map((timer) => timer.sheet)
   );
 
+  const resets = useResets();
+
   const actualTimers = timersData
-    .map((timer, index) => {
-      timer.items = data?.[index]?.map(timer.useDataToItems);
-      timer.isLoading = isLoading?.[index] || timer.items?.[0]?.isLoading;
+    ?.map((timer, index) => {
+      timer.items = data?.[index]?.map(timer?.useDataToItems);
+      timer.isLoading = isLoading?.[index] || timer?.items?.[0]?.isLoading;
       return timer;
     })
-    .filter((timer) => timer?.items?.length > 0)
-    .concat(useResets())
-    .sort((a, b) => {
-      const aTimestamp = isPast(a.items[0].startTimestamp, now)
-        ? a.items[0].endTimestamp
-        : a.items[0].startTimestamp;
-      const bTimestamp = isPast(b.items[0].startTimestamp, now)
-        ? b.items[0].endTimestamp
-        : b.items[0].startTimestamp;
+    ?.filter((timer) => timer?.items?.length > 0)
+    ?.concat(resets)
+    ?.sort((a, b) => {
+      const aTimestamp = isPast(a?.items[0]?.startTimestamp, now)
+        ? a?.items[0]?.endTimestamp
+        : a?.items[0]?.startTimestamp;
+      const bTimestamp = isPast(b?.items[0]?.startTimestamp, now)
+        ? b?.items[0]?.endTimestamp
+        : b?.items[0]?.startTimestamp;
 
-      return a.isLoading && b.isLoading
+      return a?.isLoading && b?.isLoading
         ? 0
-        : !a.isLoading && b.isLoading
+        : !a?.isLoading && b?.isLoading
         ? -1
-        : a.isLoading && !b.isLoading
+        : a?.isLoading && !b?.isLoading
         ? 1
-        : a.disabled && b.disabled
+        : a?.disabled && b?.disabled
         ? 0
-        : !a.disabled && b.disabled
+        : !a?.disabled && b?.disabled
         ? -1
-        : a.disabled && !b.disabled
+        : a?.disabled && !b?.disabled
         ? 1
         : aTimestamp < bTimestamp
         ? -1
         : aTimestamp > bTimestamp
         ? 1
-        : a.release < b.release
+        : a?.release < b?.release
         ? 1
-        : a.release > b.release
+        : a?.release > b?.release
         ? -1
-        : a.title.localeCompare(b.title, "en", { ignorePunctuation: true });
+        : a?.title?.localeCompare(b?.title, "en", { ignorePunctuation: true });
     });
 
   return (
@@ -78,16 +80,16 @@ export const Timers = () => {
             <Loading size="page" />
           </Then>
           <Else>
-            {actualTimers.map((timer, index) => (
+            {actualTimers?.map((timer, index) => (
               <TimerButton
-                key={timer.title}
-                title={timer.title}
-                to={timer.to}
-                items={timer.items}
-                isLoading={timer.isLoading}
-                icon={timer.icon || timer.items[0].icon}
+                key={timer?.title}
+                title={timer?.title}
+                to={timer?.to}
+                items={timer?.items}
+                isLoading={timer?.isLoading}
+                icon={timer?.icon || timer?.items[0]?.icon}
                 rotation={timer?.rotation || timer?.sheet?.endsWith("Rotation")}
-                disabled={timer.disabled}
+                disabled={timer?.disabled}
               />
             ))}
           </Else>
