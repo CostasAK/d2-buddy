@@ -142,6 +142,12 @@ export const timersData = [
     release: expansionRelease.lightfall,
     icon: "https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png",
     useDataToItems: (item) => {
+      item.reward &&=
+        item.grandmaster &&
+        (item.reward.endsWith(" (Adept)")
+          ? item.reward
+          : item.reward + " (Adept)");
+
       item.element = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
         item?.name
       }`;
@@ -259,6 +265,22 @@ export const timersData = [
     sheet: "trialsOfOsiris",
     release: seasonRelease[19],
     icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png",
+    useDataToItems: (item) => {
+      item.id = item?.weaponHash;
+
+      item.name &&= item.name.endsWith(" (Adept)")
+        ? item.name
+        : item.name + " (Adept)";
+
+      item.element = item.hash ? (
+        <Weapon hash={item.hash} name={item.name} />
+      ) : (
+        item?.name || "Reward Unknown..."
+      );
+      item.icon = item?.hash && <Weapon hash={item.hash} variant="icon" />;
+      item.to = item?.hash && `/Weapons/${item.hash}`;
+      return item;
+    },
   },
   {
     title: "Witch Queen Campaign Mission",
