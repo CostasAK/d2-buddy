@@ -1,8 +1,8 @@
 import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 
+import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
-import DestinyIcon from "../DestinyIcon";
 
 const known_elements = [
   { name: "Arc", pattern: /arc/i },
@@ -49,13 +49,17 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
                 display: "grid",
                 justifyItems: "flex-end",
                 alignItems: "flex-end",
-                "> *": { gridColumnStart: 1, gridRowStart: 1 },
+                "> *": {
+                  gridColumnStart: 1,
+                  gridRowStart: 1,
+                  lineHeight: 1.3,
+                },
               }}
             >
               <DestinyIcon
                 icon={["elements", shield]}
                 color={shield}
-                sx={{ zIndex: 0, fontSize: "1.5em" }}
+                sx={{ zIndex: 0, fontSize: "3.75rem" }}
               />
               {known_shields[shield] > 0 && (
                 <Typography

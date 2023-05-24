@@ -99,7 +99,7 @@ const font_symbols = {
       symbol: (
         <ImgIcon
           src={
-            "https://www.bungie.net/common/destiny2_content/icons/c60303e278aa5fc566a04e98c3d8024c.png"
+            "https://www.bungie.net/common/destiny2_content/icons/9b8a4c7a07890778b929654716010b39.png"
           }
           style={{ maxWidth: "96px", maxHeight: "96px" }}
         />
@@ -113,7 +113,7 @@ const font_symbols = {
         symbol: (
           <ImgIcon
             src={
-              "https://bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
+              "https://www.bungie.net/common/destiny2_content/icons/f089fa44124cb8fe585acc5794653098.png"
             }
             style={{ maxWidth: "60px", maxHeight: "60px" }}
           />
@@ -124,7 +124,7 @@ const font_symbols = {
         symbol: (
           <ImgIcon
             src={
-              "https://bungie.net/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+              "https://www.bungie.net/common/destiny2_content/icons/9caeb47c43fbe011607af18409d8162f.png"
             }
             style={{ maxWidth: "60px", maxHeight: "60px" }}
           />
@@ -135,7 +135,7 @@ const font_symbols = {
         symbol: (
           <ImgIcon
             src={
-              "https://bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+              "https://www.bungie.net/common/destiny2_content/icons/eb04e3267eee527d64d85af3f0a3ec6a.png"
             }
             style={{ maxWidth: "60px", maxHeight: "60px" }}
           />
