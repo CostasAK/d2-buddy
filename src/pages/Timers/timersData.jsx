@@ -11,7 +11,7 @@ export const timersData = [
   {
     title: "Altars of Sorrow Weapon",
     sheet: "altarsOfSorrowRotation",
-    icon: "https://www.bungie.net/common/destiny2_content/icons/58bf5b93ae8cfefc55852fe664179757.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/b81eb997ce38aada427b13d23dd3564d.png",
     release: expansionRelease.shadowkeep,
     useDataToItems: (item) => {
       item.element = <Weapon hash={item?.hash} name={item?.name} />;
@@ -23,13 +23,13 @@ export const timersData = [
   {
     title: "Crucible: Party Rotator",
     sheet: "cruciblePartyRotation",
-    icon: "https://www.bungie.net/common/destiny2_content/icons/cc8e6eea2300a1e27832d52e9453a227.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/f9dbb041c0414ea4856c7be6d8c29f48.png",
     release: expansionRelease[0],
   },
   {
     title: "Crucible: Relentless Rotator",
     sheet: "crucibleRelentlessRotation",
-    icon: "https://www.bungie.net/common/destiny2_content/icons/cc8e6eea2300a1e27832d52e9453a227.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/f9dbb041c0414ea4856c7be6d8c29f48.png",
     release: expansionRelease[0],
   },
   {
@@ -52,7 +52,7 @@ export const timersData = [
   {
     title: "Empire Hunt",
     sheet: "europaEmpireHuntRotation",
-    icon: "https://www.bungie.net/common/destiny2_content/icons/4abbc492b40906127b7e8850c1c14135.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/7704bec77be6fc4b696d0849679bc815.png",
     release: expansionRelease.beyondLight,
   },
   {
@@ -104,7 +104,7 @@ export const timersData = [
     title: "Neomuna: Terminal Overload",
     sheet: "neomunaTerminalOverloadRotation",
     release: expansionRelease.lightfall,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/70cbe108aa054523eac9defadfa27a57.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/b278b99e3a3eafb51e3957732b40bcf8.png",
     useDataToItems: (item) => {
       item.id = item?.location;
       item.element = (
@@ -122,12 +122,13 @@ export const timersData = [
     title: "Neomuna: Vex Incursion",
     sheet: "neomunaVexIncursionRotation",
     release: expansionRelease.lightfall,
+    icon: "https://www.bungie.net/common/destiny2_content/icons/0c98c7f6e9662032120ade42a554f996.png",
   },
   {
     title: "Nightfall",
     sheet: "nightfallRotation",
     release: expansionRelease.lightfall,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/48dda413d9f412ca2b10fd56a35a2665.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/87271a86b4542822aad73d8f0f56d4cb.png",
     useDataToItems: (item) => {
       item.reward =
         item?.reward &&
@@ -186,13 +187,13 @@ export const timersData = [
     title: "Featured Raid",
     sheet: "raidRotation",
     release: seasonRelease[18],
-    icon: "https://www.bungie.net/common/destiny2_content/icons/8b1bfd1c1ce1cab51d23c78235a6e067.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/bd7a1fc995f87be96698263bc16698e7.png",
   },
   {
     title: "Savathûn's Throne World: Altars of Reflection",
     sheet: "savathunsThroneWorldAltarsOfReflectionRotation",
     release: expansionRelease.witchQueen,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/0e888294099a744d0a42bfaa7bf1d216.png",
   },
   {
     title: "The Wellspring",
@@ -276,7 +277,7 @@ export const timersData = [
     title: "Witch Queen Campaign Mission",
     sheet: "witchQueenCampaignMissionRotation",
     release: expansionRelease.witchQueen,
-    icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
+    icon: "https://www.bungie.net/common/destiny2_content/icons/0e888294099a744d0a42bfaa7bf1d216.png",
   },
 ].map((timer) => {
   timer.to ||= pascalCase(timer?.title);
