@@ -127,9 +127,6 @@ export const DestinyIcon = ({
       ? "strand"
       : "";
 
-    console.log(font_symbol);
-    console.log(typeof font_symbol);
-
     return (
       <Tooltip title={tooltip}>
         {isString(font_symbol) ? (
