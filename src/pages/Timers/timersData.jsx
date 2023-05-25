@@ -131,11 +131,12 @@ export const timersData = [
     icon: "https://www.bungie.net/common/destiny2_content/icons/87271a86b4542822aad73d8f0f56d4cb.png",
     useDataToItems: (item) => {
       item.reward =
-        item?.reward &&
-        item?.grandmaster === "TRUE" &&
-        (item?.reward?.endsWith(" (Adept)")
-          ? item?.reward
-          : item?.reward + " (Adept)");
+        (item?.reward &&
+          item?.grandmaster === "TRUE" &&
+          (item?.reward?.endsWith(" (Adept)")
+            ? item?.reward
+            : item?.reward + " (Adept)")) ||
+        item?.reward;
 
       item.element = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
         item?.name
