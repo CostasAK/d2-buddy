@@ -40,7 +40,10 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
       >
         Shields
       </Typography>
-      <Box sx={{ display: "flex", flexFlow: "row wrap", gap: 2 }}>
+      <Typography
+        variant="bigNumber"
+        sx={{ display: "flex", flexFlow: "row wrap", gap: 2 }}
+      >
         {[...parsed_shields].map((shield, index) => (
           <Tooltip title={`${shield} Shields`} key={index}>
             <Box
@@ -59,7 +62,10 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
               <DestinyIcon
                 icon={["elements", shield]}
                 color={shield}
-                sx={{ zIndex: 0, fontSize: "3.75rem" }}
+                sx={{
+                  zIndex: 0,
+                  fontSize: "1.5em",
+                }}
               />
               {known_shields[shield] > 0 && (
                 <Typography
@@ -75,7 +81,7 @@ export const ActivityShields = forwardRef(({ shields, known_shields }, ref) => {
             </Box>
           </Tooltip>
         ))}
-      </Box>
+      </Typography>
     </Box>
   );
 });

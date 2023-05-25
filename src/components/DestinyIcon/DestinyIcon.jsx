@@ -1,5 +1,4 @@
 import { Box, Tooltip, useTheme } from "@mui/material";
-import { Else, If, Then } from "react-if";
 import {
   barrierChampionModifier_60x60,
   heavyAmmo_192x135,
@@ -10,26 +9,35 @@ import {
   specialAmmo_192x135,
   unstoppableChampionModifier_60x60,
 } from "assets/bungie";
+import { cloneElement, forwardRef } from "react";
 
 import Img from "../Img";
-import { cloneElement } from "react";
+import { isString } from "functions/isString";
 
-const ImgIcon = ({ src, style = [] }) => (
-  <Img
-    src={src}
-    style={Object.assign(
-      {
-        aspectRatio: "1 / 1",
-        maxWidth: "100%",
-        maxHeight: "100%",
-        height: "1.5em",
-        lineHeight: "1",
-        display: "block",
-      },
-      ...(Array.isArray(style) ? style : [style])
-    )}
-  />
-);
+const ImgIcon = forwardRef(({ src, srcSize, sx = [], ...props }, ref) => {
+  const theme = useTheme();
+  return (
+    <Img
+      ref={ref}
+      src={src}
+      sx={Object.assign(
+        {
+          aspectRatio:
+            srcSize?.[0] && srcSize?.[1]
+              ? `${srcSize?.[0]} / ${srcSize?.[1]}`
+              : "1 / 1",
+          maxWidth: srcSize?.[0] ? `min(100%, ${srcSize?.[0]}px)` : "100%",
+          maxHeight: srcSize?.[1] ? `min(100%, ${srcSize?.[1]}px)` : "100%",
+          height: `${theme.typography.body1.lineHeight}em`,
+          lineHeight: "1",
+          display: "block",
+        },
+        ...(Array.isArray(sx) ? sx : [sx])
+      )}
+      {...props}
+    />
+  );
+});
 
 const font_symbols = {
   weapons: {
@@ -53,12 +61,7 @@ const font_symbols = {
     "Trace Rifle": "",
   },
   elements: {
-    Kinetic: (
-      <ImgIcon
-        src={kinetic_96x96}
-        style={{ maxWidth: "96px", maxHeight: "96px" }}
-      />
-    ),
+    Kinetic: <ImgIcon src={kinetic_96x96} srcSize={[96, 96]} />,
     Void: "",
     Solar: "",
     Arc: "",
@@ -66,53 +69,24 @@ const font_symbols = {
     Strand: "",
   },
   ammo: {
-    Primary: (
-      <ImgIcon
-        src={primaryAmmo_192x135}
-        style={{ maxWidth: "192px", maxHeight: "135px" }}
-      />
-    ),
-    Special: (
-      <ImgIcon
-        src={specialAmmo_192x135}
-        style={{ maxWidth: "192px", maxHeight: "135px" }}
-      />
-    ),
-    Heavy: (
-      <ImgIcon
-        src={heavyAmmo_192x135}
-        style={{ maxWidth: "192px", maxHeight: "135px" }}
-      />
-    ),
+    Primary: <ImgIcon src={primaryAmmo_192x135} srcSize={[192, 135]} />,
+    Special: <ImgIcon src={specialAmmo_192x135} srcSize={[192, 135]} />,
+    Heavy: <ImgIcon src={heavyAmmo_192x135} srcSize={[192, 135]} />,
   },
   activities: {
     LostSector: "",
-    Destination: (
-      <ImgIcon
-        src={location_96x96}
-        style={{ maxWidth: "96px", maxHeight: "96px" }}
-      />
-    ),
+    Destination: <ImgIcon src={location_96x96} srcSize={[96, 96]} />,
   },
   champions: {
     modifiers: {
       Overload: (
-        <ImgIcon
-          src={overloadChampionModifier_60x60}
-          style={{ maxWidth: "60px", maxHeight: "60px" }}
-        />
+        <ImgIcon src={overloadChampionModifier_60x60} srcSize={[60, 60]} />
       ),
       Unstoppable: (
-        <ImgIcon
-          src={unstoppableChampionModifier_60x60}
-          style={{ maxWidth: "60px", maxHeight: "60px" }}
-        />
+        <ImgIcon src={unstoppableChampionModifier_60x60} srcSize={[60, 60]} />
       ),
       Barrier: (
-        <ImgIcon
-          src={barrierChampionModifier_60x60}
-          style={{ maxWidth: "60px", maxHeight: "60px" }}
-        />
+        <ImgIcon src={barrierChampionModifier_60x60} srcSize={[60, 60]} />
       ),
     },
   },
@@ -153,35 +127,38 @@ export const DestinyIcon = ({
       ? "strand"
       : "";
 
+    console.log(font_symbol);
+    console.log(typeof font_symbol);
+
     return (
       <Tooltip title={tooltip}>
-        <If condition={typeof font_symbol.length === "string"}>
-          <Then>{cloneElement(font_symbol, { sx, ...props })}</Then>
-          <Else>
-            <Box
-              component="span"
-              color={color}
-              style={{
-                fontFamily: "Destiny_Keys",
-              }}
-              sx={[
-                {
-                  fontSize: "1em",
-                  textTransform: "uppercase",
-                  lineHeight: theme.typography.body1.lineHeight,
-                  width: "max-content",
-                  height: "min-content",
-                  display: "inline-block",
-                },
-                ...(Array.isArray(sx) ? sx : [sx]),
-              ]}
-              onClick={onClick}
-              {...props}
-            >
-              {font_symbol}
-            </Box>
-          </Else>
-        </If>
+        {isString(font_symbol) ? (
+          <Box
+            component="span"
+            color={color}
+            style={{
+              fontFamily: "Destiny_Keys",
+            }}
+            sx={[
+              {
+                fontSize: "1em",
+                fontWeight: "normal",
+                textTransform: "uppercase",
+                lineHeight: theme.typography.body1.lineHeight,
+                width: "max-content",
+                height: "min-content",
+                display: "inline-block",
+              },
+              ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
+            onClick={onClick}
+            {...props}
+          >
+            {font_symbol}
+          </Box>
+        ) : (
+          cloneElement(font_symbol, { sx, ...props })
+        )}
       </Tooltip>
     );
   } catch (e) {

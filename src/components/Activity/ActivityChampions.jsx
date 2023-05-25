@@ -1,8 +1,8 @@
 import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 
+import DestinyIcon from "../DestinyIcon";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
-import DestinyIcon from "../DestinyIcon";
 
 const known_types = [
   { class: "Overload", pattern: /Disruption|Overload/i },
@@ -60,11 +60,7 @@ export const ActivityChampions = forwardRef(
                   sx={{
                     zIndex: 0,
                     fontSize: "1.5em",
-                    height: "1.5em",
-                    display: "flex",
-                    justifyContent: "safe center",
-                    alignItems: "safe center",
-                    "> img": { margin: "0.01em" },
+                    alignSelf: "center",
                   }}
                   style={{
                     filter: `brightness(${known_champions[champion] && "75%"})`,
