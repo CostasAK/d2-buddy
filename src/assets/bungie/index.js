@@ -3,6 +3,7 @@ export { default as barrierChampionModifier_60x60 } from "./barrierChampionModif
 export { default as beyondLight_84x84 } from "./beyondLight_84x84.png";
 export { default as crucible_96x96 } from "./crucible_96x96.png";
 export { default as dungeon_256x256 } from "./dungeon_256x256.png";
+export { default as fishing_96x96 } from "./fishing_96x96.png";
 export { default as heavyAmmo_192x135 } from "./heavyAmmo_192x135.png";
 export { default as ironBanner_256x256 } from "./ironBanner_256x256.png";
 export { default as kinetic_96x96 } from "./kinetic_96x96.png";
