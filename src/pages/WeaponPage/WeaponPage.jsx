@@ -52,7 +52,7 @@ export const WeaponPage = (props) => {
               </Stack>
             </Else>
           </If>
-          <Stack direction="row" spacing={0.5}>
+          <Stack direction="row" spacing={0.5} alignItems="center">
             <DestinyIcon icon={["ammo", ammo]} />
             <Box>{ammo}</Box>
           </Stack>

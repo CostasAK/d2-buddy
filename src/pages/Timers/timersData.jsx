@@ -82,6 +82,11 @@ export const timersData = [
     release: Infinity,
   },
   {
+    title: "Fishing Pond (Exotic)",
+    sheet: "fishingPondExoticRotation",
+    release: seasonRelease[21],
+  },
+  {
     title: "Iron Banner",
     sheet: "ironBanner",
     icon: ironBanner_256x256,

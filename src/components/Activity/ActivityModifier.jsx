@@ -4,6 +4,7 @@ import Description from "components/Description";
 import Img from "../Img";
 import { PropTypes } from "prop-types";
 import { forwardRef } from "react";
+import { maxDimensions } from "functions/maxDimensions";
 
 export const ActivityModifier = forwardRef(({ data }, ref) => {
   const name = data?.displayProperties?.name;
@@ -48,8 +49,7 @@ export const ActivityModifier = forwardRef(({ data }, ref) => {
           margin: "0.25em 0",
           height: "2.5em",
           width: "auto",
-          maxWidth: "60px",
-          maxHeight: "60px",
+          ...maxDimensions(60, 60),
         }}
       />
       <Box

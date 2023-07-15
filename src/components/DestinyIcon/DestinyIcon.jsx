@@ -13,23 +13,20 @@ import { cloneElement, forwardRef } from "react";
 
 import Img from "../Img";
 import { isString } from "functions/isString";
+import { maxDimensions } from "functions/maxDimensions";
 
 const ImgIcon = forwardRef(({ src, srcSize, sx = [], ...props }, ref) => {
   const theme = useTheme();
+
   return (
     <Img
       ref={ref}
       src={src}
       sx={Object.assign(
         {
-          aspectRatio:
-            srcSize?.[0] && srcSize?.[1]
-              ? `${srcSize?.[0]} / ${srcSize?.[1]}`
-              : "1 / 1",
-          maxWidth: srcSize?.[0] ? `min(100%, ${srcSize?.[0]}px)` : "100%",
-          maxHeight: srcSize?.[1] ? `min(100%, ${srcSize?.[1]}px)` : "100%",
-          height: `${theme.typography.body1.lineHeight}em`,
-          lineHeight: "1",
+          ...maxDimensions(...srcSize, true),
+          height: `1em`,
+          marginBlock: `${(theme.typography.body1.lineHeight - 1) / 2}em`,
           display: "block",
         },
         ...(Array.isArray(sx) ? sx : [sx])
