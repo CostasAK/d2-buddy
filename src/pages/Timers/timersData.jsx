@@ -1,4 +1,4 @@
-import Activity, { LostSectorLink } from "components/Activity";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import {
   altarsOfSorrow_84x84,
   beyondLight_84x84,
@@ -15,12 +15,12 @@ import {
   trialsOfOsiris_256x256,
   vexIncursion_200x200,
 } from "assets/bungie";
+import Activity, { LostSectorLink } from "components/Activity";
 import { expansionRelease, seasonRelease } from "constants/time";
-import { useQueries, useQuery } from "@tanstack/react-query";
 
+import WellspringIcon from "assets/Wellspring.png";
 import Modal from "components/Modal";
 import { Weapon } from "components/Weapon";
-import WellspringIcon from "assets/Wellspring.png";
 import { pascalCase } from "functions/pascalCase";
 
 export const timersData = [
@@ -29,12 +29,13 @@ export const timersData = [
     sheet: "altarsOfSorrowRotation",
     icon: altarsOfSorrow_84x84,
     release: expansionRelease.shadowkeep,
-    useDataToItems: (item) => {
-      item.element = <Weapon hash={item?.hash} name={item?.name} />;
-      item.icon = <Weapon hash={item?.hash} variant="icon" />;
-      item.to = `/Weapons/${item?.weaponHash}`;
-      return item;
-    },
+    useDataToItems: (items) =>
+      items.map((item) => {
+        item.element = <Weapon hash={item?.hash} name={item?.name} />;
+        item.icon = <Weapon hash={item?.hash} variant="icon" />;
+        item.to = `/Weapons/${item?.weaponHash}`;
+        return item;
+      }),
   },
   {
     title: "Crucible: Party Rotator",
@@ -103,19 +104,20 @@ export const timersData = [
     sheet: "lostSectorRotation",
     icon: lostSector_120x120,
     release: expansionRelease.lightfall,
-    useDataToItems: (item) => {
-      item.id = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
-        item?.name
-      }`;
-      item.element = (
-        <>
-          <LostSectorLink name={item?.name} />
-          {item?.name && item?.reward ? " - " : ""}
-          {item?.reward}
-        </>
-      );
-      return item;
-    },
+    useDataToItems: (items) =>
+      items?.map((item) => {
+        item.id = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
+          item?.name
+        }`;
+        item.element = (
+          <>
+            <LostSectorLink name={item?.name} />
+            {item?.name && item?.reward ? " - " : ""}
+            {item?.reward}
+          </>
+        );
+        return item;
+      }),
   },
   {
     title: "Neomuna: Partition",
@@ -128,18 +130,19 @@ export const timersData = [
     sheet: "neomunaTerminalOverloadRotation",
     release: expansionRelease.lightfall,
     icon: terminalOverload_200x200,
-    useDataToItems: (item) => {
-      item.id = item?.location;
-      item.element = (
-        <>
-          <Weapon hash={item?.weaponHash} name={item?.weapon} /> -{" "}
-          {item?.location}
-        </>
-      );
-      item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item?.weaponHash}`;
-      return item;
-    },
+    useDataToItems: (items) =>
+      items?.map((item) => {
+        item.id = item?.location;
+        item.element = (
+          <>
+            <Weapon hash={item?.weaponHash} name={item?.weapon} /> -{" "}
+            {item?.location}
+          </>
+        );
+        item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
+        item.to = `/Weapons/${item?.weaponHash}`;
+        return item;
+      }),
   },
   {
     title: "Neomuna: Vex Incursion",
@@ -152,19 +155,7 @@ export const timersData = [
     sheet: "nightfallRotation",
     release: expansionRelease.lightfall,
     icon: nightfall_84x84,
-    useDataToItems: (item) => {
-      item.reward =
-        (item?.reward &&
-          item?.grandmaster === "TRUE" &&
-          (item?.reward?.endsWith(" (Adept)")
-            ? item?.reward
-            : item?.reward + " (Adept)")) ||
-        item?.reward;
-
-      item.element = `${item?.reward}${item?.reward?.length > 0 ? " - " : ""}${
-        item?.name
-      }`;
-
+    useDataToItems: (items) => {
       const milestone = useQuery(["Milestones"]);
 
       const activities =
@@ -191,20 +182,34 @@ export const timersData = [
         return null;
       });
 
-      if (
-        milestone.isSuccess &&
-        nightfalls.every((nightfall) => nightfall.isSuccess)
-      ) {
-        if (item?.name === nightfalls[0].data.displayProperties.description) {
-          item.element = (
-            <Modal triggerContent={item?.element} maxWidth={false} width="xl">
-              <Activity dataArray={nightfalls} />
-            </Modal>
-          );
-        }
-      }
+      return items?.map((item) => {
+        item.reward =
+          (item?.reward &&
+            item?.grandmaster === "TRUE" &&
+            (item?.reward?.endsWith(" (Adept)")
+              ? item?.reward
+              : item?.reward + " (Adept)")) ||
+          item?.reward;
 
-      return item;
+        item.element = `${item?.reward}${
+          item?.reward?.length > 0 ? " - " : ""
+        }${item?.name}`;
+
+        if (
+          milestone.isSuccess &&
+          nightfalls.every((nightfall) => nightfall.isSuccess)
+        ) {
+          if (item?.name === nightfalls[0].data.displayProperties.description) {
+            item.element = (
+              <Modal triggerContent={item?.element} maxWidth={false} width="xl">
+                <Activity dataArray={nightfalls} />
+              </Modal>
+            );
+          }
+        }
+
+        return item;
+      });
     },
   },
   {
@@ -224,23 +229,25 @@ export const timersData = [
     sheet: "savathunsThroneWorldWellspringRotation",
     release: expansionRelease.witchQueen,
     icon: WellspringIcon,
-    useDataToItems: (item) => {
-      item.id = item?.weaponHash;
-      item.element = (
-        <>
-          <Weapon hash={item?.weaponHash} name={item?.weapon} /> - {item?.boss}
-        </>
-      );
-      item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
-      item.to = `/Weapons/${item?.weaponHash}`;
-      return item;
-    },
+    useDataToItems: (items) =>
+      items?.map((item) => {
+        item.id = item?.weaponHash;
+        item.element = (
+          <>
+            <Weapon hash={item?.weaponHash} name={item?.weapon} /> -{" "}
+            {item?.boss}
+          </>
+        );
+        item.icon = <Weapon hash={item?.weaponHash} variant="icon" />;
+        item.to = `/Weapons/${item?.weaponHash}`;
+        return item;
+      }),
   },
   {
     title: "Seasons",
     sheet: "seasons",
     release: Infinity,
-    useDataToItems: (item) => {
+    useDataToItems: (items) => {
       const d2settings = useQuery(["Settings"]);
 
       const upcomingSeasonHashes = [
@@ -256,21 +263,24 @@ export const timersData = [
         enabled: !!upcomingSeasonHashes,
       });
 
-      const thisSeason = seasons
-        ?.map((season) => season?.data)
-        ?.find(
-          (season) => parseInt(season?.seasonNumber) === parseInt(item?.number)
-        );
+      return items?.map((item) => {
+        const thisSeason = seasons
+          ?.map((season) => season?.data)
+          ?.find(
+            (season) =>
+              parseInt(season?.seasonNumber) === parseInt(item?.number)
+          );
 
-      item.icon = thisSeason?.displayProperties?.icon;
-      item.element = `Season ${item?.number}: ${
-        item?.name || thisSeason?.displayProperties?.name
-      }`;
+        item.icon = thisSeason?.displayProperties?.icon;
+        item.element = `Season ${item?.number}: ${
+          item?.name || thisSeason?.displayProperties?.name
+        }`;
 
-      item.isLoading =
-        d2settings?.isLoading || seasons?.some((x) => x?.isLoading);
+        item.isLoading =
+          d2settings?.isLoading || seasons?.some((x) => x?.isLoading);
 
-      return item;
+        return item;
+      });
     },
   },
   {
@@ -278,24 +288,25 @@ export const timersData = [
     sheet: "trialsOfOsiris",
     release: seasonRelease[19],
     icon: trialsOfOsiris_256x256,
-    useDataToItems: (item) => {
-      item.id = item?.weaponHash;
+    useDataToItems: (items) =>
+      items?.map((item) => {
+        item.id = item?.weaponHash;
 
-      item.name =
-        item?.name &&
-        (item?.name?.endsWith(" (Adept)")
-          ? item?.name
-          : item?.name + " (Adept)");
+        item.name =
+          item?.name &&
+          (item?.name?.endsWith(" (Adept)")
+            ? item?.name
+            : item?.name + " (Adept)");
 
-      item.element = item?.hash ? (
-        <Weapon hash={item?.hash} name={item?.name} />
-      ) : (
-        item?.name || "Reward Unknown..."
-      );
-      item.icon = item?.hash && <Weapon hash={item?.hash} variant="icon" />;
-      item.to = item?.hash && `/Weapons/${item?.hash}`;
-      return item;
-    },
+        item.element = item?.hash ? (
+          <Weapon hash={item?.hash} name={item?.name} />
+        ) : (
+          item?.name || "Reward Unknown..."
+        );
+        item.icon = item?.hash && <Weapon hash={item?.hash} variant="icon" />;
+        item.to = item?.hash && `/Weapons/${item?.hash}`;
+        return item;
+      }),
   },
   {
     title: "Witch Queen Campaign Mission",
@@ -306,7 +317,7 @@ export const timersData = [
 ].map((timer) => {
   timer.to ||= pascalCase(timer?.title);
 
-  if (!timer?.useDataToItems) timer.useDataToItems = (item) => item;
+  if (!timer?.useDataToItems) timer.useDataToItems = (items) => items;
 
   return timer;
 });
