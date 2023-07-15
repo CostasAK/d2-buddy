@@ -11,7 +11,7 @@ import { When } from "react-if";
 
 const variants = {
   active: {
-    filter: "none",
+    transition: { delay: 0.25 },
   },
   loading: {
     filter: "opacity(50%) saturate(50%)",
@@ -23,6 +23,9 @@ export const Root = () => {
   const navigation = useNavigation();
 
   const isLoading = navigation?.state === "loading";
+
+  console.log(navigation);
+  console.log(isLoading);
 
   return (
     <Box
