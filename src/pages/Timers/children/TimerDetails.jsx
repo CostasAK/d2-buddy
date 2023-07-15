@@ -3,9 +3,9 @@ import { Else, If, Then } from "react-if";
 import Loading from "components/Loading";
 import { SideDialogContent } from "components/SideDialog/SideDialogContent";
 import { TimerList } from "components/TimerList";
+import { useQueryDatabase } from "hooks/useQueryDatabase";
 import { timersData } from "pages/Timers/timersData";
 import { useParams } from "react-router-dom";
-import { useQueryDatabase } from "hooks/useQueryDatabase";
 
 export const TimerDetails = () => {
   const { to } = useParams();
@@ -25,7 +25,7 @@ export const TimerDetails = () => {
         </Then>
         <Else>
           <TimerList
-            items={data?.map(timer.useDataToItems)}
+            items={timer.useDataToItems(data)}
             rotation={timer.rotation}
           />
         </Else>

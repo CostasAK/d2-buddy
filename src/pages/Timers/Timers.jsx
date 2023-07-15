@@ -2,15 +2,15 @@ import { Box, Button } from "@mui/material";
 import { Else, If, Then } from "react-if";
 
 import Loading from "components/Loading";
-import { Outlet } from "react-router-dom";
-import Page from "layout/Page";
 import { TimerButton } from "components/TimerButton";
 import { isPast } from "functions/isPast";
-import { links } from "pages/Timers/links";
-import { timersData } from "pages/Timers/timersData";
 import { useNow } from "hooks/useNow";
 import { useQueriesDatabase } from "hooks/useQueriesDatabase";
+import Page from "layout/Page";
 import { useResets } from "pages/Timers/children/Resets";
+import { links } from "pages/Timers/links";
+import { timersData } from "pages/Timers/timersData";
+import { Outlet } from "react-router-dom";
 
 export const Timers = () => {
   const now = useNow();
@@ -23,7 +23,7 @@ export const Timers = () => {
 
   const actualTimers = timersData
     ?.map((timer, index) => {
-      timer.items = data?.[index]?.map(timer?.useDataToItems);
+      timer.items = timer?.useDataToItems(data?.[index]);
       timer.isLoading = isLoading?.[index] || timer?.items?.[0]?.isLoading;
       return timer;
     })
