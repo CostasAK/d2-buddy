@@ -1,0 +1,1 @@
+export { FullWidthHeader } from "./FullWidthHeader";

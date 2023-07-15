@@ -1,22 +1,27 @@
 import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
 import { Else, If, Then, When } from "react-if";
 
+import { useQuery } from "@tanstack/react-query";
 import DestinyIcon from "components/DestinyIcon";
-import Page from "layout/Page";
+import { FullWidthHeader } from "components/FullWidthHeader";
 import { Weapon } from "components/Weapon";
 import { WeaponLinks } from "components/Weapon/WeaponLinks";
 import { getAmmunitionType } from "functions/getAmmunitionType";
 import { getScreenshot } from "functions/getScreenshot";
 import getWeaponType from "functions/getWeaponType";
-import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { useWeaponElement } from "hooks/useWeaponElement";
+import Page from "layout/Page";
+import { useParams } from "react-router-dom";
 
 export const WeaponPage = (props) => {
   const { hash } = useParams();
 
   let { data } = useQuery(["DestinyInventoryItemDefinition", hash], {
     enabled: !!hash,
+  });
+
+  let { data: loreData } = useQuery(["DestinyLoreDefinition", data?.loreHash], {
+    enabled: !!data?.loreHash,
   });
 
   const { weaponElement: element, someIsLoading: elementIsLoading } =
@@ -80,17 +85,29 @@ export const WeaponPage = (props) => {
         </When>
       ))}
 
-      <Typography
-        variant="h2"
-        sx={{
-          clear: "both",
-          marginTop: 4,
-          textAlign: "center",
-          marginInline: "auto",
-        }}
-      >
-        {"🚧Under construction🚧"}
-      </Typography>
+      <Stack gap={2} sx={{ clear: "both", alignItems: "center" }}>
+        <Typography
+          variant="h2"
+          sx={{
+            marginTop: 2,
+            textAlign: "center",
+            marginInline: "auto",
+          }}
+        >
+          {"🚧Under construction🚧"}
+        </Typography>
+        <When condition={loreData?.displayProperties?.description}>
+          <FullWidthHeader>Lore</FullWidthHeader>
+          <Stack gap={2} alignItems={"flex-start"} maxWidth={"min(100%, 80ch)"}>
+            {loreData?.displayProperties?.description
+              ?.split("\n")
+              ?.filter((p) => p.length > 0)
+              ?.map((p) => (
+                <Typography>{p}</Typography>
+              ))}
+          </Stack>
+        </When>
+      </Stack>
     </Page>
   );
 };
