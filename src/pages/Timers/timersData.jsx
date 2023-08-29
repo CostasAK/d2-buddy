@@ -4,6 +4,7 @@ import {
   beyondLight_84x84,
   crucible_96x96,
   dungeon_256x256,
+  exoticMission_150x150,
   ironBanner_256x256,
   lightfall_256x256,
   lostSector_120x120,
@@ -81,6 +82,12 @@ export const timersData = [
     title: "Events",
     sheet: "events",
     release: Infinity,
+  },
+  {
+    title: "Exotic Mission",
+    sheet: "exoticMissionRotation",
+    icon: exoticMission_150x150,
+    release: seasonRelease[20],
   },
   {
     title: "Fishing Pond (Exotic)",
