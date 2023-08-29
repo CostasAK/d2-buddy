@@ -60,7 +60,7 @@ export const timersData = [
     title: "Featured Dungeon",
     sheet: "dungeonRotation",
     icon: dungeon_256x256,
-    release: seasonRelease[17],
+    release: seasonRelease[19],
   },
   {
     title: "Europa: Eclipsed Zone",
@@ -87,7 +87,7 @@ export const timersData = [
     title: "Exotic Mission",
     sheet: "exoticMissionRotation",
     icon: exoticMission_150x150,
-    release: seasonRelease[20],
+    release: seasonRelease[19],
   },
   {
     title: "Fishing Pond (Exotic)",
@@ -224,7 +224,7 @@ export const timersData = [
   {
     title: "Featured Raid",
     sheet: "raidRotation",
-    release: seasonRelease[18],
+    release: seasonRelease[20],
     icon: raid_110x110,
   },
   {
@@ -295,7 +295,7 @@ export const timersData = [
   {
     title: "Trials of Osiris",
     sheet: "trialsOfOsiris",
-    release: seasonRelease[19],
+    release: seasonRelease[22],
     icon: trialsOfOsiris_256x256,
     useDataToItems: (items) =>
       items?.map((item) => {
