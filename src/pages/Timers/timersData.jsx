@@ -34,7 +34,7 @@ export const timersData = [
       items?.map((item) => {
         item.element = <Weapon hash={item?.hash} name={item?.name} />;
         item.icon = <Weapon hash={item?.hash} variant="icon" />;
-        item.to = `/Weapons/${item?.weaponHash}`;
+        item.to = `/Weapons/${item?.hash}`;
         return item;
       }) || items,
   },
