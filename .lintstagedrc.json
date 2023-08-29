@@ -1,0 +1,5 @@
+{
+  "*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
+  "!(*.{js,jsx,ts,tsx,png,jpeg,jpg,gif,svg})": "prettier --ignore-unknown --write",
+  "*.{js,jsx,ts,tsx}": ["prettier --write"]
+}

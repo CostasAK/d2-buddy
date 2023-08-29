@@ -45,9 +45,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "clean": "rm -r build",
+    "lint-staged": "lint-staged",
+    "clean": "npx rimraf build node_modules",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -57,7 +56,6 @@
       "prettier"
     ]
   },
-  "prettier": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -74,13 +72,10 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "eslint-config-prettier": "^8.5.0",
-    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
+    "imagemin-lint-staged": "^0.5.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.6.2",
     "sass": "^1.60.0"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
   }
 }
