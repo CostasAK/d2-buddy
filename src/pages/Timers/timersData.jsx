@@ -1,4 +1,4 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
+import Activity, { LostSectorLink } from "components/Activity";
 import {
   altarsOfSorrow_84x84,
   beyondLight_84x84,
@@ -15,12 +15,12 @@ import {
   trialsOfOsiris_256x256,
   vexIncursion_200x200,
 } from "assets/bungie";
-import Activity, { LostSectorLink } from "components/Activity";
 import { expansionRelease, seasonRelease } from "constants/time";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
-import WellspringIcon from "assets/Wellspring.png";
 import Modal from "components/Modal";
 import { Weapon } from "components/Weapon";
+import WellspringIcon from "assets/Wellspring.png";
 import { pascalCase } from "functions/pascalCase";
 
 export const timersData = [
@@ -30,12 +30,12 @@ export const timersData = [
     icon: altarsOfSorrow_84x84,
     release: expansionRelease.shadowkeep,
     useDataToItems: (items) =>
-      items.map((item) => {
+      items?.map((item) => {
         item.element = <Weapon hash={item?.hash} name={item?.name} />;
         item.icon = <Weapon hash={item?.hash} variant="icon" />;
         item.to = `/Weapons/${item?.weaponHash}`;
         return item;
-      }),
+      }) || items,
   },
   {
     title: "Crucible: Party Rotator",
@@ -197,9 +197,11 @@ export const timersData = [
 
         if (
           milestone.isSuccess &&
-          nightfalls.every((nightfall) => nightfall.isSuccess)
+          nightfalls.every((nightfall) => nightfall?.isSuccess)
         ) {
-          if (item?.name === nightfalls[0].data.displayProperties.description) {
+          if (
+            item?.name === nightfalls[0]?.data?.displayProperties?.description
+          ) {
             item.element = (
               <Modal triggerContent={item?.element} maxWidth={false} width="xl">
                 <Activity dataArray={nightfalls} />
