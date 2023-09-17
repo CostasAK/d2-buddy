@@ -1,5 +1,5 @@
 {
-  "*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
-  "!(*.{js,jsx,ts,tsx,png,jpeg,jpg,gif,svg})": "prettier --ignore-unknown --write",
-  "*.{js,jsx,ts,tsx}": ["prettier --write"]
+  "*.{png,jpeg,jpg,gif,svg}": "npx imagemin-lint-staged",
+  "!(*.{js,jsx,ts,tsx,png,jpeg,jpg,gif,svg})": "npx prettier --ignore-unknown --write",
+  "*.{js,jsx,ts,tsx}": ["npx prettier --write"]
 }

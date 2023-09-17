@@ -45,7 +45,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-staged": "lint-staged",
     "clean": "npx rimraf build node_modules",
     "prepare": "husky install"
   },
