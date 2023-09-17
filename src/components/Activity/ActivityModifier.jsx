@@ -48,8 +48,7 @@ export const ActivityModifier = forwardRef(({ data }, ref) => {
         sx={{
           margin: "0.25em 0",
           height: "2.5em",
-          width: "auto",
-          ...maxDimensions(60, 60),
+          ...maxDimensions(60, 60, true),
         }}
       />
       <Box
