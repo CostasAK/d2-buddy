@@ -1,4 +1,4 @@
-import Activity, { LostSectorLink } from "components/Activity";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import {
   altarsOfSorrow_84x84,
   beyondLight_84x84,
@@ -16,12 +16,13 @@ import {
   trialsOfOsiris_256x256,
   vexIncursion_200x200,
 } from "assets/bungie";
+import Activity, { LostSectorLink } from "components/Activity";
 import { expansionRelease, seasonRelease } from "constants/time";
-import { useQueries, useQuery } from "@tanstack/react-query";
 
+import EuropaEclipsedZoneIcon from "assets/EuropaEclipsedZone.png";
+import WellspringIcon from "assets/Wellspring.png";
 import Modal from "components/Modal";
 import { Weapon } from "components/Weapon";
-import WellspringIcon from "assets/Wellspring.png";
 import { pascalCase } from "functions/pascalCase";
 
 export const timersData = [
@@ -66,6 +67,7 @@ export const timersData = [
     title: "Europa: Eclipsed Zone",
     sheet: "europaEclipsedZoneRotation",
     release: expansionRelease.beyondLight,
+    icon: EuropaEclipsedZoneIcon,
   },
   {
     title: "Empire Hunt",
@@ -77,6 +79,7 @@ export const timersData = [
     title: "Europa: Simulation",
     sheet: "europaSimulationRotation",
     release: expansionRelease.beyondLight,
+    // icon: EuropaSimulationIcon,
   },
   {
     title: "Events",
