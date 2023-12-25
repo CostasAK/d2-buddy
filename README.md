@@ -1,4 +1,4 @@
-# [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" align="right">](https://d2buddy.net/)
+# [Destiny 2 Buddy <img src="./public/icons/apple-icon-180.png" alt="" align="right">](https://d2buddy.net/)
 
 [![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fd2buddy.net)](https://d2buddy.net/)
 [![Last Update](https://img.shields.io/github/last-commit/costasak/d2-buddy/main?label=last%20update&style=for-the-badge)](https://d2buddy.net/)
@@ -15,9 +15,9 @@ Reset Timers, Schedules, Activity Info and other helpers for Destiny 2.
 ### [Timers](https://d2buddy.net/Timers)
 
 - Shows upcoming events, and recurring events such as resets.
-- Shows countdowns and times adjusted to your local timezone.
+- Shows countdowns and times adjusted to your local time zone.
 - Events are sorted by end or start time, depending on whether they are currently ongoing or not, respectively.
-- Recurring events are sorted in order of occurence from now.
+- Recurring events are sorted in order of occurrence from now.
 - Timers that cycle, like legend/master lost sectors, show the entire schedule when clicked.
 - Activities can be clicked for full breakdowns of modifiers, shields and champions.
 
