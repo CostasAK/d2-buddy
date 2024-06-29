@@ -1,8 +1,7 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query"
 import {
   altarsOfSorrow_84x84,
   beyondLight_84x84,
-  crucible_96x96,
   dungeon_256x256,
   exoticMission_150x150,
   ironBanner_256x256,
@@ -10,20 +9,19 @@ import {
   lostSector_120x120,
   nightfall_84x84,
   raid_110x110,
-  s20_150x150,
   terminalOverload_200x200,
   theWitchQueen_200x200,
   trialsOfOsiris_256x256,
-  vexIncursion_200x200,
-} from "assets/bungie";
-import Activity, { LostSectorLink } from "components/Activity";
-import { expansionRelease, seasonRelease } from "constants/time";
+  vexIncursion_200x200
+} from "assets/bungie"
+import Activity, { LostSectorLink } from "components/Activity"
+import { expansionRelease, seasonRelease } from "constants/time"
 
-import EuropaEclipsedZoneIcon from "assets/EuropaEclipsedZone.png";
-import WellspringIcon from "assets/Wellspring.png";
-import Modal from "components/Modal";
-import { Weapon } from "components/Weapon";
-import { pascalCase } from "functions/pascalCase";
+import EuropaEclipsedZoneIcon from "assets/EuropaEclipsedZone.png"
+import WellspringIcon from "assets/Wellspring.png"
+import Modal from "components/Modal"
+import { Weapon } from "components/Weapon"
+import { pascalCase } from "functions/pascalCase"
 
 export const timersData = [
   {
@@ -38,24 +36,6 @@ export const timersData = [
         item.to = `/Weapons/${item?.hash}`;
         return item;
       }) || items,
-  },
-  {
-    title: "Crucible: Party Rotator",
-    sheet: "cruciblePartyRotation",
-    icon: crucible_96x96,
-    release: expansionRelease[0],
-  },
-  {
-    title: "Crucible: Relentless Rotator",
-    sheet: "crucibleRelentlessRotation",
-    icon: crucible_96x96,
-    release: expansionRelease[0],
-  },
-  {
-    title: "Defiant Battlegrounds: Legend",
-    sheet: "defiantRotation",
-    icon: s20_150x150,
-    release: seasonRelease[20],
   },
   {
     title: "Featured Dungeon",
@@ -91,11 +71,6 @@ export const timersData = [
     sheet: "exoticMissionRotation",
     icon: exoticMission_150x150,
     release: seasonRelease[19],
-  },
-  {
-    title: "Fishing Pond (Exotic)",
-    sheet: "fishingPondExoticRotation",
-    release: seasonRelease[21],
   },
   {
     title: "Iron Banner",
